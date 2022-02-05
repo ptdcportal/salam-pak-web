@@ -1,0 +1,85 @@
+<!--- VISA-->
+<section id="visa" class="visa pb-70">
+  <div class="container">
+    <div class="row heading heading-2 mb-40">
+      <div class="col-sm-12 col-md-12 col-lg-6">
+        <h2 class="heading__title">visa status</h2>
+        <p class="heading__desc">
+          get all the visa information you need to travel to pakistan. the good news is that we offer several countries
+          a visa on arrival. select your country to get started.
+        </p>
+        <div class="col-sm-12 col-md-12 col-lg-12 p-0">
+          <div class="form-group" (change)="setCountry($event)">
+            <div class="form-group-select">
+              <form [formGroup]="visaForm">
+                <select>
+                  <option value="">select your country</option>
+                  <option *ngFor="let visa of visas" [value]="visa.name">{{ visa.name }}</option>
+                </select>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- /.col-lg-12 -->
+        <small style="display: block; font-size: 1.2rem"
+          >If your country is not listed above, kindly visit the nearest
+          <a href="https://visa.nadra.gov.pk/foreign-offices/" target="_blank">Pakistani embassy</a> for details.
+          <!-- <a href="https://visa.nadra.gov.pk/foreign-offices/" target="_blank">foreign office</a>. -->
+        </small>
+        <button (click)="checkAvailability()" class="btn btn__secondary mr-30 mt-10 mb-20">check availability</button>
+        <!-- {{ submitted ? visaStatus : '' }} -->
+      </div>
+      <!-- /.col-lg-5 -->
+      <div class="col-sm-12 col-md-12 col-lg-6">
+        <img src="assets/images/home/visa1.webp" onerror="this.onerror=null;this.src='assets/images/home/visa1.png';" />
+      </div>
+      <!-- /.col-lg-6 -->
+    </div>
+    <!-- /.row -->
+  </div>
+</section>
+<!--- VISA-->
+
+<ngx-smart-modal #myCustomModal identifier="myCustomModal" escapable="true">
+  <div class="row">
+    <div *ngIf="selectedCountry" class="col-10 col-sm-10 col-md-6 col-lg-6 p-5 visa-popup__main">
+      <div class="visa-availabilty__popup">
+        <h4 class="text-center mb-2">Visa Availabilty</h4>
+        <h5 class="text-center">{{ selectedCountry }}</h5>
+        <ul class="visa-availabilty__txt-list ml-5">
+          <li class="visa-availability-list-item">Tourist visa is applicable for your country</li>
+          <li *ngIf="isOnArrival" class="visa-availability-list-item">
+            On Arrival visa is also applicable for your country
+          </li>
+        </ul>
+      </div>
+      <div class="text-center mt-4">
+        <a
+          *ngIf="!isOnArrival && online"
+          (click)="myCustomModal.close()"
+          href="https://visa.nadra.gov.pk/tourist-visa/"
+          target="_blank"
+          class="btn btn__primary btn_hover2 mr-30 mt-10 mb-20"
+          >apply online</a
+        >
+        <a
+          *ngIf="isOnArrival"
+          (click)="myCustomModal.close()"
+          href="https://visa.nadra.gov.pk/visa-on-arrival-tourist/"
+          target="_blank"
+          class="btn btn__primary btn_hover2 mr-30 mt-10 mb-20"
+          >apply online</a
+        >
+      </div>
+    </div>
+
+    <div *ngIf="!selectedCountry" class="col-10 col-sm-10 col-md-12 col-lg-12 p-5 visa-popup__main">
+      <div style="background-color: white">
+        <h4 class="text-center">Please select your country!</h4>
+      </div>
+      <div class="text-center">
+        <a (click)="myCustomModal.close()" class="btn btn__primary btn_hover2 mr-30 mt-10 mb-20">close</a>
+      </div>
+    </div>
+  </div>
+</ngx-smart-modal>

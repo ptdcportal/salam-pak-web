@@ -1,0 +1,40 @@
+.visa-availabilty__popup {
+  border-radius: 5px;
+  border: 2px solid #8cc63e;
+}
+
+@media (min-width: 992px) {
+  .visa-availabilty__popup {
+    // max-width: 40%;
+    margin: auto;
+  }
+}
+
+// .visa-availabilty__popup {
+//   width: 40%;
+//   margin: auto;
+// }
+
+.popup__heading {
+  color: #8cc63e;
+}
+
+.create-plan__checkIn {
+  height: 30px !important;
+  font-size: 12px !important;
+  padding: 0px 0px 0px 2px !important;
+}
+
+.plan__name {
+  height: 35px !important;
+  padding: 0px 0px 0px 10px !important;
+}
+
+.submit__button {
+  line-height: unset !important;
+  height: 35px !important;
+}
+
+// ::ng-deep .nsm-dialog {
+//   max-width: unset !important;
+// }

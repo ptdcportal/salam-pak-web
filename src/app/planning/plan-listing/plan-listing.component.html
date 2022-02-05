@@ -1,0 +1,89 @@
+<!-- ============================
+        Slider
+    ============================== -->
+<section id="page-title" class="page-title page-title-layout4 text-center bg-overlay slider">
+  <div class="bg-img"><img src="assets/images/backgrounds/planning.png" alt="background" /></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-8 page">
+        <div class="slide__content">
+          <h2 class="slide__title">planning</h2>
+          <p class="slide__desc">view your plan details</p>
+        </div>
+        <!-- /.slide-content -->
+      </div>
+      <!-- /.col-lg-8 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.page-title -->
+
+<!--======-->
+<div class="container-fluid pt-80">
+  <div class="container">
+    <div class="row booking-home">
+      <div class="col-md-8">
+        <h2 class="heading__title">plans</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 col-sm-10 col-md-10 col-lg-10 offset-md-2">
+    <div class="row">
+      <!-- your plan box design starts here... -->
+
+      <!-- box-1 -->
+
+      <div *ngFor="let plan of userPlans" class="col-md-3 plan-box">
+        <div class="col-md-12">
+          <div class="col-md-10 plan-name p-0">
+            <a href="#" class="plan-name-link">{{ plan.name }}</a>
+          </div>
+          <div class="col-md-2 plan-delete" (click)="deleteAPlan(plan._id)">
+            <i class="fa fa-trash" (click)="deleteAPlan(plan._id)"></i>
+          </div>
+          <div class="trip-loaction">
+            <p *ngFor="let loc of plan.locations; let i = index" class="d-inline">
+              {{ loc?.alias }} {{ i < plan.locations.length - 1 ? ',' : '' }}
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-12 plan-detail-bottom">
+          <div class="col-md-4 col-sm-6 trip-details">
+            <p class="gray">Locations</p>
+            <p>
+              <strong>{{ plan?.locations?.length }}</strong>
+            </p>
+          </div>
+          <div class="col-md-3 col-sm-6 trip-details">
+            <p class="gray">Days</p>
+            <p><strong>5</strong></p>
+          </div>
+          <div class="col-md-5 col-sm-12 trip-details">
+            <p class="gray">Start Date</p>
+            <small
+              ><strong>{{ plan.startDate | date }}</strong></small
+            >
+          </div>
+        </div>
+        <div class="col-md-12 mb-20">
+          <a [routerLink]="['/planning', plan._id, 'details']" class="edit-plan">Edit Plan</a>
+        </div>
+      </div>
+
+      <!-- box-2 -->
+
+      <!-- box-3 -->
+
+      <!-- box-4 -->
+
+      <!-- plan box design ends here -->
+    </div>
+  </div>
+  <h2 *ngIf="userPlans.length == 0" class="text-center mx-auto text-muted">No plans!</h2>
+</div>

@@ -1,0 +1,84 @@
+<div class="weather-currency">
+  <div class="col-md-6 weather-home">
+    <div class="col-md-6 weather-heading">
+      <p>
+        <img src="assets/images/icons/weathercloudy.svg" />weather in islamabad
+        <span class="city-weather" style="text-transform: uppercase !important"
+          ><span id="current-weather">{{ temp }}</span
+          ><span>&#176;</span>C</span
+        >
+      </p>
+    </div>
+    <div (click)="openCurrencyModal()" style="cursor: pointer" class="col-md-6 currency-heading">
+      <h6 class="currensy-flip">
+        <span (click)="openCurrencyModal()" style="cursor: pointer">
+          <img src="assets/images/icons/currencydollar.svg" />currency
+        </span>
+        <div class="verticalCurrencyFlip">
+          <span *ngFor="let data of currencies | slice: 4" class="currency-top">
+            1 {{ data.name.id }} = {{ data.rate.toFixed(2) }} PKR</span
+          >
+        </div>
+      </h6>
+    </div>
+  </div>
+</div>
+
+<ngx-smart-modal
+  [customClass]="'popupcurrency bottom m-0'"
+  #myCurrencyModal
+  identifier="myCurrencyModal"
+  escapable="true"
+>
+  <!--[customClass]="'popupcurrency'"-->
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-10 col-lg-8 p-2 visa-popup__main">
+      <!--p-4-->
+      <div class="col-md-4">
+        <input
+          class="full-width has-padding inputtext"
+          [ngModel]="ammount"
+          (ngModelChange)="modelChanged($event)"
+          type="number"
+          placeholder="Enter Value"
+          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+          maxlength="5"
+        />
+      </div>
+      <div class="col-md-8 form-group form-group-select currency-select" (change)="setCountry($event)">
+        <select
+          class="selectpicker"
+          [ngModel]="selectedCountry"
+          data-flag="true"
+          [attr.disabled]="disableSelect ? '' : null"
+        >
+          <option [disabled]="true">Select Country</option>
+          <!--select country-->
+          <option *ngFor="let item of currencyData" [value]="item.name.currencyName">
+            {{ item.name.currencyName }}
+          </option>
+        </select>
+      </div>
+      <h5 *ngIf="convertedPriceToPKR" class="green-heading text-center">
+        {{ convertedPriceToPKR }} <span class="smallh1">Pakistani Rupees</span>
+      </h5>
+    </div>
+  </div>
+</ngx-smart-modal>
+
+<!-- <div id="currency-popup" class="popupcurrency">
+  <a href="#" class="close">&times;</a>
+  <div class="col-md-6">
+    <input class="full-width has-padding inputtext" type="text" placeholder="Enter Amount">
+  </div>
+  <div class="col-md-6 form-group form-group-select currency-select">
+          <select class="selectpicker" data-flag="true" >
+      <option>Dollar</option>
+      <option>Pound</option>
+      <option>Yen</option>
+      <option>Dirham</option>
+    </select>
+      </div>
+  <h1 class="green-heading text-center">2000 <span class="smallh1">Pakistani Rupees</span></h1>
+</div>
+<a href="#" class="close-popupcurrency"></a> -->

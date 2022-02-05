@@ -1,0 +1,15 @@
+@media (max-width: 500px) {
+  .booking-home {
+    margin-top: -75px;
+  }
+  ::-webkit-scrollbar {
+    width: 12px !important;
+    height: 5px !important;
+  }
+}
+.flight-type {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #f0ec70;
+  height: 32px;
+}

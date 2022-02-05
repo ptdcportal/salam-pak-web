@@ -1,0 +1,99 @@
+<!-- ============================
+        Slider
+    ============================== -->
+<div id="map" class="map">
+  <div class="container-fluid">
+    <div class="col-md-3 p-0">
+      <div id="accordion">
+        <div class="accordion-item">
+          <div class="accordion__item-header opened" data-toggle="collapse" data-target="#collapse1">
+            <a class="accordion__item-title"><img src="assets/images/icons/building.svg" />Cities</a>
+          </div>
+          <!-- /.accordion-item-header -->
+          <div id="collapse1" class="collapse show" data-parent="#accordion">
+            <div class="accordion__item-body">
+              <ul class="map-list list-unstyled" *ngFor="let loc of locations">
+                <li>
+                  <a
+                    style="cursor: pointer"
+                    (click)="navigateOnClick(loc)"
+                    [ngClass]="{ displayBold: selectedLoc == loc.slug }"
+                    >{{ loc.name }}</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <!-- /.accordion-item-body -->
+          </div>
+        </div>
+        <!-- /.accordion-item -->
+        <!-- <div class="accordion-item">
+          <div class="accordion__item-header" data-toggle="collapse" data-target="#collapse2">
+            <a class="accordion__item-title"><img src="assets/images/icons/happy.svg" />What to do</a>
+          </div>
+          <div id="collapse2" class="collapse" data-parent="#accordion">
+            <div class="accordion__item-body">
+              <ul class="map-list list-unstyled">
+                <li><a href="#">Food</a></li>
+                <li><a href="#">Hiking</a></li>
+                <li><a href="#">skydiving</a></li>
+                <li><a href="#">shoping</a></li>
+              </ul>
+            </div>
+          </div>
+        </div> -->
+        <!-- /.accordion-item -->
+        <div *ngIf="surroundings.length" class="accordion-item">
+          <div class="accordion__item-header" data-toggle="collapse" data-target="#collapse3">
+            <a class="accordion__item-title"><img src="assets/images/icons/pin.svg" />where to go</a>
+          </div>
+          <!-- /.accordion-item-header -->
+          <div id="collapse3" class="collapse" data-parent="#accordion">
+            <div class="accordion__item-body">
+              <ul class="map-list list-unstyled" *ngFor="let surrounding of surroundings">
+                <li style="cursor: pointer" (click)="getSurrounding(surrounding)">
+                  <a [ngClass]="{ displayBold: selectedSurr == surrounding.name }">{{ surrounding.name }}</a>
+                </li>
+                <!-- <li><a href="#">beaches</a></li>
+                <li><a href="#">deserts</a></li>
+                <li><a href="#">historical places</a></li> -->
+              </ul>
+            </div>
+            <!-- /.accordion-item-body -->
+          </div>
+        </div>
+        <!-- /.accordion-item -->
+      </div>
+    </div>
+    <div class="col-md-9 p-0">
+      <agm-map [zoom]="13" [latitude]="center?.lat" [longitude]="center?.lng">
+        <agm-marker [latitude]="center?.lat" [longitude]="center?.lng">
+          <agm-info-window [disableAutoPan]="true">
+            <a href="{{ infoWondowData.redirectLink }}">
+              <div>
+                <img class="info-img" src="{{ infoWondowData?.photo }}" />
+                <b class="mx-3 d-inline info-desc">{{ infoWondowData?.alias }}</b>
+              </div>
+            </a>
+          </agm-info-window>
+        </agm-marker>
+
+        <agm-marker
+          *ngFor="let item of surroundingMakers"
+          [latitude]="item?.location?.coordinates[1]"
+          [longitude]="item?.location?.coordinates[0]"
+          [iconUrl]="{
+            url: item.icon,
+            scaledSize: {
+              width: 25,
+              height: 25
+            }
+          }"
+        >
+        </agm-marker>
+      </agm-map>
+    </div>
+  </div>
+  <!-- /.container -->
+</div>
+<!-- /.page-title -->

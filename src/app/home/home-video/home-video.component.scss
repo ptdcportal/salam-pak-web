@@ -1,0 +1,16 @@
+.nsm-dialog {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 100px;
+  height: 100%;
+  align-items: center;
+}
+
+iframe {
+  margin-top: 30%;
+}
+
+$dialog-position-top: 50%;
+
+@import "~ngx-smart-modal/ngx-smart-modal";

@@ -1,0 +1,86 @@
+<!--===  SEASON  ===-->
+<div class="container-fluid seasons">
+  <div class="container">
+    <div class="col-md-12">
+      <span class="heading__subtitle">all four seasons to enjoy</span>
+      <h2 class="heading__title">experience the seasons</h2>
+    </div>
+    <div class="masonry-wrapper masonry-style-2">
+      <div class="masonry-container" data-column-width=".col-md-4">
+        <div class="masonry-item col-md-3 col-sm-6 col-xs-12 web">
+          <div class="season-image-item item-h-4 hover-zoom">
+            <a [routerLink]="['/season/fall']" class="ajax-link">
+              <div
+                class="item-image bg-image-holder"
+                style="background-image: url('assets/images/home/fall.webp'); background-size: cover"
+              >
+                <img
+                  src="assets/images/home/fall.webp"
+                  onerror="this.onerror=null;this.src='assets/images/home/fall.jpg';"
+                  alt=""
+                />
+              </div>
+              <div class="item-overlay overlay-alt"></div>
+              <div class="item-details details-inside">
+                <h4 class="item-title text-white">fall</h4>
+                <p class="item-cat">serene</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="masonry-item col-md-3 col-sm-6 col-xs-12 web season-box">
+          <div class="season-image-item item-h-4 hover-zoom">
+            <a [routerLink]="['/season/winter']" class="ajax-link">
+              <div
+                class="item-image bg-image-holder"
+                style="background-image: url('assets/images/home/winter.webp'); background-size: cover"
+              >
+                <img src="assets/images/home/winter.webp" alt="" />
+              </div>
+              <div class="item-overlay overlay-alt"></div>
+              <div class="item-details details-inside">
+                <h4 class="item-title text-white">winter</h4>
+                <p class="item-cat">chilly</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="masonry-item col-md-3 col-sm-6 col-xs-12 web season-box">
+          <div class="season-image-item item-h-4 hover-zoom">
+            <a [routerLink]="['/season/spring']" class="ajax-link">
+              <div
+                class="item-image bg-image-holder"
+                style="background-image: url('assets/images/home/spring.webp'); background-size: cover"
+              >
+                <img src="assets/images/home/spring.webp" alt="" />
+              </div>
+              <div class="item-overlay overlay-alt"></div>
+              <div class="item-details details-inside">
+                <h4 class="item-title text-white">spring</h4>
+                <p class="item-cat">happy</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="masonry-item col-md-3 col-sm-6 col-xs-12 web season-box">
+          <div class="season-image-item item-h-4 hover-zoom">
+            <a [routerLink]="['/season/summer']" class="ajax-link">
+              <div
+                class="item-image bg-image-holder"
+                style="background-image: url('assets/images/home/summer.webp'); background-size: cover"
+              >
+                <img src="assets/images/home/summer.webp" alt="" />
+              </div>
+              <div class="item-overlay overlay-alt"></div>
+              <div class="item-details details-inside">
+                <h4 class="item-title text-white">summer</h4>
+                <p class="item-cat">comfortable</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- .masonry-container end -->
+    </div>
+  </div>
+</div>

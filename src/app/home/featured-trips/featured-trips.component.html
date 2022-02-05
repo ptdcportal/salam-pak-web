@@ -1,0 +1,139 @@
+<!--===  FEATURES TRIPS  ===-->
+<section class="container-fluid feature-trips">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <span class="heading__subtitle" [translate]="'FEATUREDSUBTITLE'">made by experts</span>
+        <h2 class="heading__title" [translate]="'FEATUREDHEADING'">trips you cannot miss</h2>
+      </div>
+      <div class="col-md-4 show-all-btn">
+        <a [routerLink]="['/trip/listing']">show all<i class="icon-arrow-right"></i></a>
+      </div>
+    </div>
+    <header>
+      <div id="trips-tabs">
+        <ul>
+          <li class="pointer">
+            <a
+              id="tab1-tab"
+              rel="#3days"
+              (click)="changeTab(3)"
+              [ngClass]="{ ' active': $duration === 3 }"
+              [translate]="'FEATURETAB1'"
+              >3 days trip</a
+            >
+          </li>
+          <li class="pointer">
+            <a
+              id="tab2-tab"
+              rel="#5days"
+              (click)="changeTab(5)"
+              [translate]="'FEATURETAB2'"
+              [ngClass]="{ ' active': $duration === 5 }"
+              >5 days trip</a
+            >
+          </li>
+          <li class="pointer">
+            <a
+              id="tab3-tab"
+              rel="#10days"
+              (click)="changeTab(10)"
+              [translate]="'FEATURETAB3'"
+              [ngClass]="{ ' active': $duration === 10 }"
+              >10 days trip</a
+            >
+          </li>
+          <li class="pointer">
+            <a
+              id="tab4-tab"
+              rel="#15days"
+              (click)="changeTab(15)"
+              [translate]="'FEATURETAB4'"
+              [ngClass]="{ ' active': $duration === 15 }"
+              >15 days trip</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+    <div class="tab-content" style="padding: 0px">
+      <div id="{{ $duration + 'days' }}" [ngClass]="{ ' active': tab === $duration, hidden: tab !== $duration }">
+        <div class="masonry-wrapper masonry-style-2">
+          <div class="masonry-container" data-column-width=".col-md-4">
+            <div
+              *ngFor="let event of featuredEvents; let i = index"
+              class="masonry-item col-md-3 col-sm-6 col-xs-12 web trips-box"
+            >
+              <div class="trips-image-item item-h-4 hover-zoom">
+                <div class="item-actions">
+                  <!-- <a *ngIf="isInPlan(event._id)" class="inWishlist" (click)="removeFromPlan(event._id)"
+                    ><i class="fa fa-plus fa-lg"></i
+                  ></a>
+                  <a *ngIf="!isInPlan(event._id)" class="notInWishlist" (click)="addToPlan(event._id)"
+                    ><i class="fa fa-plus fa-lg"></i
+                  ></a> -->
+
+                  <a *ngIf="isInWishlist(event._id)" class="inWishlist" (click)="removeFromWishlist(event._id)"
+                    ><i class="fa fa-heart fa-lg"></i
+                  ></a>
+                  <a *ngIf="!isInWishlist(event._id)" class="notInWishlist" (click)="addToWishlist(event._id)"
+                    ><i class="fa fa-heart fa-lg"></i
+                  ></a>
+                </div>
+                <a href="trip/detail/{{ event._id }}/{{ event.slug }}" class="ajax-link">
+                  <!--target="_blank"-->
+                  <div
+                    class="item-image bg-image-holder"
+                    [ngStyle]="{ 'background-image': 'url(' + event.thumbnails[0] + ')' }"
+                    style="background-size: cover"
+                  >
+                    <img [src]="event.thumbnails[0] || 'assets/images/home/fall1.webp'" alt="" />
+                  </div>
+                  <div class="item-overlay overlay-alt"></div>
+                  <div class="item-details details-inside">
+                    <h4 class="item-title text-white">{{ event.title }}</h4>
+                    <small *ngFor="let loc of event.Locations; let i = index" class="item-cat"
+                      >{{ loc?.name }} {{ i < event.Locations.length - 1 ? ',' : '' }}</small
+                    >
+                  </div>
+                  <div class="col-md-12 trip-detail-bottom p-0">
+                    <div class="col-md-4 col-sm-6 trip-details">
+                      <p class="gray">duration</p>
+                      <p>
+                        <strong>{{ event.duration }} {{ event.duration > 1 ? 'Days' : 'Day' }}</strong>
+                      </p>
+                    </div>
+                    <div class="col-md-4 col-sm-6 trip-details">
+                      <p class="gray">Starts from</p>
+                      <!--starts from-->
+                      <p>
+                        <strong>{{ event.date | date }}</strong>
+                      </p>
+                    </div>
+                    <div class="col-md-4 col-sm-12 trip-details">
+                      <p class="gray">departure</p>
+                      <p>
+                        <strong>{{ event.startLocation?.name }}</strong>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- .masonry-container end -->
+        </div>
+        <h2 *ngIf="!featuredEvents.length" class="text-center text-muted my-5">No trips!</h2>
+      </div>
+      <!-- <div id="5days">
+        <p>5 Days Trips</p>
+      </div>
+      <div id="10days">
+        <p>10 Days Trips</p>
+      </div>
+      <div id="15days">
+        <p>15 Days Trips</p>
+      </div> -->
+    </div>
+  </div>
+</section>

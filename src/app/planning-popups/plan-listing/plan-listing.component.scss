@@ -1,0 +1,71 @@
+.visa-availabilty__popup {
+  border-radius: 10px;
+  border: 2px solid #8cc63e;
+}
+
+.popup__heading {
+  color: #8cc63e;
+}
+
+.plans__container {
+  width: 100%;
+  display: flex;
+  overflow-x: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 12px !important;
+  height: 5px !important;
+}
+
+.plan__box {
+  border: 1px solid #8cc63e;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.plan__desc {
+  font-size: 14px !important;
+  line-height: 1.2;
+  font-family: -webkit-pictograph !important;
+}
+
+.plan__desc ::after {
+  border-left: 1px solid;
+}
+
+.plan__properties li {
+  font-family: inherit !important;
+  line-height: 1.2;
+  font-size: 12px !important;
+}
+
+.plan__properties li:nth-child(2) {
+  font-weight: bolder !important;
+}
+
+.submit__button {
+  padding: 8px;
+  color: #fff;
+  width: 30%;
+  background-color: #8cc63e !important;
+  font-size: 12px !important;
+}
+
+.active {
+  background-color: #8cc63e !important; //#b8ec74
+  color: #fff !important;
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+::ng-deep .nsm-dialog {
+  max-width: 520px !important;
+}
+
+// .snowClass{
+//   width: 50% !important;
+// }

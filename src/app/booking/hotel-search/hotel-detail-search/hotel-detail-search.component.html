@@ -1,0 +1,321 @@
+<!-- ============================
+        Slider
+    ============================== -->
+<div *ngIf="hotelDetail">
+  <section id="page-title" class="page-title page-title-layout4 text-center bg-overlay slider">
+    <div class="bg-img"><img src="assets/images/backgrounds/accommodation-details.png" alt="background" /></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-8 page">
+          <div class="slide__content">
+            <h4 class="slide__title">{{ hotelDetail && hotelDetail.basicInfo.Name }}</h4>
+            <p class="slide__desc">{{ hotelDetail && hotelDetail.addressInfo.streetInfo }}</p>
+          </div>
+          <!-- /.slide-content -->
+        </div>
+        <!-- /.col-lg-8 -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </section>
+  <!-- /.page-title -->
+
+  <!-- ========================
+          Services
+      =========================== -->
+  <section id="services" class="services pb-5">
+    <div class="container">
+      <div class="row heading heading-2 mb-40">
+        <div class="col-sm-12 col-md-12 col-lg-6">
+          <p class="heading__desc">
+            {{ hotelDetail && hotelDetail.basicInfo.Description }}
+          </p>
+        </div>
+        <!-- /.col-lg-5 -->
+        <div class="col-sm-12 col-md-12 col-lg-6">
+          <img src="{{ hotelMedia && hotelMedia[0].url }}" />
+        </div>
+        <!-- /.col-lg-6 -->
+      </div>
+      <!-- /.row -->
+    </div>
+  </section>
+  <!-- /.Services -->
+
+  <!--- Hotel rooms Details-->
+  <div class="seasons mt-0">
+    <div class="row">
+      <div class="container">
+        <h3 class="room-type-h3">Images</h3>
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <ngx-slick-carousel class="" #slickModal="slick-carousel" [config]="slideConfig">
+            <div ngxSlickItem *ngFor="let image of hotelMedia" class="post-item pr-15">
+              <div class="post__img">
+                <img src="{{ image.url }}" alt="hotel images" style="height: 280px" />
+              </div>
+            </div>
+          </ngx-slick-carousel>
+        </div>
+      </div>
+      <!-- /.col-lg-12 -->
+    </div>
+  </div>
+
+  <section class="hotel-room-detail-list mt-50">
+    <div class="container">
+      <h3 class="room-type-h3">Choose Room</h3>
+    </div>
+    <div class="col-md-12 room-detail" *ngFor="let detail of hotelDetail.HotelRateDetail; let detailIndex = index">
+      <div class="container hotel-room-list">
+        <div class="col-md-4">
+          <img src="{{ detail.RoomDetails.roomImages[0] }}" style="height: 270px" />
+        </div>
+        <div class="col-md-8 detailroom-package">
+          <h3 class="room-type-h3 mb-0">{{ detail.RoomDetails.RoomName }}</h3>
+          <p class="room-left-num mb-0">Only {{ detail.ratePlanInfo[0].NoOfRoomsAvailable }} Rooms Left</p>
+          <div class="col-md-12 room-details-loop p-0 mt-20">
+            <div class="room-details-content">
+              <header *ngIf="detail.ratePlanInfo[1]">
+                <div class="room-tabs">
+                  <ul class="col-md-12 p-0 hotel-package">
+                    <li class="col-md-2 p-0" *ngFor="let package of detail.ratePlanInfo; let i = index">
+                      <a
+                        (click)="showTabContent(detailIndex * 10 + i + 1, detailIndex, i)"
+                        id="tab{{ detailIndex * 10 + i + 1 }}-tab"
+                        rel="#tab{{ detailIndex * 10 + i + 1 }}"
+                        [translate]="'BOOKINGOPTION1'"
+                        class="packageTab{{ detailIndex }}"
+                        [ngClass]="{ ' active': tab === i + 1 }"
+                        >Package {{ i + 1 }}</a
+                      >
+                    </li>
+                  </ul>
+                  <span class="yellow-bar"></span>
+                </div>
+              </header>
+              <div class="tab-content">
+                <div
+                  *ngFor="let ratePlan of detail.ratePlanInfo; let j = index"
+                  id="tab{{ detailIndex * 10 + j + 1 }}"
+                  class="packageDetail{{ detailIndex }}"
+                  [ngClass]="{
+                    ' active': tab === j + 1,
+                    hidden: detail.ratePlanInfo[1] && tab !== j + 1
+                  }"
+                >
+                  <div class="masonry-container">
+                    <div class="col-md-6 p-0">
+                      <p class="room-left-num">
+                        Refundable: <strong *ngIf="ratePlan.RefundStatus == '1'"> yes</strong
+                        ><strong *ngIf="ratePlan.RefundStatus == '2'"> no</strong>
+                      </p>
+                      <p class="room-left-num">
+                        Max Guests <strong>{{ ratePlan.MaxPerson }}</strong>
+                      </p>
+                      <p class="room-left-num">
+                        Available Rooms: <strong>{{ ratePlan.NoOfRoomsAvailable }}</strong>
+                      </p>
+                    </div>
+                    <div class="col-md-4">
+                      <h4 class="room-rate-h4">PKR {{ ratePlan.ratePriceInfo.totalPrice | number }}</h4>
+                      <p class="room-left-num">{{ this.data.rooms }} Room - {{ detail.RoomDetails.nights }} Night</p>
+                    </div>
+                    <div class="col-md-2 room-detail-select">
+                      <label>Select room</label>
+                      <select id="select{{ detailIndex * 10 + j + 1 }}" (change)="selectedOptions($event.target.value)">
+                        <option
+                          *ngFor="let key of getNoOfRooms(ratePlan.NoOfRoomsAvailable); let count = index"
+                          value="{{ count + 1 }}"
+                        >
+                          {{ count + 1 }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--     <header>
+          <div id="room-package-tabs0">
+            <ul>
+              <li class="pointer">
+                <a id="tab1-tab" rel="#3days" (click)="changeTab(3)">3 days trip</a>
+              </li>
+              <li class="pointer">
+                <a id="tab2-tab" rel="#5days" (click)="changeTab(5)">5 days trip</a>
+              </li>
+              <li class="pointer">
+                <a id="tab3-tab" rel="#10days" (click)="changeTab(10)">10 days trip</a>
+              </li>
+              <li class="pointer">
+                <a id="tab4-tab" rel="#15days" (click)="changeTab(15)">15 days trip</a>
+              </li>
+            </ul>
+          </div>
+        </header>-->
+          <div class="col-md-12 p-0 room-detail-btn-div">
+            <a
+              (click)="
+                openHotelModal(
+                  detail.RoomDetails.RoomId,
+                  hotelDetail.basicInfo.AccommodationId,
+                  detail.RoomDetails.RoomName,
+                  detail.ratePlanInfo[multiTab],
+                  hotelDetail && hotelDetail.basicInfo.Name,
+                  detailIndex
+                )
+              "
+              style="cursor: pointer"
+              class="list-hotal-btn"
+              >Book Now</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="seasons mt-0 mb-0 pb-0">
+    <div class="col-md-12 hotel-contact-details">
+      <div class="container">
+        <h3 class="room-type-h3">Contact Info</h3>
+        <p><strong>Name:</strong> {{ hotelDetail.basicInfo.Name }}</p>
+        <p><strong>Address:</strong> {{ hotelDetail && hotelDetail.addressInfo.streetInfo }}</p>
+        <p><strong>Phone:</strong> {{ hotelDetail.contactInfo[0].Number }}</p>
+        <p><strong>What's nearby:</strong> {{ hotelDetail.basicInfo.NearbyAreas }}</p>
+        <p><strong>Area of interest:</strong> {{ hotelDetail.basicInfo.AreaOfInterest }}</p>
+        <p><strong>Fax:</strong> {{ hotelDetail.contactInfo[1].Number }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ngx-smart-modal
+  [customClass]="'popupBooking bottom m-0 nsm-dialog-animation-fade nsm-centered nsm-dialogue'"
+  #hotelModalPopup
+  identifier="hotelModalPopup"
+  escapable="true"
+>
+  <!--[customClass]="'popupBusBooking'"-->
+  <div class="auth__modal">
+    <!-- this is the entire modal form, including the background -->
+
+    <div class="cd-user-modal-container">
+      <div class="row">
+        <div *ngIf="formFlag" class="col-12 p-2 hotel-booking-popup">
+          <div class="col-md-4 hotel-popup-left">
+            <div id="hotel-popup">
+              <h3 class="hotel-name-h3">{{ hotelDetail && hotelDetail.basicInfo.Name }}</h3>
+              <p class="hotel-room">{{ hotelItem && hotelItem.roomType }}</p>
+            </div>
+            <div class="col-md-12 p-0 mt-30">
+              <p class="hotel-checkin-p">
+                Check In: <span class="popup-checkin-out">{{ hotelItem && hotelItem.checkIn }}</span>
+              </p>
+              <p class="hotel-checkout-p">
+                Check Out: <span class="popup-checkin-out">{{ hotelItem && hotelItem.checkOut }}</span>
+              </p>
+              <p class="green flight-time"></p>
+            </div>
+
+            <div class="col-md-12 p-0 mt-20 mb-40">
+              <h6 class="flight-departure-h5 green">selected room(s): {{ selectedOption }}</h6>
+              <h6 class="flight-departure-h5 green">total price including all taxes:</h6>
+              <h6 class="flight-departure-h5 green">
+                {{ hotelItem && hotelItem.currency }} {{ hotelItem && hotelItem.price * selectedOption | number }}
+              </h6>
+            </div>
+          </div>
+          <div class="col-md-6 bus-book-form">
+            <form
+              novalidate=""
+              [formGroup]="hotelForm"
+              class="cd-form cd-form-bus ng-untouched ng-pristine ng-invalid"
+              ng-reflect-form="[object Object]"
+            >
+              <p class="fieldset mb-0">
+                <label class="image-replace">Name</label>
+                <input
+                  type="name"
+                  formControlName="name"
+                  class="form-control full-width has-padding has-border ng-pristine ng-invalid ng-touched"
+                  placeholder="Name "
+                />
+              </p>
+
+              <p class="fieldset mb-0">
+                <label class="image-replace">Phone No</label>
+                <input
+                  type="text"
+                  placeholder="Phone No"
+                  formControlName="phoneNo"
+                  class="form-control full-width has-padding has-border ng-untouched ng-pristine ng-invalid"
+                />
+              </p>
+              <p class="fieldset mb-0">
+                <label class="image-replace">Email Address</label>
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  formControlName="email"
+                  class="form-control full-width has-padding has-border ng-untouched ng-pristine ng-invalid"
+                />
+              </p>
+              <p class="fieldset mb-0">
+                <label class="image-replace">CNIC </label>
+                <input
+                  type="text"
+                  placeholder="CNIC or PASSPORT"
+                  formControlName="cnic"
+                  class="form-control full-width has-padding has-border ng-untouched ng-pristine ng-invalid"
+                />
+              </p>
+              <button (click)="bookHotel(hotelItem)" type="book" class="btn btn__secondary mt-20">Book Now</button>
+            </form>
+          </div>
+        </div>
+        <div *ngIf="paymentFlag" class="col-12 p-2 bus-booking-popup">
+          <app-payment
+            [bookingId]="bookingId"
+            [user]="user"
+            [amount]="hotelItem.price * selectedOption"
+            (onSuccess)="onPaymentMethodSuccess($event)"
+          ></app-payment>
+        </div>
+
+        <div *ngIf="paymentSuccesFlag" class="col-12 p-50 bus-booking-popup">
+          <div id="paymentSuccess" class="pl-20">
+            <div *ngIf="bookingResponse && bookingResponse.redirect_url">
+              <iframe [src]="bankURL(bookingResponse.redirect_url)" height="500" width="835"> </iframe>
+            </div>
+            <div *ngIf="bookingResponse && !bookingResponse.redirect_url">
+              <h3 class="payment-confrimation-h3">Payemnt Confirmed</h3>
+              <div>
+                <p>
+                  your token number is:
+                  <span class="payment-success-span"> {{ bookingResponse && bookingResponse.token }}</span>
+                </p>
+              </div>
+              <div>
+                <p>
+                  payment method:
+                  <span class="payment-success-span"> : {{ bookingResponse && bookingResponse.gateway }}</span>
+                </p>
+              </div>
+              <div>
+                <p>{{ bookingResponse && bookingResponse.message }}</p>
+              </div>
+              <div>
+                <p>
+                  expiry : <span class="payment-success-span">{{ bookingResponse && bookingResponse.expiry }}</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ngx-smart-modal>

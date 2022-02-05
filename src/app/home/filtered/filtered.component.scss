@@ -1,0 +1,18 @@
+img {
+  min-height: 270px;
+  height: 270px;
+  object-fit: cover;
+  border-radius: 20px !important;
+}
+
+@media (min-width: 768px) {
+  .firstOne {
+    height: 570px;
+  }
+}
+
+@media (max-width: 500px) {
+  .firstcard {
+    margin-bottom: 30px;
+  }
+}

@@ -1,0 +1,39 @@
+.widget {
+  position: relative;
+  background-color: #00a299;
+  padding: 40px;
+  margin-bottom: 40px;
+  border-radius: 5px;
+}
+
+.accordion-item .accordion__item-title::after {
+  position: absolute;
+  top: 0px;
+  left: -20px;
+  content: "";
+  font-family: fontawesome;
+  color: rgb(18, 28, 69);
+  font-size: 10px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.bg-overlay:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: rgba(27, 26, 26, 0.15);
+}
+
+.bg-overlay-grdient-secondary:before {
+  background-color: #00a299b8;
+  background-image: -webkit-linear-gradient(-90deg, rgba(27, 26, 26, 0) 0%, rgba(5, 16, 59, 0) 0%, #00a299 65%);
+  background-image: -moz-linear-gradient(-90deg, rgba(27, 26, 26, 0) 0%, rgba(5, 16, 59, 0) 0%, #05103b 65%);
+  background-image: -ms-linear-gradient(-90deg, rgba(27, 26, 26, 0) 0%, rgba(5, 16, 59, 0) 0%, #05103b 65%);
+}

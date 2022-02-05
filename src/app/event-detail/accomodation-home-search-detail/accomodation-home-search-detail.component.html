@@ -1,0 +1,152 @@
+<!-- ============================
+        Slider
+    ============================== -->
+<section id="page-title" class="page-title page-title-layout4 text-center bg-overlay slider">
+  <div class="bg-img"><img src="assets/images/backgrounds/accommodation-details.png" alt="background" /></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-8 page">
+        <div class="slide__content">
+          <h4 class="slide__title">Accomodations in {{ slug }}</h4>
+          <p class="slide__desc">Check out the best luxury hotels in Pakistan</p>
+        </div>
+        <!-- /.slide-content -->
+      </div>
+      <!-- /.col-lg-8 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.page-title -->
+
+<!--======-->
+<div class="container-fluid seasons">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <span class="heading__subtitle">luxury hotels</span>
+        <h2 class="heading__title">featured accomodations in {{ slug }}</h2>
+      </div>
+      <div class="col-md-4 show-all-btn">
+        <a href="#">show all<i class="icon-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="masonry-wrapper masonry-style-2">
+      <div class="blog-container" data-column-width=".col-md-4">
+        <div *ngFor="let item of featuredEvents" class="col-md-4 post-item">
+          <a href=""
+            ><div class="post__img">
+              <img src="{{ item.photo1 }}" class="featured-images" alt="post img" />
+            </div>
+            <!-- /.post-img -->
+            <div class="post__content px-3 pb-3">
+              <h4 class="post__title">{{ item.hotel_name }}</h4>
+              <p class="post__desc">{{ item.overview.slice(0, 140) }} ...</p>
+            </div>
+            <!-- /.post-content --></a
+          >
+        </div>
+
+        <h4 *ngIf="!featuredEvents.length" class="text-center text-muted mt-4">
+          accomodations not available fot this city
+        </h4>
+        <!-- /.post-item -->
+        <!-- /.post-item -->
+      </div>
+      <!-- .masonry-container end -->
+    </div>
+  </div>
+</div>
+
+<!-- ======================
+             places Carousel
+        ========================= -->
+<section id="placeCarousel" class="place-carousel">
+  <div class="container">
+    <div class="row">
+      <h2 class="heading__title mx-5">all luxury hotel</h2>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+          <div
+            ngxSlickItem
+            *ngFor="let location of allEvents; let image; of: images; let i = index"
+            class="post-item places-item carousel-cell pr-15"
+          >
+            <div class="post-item places-item">
+              <div class="places__img">
+                <img [src]="location.photos[0] || 'assets/images/hotel/other1.png'" alt="post img" />
+              </div>
+              <!-- /.post-img -->
+              <div class="places__content">
+                <h6 class="places_sub">hotel in lahore</h6>
+                <h4 class="places__title">
+                  <a href="#">{{ location.hotel_name }}</a>
+                </h4>
+                <span class="fa fa-star review-checked"></span>
+                <span class="fa fa-star review-checked"></span>
+                <span class="fa fa-star review-checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="font-regular"> ({{ location.reviews ? location.reviews : 0 }}) reviews</span>
+                <!-- <a href="#" class="btn btn__secondary btn__link">
+                <span>More info</span><i class="icon-arrow-right"></i>
+              </a> -->
+              </div>
+              <!-- /.post-content -->
+            </div>
+          </div>
+        </ngx-slick-carousel>
+        <!-- /.carousel -->
+      </div>
+      <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.posts-carousel -->
+
+<!-- Category Filter-->
+<section class="browse-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <h2 class="heading__title">Browse hotel</h2>
+          <form class="browse-form">
+            <input type="text" class="search__input" placeholder="Type Words Then Enter" />
+            <button class="module__search-btn"><i class="fa fa-search"></i></button>
+          </form>
+        </div>
+        <!-- /.col-lg-2 -->
+        <div class="col-sm-12 col-md-6 col-lg-6 btn-category">
+          <div class="col-md-12 p-0">
+            <h2 class="heading__title">Search by Category</h2>
+          </div>
+          <div class="browse-btn-1">
+            <span class="browse-btn category-btn"><a class="category-btn" href="#">All</a></span>
+            <span *ngFor="let category of filter.categories" class="browse-btn"
+              ><a
+                *ngIf="category.categoryType === 'accomodation'"
+                class="category-btn"
+                target="_blank"
+                href="/accomodation/category/{{ category._id }}"
+                >{{ category.name }}</a
+              ></span
+            >
+          </div>
+          <!-- <div class="browse-btn-2">
+            <span class="browse-btn"><a href="#">mountain huts</a></span>
+            <span class="browse-btn"><a href="#">guest houses</a></span>
+            <span class="browse-btn"><a href="#">camping</a></span>
+          </div> -->
+        </div>
+        <!-- /.col-lg-2 -->
+      </div>
+    </div>
+  </div>
+</section>

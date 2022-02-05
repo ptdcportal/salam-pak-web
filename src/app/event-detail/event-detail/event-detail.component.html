@@ -1,0 +1,428 @@
+<!-- ============================
+        Slider
+    ============================== -->
+<section id="page-title" class="page-title-layout4 text-center bg-overlay slider">
+  <div class="bg-img">
+    <img
+      class="header-image"
+      onerror="this.src='assets/images/images/fall/fall1.jpg';"
+      [src]="event.photos[0]"
+      alt="background"
+    />
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-8 page">
+        <div class="slide__content">
+          <h2 class="slide__title mb-0">{{ event.title }}</h2>
+
+          <!-- <ul class="info__list">
+            <li>starting at {{ event?.startTime | date: 'shortTime' }}, {{ event?.startTime | date }}</li>
+            <li>ending at {{ event?.endTime | date: 'shortTime' }}, {{ event?.endTime | date }}</li>
+            <li>{{ event?.cityName }}</li>
+            <li>{{ event?.provinceName }}</li>
+          </ul> -->
+
+          <div class="info__list">
+            <span>starting at {{ event?.startTime | date: 'shortTime' }}, {{ event?.startDate | date }}</span>
+            <span>ending at {{ event?.endTime | date: 'shortTime' }}, {{ event?.endDate | date }}</span>
+            <span>{{ event?.cityName }}</span>
+            <span>{{ event?.provinceName }}</span>
+          </div>
+
+          <h4 *ngIf="event.price > 0" class="slide__title mb-0 price">Rs.{{ event?.price }} / person</h4>
+          <h4 *ngIf="event.price == 0" class="slide__title mb-0 price">Free event</h4>
+
+          <a class="btn btn__primary btn__hover2 mr-30" (click)="openBookingForm()"
+            ><i class="fa fa-calendar"></i>Book now</a
+          >
+
+          <!-- <a
+            *ngIf="!isInPlan()"
+            (click)="addToPlan()"
+            style="cursor: pointer !important"
+            class="btn btn__primary btn__hover2 mr-30"
+            ><i class="fa fa-plus"></i>add to plan</a
+          >
+
+          <a
+            *ngIf="isInPlan()"
+            (click)="removeFromPlan()"
+            class="btn btn__primary btn__hover2 mr-30"
+            style="width: 180px !important; background-color: #ff5959 !important; border-color: #ff5959 !important"
+            ><i class="fa fa-minus"></i>remove from plan</a
+          > -->
+
+          <a *ngIf="!isInWishlist()" (click)="addToWishlist()" class="btn btn__white" style="cursor: pointer !important"
+            ><i class="fa fa-heart"></i>add to wishlist</a
+          >
+          <a
+            *ngIf="isInWishlist()"
+            (click)="removeFromWishlist()"
+            class="btn btn__white"
+            style="width: 180px !important; background-color: #ff5959 !important; border-color: #ff5959 !important"
+            ><i class="fa fa-heart"></i>remove from wishlist</a
+          >
+        </div>
+        <!-- /.slide-content -->
+      </div>
+      <!-- /.col-lg-8 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.page-title -->
+
+<!-- ========================
+          Services
+      =========================== -->
+
+<section id="services" class="services pb-90">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="">Home </a></li>
+        <li class="breadcrumb-item"><a href="">event </a></li>
+        <li class="breadcrumb-item"><a href="">detail </a></li>
+        <!-- <li class="breadcrumb-item active" aria-current="page">
+          {{ event.startingLocation }} to {{ event.primaryLocation }}
+        </li> -->
+      </ol>
+    </nav>
+
+    <div class="row heading heading-2 mb-40">
+      <div class="col-sm-12 col-md-12 col-lg-6">
+        <p class="heading__desc">{{ event.description }}</p>
+      </div>
+      <!-- /.col-lg-5 -->
+      <div class="col-sm-12 col-md-12 col-lg-6">
+        <img src="{{ event.photos[0] }}" />
+      </div>
+      <!-- /.col-lg-6 -->
+    </div>
+    <!-- /.row -->
+  </div>
+</section>
+<!-- /.Services -->
+
+<!--======-->
+
+<section id="placeCarousel" class="place-carousel">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <span class="heading__subtitle">{{ event.slug }}</span>
+        <h2 class="heading__title">Discover the surroundings</h2>
+      </div>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="col-sm-12 col-md-3 col-lg-3 whattodo-sidebar p-0">
+          <aside class="whattodo-sidebar mb-30">
+            <div class="whattodo-widget whattodo-widget-categories">
+              <div class="widget-content">
+                <ul class="list-unstyled whattodo-menu" *ngFor="let surrounding of surroundings">
+                  <li
+                    style="cursor: pointer"
+                    (click)="navigateOnClick(surrounding)"
+                    [ngClass]="{ displayBold: selectedSur == surrounding.name }"
+                  >
+                    <a>
+                      <img
+                        src="../../../assets/images/icons/{{ surrounding.iconName }}"
+                        onerror="this.onerror=null;this.src='assets/images/icons/hotel.svg';"
+                      />{{ surrounding.name }}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- /.widget-content -->
+            </div>
+            <!-- /.widget-categories -->
+          </aside>
+          <!-- /.sidebar -->
+        </div>
+        <!-- /.col-lg-4 -->
+        <div class="col-sm-12 col-md-9 col-lg-9 pl-80" *ngIf="!show">
+          <div id="whattodo-map">
+            <!--*ngIf="show"-->
+            <!-- <agm-map [zoom]="6" [latitude]="center?.lat" [longitude]="center?.lng" >
+              <agm-marker [latitude]="center?.lat" [longitude]="center?.lng"></agm-marker>
+            </agm-map>      *ngIf="!surroundingMakers"      -->
+            <agm-map
+              [zoom]="11"
+              [latitude]="surroundingMakers.location?.location.coordinates[1] || center?.lat"
+              [longitude]="surroundingMakers.location?.location.coordinates[0] || center?.lng"
+            >
+              <!--  -->
+
+              <!-- true -->
+              <agm-marker
+                [latitude]="this.event?.location.coordinates[1]"
+                [longitude]="this.event?.location.coordinates[0]"
+              >
+                <agm-info-window [disableAutoPan]="true">
+                  <a>
+                    <div>
+                      <img class="info-img" src="{{ infoWondowData?.photo }}" />
+                      <b class="mx-3 d-inline info-desc">{{ infoWondowData?.alias }}</b>
+                    </div>
+                  </a>
+                </agm-info-window>
+              </agm-marker>
+
+              <!-- <agm-marker 
+              *ngIf="surroundingMakers"
+                [latitude]="this.location?.location.coordinates[0] "
+                [longitude]="this.location?.location.coordinates[1]"
+              ></agm-marker> -->
+            </agm-map>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-9 col-lg-9 pl-80" *ngIf="show">
+          <div id="whattodo-map">
+            <!--*ngIf="show"-->
+            <!-- <agm-map [zoom]="6" [latitude]="center?.lat" [longitude]="center?.lng" >
+              <agm-marker [latitude]="center?.lat" [longitude]="center?.lng"></agm-marker>
+            </agm-map>      *ngIf="!surroundingMakers"      -->
+            <agm-map
+              [zoom]="12"
+              [latitude]="surroundingMakers[0]?.location?.coordinates[1] || center?.lat"
+              [longitude]="surroundingMakers[0]?.location?.coordinates[0] || center?.lng"
+            >
+              <agm-marker
+                *ngFor="let item of surroundingMakers"
+                [latitude]="item?.location?.coordinates[1]"
+                [longitude]="item?.location?.coordinates[0]"
+                [iconUrl]="{
+                  url: item.icon,
+                  scaledSize: {
+                    width: 25,
+                    height: 25
+                  }
+                }"
+              >
+                <agm-info-window [disableAutoPan]="true">
+                  <a>
+                    <div>
+                      <img class="info-img" src="{{ item?.photo }}" />
+                      <a href="{{ getHref(item) }}" target="_blank"
+                        ><b class="mx-3 d-inline info-desc">{{ item?.name }}</b></a
+                      >
+                    </div>
+                  </a>
+                </agm-info-window>
+              </agm-marker>
+
+              <!-- <agm-marker 
+              *ngIf="surroundingMakers"
+                [latitude]="this.location?.location.coordinates[0] "
+                [longitude]="this.location?.location.coordinates[1]"
+              ></agm-marker> -->
+            </agm-map>
+          </div>
+        </div>
+      </div>
+
+      <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</section>
+
+<!-- ======================
+                 places Carousel
+            ========================= -->
+<section id="placeCarousel" class="place-carousel pb-0">
+  <div class="px-5">
+    <!--pl-300-->
+    <div class="row">
+      <h2 class="heading__title">related events</h2>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+          <div ngxSlickItem *ngFor="let location of relatedEvents" class="post-item places-item carousel-cell pr-15">
+            <a [routerLink]="['/event/detail', location._id, location.slug]">
+              <div class="places__img" style="height: unset !important">
+                <img
+                  [src]="location.thumbnails[0]"
+                  onerror="this.onerror=null;this.src='assets/images/images/fall/fall1.jpg';"
+                  alt="post img"
+                />
+              </div>
+            </a>
+            <a [routerLink]="['/event/detail', location._id, location.slug]">
+              <div class="places__content">
+                <h6 class="places_sub">{{ location.title }}</h6>
+                <h4 class="places__title">
+                  <!-- <a>{{ location.description }}</a> -->
+                </h4>
+                <span class="stars align-listing">
+                  <span [ngStyle]="{ width: getRatingStars(location?.ratingAverage || 0) }"></span>
+                </span>
+                <span class="stars2" style="display: inline-table">
+                  <span [ngStyle]="{ width: getRatingStars(5.0) }"></span>
+                </span>
+                <span class="font-regular"> ({{ location.reviews ? location.reviews : 0 }}) reviews</span>
+                <!-- <a href="#" class="btn btn__secondary btn__link">
+                <span>More info</span><i class="icon-arrow-right"></i>
+              </a> -->
+              </div>
+            </a>
+          </div>
+        </ngx-slick-carousel>
+        <h2 *ngIf="!relatedEvents.length" class="text-center text-muted">no events!</h2>
+        <!-- /.carousel -->
+      </div>
+      <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</section>
+
+<app-vendor-section></app-vendor-section>
+
+<ngx-smart-modal #feedbackModal identifier="bookingModal" escapable="true">
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 p-5">
+      <div [formGroup]="bookingForm" class="visa-availabilty__popup p-5">
+        <h6 class="mb-3 text-left popup__heading text-center">Create Booking</h6>
+        <hr />
+
+        <div class="row mt-5">
+          <!-- <div class="row"> -->
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+            <label class="image-replace cd-email">full name</label>
+            <input
+              class="full-width has-padding has-border form-control plan__name"
+              type="text"
+              [placeholder]="'name'"
+              formControlName="fullName"
+            />
+            <small
+              [hidden]="bookingForm.controls.fullName.valid || bookingForm.controls.fullName.untouched"
+              class="text-danger"
+              translate
+            >
+              Feild is required
+            </small>
+          </div>
+
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+            <label class="image-replace cd-email">email</label>
+            <input
+              class="full-width has-padding has-border form-control plan__name"
+              type="text"
+              [placeholder]="'email'"
+              formControlName="email"
+            />
+            <small
+              [hidden]="bookingForm.controls.email.valid || bookingForm.controls.email.untouched"
+              class="text-danger"
+              translate
+            >
+              Feild is required
+            </small>
+          </div>
+
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+            <label class="image-replace cd-email">phone no.</label>
+            <input
+              class="full-width has-padding has-border form-control plan__name"
+              type="text"
+              [placeholder]="'phone no.'"
+              formControlName="mobile"
+            />
+            <small
+              [hidden]="bookingForm.controls.mobile.valid || bookingForm.controls.mobile.untouched"
+              class="text-danger"
+              translate
+            >
+              Feild is required
+            </small>
+          </div>
+
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+            <label class="image-replace cd-email">cnic</label>
+            <input
+              class="full-width has-padding has-border form-control plan__name"
+              type="text"
+              [placeholder]="'C.N.I.C'"
+              formControlName="idCard"
+            />
+            <small
+              [hidden]="bookingForm.controls.idCard.valid || bookingForm.controls.idCard.untouched"
+              class="text-danger"
+              translate
+            >
+              Feild is required
+            </small>
+          </div>
+          <!-- </div> -->
+
+          <div class="col-sm-12 col-md-6 col-lg-6 mt-4">
+            <div class="form-group">
+              <label>adults</label>
+              <div class="booking-count">
+                <button
+                  class="minus"
+                  [disabled]="bookingForm.get('noOfAdults').value == 1"
+                  (click)="bookingForm.get('noOfAdults').patchValue(bookingForm.get('noOfAdults').value - 1)"
+                >
+                  -
+                </button>
+                <input type="text" value="{{ bookingForm.get('noOfAdults').value }}" />
+                <button
+                  class="plus"
+                  (click)="bookingForm.get('noOfAdults').patchValue(bookingForm.get('noOfAdults').value + 1)"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6 col-lg-6 mt-4">
+            <div class="form-group">
+              <label>children</label>
+              <div class="booking-count">
+                <button
+                  class="minus"
+                  [disabled]="bookingForm.get('noOfChildren').value < 1"
+                  (click)="bookingForm.get('noOfChildren').patchValue(bookingForm.get('noOfChildren').value - 1)"
+                >
+                  -
+                </button>
+                <input type="text" value="{{ bookingForm.get('noOfChildren').value }}" />
+                <button
+                  class="plus"
+                  (click)="bookingForm.get('noOfChildren').patchValue(bookingForm.get('noOfChildren').value + 1)"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4 text-center">
+            <button
+              type="button"
+              id="trainButton"
+              class="btn btn__primary submit__button"
+              [disabled]="bookingForm.invalid"
+              (click)="createBooking()"
+            >
+              save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ngx-smart-modal>

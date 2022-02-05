@@ -1,0 +1,374 @@
+<!-- ============================
+        Slider
+    ============================== -->
+<section id="page-title" class="page-title-layout4 text-center bg-overlay slider">
+  <div class="bg-img">
+    <img
+      class="header-image"
+      [src]="trip.photos[0]"
+      onerror="this.onerror=null;this.src='assets/images/images/fall/fall1.jpg';"
+      alt="background"
+    />
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-8 page">
+        <div class="slide__content">
+          <h2 class="slide__title">{{ trip.title }}</h2>
+
+          <div class="info__list">
+            <span>starting from {{ trip?.startLocation?.name }}</span>
+            <!-- <span>ending at {{ event?.endTime | date: 'shortTime' }}, {{ event?.endDate | date }}</span> -->
+            <span>starting at {{ trip?.date | date }}</span>
+            <!-- <span>{{ event?.provinceName }}</span> -->
+          </div>
+
+          <p class="slide__desc mb-0">{{ trip.description.substr(0, 50) }} ...</p>
+
+          <p class="my-4 price__tag">PKR {{ trip.price | number }} / person</p>
+
+          <div class="details-review">
+            <span class="stars align-listing">
+              <span [ngStyle]="{ width: getRatingStars(trip?.ratingAverage || 0) }"></span>
+            </span>
+
+            <span class="stars2" style="display: inline-table">
+              <span [ngStyle]="{ width: getRatingStars(5.0) }"></span>
+            </span>
+
+            <span class="font-regular">({{ trip.reviews ? trip.reviews : 0 }}) reviews</span>
+
+            <!-- <share-buttons
+              [theme]="'material-dark'"
+              [include]="['facebook', 'twitter', 'linkedin']"
+              [show]="9"
+              [size]="1"
+              [url]="redirectUrl"
+              [image]="'https://www.eduforbetterment.com/wp-content/uploads/2020/08/qrcode.jpg'"
+              [autoSetMeta]="false"
+            >
+            </share-buttons> -->
+          </div>
+
+          <a class="btn btn__primary btn__hover2 mr-30" (click)="openBookingForm()"
+            ><i class="fa fa-calendar"></i>Book now</a
+          >
+
+          <!-- <a
+            *ngIf="isInPlan()"
+            (click)="removeFromPlan()"
+            class="btn btn__primary btn__hover2 mr-30"
+            style="width: 180px !important; background-color: #ff5959 !important; border-color: #ff5959 !important"
+            ><i class="fa fa-minus"></i>remove from plan</a
+          > -->
+
+          <a *ngIf="!isInWishlist()" (click)="addToWishlist()" class="btn btn__white" style="cursor: pointer !important"
+            ><i class="fa fa-heart"></i>add to wishlist</a
+          >
+          <a
+            *ngIf="isInWishlist()"
+            (click)="removeFromWishlist()"
+            class="btn btn__white"
+            style="width: 180px !important; background-color: #ff5959 !important; border-color: #ff5959 !important"
+            ><i class="fa fa-heart"></i>remove from wishlist</a
+          >
+        </div>
+        <!-- /.slide-content -->
+      </div>
+      <!-- /.col-lg-8 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.page-title -->
+
+<!-- ========================
+          Services
+      =========================== -->
+
+<section id="services" class="services pb-90">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a>Home </a></li>
+        <li class="breadcrumb-item"><a>trip-detail </a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+          {{ trip.slug }}
+        </li>
+      </ol>
+    </nav>
+
+    <div class="row heading heading-2 mb-40">
+      <div class="col-sm-12 col-md-12 col-lg-6">
+        <p class="heading__desc">{{ trip.description }}</p>
+      </div>
+      <!-- /.col-lg-5 -->
+      <div class="col-sm-12 col-md-12 col-lg-6">
+        <img src="{{ trip.photos[0] }}" onerror="this.onerror=null;this.src='assets/images/images/fall/fall1.jpg';" />
+      </div>
+      <!-- /.col-lg-6 -->
+    </div>
+    <!-- /.row -->
+  </div>
+</section>
+<!-- /.Services -->
+
+<!--======-->
+
+<div id="trip-to-do" class="trip-to-do pb-90">
+  <div class="container">
+    <div class="trip-body">
+      <div class="col-md-5 row">
+        <!-- <div class="row"> -->
+        <div class="col-md-12">
+          <h2 class="heading__title">trip itinerary</h2>
+        </div>
+        <!-- </div> -->
+        <div id="trip-content">
+          <ul *ngIf="trip?.itinerary?.length > 0" id="sortable" class="trip-timeline">
+            <li *ngFor="let item of trip.itinerary; let i = index" class="trip-event">
+              <!-- <ul class="trip-itinerary-list"> -->
+              <span class="itinerary-day__label">day {{ i + 1 }}</span>
+              <span class="itinerary-time__label"
+                >{{ item.timeFrom | date: 'shortTime' }} - {{ item.timeTo | date: 'shortTime' }}</span
+              >
+              <p class="d-block">{{ item.description }}</p>
+              <!-- <li>arrival at chilas</li>
+                <li>night stay at chilas/naran</li> -->
+              <!-- </ul> -->
+            </li>
+            <!-- <li class="trip-event" data-date="Day 2">
+              <ul class="trip-itinerary-list">
+                <li>drive to chilas/naran</li>
+                <li>arrival at chilas</li>
+                <li>night stay at chilas/naran</li>
+              </ul>
+            </li>
+            <li class="trip-event" data-date="Day 3">
+              <ul class="trip-itinerary-list">
+                <li>drive to chilas/naran</li>
+                <li>arrival at chilas</li>
+                <li>night stay at chilas/naran</li>
+              </ul>
+            </li>
+            <li class="trip-event" data-date="Day 4">
+              <ul class="trip-itinerary-list">
+                <li>drive to chilas/naran</li>
+                <li>arrival at chilas</li>
+                <li>night stay at chilas/naran</li>
+              </ul>
+            </li> -->
+          </ul>
+          <h6 *ngIf="trip?.itinerary?.length == 0" class="text-muted text-center ml-2">No items to show!</h6>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="heading__title">facilities</h2>
+          </div>
+        </div>
+        <div class="facilities-list">
+          <h6>activities</h6>
+          <ul class="activities-list">
+            <li *ngFor="let item of trip.activities">{{ item.name }}</li>
+            <!-- <li>romantic getaways</li> -->
+          </ul>
+          <h6>categories</h6>
+          <ul class="activities-list">
+            <li *ngFor="let item of trip.categories">{{ item.name }}</li>
+          </ul>
+          <h6>services</h6>
+          <ul class="activities-list">
+            <li *ngFor="let item of trip.facilities">{{ item.name }}</li>
+          </ul>
+          <h6>Locations included:</h6>
+          <ul class="activities-list">
+            <li *ngFor="let item of trip.Locations">{{ item.name }}</li>
+          </ul>
+          <h6>cancellation policy</h6>
+          <ul class="cancellation-policy">
+            <p>
+              {{ trip.cancellationPolicy }}
+            </p>
+          </ul>
+          <!-- <a href="#" class="btn btn__primary btn__hover2 mr-30"><i class="fa fa-plus"></i>add to plan</a>
+          <a href="#" class="btn btn__primary btn__white"><i class="fa fa-heart"></i>add to wishlist</a> -->
+
+          <!-- <a
+            *ngIf="!isInPlan()"
+            (click)="addToPlan()"
+            style="cursor: pointer !important"
+            class="btn btn__primary btn__hover2 mr-30"
+            ><i class="fa fa-plus"></i>add to plan</a
+          >
+
+          <a
+            *ngIf="isInPlan()"
+            (click)="removeFromPlan()"
+            class="btn btn__primary btn__hover2 mr-30"
+            style="width: 180px !important; background-color: #ff5959 !important; border-color: #ff5959 !important"
+            ><i class="fa fa-minus"></i>remove from plan</a
+          > -->
+
+          <a class="btn btn__primary btn__hover2 mr-30" (click)="openBookingForm()"
+            ><i class="fa fa-calendar"></i>Book now</a
+          >
+
+          <a *ngIf="!isInWishlist()" (click)="addToWishlist()" class="btn btn__white" style="cursor: pointer !important"
+            ><i class="fa fa-heart"></i>add to wishlist</a
+          >
+          <a
+            *ngIf="isInWishlist()"
+            (click)="removeFromWishlist()"
+            class="btn btn__white"
+            style="width: 180px !important; background-color: #ff5959 !important; border-color: #ff5959 !important"
+            ><i class="fa fa-heart"></i>remove from wishlist</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-vendor-section></app-vendor-section>
+
+<ngx-smart-modal #feedbackModal identifier="bookingModal" escapable="true">
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 p-5">
+      <div [formGroup]="bookingForm" class="visa-availabilty__popup p-5">
+        <h6 class="mb-3 text-left popup__heading text-center">Create Booking</h6>
+        <hr />
+
+        <div class="row mt-5">
+          <!-- <div class="row"> -->
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+            <label class="image-replace cd-email">full name</label>
+            <input
+              class="full-width has-padding has-border form-control plan__name"
+              type="text"
+              [placeholder]="'name'"
+              formControlName="fullName"
+            />
+            <small
+              [hidden]="bookingForm.controls.fullName.valid || bookingForm.controls.fullName.untouched"
+              class="text-danger"
+              translate
+            >
+              Feild is required
+            </small>
+          </div>
+
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+            <label class="image-replace cd-email">email</label>
+            <input
+              class="full-width has-padding has-border form-control plan__name"
+              type="text"
+              [placeholder]="'email'"
+              formControlName="email"
+            />
+            <small
+              [hidden]="bookingForm.controls.email.valid || bookingForm.controls.email.untouched"
+              class="text-danger"
+              translate
+            >
+              Feild is required
+            </small>
+          </div>
+
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+            <label class="image-replace cd-email">phone no.</label>
+            <input
+              class="full-width has-padding has-border form-control plan__name"
+              type="text"
+              [placeholder]="'phone no.'"
+              formControlName="mobile"
+            />
+            <small
+              [hidden]="bookingForm.controls.mobile.valid || bookingForm.controls.mobile.untouched"
+              class="text-danger"
+              translate
+            >
+              Feild is required
+            </small>
+          </div>
+
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+            <label class="image-replace cd-email">cnic</label>
+            <input
+              class="full-width has-padding has-border form-control plan__name"
+              type="text"
+              [placeholder]="'C.N.I.C'"
+              formControlName="idCard"
+            />
+            <small
+              [hidden]="bookingForm.controls.idCard.valid || bookingForm.controls.idCard.untouched"
+              class="text-danger"
+              translate
+            >
+              Feild is required
+            </small>
+          </div>
+          <!-- </div> -->
+
+          <div class="col-sm-12 col-md-6 col-lg-6 mt-4">
+            <div class="form-group">
+              <label>adults</label>
+              <div class="booking-count">
+                <button
+                  class="minus"
+                  [disabled]="bookingForm.get('noOfAdults').value == 1"
+                  (click)="bookingForm.get('noOfAdults').patchValue(bookingForm.get('noOfAdults').value - 1)"
+                >
+                  -
+                </button>
+                <input type="text" value="{{ bookingForm.get('noOfAdults').value }}" />
+                <button
+                  class="plus"
+                  (click)="bookingForm.get('noOfAdults').patchValue(bookingForm.get('noOfAdults').value + 1)"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6 col-lg-6 mt-4">
+            <div class="form-group">
+              <label>children</label>
+              <div class="booking-count">
+                <button
+                  class="minus"
+                  [disabled]="bookingForm.get('noOfChildren').value < 1"
+                  (click)="bookingForm.get('noOfChildren').patchValue(bookingForm.get('noOfChildren').value - 1)"
+                >
+                  -
+                </button>
+                <input type="text" value="{{ bookingForm.get('noOfChildren').value }}" />
+                <button
+                  class="plus"
+                  (click)="bookingForm.get('noOfChildren').patchValue(bookingForm.get('noOfChildren').value + 1)"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4 text-center">
+            <button
+              type="button"
+              id="trainButton"
+              class="btn btn__primary submit__button"
+              [disabled]="bookingForm.invalid"
+              (click)="createBooking()"
+            >
+              save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ngx-smart-modal>

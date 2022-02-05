@@ -1,0 +1,536 @@
+<!-- =========================
+      Header
+  =========================== -->
+<header id="header" class="header header-transparent">
+  <nav
+    class="navbar navbar-expand-lg sticky-navbar"
+    [ngClass]="{ 'fixed-navbar': addClassFixedNav, '': !addClassFixedNav }"
+  >
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="['/']">
+        <img src="assets/images/logo/logo.png" class="logo-light" alt="logo" />
+        <img src="assets/images/logo/logo.png" class="logo-dark" alt="logo" />
+      </a>
+      <button class="navbar-toggler" type="button" (click)="toggleSidebar()" [ngClass]="{ actived: show }">
+        <span class="menu-lines"><span></span></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavigation" [ngClass]="{ 'menu-opened': show }">
+        <ul class="navbar-nav ml-auto">
+          <li *ngIf="isLoggedIn" class="nav__item with-dropdown visible-xs">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle nav__item-link">
+              <i class="fa fa-user" style="padding-right: 5px"></i>{{ userName | titlecase }}
+            </a>
+          </li>
+          <li class="nav__item with-dropdown">
+            <a
+              [routerLink]="['/']"
+              [translate]="'HEADERITEM1'"
+              [ngClass]="{ active: router.url === '/' }"
+              class="dropdown-toggle nav__item-link"
+              >Home</a
+            >
+            <!--href="/" active-->
+          </li>
+          <!-- /.nav-item -->
+          <li class="nav__item with-dropdown">
+            <!--  [routerLink]="['/where-to-go']" -->
+            <a
+              [routerLink]="['/where-to-go']"
+              [ngClass]="{ active: router.url.includes('where-to-go') }"
+              class="dropdown-toggle nav__item-link"
+              [translate]="'HEADERITEM2'"
+              >Where to Go</a
+            >
+            <i class="fa fa-angle-right" data-toggle="dropdown"></i>
+            <ul class="dropdown-menu">
+              <li class="nav__item" *ngFor="let province of provinces">
+                <a
+                  class="nav__item-link"
+                  (click)="navigate('/where-to-go/locations', province.slug)"
+                  style="cursor: pointer"
+                  >{{ province.name }}</a
+                >
+              </li>
+              <!-- /.nav-item -->
+            </ul>
+            <!-- /.dropdown-menu -->
+          </li>
+          <!-- /.nav-item -->
+          <!-- /.nav-item -->
+          <li class="nav__item with-dropdown">
+            <!-- [routerLink]="['/what-to-do']" -->
+            <a
+              [routerLink]="['/what-to-do']"
+              [ngClass]="{ active: router.url.includes('what-to-do') }"
+              class="dropdown-toggle nav__item-link"
+              [translate]="'HEADERITEM3'"
+              >What to Do</a
+            >
+          </li>
+          <!-- /.nav-item -->
+          <!-- <li class="nav__item with-dropdown">
+            <a
+              [routerLink]="['/accomodation']"
+              [ngClass]="{ active: router.url.includes('accomodation') }"
+              class="dropdown-toggle nav__item-link"
+              [translate]="'HEADERITEM4'"
+              >Accommodation</a
+            >
+          </li> -->
+          <!-- /.nav-item -->
+          <li class="nav__item with-dropdown">
+            <!-- [routerLink]="['/planning']" -->
+            <a
+              [routerLink]="['/planning/listing']"
+              [ngClass]="{ active: router.url.includes('planning') }"
+              class="dropdown-toggle nav__item-link"
+              [translate]="'HEADERITEM5'"
+              >Trip Plan</a
+            >
+            <i class="fa fa-angle-right" data-toggle="dropdown"></i>
+            <ul class="dropdown-menu">
+              <li class="nav__item"><a [routerLink]="['/planning/tips']" class="nav__item-link">tips </a></li>
+              <li class="nav__item">
+                <a [routerLink]="['/planning/getting-here']" class="nav__item-link">getting here </a>
+              </li>
+              <li class="nav__item">
+                <a [routerLink]="['/planning/getting-around']" class="nav__item-link">getting around</a>
+              </li>
+              <li class="nav__item">
+                <a [routerLink]="['/planning/covid']" class="nav__item-link">covid restriction</a>
+              </li>
+              <li class="nav__item">
+                <a [routerLink]="['/planning/visa']" class="nav__item-link">mountaineering visa</a>
+              </li>
+              <li class="nav__item"><a [routerLink]="['/planning/travel']" class="nav__item-link">travel guide</a></li>
+              <li class="nav__item"><a [routerLink]="['/planning/tic']" class="nav__item-link">tic</a></li>
+            </ul>
+          </li>
+          <li class="nav__item with-dropdown">
+            <a
+              href="{{ blogUrl }}"
+              target="_blank"
+              [ngClass]="{ active: router.url.includes('blog') }"
+              class="dropdown-toggle nav__item-link"
+              [translate]="'HEADERITEM8'"
+            >
+              blogs</a
+            >
+          </li>
+          <!-- [routerLink]="['/map']" -->
+          <li class="nav__item with-dropdown">
+            <a
+              [routerLink]="['/map']"
+              [ngClass]="{ active: router.url.includes('map') }"
+              class="dropdown-toggle nav__item-link"
+              [translate]="'HEADERITEM6'"
+              >map</a
+            >
+          </li>
+
+          <!-- [routerLink]="['/map']" -->
+          <li class="nav__item with-dropdown">
+            <a (click)="scrollToBookings()" class="dropdown-toggle nav__item-link pointer" [translate]="'HEADERITEM6'"
+              >bookings</a
+            >
+          </li>
+
+          <!-- /.nav-item -->
+          <!-- /.nav-item -->
+          <li *ngIf="isLoggedIn" class="nav__item with-dropdown visible-xs">
+            <a [routerLink]="['/profile']" data-toggle="dropdown" class="dropdown-toggle nav__item-link">Profile</a>
+          </li>
+          <!-- <li *ngIf="isLoggedIn" class="nav__item with-dropdown visible-xs">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle nav__item-link">Bookings</a>
+          </li> -->
+          <li *ngIf="isLoggedIn" class="nav__item with-dropdown visible-xs">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle nav__item-link">Logout</a>
+          </li>
+        </ul>
+        <!-- /.navbar-nav -->
+      </div>
+      <!-- /.navbar-collapse -->
+
+      <!-- /.navbar-modules -->
+      <div class="navbar-modules">
+        <ul class="modules__wrapper d-flex align-items-center list-unstyled">
+          <li>
+            <div id="google_translate_element"></div>
+            <!-- <div class="dropdown">
+              <button class="module__btn dropdown-toggle" id="langDrobdown" data-toggle="dropdown">
+                <span [translate]="'HEADERITEM7'"></span>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="langDrobdown">
+                <a class="dropdown-item" (click)="switchLanguage('en')">
+                  <span>En</span>
+                </a>
+                <a class="dropdown-item" (click)="switchLanguage('de')">
+                  <span>German</span>
+                </a>
+                <a class="dropdown-item" (click)="switchLanguage('ur')">
+                  <span>Urdu</span>
+                </a>
+              </div>
+            </div> -->
+          </li>
+          <li>
+            <button class="module__btn module__btn-search" (click)="changeMessage()">
+              <i class="fa fa-search"></i>
+            </button>
+          </li>
+          <li class="main-nav">
+            <!-- options for login as vendor and user here -->
+            <div *ngIf="!isLoggedIn" class="dropdown">
+              <a
+                class="dropdown-toggle btn-user__dropdown"
+                style="width: fit-content"
+                type="button"
+                data-toggle="dropdown"
+              >
+                <i class="fa fa-user"></i>
+              </a>
+              <ul class="dropdown-menu align-profile__menu" style="font-size: 15px">
+                <li><a href="http://admin.salampakistan.gov.pk" target="_blank">login as vendor</a></li>
+                <hr />
+                <!-- <li><a href="#">Bookings</a></li> -->
+                <li>
+                  <a (click)="openAuthModal(); isLoginModal = true">login as user</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li *ngIf="isLoggedIn" class="hidden-xs">
+            <div *ngIf="isLoggedIn" class="dropdown">
+              <a
+                class="dropdown-toggle btn-user__dropdown"
+                style="width: fit-content"
+                type="button"
+                data-toggle="dropdown"
+              >
+                <i class="fa fa-user"></i> {{ userName | titlecase }}
+              </a>
+              <ul class="dropdown-menu align-profile__menu" style="font-size: 15px">
+                <li><a [routerLink]="['/user/profile']">Profile</a></li>
+                <hr />
+                <li><a [routerLink]="['/planning/listing']">Plan Your Trip</a></li>
+                <hr />
+                <!-- <li><a href="#">Bookings</a></li> -->
+                <li><a [routerLink]="['/user/itinerary']">Travel Itinerary</a></li>
+                <hr />
+                <li><a [routerLink]="['/user/wishlist']">Wishlist</a></li>
+                <hr />
+                <!-- <li (click)="scrollToBookings()"><a>Bookings</a></li>
+                <hr /> -->
+                <li><a [routerLink]="['/user/reviews']">Review & Feedback</a></li>
+                <hr />
+                <li><a [routerLink]="['/user/my-bookings']">My Bookings</a></li>
+                <hr />
+                <li><a [routerLink]="['/user/change-password']">change password</a></li>
+                <hr />
+                <li><a (click)="logout()">Logout</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        <!-- /.modules-wrapper -->
+      </div>
+      <!-- /.navbar-modules -->
+    </div>
+    <!-- /.container -->
+  </nav>
+  <!-- /.navabr -->
+</header>
+<!-- /.Header -->
+
+<ngx-smart-modal
+  #myModal
+  identifier="myModal"
+  escapable="true"
+  customClass="nsm-dialog-animation-fade nsm-centered nsm-dialogue"
+>
+  <!-- POP UP-->
+  <div class="auth__modal">
+    <!-- this is the entire modal form, including the background -->
+
+    <div class="cd-user-modal-container">
+      <div class="col-md-6 col-sm-6 login-left p-0">
+        <img src="assets/images/home/login.webp" onerror="this.onerror=null; this.src='assets/images/home/login.png'" />
+      </div>
+      <!-- this is the container wrapper -->
+      <div class="col-md-6 col-sm-6 login-right">
+        <!-- this is the container wrapper -->
+        <ul class="cd-switcher">
+          <li>
+            <a (click)="openModal('signIn')" class="auth__modal-heading" [ngClass]="{ selected: isLoginModal }"
+              >Sign in</a
+            >
+          </li>
+          <li>
+            <a (click)="openModal('signUp')" class="auth__modal-heading" [ngClass]="{ selected: isSignupModal }"
+              >New account</a
+            >
+          </li>
+        </ul>
+
+        <div *ngIf="isLoginModal">
+          <!-- log in form -->
+          <form [formGroup]="loginForm" novalidate class="cd-form">
+            <p class="fieldset mb-0">
+              <label class="image-replace cd-email">Enter your Email</label>
+              <input
+                class="full-width has-padding has-border"
+                type="email"
+                [placeholder]="'Email ' | translate"
+                formControlName="email"
+                autocomplete="email"
+              />
+              <!-- <span class="cd-error-message">Error message here!</span> -->
+            </p>
+            <small
+              [hidden]="loginForm.controls.email.valid || loginForm.controls.email.untouched"
+              class="text-danger"
+              translate
+            >
+              Email is required
+            </small>
+            <!-- <small
+          [hidden]="loginForm.controls.email.valid || loginForm.controls.email.untouched"
+          class="text-danger"
+          translate
+        >
+          Enter Valid Email
+        </small> -->
+
+            <p class="fieldset mb-0">
+              <label class="image-replace cd-password">Enter your Password</label>
+              <input
+                type="password"
+                class="full-width has-padding has-border"
+                placeholder="Password"
+                formControlName="password"
+              />
+            </p>
+            <small
+              [hidden]="loginForm.controls.password.valid || loginForm.controls.password.untouched"
+              class="text-danger"
+              translate
+            >
+              Password is required
+            </small>
+
+            <div class="auth-remember-me">
+              <!-- <input type="checkbox" id="remember-me">
+              <label for="remember-me">Remember me</label> -->
+            </div>
+
+            <p class="fieldset width50">
+              <!-- <p class="cd-form-bottom-message"> -->
+              <a (click)="openModal('resetPassword')" class="cd-form-bottom-message forget-pwd">
+                Forgot your password?
+              </a>
+              <!-- </p> -->
+            </p>
+
+            <p class="fieldset">
+              <button
+                [disabled]="!loginForm.valid"
+                class="btn btn__primary full-width"
+                style="width: 100%"
+                type="submit"
+                (click)="login()"
+              >
+                Login
+              </button>
+            </p>
+          </form>
+
+          <div class="socail-login">
+            <p>Or</p>
+            <p class="fieldset">
+              <a href="#" (click)="signInWithFB()" class="facebook"><i class="fa fa-facebook"></i>Facebook</a>
+            </p>
+            <p class="fieldset">
+              <button (click)="signInWithGoogle()" class="gmail"><i class="fa fa-google"></i>Gmail</button>
+            </p>
+          </div>
+
+          <!-- <a href="#0" class="cd-close-form">Close</a> -->
+        </div>
+        <!-- cd-login -->
+
+        <div *ngIf="isSignupModal">
+          <!-- sign up form -->
+          <form [formGroup]="signupForm" class="cd-form" style="overflow-y: scroll; height: 560px">
+            <p class="fieldset mb-0">
+              <label class="image-replace cd-password" for="signup-password">First Name</label>
+              <input
+                class="full-width has-padding has-border"
+                id="signup-username"
+                type="text"
+                formControlName="firstName"
+                placeholder="First Name"
+              />
+            </p>
+            <small
+              [hidden]="signupForm.controls.firstName.valid || signupForm.controls.firstName.untouched"
+              class="text-danger"
+              translate
+            >
+              First Name is required
+            </small>
+            <p class="fieldset mb-0">
+              <label class="image-replace cd-password" for="signup-password">Last Name</label>
+              <input
+                class="full-width has-padding has-border"
+                id="signup-username"
+                type="text"
+                formControlName="lastName"
+                placeholder="Last Name"
+              />
+            </p>
+            <small
+              [hidden]="signupForm.controls.lastName.valid || signupForm.controls.lastName.untouched"
+              class="text-danger"
+              translate
+            >
+              Last Name is required
+            </small>
+            <p class="fieldset mb-0">
+              <label class="image-replace cd-password" for="signup-password">Mobile</label>
+              <input
+                class="full-width has-padding has-border"
+                id="signup-username"
+                type="text"
+                formControlName="mobile"
+                placeholder="Mobile Number"
+              />
+            </p>
+
+            <small
+              [hidden]="signupForm.controls.mobile.valid || signupForm.controls.mobile.untouched"
+              class="text-danger"
+              translate
+            >
+              Mobile Number is required
+            </small>
+            <p class="fieldset mb-0">
+              <label class="image-replace cd-username" for="signup-username">Email</label>
+              <input
+                class="full-width has-padding has-border"
+                id="signup-username"
+                type="email"
+                formControlName="email"
+                placeholder="Email"
+              />
+            </p>
+            <small
+              [hidden]="signupForm.controls.email.valid || signupForm.controls.email.untouched"
+              class="text-danger"
+              translate
+            >
+              Email is required
+            </small>
+            <p class="fieldset">
+              <!-- <label class="image-replace cd-password" for="signup-password">Gender</label> -->
+              <!-- <input class="full-width has-padding has-border" id="signup-username" type="radio">\ -->
+              <input type="radio" formControlName="gender" value="male" /> Male
+              <input type="radio" formControlName="gender" value="female" /> Female
+            </p>
+
+            <p class="fieldset mb-0">
+              <label class="image-replace cd-password" for="signup-password">Password</label>
+              <input
+                class="full-width has-padding has-border"
+                id="signup-password"
+                type="password"
+                formControlName="password"
+                placeholder="Password"
+              />
+            </p>
+            <small
+              [hidden]="signupForm.controls.password.valid || signupForm.controls.password.untouched"
+              class="text-danger"
+              translate
+            >
+              Password is required
+            </small>
+            <p class="fieldset mb-0">
+              <label class="image-replace cd-password" for="signup-password">Confirm Password</label>
+              <input
+                class="full-width has-padding has-border"
+                id="signup-password"
+                type="password"
+                formControlName="confirmPassword"
+                placeholder="Confirm Password"
+              />
+            </p>
+            <small
+              [hidden]="signupForm.controls.confirmPassword.valid || signupForm.controls.confirmPassword.untouched"
+              class="text-danger"
+              translate
+            >
+              Confirm Password is required
+            </small>
+            <p class="fieldset mb-0">
+              <label class="image-replace cd-username">DOB</label>
+              <input class="full-width has-padding has-border" formControlName="dob" type="date" />
+            </p>
+            <small
+              [hidden]="signupForm.controls.dob.valid || signupForm.controls.dob.untouched"
+              class="text-danger"
+              translate
+            >
+              DOB is required
+            </small>
+            <!-- <p class="fieldset">
+              <input type="checkbox" id="accept-terms" formControlName="terms" />
+              <label for="accept-terms">I agree to the <a>Terms</a></label>
+            </p> -->
+
+            <p class="fieldset">
+              <button
+                [disabled]="!signupForm.valid"
+                class="btn btn__primary full-width has-padding"
+                style="width: 100%"
+                type="submit"
+                (click)="signUp()"
+              >
+                Create account
+              </button>
+            </p>
+          </form>
+
+          <!-- <a href="#0" class="cd-close-form">Close</a> -->
+        </div>
+        <!-- cd-signup -->
+
+        <div *ngIf="isResetPasswordModal">
+          <!-- reset password form -->
+          <p class="cd-form-message">
+            Lost your password? Please enter your email address. You will receive a link to create a new password.
+          </p>
+
+          <form class="cd-form">
+            <p class="fieldset">
+              <label class="image-replace cd-email" for="reset-email">E-mail</label>
+              <input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail" />
+              <span class="cd-error-message">Error message here!</span>
+            </p>
+
+            <p class="fieldset">
+              <input class="full-width has-padding" type="submit" value="Reset password" />
+            </p>
+          </form>
+
+          <p class="cd-form-bottom-message"><a href="#0">Back to log-in</a></p>
+        </div>
+        <!-- cd-reset-password -->
+        <a href="#0" class="cd-close-form">Close</a>
+      </div>
+      <!-- cd-user-modal-container -->
+    </div>
+    <!-- cd-user-modal-container -->
+  </div>
+  <!-- cd-user-modal -->
+  <!-- POP UP-->
+</ngx-smart-modal>

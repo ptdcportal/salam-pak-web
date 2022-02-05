@@ -1,0 +1,35 @@
+img {
+  // width: -webkit-fill-available;
+  min-height: 200px;
+  object-fit: cover;
+}
+
+.trip-detail-bottom {
+  min-height: 50px;
+}
+
+.notInWishlist:hover {
+  background-color: rgb(140, 198, 62);
+}
+
+.inWishlist:hover {
+  background-color: red;
+}
+
+@media (max-width: 500px) {
+  .booking-home {
+    margin-top: -75px;
+  }
+  ::-webkit-scrollbar {
+    width: 12px !important;
+    height: 5px !important;
+  }
+}
+
+.currency__name {
+  text-transform: uppercase !important;
+}
+
+.person__text {
+  font-size: 12px !important;
+}

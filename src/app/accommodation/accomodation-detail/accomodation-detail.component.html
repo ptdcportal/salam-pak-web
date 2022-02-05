@@ -1,0 +1,520 @@
+<!-- ============================
+        Slider
+    ============================== -->
+<section id="page-title" class="page-title-layout4 text-center bg-overlay slider">
+  <div class="bg-img">
+    <img
+      class="header-image"
+      [src]="roomDetail?.photos[0]"
+      onerror="this.onerror=null;this.src='assets/images/backgrounds/accommodation.png';"
+      alt="background"
+    />
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-8 page">
+        <div class="slide__content">
+          <h2 class="slide__title">{{ roomDetail.hotelName }}</h2>
+          <p class="slide__desc">
+            <i *ngIf="roomDetail.addressInfo" class="fa fa-map-marker" aria-hidden="true"></i>
+            {{ roomDetail.addressInfo }}
+          </p>
+
+          <!-- <a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook-f"></i></a>
+              <a href="https://www.twitter.com" target="_blank"><i class="fa fa-twitter"></i></a>
+              <a href="https://www.google.com" target="_blank"><i class="fa fa-google"></i></a> -->
+
+          <div class="details-review">
+            <span class="stars align-listing">
+              <span [ngStyle]="{ width: getRatingStars(roomDetail?.ratingAverage || 0) }"></span>
+            </span>
+
+            <span class="stars2" style="display: inline-table">
+              <span [ngStyle]="{ width: getRatingStars(5.0) }"></span>
+            </span>
+            <span class="font-regular"> ({{ roomDetail.reviews ? roomDetail.reviews : 0 }}) reviews</span>
+
+            <share-buttons
+              [theme]="'material-dark'"
+              [include]="['facebook', 'twitter', 'linkedin']"
+              [show]="9"
+              [size]="1"
+              [url]="redirectUrl"
+              [image]="'https://www.eduforbetterment.com/wp-content/uploads/2020/08/qrcode.jpg'"
+              [autoSetMeta]="false"
+            >
+            </share-buttons>
+          </div>
+          <!-- <a class="btn btn__primary btn__hover2 mr-30" (click)="openBookingForm()"
+                ><i class="fa fa-calendar"></i>Book a room</a
+              > -->
+          <a *ngIf="!isInWishlist()" (click)="addToWishlist()" style="cursor: pointer !important" class="btn btn__white"
+            ><i class="fa fa-heart"></i>add to wishlist</a
+          >
+
+          <a
+            *ngIf="isInWishlist()"
+            (click)="removeFromWishlist()"
+            class="btn btn__white"
+            style="width: 180px !important; background-color: #ff5959 !important; border-color: #ff5959 !important"
+            ><i class="fa fa-heart"></i>remove from wishlist</a
+          >
+        </div>
+        <!-- /.slide-content -->
+      </div>
+      <!-- /.col-lg-8 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.page-title -->
+
+<!-- ========================
+              Services
+          =========================== -->
+<section id="services" class="services pb-90 pt-5">
+  <div class="container">
+    <div class="row heading heading-2 mb-40">
+      <div class="col-sm-12 col-md-12 col-lg-6">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a>Home </a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a>luxury hotels</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ roomDetail.hotelName }}</li>
+          </ol>
+        </nav>
+      </div>
+
+      <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3 text-center mt-4">
+        <p class="heading__desc font-weight-bold">
+          {{ roomDetail?.description }}
+          <!-- your everyday hotels that’ll welcome you with a smile, keep you happy, and give you a place to rest after your adventures. -->
+        </p>
+      </div>
+      <!-- /.col-lg-5 -->
+      <!-- <div class="col-sm-12 col-md-12 col-lg-6">
+            <img [src]="roomDetail?.photos[0]" />
+          </div> -->
+      <!-- /.col-lg-6 -->
+    </div>
+    <!-- /.row -->
+  </div>
+</section>
+<!-- /.Services -->
+
+<div class="col-md-12 room-detail">
+  <div *ngFor="let room of roomDetail?.rooms" class="container p-5">
+    <div class="col-md-4">
+      <img src="assets/images/hotel/1.png" />
+    </div>
+    <div class="col-md-8 room-package">
+      <h3 class="room-type-h3">{{ room?.RoomName }}</h3>
+      <p class="room-left-num">Only {{ room?.NoOfRoomsAvailable }} Rooms Left</p>
+
+      <!-- <header>
+            <div id="room-package-tabs0">
+              <ul>
+                <li class="pointer">
+                  <a id="tab1-tab" rel="#3days" (click)="changeTab(3)">3 days trip</a>
+                </li>
+                <li class="pointer">
+                  <a id="tab2-tab" rel="#5days" (click)="changeTab(5)">5 days trip</a>
+                </li>
+                <li class="pointer">
+                  <a id="tab3-tab" rel="#10days" (click)="changeTab(10)">10 days trip</a>
+                </li>
+                <li class="pointer">
+                  <a id="tab4-tab" rel="#15days" (click)="changeTab(15)">15 days trip</a>
+                </li>
+              </ul>
+            </div>
+          </header> -->
+      <div class="tab-content">
+        <div id="tab10">
+          <div class="room-details-tab-content">
+            <div class="masonry-container">
+              <div class="col-md-6 p-0">
+                <p class="room-left-num">Refundable: <strong>Non Refundable</strong></p>
+                <p class="room-left-num">
+                  Max Guests <strong>{{ room?.MaxPerson }}</strong>
+                </p>
+                <p class="room-left-num">Available Rooms: <strong></strong>{{ room?.NoOfRoomsAvailable }}</p>
+              </div>
+              <div class="col-md-4">
+                <h4 class="room-rate-h4">PKR {{ room.Rate | number }}</h4>
+                <p class="room-left-num">1 Room - 2 Night</p>
+              </div>
+              <!-- <div class="col-md-2 room-detail-select">
+                    <label>Select room</label>
+                    <select>
+                      <option>1</option>
+                      <option>1</option>
+                      <option>1</option>
+                    </select>
+                  </div> -->
+              <div class="col-md-12 p-0 room-detail-btn-div">
+                <a target="_blank" class="list-hotal-btn">Manage Booking</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn__secondary float-md-right mt-10 mb-20" (click)="openBookingForm(room)">Book now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--======-->
+<div class="container-fluid seasons">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <span class="heading__subtitle">{{ roomDetail.hotelName }}</span>
+        <h2 class="heading__title">Images</h2>
+      </div>
+      <div class="col-md-4 show-all-btn">
+        <!-- <a href="#">show all<i class="icon-arrow-right"></i></a> -->
+      </div>
+    </div>
+    <div class="masonry-wrapper masonry-style-2">
+      <div class="masonry-container" data-column-width=".col-md-4">
+        <div *ngIf="roomDetail.photos[0]" class="masonry-item col-md-8 col-sm-6 col-xs-12 web">
+          <div class="masonry-image-item item-h-4 hover-zoom">
+            <a class="ajax-link">
+              <div
+                class="item-image bg-image-holder pointer"
+                style="background-image: url('roomDetail.photos[0]'); background-size: cover"
+                (click)="showCarousel(0)"
+              >
+                <img class="gallery-img" src="{{ roomDetail.photos[0] }}" alt="" />
+              </div>
+              <div class="item-overlay overlay-alt"></div>
+            </a>
+          </div>
+        </div>
+        <div *ngIf="roomDetail.photos[1]" class="masonry-item col-md-4 col-sm-6 col-xs-12 web">
+          <div class="masonry-image-item item-h-4 hover-zoom">
+            <a class="ajax-link">
+              <div
+                class="item-image bg-image-holder pointer"
+                style="background-image: url('roomDetail.photos[1]'); background-size: cover"
+                (click)="showCarousel(1)"
+              >
+                <img class="gallery-img" src="{{ roomDetail.photos[1] }}" alt="" />
+              </div>
+              <div class="item-overlay overlay-alt"></div>
+            </a>
+          </div>
+        </div>
+        <div *ngIf="roomDetail?.photos[2]" class="masonry-item col-md-4 col-sm-6 col-xs-12 web pt-30">
+          <div class="masonry-image-item item-h-4 hover-zoom">
+            <a class="ajax-link">
+              <div
+                class="item-image bg-image-holder pointer"
+                style="background-image: url('roomDetail.photos[2]'); background-size: cover"
+                (click)="showCarousel(2)"
+              >
+                <img class="gallery-img" src="{{ roomDetail?.photos[2] }}" alt="" />
+              </div>
+              <div class="item-overlay overlay-alt"></div>
+            </a>
+          </div>
+        </div>
+        <div *ngIf="roomDetail?.photos[3]" class="masonry-item col-md-4 col-sm-6 col-xs-12 web pt-30">
+          <div class="masonry-image-item item-h-4 hover-zoom">
+            <a class="ajax-link">
+              <div
+                class="item-image bg-image-holder pointer"
+                style="background-image: url('roomDetail.photos[3]'); background-size: cover"
+                (click)="showCarousel(3)"
+              >
+                <img class="gallery-img" src="{{ roomDetail.photos[3] }}" alt="" />
+              </div>
+              <div class="item-overlay overlay-alt"></div>
+            </a>
+          </div>
+        </div>
+        <div *ngIf="roomDetail.photos[4]" class="masonry-item col-md-4 col-sm-6 col-xs-12 web pt-30">
+          <div class="masonry-image-item item-h-4 hover-zoom">
+            <a class="ajax-link">
+              <div
+                class="item-image bg-image-holder pointer"
+                style="background-image: url('roomDetail.photos[4]'); background-size: cover"
+                (click)="showCarousel(4)"
+              >
+                <img class="gallery-img" src="{{ roomDetail.photos[4] }}" alt="" />
+              </div>
+              <div class="item-overlay overlay-alt"></div>
+            </a>
+          </div>
+        </div>
+        <div *ngIf="roomDetail.photos[5]" class="masonry-item col-md-4 col-sm-6 col-xs-12 web pt-30">
+          <div class="masonry-image-item item-h-4 hover-zoom">
+            <a class="ajax-link">
+              <div
+                class="item-image bg-image-holder pointer"
+                style="background-image: url('roomDetail.photos[5]'); background-size: cover"
+                (click)="showCarousel(5)"
+              >
+                <img class="gallery-img" src="roomDetail.photos[5]" alt="" />
+              </div>
+              <div class="item-overlay overlay-alt"></div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- .masonry-container end -->
+    </div>
+  </div>
+</div>
+
+<!-- ======================
+                 places Carousel
+            ========================= -->
+<section id="placeCarousel" class="place-carousel">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <span class="heading__subtitle">{{ roomDetail.hotelName }}</span>
+        <h2 class="heading__title">Amenities</h2>
+      </div>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <!-- <div class="col-sm-12 col-md-12 col-lg-12 p-0"> -->
+        <div class="widget-content1">
+          <ul class="amenities-list hlp">
+            <li *ngFor="let amanity of roomDetail.hotelAmenities" [ngClass]="{ 'd-none': !amanity }">
+              <a class="pointer"><img src="assets/images/hotelicons/bus.svg" />{{ amanity }}</a>
+            </li>
+          </ul>
+        </div>
+        <h4 *ngIf="!roomDetail.hotelAmenities[0]" class="text-center text-muted">No amanities!</h4>
+        <!-- /.widget-content -->
+        <!-- </div> -->
+        <!-- /.col-lg-4 -->
+        <div class="col-sm-12 col-md-12 col-lg-9 pl-80">
+          <div id="whattodo-map"></div>
+        </div>
+      </div>
+      <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.posts-carousel -->
+
+<!-- ======================
+                 Places Feedback
+            ========================= -->
+
+<!-- ======================
+                 places Carousel
+            ========================= -->
+<section id="placeCarousel" class="place-carousel pt-0">
+  <div class="pl-20">
+    <div class="row">
+      <h2 class="heading__title">other accomodations near {{ roomDetail?.hotelName }}</h2>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+          <div ngxSlickItem *ngFor="let accomodation of hotels" class="places-item pr-15">
+            <div class="item-actions">
+              <!-- <a href="#"><i class="fa fa-heart fa-lg"></i></a> -->
+            </div>
+            <a [routerLink]="['/accomodation/category/', 'detail', accomodation._id]" class="ajax-link">
+              <div class="places__img places-slider">
+                <img
+                  [src]="accomodation?.thumbnail"
+                  onerror="this.onerror=null;this.src='assets/images/images/fall/fall1.jpg';"
+                  alt="post img"
+                  style="min-height: 250px"
+                />
+                <div class="item-details details-inside">
+                  <h4 class="item-title text-white">{{ accomodation?.hotelName }}</h4>
+                  <span class="stars align-listing">
+                    <span [ngStyle]="{ width: getRatingStars(location?.ratingAverage || 0) }"></span>
+                  </span>
+                  <span class="stars2" style="display: inline-table">
+                    <span [ngStyle]="{ width: getRatingStars(5.0) }"></span>
+                  </span>
+                  <span class="font-regular"> ({{ accomodation.reviews ? accomodation.reviews : 0 }}) reviews</span>
+                  <p class="place-category">{{ accomodation.addressInfo }}</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </ngx-slick-carousel>
+        <h4 *ngIf="!hotels.length" class="text-center text-muted">No Accomodations!</h4>
+      </div>
+      <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.posts-carousel -->
+
+<ngx-smart-modal #feedbackModal identifier="bookingModal" escapable="true">
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 p-5">
+      <div [formGroup]="bookingForm" class="visa-availabilty__popup p-5">
+        <h6 class="mb-3 text-left popup__heading text-center">Create Booking</h6>
+        <hr />
+
+        <div class="row mt-5">
+          <!-- <div class="row"> -->
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+            <label class="image-replace cd-email">name</label>
+            <input
+              class="full-width has-padding has-border form-control plan__name"
+              type="text"
+              [placeholder]="'name'"
+              formControlName="name"
+            />
+            <small
+              [hidden]="bookingForm.controls.name.valid || bookingForm.controls.name.untouched"
+              class="text-danger"
+              translate
+            >
+              Feild is required
+            </small>
+          </div>
+
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+            <label class="image-replace cd-email">email</label>
+            <input
+              class="full-width has-padding has-border form-control plan__name"
+              type="text"
+              [placeholder]="'email'"
+              formControlName="email"
+            />
+            <small
+              [hidden]="bookingForm.controls.email.valid || bookingForm.controls.email.untouched"
+              class="text-danger"
+              translate
+            >
+              Feild is required
+            </small>
+          </div>
+
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+            <label class="image-replace cd-email">phone no.</label>
+            <input
+              class="full-width has-padding has-border form-control plan__name"
+              type="text"
+              [placeholder]="'phone no.'"
+              formControlName="phone"
+            />
+            <small
+              [hidden]="bookingForm.controls.phone.valid || bookingForm.controls.phone.untouched"
+              class="text-danger"
+              translate
+            >
+              Feild is required
+            </small>
+          </div>
+
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+            <label class="image-replace cd-email">cnic</label>
+            <input
+              class="full-width has-padding has-border form-control plan__name"
+              type="text"
+              [placeholder]="'C.N.I.C'"
+              formControlName="cnic"
+            />
+            <small
+              [hidden]="bookingForm.controls.cnic.valid || bookingForm.controls.cnic.untouched"
+              class="text-danger"
+              translate
+            >
+              Feild is required
+            </small>
+          </div>
+          <!-- </div> -->
+
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+            <label>CheckIn Date</label>
+            <input
+              type="date"
+              id="checkIn__datePicker"
+              for
+              class="form-control create-plan__checkIn"
+              placeholder="Select Arrival"
+              formControlName="checkIn"
+              min="{{ minDateForCheckIn }}"
+            />
+          </div>
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+            <label>CheckOut Date</label>
+            <input
+              type="date"
+              id="checkOut"
+              for
+              class="form-control create-plan__checkIn"
+              placeholder="Select Arrival"
+              formControlName="checkOut"
+              min="{{ minDateForCheckOut }}"
+            />
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-12 mt-4">
+            <div class="form-group">
+              <label>No. of rooms</label>
+              <div class="booking-count">
+                <button
+                  class="minus"
+                  [disabled]="bookingForm.get('noOfRooms').value == 1"
+                  (click)="bookingForm.get('noOfRooms').patchValue(bookingForm.get('noOfRooms').value - 1)"
+                >
+                  -
+                </button>
+                <input type="text" value="{{ bookingForm.get('noOfRooms').value }}" />
+                <button
+                  class="plus"
+                  (click)="bookingForm.get('noOfRooms').patchValue(bookingForm.get('noOfRooms').value + 1)"
+                  [disabled]="bookingForm.get('noOfRooms').value == selectedRoom?.NoOfRoomsAvailable"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4 text-center">
+            <button
+              type="button"
+              id="trainButton"
+              class="btn btn__primary submit__button"
+              [disabled]="bookingForm.get('checkOut').value == ''"
+              (click)="createBooking()"
+            >
+              save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ngx-smart-modal>
+
+<ngx-smart-modal
+  #carouselModal
+  identifier="carouselModal"
+  escapable="true"
+  class="mt-5 scatter image__Slider"
+  (onClose)="hideCarousel()"
+  (onDismiss)="hideCarousel()"
+>
+  <div *ngIf="showImgs" class="imageViewer__container">
+    <carousel [isAnimated]="true">
+      <slide *ngFor="let img of localImageArray; let i = index">
+        <img src="{{ img }}" alt="first slide" style="display: block; width: 100%" />
+      </slide>
+    </carousel>
+  </div>
+</ngx-smart-modal>

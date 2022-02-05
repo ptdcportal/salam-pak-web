@@ -1,0 +1,246 @@
+<!-- ======================
+       Request Quote
+    ========================= -->
+<div class="user-account pb-90">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-3 account-sidebar p-0">
+        <aside class="sidebar mb-30">
+          <div class="widget widget-categories">
+            <h5 class="widget__title">user account</h5>
+            <app-user-sidebar></app-user-sidebar>
+            <!-- /.widget-content -->
+          </div>
+          <!-- /.widget-categories -->
+        </aside>
+        <!-- /.sidebar -->
+      </div>
+      <!-- /.col-lg-4 -->
+      <div class="col-sm-12 col-md-12 col-lg-9 pl-80">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="user-account.html">user account</a></li>
+            <li class="breadcrumb-item active" aria-current="page">profile</li>
+          </ol>
+        </nav>
+        <form [formGroup]="userProfile" class="user-account-form">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 profile-img pb-50">
+              <div class="profile-pic" id="dp" (click)="imgClick()">
+                <!-- <img class="userProfileImg" [src]="imgPath ? imgPath : '../../../assets/images/account/profile.png'"> -->
+                <!--style="background-image: url('assets/images/account/profile.png')"-->
+                <span><i class="fa fa-camera pr-1"></i>Change Image</span>
+                <!-- <span>Change Image</span> -->
+              </div>
+              <input
+                class="hidden"
+                type="file"
+                name="upload-file"
+                id="upload-file"
+                accept="image/*"
+                (change)="onSelectFile($event)"
+              />
+            </div>
+            <!-- /.col-lg-12 -->
+          </div>
+          <!-- /.row -->
+          <div class="row mb-30">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <h5 class="form__title">General information</h5>
+              <hr class="mt-0 mb-30" />
+            </div>
+            <!-- /.col-lg-12 -->
+
+            <div class="col-sm-12 col-md-4 col-lg-4">
+              <div class="form-group">
+                <label>first name</label
+                ><input formControlName="firstName" type="text" class="form-control" placeholder="First Name" />
+                <small
+                  class="text-danger"
+                  [hidden]="userProfile.controls.firstName.valid || userProfile.controls.firstName.untouched"
+                  >first name is Required</small
+                >
+              </div>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-sm-12 col-md-4 col-lg-4">
+              <div class="form-group">
+                <label>middle name</label
+                ><input formControlName="middleName" type="text" class="form-control" placeholder="middle name" />
+              </div>
+              <small
+                [hidden]="userProfile.controls.middleName.valid || userProfile.controls.middleName.untouched"
+                class="text-danger"
+                translate
+              >
+                middle name is required
+              </small>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-sm-12 col-md-4 col-lg-4">
+              <div class="form-group">
+                <label>last name</label
+                ><input formControlName="lastName" type="text" class="form-control" placeholder="last name" />
+              </div>
+              <small
+                [hidden]="userProfile.controls.lastName.valid || userProfile.controls.lastName.untouched"
+                class="text-danger"
+                translate
+              >
+                last name is required
+              </small>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-sm-12 col-md-4 col-lg-4">
+              <div class="form-group">
+                <label>contact number</label
+                ><input formControlName="mobile" type="tel" class="form-control" placeholder="Contact Number" />
+              </div>
+              <small
+                [hidden]="userProfile.controls.mobile.valid || userProfile.controls.mobile.untouched"
+                class="text-danger"
+                translate
+              >
+                phone no. is required
+              </small>
+            </div>
+            <!-- <div class="col-sm-12 col-md-4 col-lg-4">
+              <div class="form-group">
+
+                <input type="radio" formControlName="gender" value="male" /> Male
+                <input type="radio" formControlName="gender" value="female" /> Female
+              </div>
+
+            </div> -->
+
+            <div class="col-sm-12 col-md-4 col-lg-4">
+              <div class="form-group mb-0">
+                <label>CNIC</label>
+                <input
+                  [textMask]="{ mask: cnicMask, placeholderChar: '\u2000', guide: false }"
+                  formControlName="nic"
+                  type="text"
+                  class="form-control"
+                  placeholder="cnic"
+                  minlength="15"
+                />
+                <!--maxlength="13" -->
+              </div>
+              <small class="text-danger" [hidden]="userProfile.controls.nic.valid || userProfile.controls.nic.untouched"
+                >Cnic is Required</small
+              >
+            </div>
+            <div class="col-sm-12 col-md-4 col-lg-4">
+              <div class="form-group">
+                <label>Date of birth</label
+                ><input formControlName="dob" type="date" class="form-control" placeholder="24 June 1990" />
+              </div>
+            </div>
+
+            <!-- /.col-lg-4 -->
+            <div class="col-sm-12 col-md-4 col-lg-4">
+              <div class="form-group">
+                <label>emergency contact number</label
+                ><input
+                  formControlName="emergencyMobile"
+                  type="tel"
+                  class="form-control"
+                  placeholder="emergency contact number"
+                />
+              </div>
+            </div>
+            <!-- /.col-lg-4 -->
+            <!-- <div class="col-sm-12 col-md-4 col-lg-4">
+              <div class="form-group">
+                <label>email address</label><input formControlName="email" type="email" class="form-control"
+                  placeholder="email address" />
+              </div>
+            </div> -->
+
+            <!-- /.col-lg-4 -->
+            <div class="col-sm-12 col-md-4 col-lg-4">
+              <div class="form-group form-group-select">
+                <label>gender</label>
+                <select formControlName="gender" class="form-control">
+                  <option value="male">male</option>
+                  <option value="female">female</option>
+                </select>
+              </div>
+            </div>
+            <!-- /.col-lg-4 -->
+          </div>
+          <!-- /.row -->
+          <div class="row mb-30">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <h5 class="form__title">Address</h5>
+              <hr class="mt-0 mb-30" />
+            </div>
+            <!-- /.col-lg-12 -->
+
+            <div class="col-sm-12 col-md-4 col-lg-4">
+              <div class="form-group">
+                <label>street</label
+                ><input formControlName="street" type="text" class="form-control" placeholder="H#1060, Jinnah Road" />
+              </div>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-sm-12 col-md-4 col-lg-4">
+              <div class="form-group">
+                <label>area</label><input formControlName="area" type="text" class="form-control" placeholder="AECHS" />
+              </div>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-sm-12 col-md-4 col-lg-4">
+              <div class="form-group">
+                <label>city</label
+                ><input formControlName="city" type="text" class="form-control" placeholder="rawalpindi" />
+              </div>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-sm-12 col-md-4 col-lg-4">
+              <div class="form-group">
+                <label>state</label
+                ><input formControlName="state" type="text" class="form-control" placeholder="punjab" />
+              </div>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-sm-12 col-md-4 col-lg-4">
+              <div class="form-group">
+                <label>zip code</label
+                ><input formControlName="zipCode" type="text" class="form-control" placeholder="46000" />
+              </div>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-sm-12 col-md-4 col-lg-4">
+              <div class="form-group">
+                <label>country</label
+                ><input formControlName="country" type="text" class="form-control" placeholder="pakistan" />
+              </div>
+            </div>
+            <!-- /.col-lg-4 -->
+          </div>
+          <!-- /.row -->
+
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <button
+                type="submit"
+                [disabled]="!userProfile.valid"
+                (click)="updateProfile()"
+                class="btn btn__secondary"
+              >
+                update
+              </button>
+            </div>
+            <!-- /.col-lg-12 -->
+          </div>
+          <!-- /.row -->
+        </form>
+      </div>
+      <!-- /.col-lg-8 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</div>
+<!-- /.Request Quote -->

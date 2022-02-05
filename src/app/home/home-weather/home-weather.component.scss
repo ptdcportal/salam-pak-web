@@ -1,0 +1,26 @@
+.weather-1 {
+  top: -105px;
+  position: relative;
+  z-index: 1;
+  left: 3%;
+}
+.bg-overlay {
+  background-size: cover;
+}
+.weather-wrapper {
+  background-color: #f1efef00;
+  padding: 3px;
+}
+
+.switchWidgetOptions option {
+  color: #000;
+}
+.switchWidgetOptions {
+  color: white;
+  border: none;
+}
+.weatherwidget-io {
+  margin-bottom: 100px;
+  z-index: -100;
+  margin-top: -149px !important;
+}

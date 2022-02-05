@@ -1,0 +1,70 @@
+<!-- ============================
+        Slider
+    ============================== -->
+<section id="page-title" class="page-title page-title-layout4 text-center bg-overlay slider">
+  <div class="bg-img">
+    <img src="assets/images/backgrounds/what-to-doo.png" alt="background" />
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-8 page">
+        <div class="slide__content">
+          <h2 class="slide__title" [translate]="'WHERETOGOHEADING'">where to go</h2>
+          <p class="slide__desc">
+            Pakistan has every kind of place for every spirit and for every desire.
+            <br />See where your heart takes you.
+          </p>
+          <!-- <a href="#" class="btn btn__primary btn__hover2 mr-30">find on map</a> -->
+        </div>
+        <!-- /.slide-content -->
+      </div>
+      <!-- /.col-lg-8 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.page-title -->
+
+<!--======-->
+<div class="container-fluid">
+  <div class="container">
+    <div class="masonry-wrapper masonry-style-2">
+      <div class="blog-container" data-column-width=".col-md-4">
+        <div *ngFor="let category of categories; let image; of: images; let i = index" class="col-md-4 post-item">
+          <!-- [routerLink]="['/category', category.slug]" -->
+          <a [routerLink]="['/where-to-go/category', category.slug]">
+            <div class="post__img">
+              <img
+                [src]="category.thumbnail || 'assets/images/wheretogo/cities.png'"
+                onerror="this.onerror=null;this.src='assets/images/wheretogo/cities.png';"
+                alt=""
+              />
+              <!-- <img [src]="category.thumbnail" alt="post img" /> -->
+            </div>
+            <!-- /.post-img -->
+            <div class="post__content">
+              <h4 class="post__title">{{ category.alias }}</h4>
+              <!--{{ category.name }}-->
+              <!-- <span class="stars align-listing">
+                <span [ngStyle]="{ width: getRatingStars(category?.ratingAverage || 0) }"></span>
+              </span>
+              <span class="stars2" style="display: inline-table">
+                <span [ngStyle]="{ width: getRatingStars(5.0) }"></span>
+              </span>
+              <span class="font-regular"> ({{ category.reviews ? category.reviews : 0 }}) reviews</span> -->
+              <p class="post__desc">
+                {{ category?.description }}
+              </p>
+            </div>
+            <!-- /.post-content -->
+          </a>
+        </div>
+        <!-- /.post-item -->
+
+        <!-- /.post-item -->
+      </div>
+      <!-- .masonry-container end -->
+    </div>
+  </div>
+</div>

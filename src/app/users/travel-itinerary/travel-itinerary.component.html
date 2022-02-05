@@ -1,0 +1,117 @@
+<!-- ======================
+       side bar
+    ========================= -->
+<div class="user-account pb-90">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-3 account-sidebar p-0">
+        <aside class="sidebar mb-30">
+          <div class="widget widget-categories">
+            <h5 class="widget__title">user account</h5>
+            <div class="widget-content">
+              <app-user-sidebar></app-user-sidebar>
+            </div>
+            <!-- /.widget-content -->
+          </div>
+          <!-- /.widget-categories -->
+        </aside>
+        <!-- /.sidebar -->
+      </div>
+      <!-- /.col-lg-4 -->
+      <div class="col-sm-12 col-md-12 col-lg-9 pl-80">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="user-account.html">user account</a></li>
+            <li class="breadcrumb-item active" aria-current="page">travel itinerary</li>
+          </ol>
+        </nav>
+
+        <h2 *ngIf="plan[0]?.length < 0" class="text-center text-muted">no itinerary...</h2>
+
+        <div class="col-sm-12 col-md-12 col-lg-12 review-list p-0">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Sr.</th>
+                <th scope="col">Travel</th>
+                <th scope="col">Date / Time</th>
+                <th scope="col">Type</th>
+                <th scope="col">Rating</th>
+                <th scope="col">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of plan[0]; let i = index" [routerLink]="['/planning']" class="pointer">
+                <td scope="row">{{ i + 1 }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.createdAt | date }}</td>
+                <td>{{ item.type }}</td>
+                <td>
+                  <span class="stars align-listing">
+                    <span [ngStyle]="{ width: getRatingStars(item?.rating || 0) }"></span>
+                  </span>
+
+                  <span class="stars2" style="display: inline-table">
+                    <span [ngStyle]="{ width: getRatingStars(5.0) }"></span>
+                  </span>
+                </td>
+                <td>{{ item.description.slice(0, 50) }} {{ item.description.length > 50 ? '...' : '' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- <div class="col-sm-12 col-md-12 col-lg-12 itinerary-list">
+          <div class="col-sm-12 col-md-12 col-lg-3 p-0">
+            <img src="assets/images/list/1.png" />
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-6 itinerary-list-detail p-0">
+            <h6 class="itinerary-name">trip to swat</h6>
+            <p class="itinerary-place">islamabad - abbotabad - swat</p>
+            <p class="itinerary-detail">travelled via daewoo bus, hotel stay at ramada for three days</p>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-3 p-0">
+            <p class="itinerary-date">24 Aug 2022</p>
+            <p class="itinerary-status">status : <span class="itinerary-status-span">active</span></p>
+            <a href="#" class="itinerary-btn">update</a>
+          </div>
+        </div> -->
+        <!-- /.col-lg-12 -->
+        <!-- <div class="col-sm-12 col-md-12 col-lg-12 itinerary-list">
+          <div class="col-sm-12 col-md-12 col-lg-3 p-0">
+            <img src="assets/images/list/2.png" />
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-6 itinerary-list-detail p-0">
+            <h6 class="itinerary-name">trip to muree</h6>
+            <p class="itinerary-place">islamabad - abbotabad - swat</p>
+            <p class="itinerary-detail">travelled via daewoo bus, hotel stay at ramada for three days</p>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-3 p-0">
+            <p class="itinerary-date">24 Aug 2022</p>
+            <p class="itinerary-status">status : <span class="itinerary-status-span">active</span></p>
+            <a href="#" class="itinerary-btn">update</a>
+          </div>
+        </div> -->
+        <!-- /.col-lg-12 -->
+        <!-- <div class="col-sm-12 col-md-12 col-lg-12 itinerary-list">
+          <div class="col-sm-12 col-md-12 col-lg-3 p-0">
+            <img src="assets/images/list/3.png" />
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-6 itinerary-list-detail p-0">
+            <h6 class="itinerary-name">trip to lahore</h6>
+            <p class="itinerary-place">islamabad - abbotabad - swat</p>
+            <p class="itinerary-detail">travelled via daewoo bus, hotel stay at ramada for three days</p>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-3 p-0">
+            <p class="itinerary-date">24 Aug 2022</p>
+            <p class="itinerary-status">status : <span class="itinerary-status-span">active</span></p>
+            <a href="#" class="itinerary-btn">update</a>
+          </div>
+        </div> -->
+        <!-- /.col-lg-12 -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </div>
+  <!-- /.Request Quote -->
+</div>

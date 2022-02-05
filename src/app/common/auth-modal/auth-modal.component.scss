@@ -1,0 +1,42 @@
+@media (max-width: 767px) {
+  .imageViewer__container {
+    margin-top: 40%;
+  }
+
+  .credentials__col {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .visa-availabilty__popup {
+    padding: 30px 0px 30px 0px;
+  }
+}
+
+@media (min-width: 768px) {
+  .login-popup__main {
+    margin-top: 10em; /*2em !important*/
+    margin-right: auto; /*margin-right: auto !important;    */
+    margin-bottom: 0;
+    margin-left: auto;
+    background-color: white;
+    // max-width: 60%;
+  }
+}
+
+.login__btn {
+  background-color: #8cc63e !important;
+  border-color: #8cc63e !important;
+}
+
+::ng-deep .nsm-dialog-btn-close {
+  display: none !important;
+}
+
+::ng-deep .authModalClass {
+  max-width: unset !important;
+}
+
+// ::ng-deep .nsm-dialog {
+//   max-width: unset !important;
+// }

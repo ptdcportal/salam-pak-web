@@ -1,0 +1,116 @@
+.flexcard {
+  display: flex;
+  flex-direction: row wrap;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.paymentcard {
+  padding: 20px;
+  margin: -10px auto;
+
+  background: #fff;
+  border-radius: 6px;
+  box-sizing: border-box;
+  box-shadow: 0px 24px 60px -1px rgba(37, 44, 54, 0.14);
+}
+.paymentcard .container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.paymentcard .paymentcard-title {
+  margin-bottom: 50px;
+}
+.paymentcard .paymentcard-title h2 {
+  margin: 0;
+}
+.paymentcard .paymentcard-body .payment-type,
+.paymentcard .paymentcard-body .payment-info {
+  margin-bottom: 25px;
+}
+.paymentcard .paymentcard-body .payment-type h4 {
+  margin: 0;
+}
+.paymentcard .paymentcard-body .payment-type .types {
+  margin: 25px 0;
+}
+.paymentcard .paymentcard-body .payment-type .types .type {
+  width: 22%;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  background: #f2f4f7;
+  border: 2px solid #e8ebed;
+  padding: 25px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.5s ease;
+}
+.paymentcard .paymentcard-body .payment-type .types .type:hover {
+  border-color: #28333b;
+}
+.paymentcard .paymentcard-body .payment-type .types .type:hover .logo,
+.paymentcard .paymentcard-body .payment-type .types .type:hover p {
+  color: #28333b;
+}
+.paymentcard .paymentcard-body .payment-type .types .type.selected {
+  border-color: #8cc63e;
+  background: #8cc63e30;
+}
+.paymentcard .paymentcard-body .payment-type .types .type.selected p {
+  color: #28333b;
+}
+.paymentcard .paymentcard-body .payment-type .types .type.selected::after {
+  content: "\f00c";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  top: -16px;
+  right: -16px;
+  background: #fff;
+  border: 2px solid #8cc63e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.paymentcard .paymentcard-body .payment-type .types .type .logo,
+.paymentcard .paymentcard-body .payment-type .types .type p {
+  transition: all 0.5s ease;
+}
+.paymentcard .paymentcard-body .payment-type .types .type .logo {
+  font-size: 48px;
+  color: #8a959c;
+}
+.paymentcard .paymentcard-body .payment-type .types .type p {
+  margin-bottom: 0;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #8a959c;
+}
+.paymentcard .paymentcard-body .payment-info .column {
+  width: calc(50% - 25px);
+}
+.paymentcard .paymentcard-body .payment-info .title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.paymentcard .paymentcard-body .payment-info .title .num {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  border: 2px solid #40b3ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-right: 12px;
+  font-size: 12px;
+}

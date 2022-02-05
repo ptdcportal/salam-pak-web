@@ -1,0 +1,128 @@
+.tcontainer {
+  width: 100%;
+  overflow: hidden;
+}
+
+.ticker-wrap {
+  width: 100%;
+  padding-left: 100%;
+  background-color: #eee;
+}
+
+@keyframes ticker {
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.ticker-move {
+  display: inline-block;
+  white-space: nowrap;
+  padding-right: 100%;
+  animation-timing-function: linear;
+  animation: ticker 20s infinite;
+}
+
+.ticker-move:hover {
+  animation-play-state: paused;
+}
+
+.ticker-item {
+  display: inline-block;
+  padding: 0 40px;
+  font-size: 20px;
+}
+
+.ticker__viewport {
+  background: #8cc63e;
+  color: #fff;
+  overflow: hidden;
+  padding: 10px 0;
+}
+.ticker__list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: flex;
+}
+.ticker__item {
+  display: inline-block;
+  white-space: nowrap;
+  padding-right: 40px;
+  color: #fff;
+}
+
+.module__search-google {
+  position: absolute;
+  top: 60%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 150px;
+  font-size: 20px;
+  height: 400px;
+  margin: -40px auto 0;
+  transition: all 0.5s ease-in-out;
+  transition-delay: 0.5s;
+}
+
+.marquee {
+  width: 100%;
+  margin: 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  /* show the marquee just outside the paragraph */
+  will-change: transform;
+  animation: marquee 120s linear infinite;
+}
+.complaint-iframe {
+  margin: 0 auto;
+  text-align: center;
+  display: block;
+  width: 97%;
+  border: none;
+  background-color: #fff;
+}
+.footer__widget-nav li a,
+.footer__copyright-links li a {
+  display: block;
+  position: relative;
+  color: #c9c9c9 !important;
+  font-size: 14px;
+  line-height: 33px;
+}
+.marquee span:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
+  }
+}
+
+/* Respect user preferences about animations */
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    white-space: normal;
+  }
+  .marquee span {
+    animation-iteration-count: 1;
+    animation-duration: 0.01;
+    /* instead of animation: none, so an animationend event is 
+     * still available, if previously attached.
+     */
+    padding-left: 0;
+  }
+}

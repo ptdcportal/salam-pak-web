@@ -1,0 +1,39 @@
+<!-- ============================
+        Slider
+    ============================== -->
+<section id="page-title" class="page-title page-title-layout4 text-center bg-overlay slider">
+  <div class="bg-img"><img src="assets/images/backgrounds/accommodation.png" alt="background" /></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-8 page">
+        <div class="slide__content">
+          <h2 class="slide__title">accommodation</h2>
+          <p class="slide__desc">
+            Check out the best Museums <br />
+            & Galleries of Pakistan
+          </p>
+          <a [routerLink]="['/map']" class="btn btn__primary btn__hover2 mr-30">find on map</a>
+        </div>
+        <!-- /.slide-content -->
+      </div>
+      <!-- /.col-lg-8 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.page-title -->
+
+<!--======-->
+<div class="container-fluid pt-80">
+  <div class="container">
+    <div class="row"></div>
+    <div class="masonry-wrapper masonry-style-2">
+      <app-card
+        [accomodationCategories]="accomodationCategories"
+        [showBrowseButton]="showBrowseButton"
+        [showStars]="showStars"
+      ></app-card>
+    </div>
+  </div>
+</div>

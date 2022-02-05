@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 p-5">
+    <div [formGroup]="planForm" class="visa-availabilty__popup p-5">
+      <h6 class="mb-3 text-left popup__heading">add new plan details</h6>
+      <div class="row text-center p-4">
+        <label class="image-replace cd-email">plan name</label>
+        <input
+          class="full-width has-padding has-border form-control plan__name"
+          type="text"
+          [placeholder]="'Plan Name'"
+          formControlName="name"
+        />
+
+        <small
+          [hidden]="planForm.controls.name.valid || planForm.controls.name.untouched"
+          class="text-danger"
+          translate
+        >
+          Feild is required
+        </small>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+          <label>Start Date</label>
+          <input
+            type="date"
+            id="checkIn__datePicker"
+            for
+            class="form-control create-plan__checkIn"
+            placeholder="Select Arrival"
+            formControlName="startDate"
+            min="{{ minDateForCheckIn }}"
+          />
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+          <label>End Date</label>
+          <input
+            type="date"
+            id="checkIn__datePicker"
+            for
+            class="form-control create-plan__checkIn"
+            placeholder="Select Arrival"
+            formControlName="endDate"
+            min="{{ minDateForCheckOut }}"
+          />
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+          <button
+            type="button"
+            id="trainButton"
+            class="btn btn__primary submit__button"
+            (click)="caretePlan()"
+            [disabled]="planForm.invalid"
+          >
+            save
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

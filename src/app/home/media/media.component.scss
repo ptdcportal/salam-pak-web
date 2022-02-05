@@ -1,0 +1,36 @@
+.bg-image-holder {
+  background-size: cover !important;
+  border-radius: 30px;
+}
+
+::ng-deep.nsm-body {
+  @media (min-width: 768px) {
+    position: absolute;
+    left: -20%;
+    margin-top: 5%;
+    margin-left: -140px;
+    width: 180%;
+  }
+}
+@media (max-width: 767px) {
+  .imageViewer__container {
+    margin-top: 40%;
+  }
+}
+
+::ng-deep .nsm-dialog-btn-close {
+  display: none !important;
+}
+
+::ng-deep .image__Slider .nsm-dialog {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  min-height: 200px;
+  width: 100%;
+  max-width: 700px !important;
+  margin: 0 auto;
+  pointer-events: none;
+  outline: none;
+  margin-top: 20px;
+}

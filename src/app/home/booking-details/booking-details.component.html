@@ -351,7 +351,11 @@
                     <div class="booking-count">
                       <button
                         [disabled]="flightBookingForm.get('flightAdult').value == 0"
-                        (click)="flightAdult = flightAdult > 0 ? flightAdult - 1 : 0"
+                        (click)="
+                          flightBookingForm
+                            .get('flightAdult')
+                            .patchValue(flightBookingForm.get('flightAdult').value - 1)
+                        "
                         class="subtract"
                       >
                         -
@@ -367,7 +371,11 @@
                       <!--  -->
                       <button
                         [disabled]="flightBookingForm.get('flightAdult').value == 5"
-                        (click)="flightAdult = flightAdult + 1"
+                        (click)="
+                          flightBookingForm
+                            .get('flightAdult')
+                            .patchValue(flightBookingForm.get('flightAdult').value + 1)
+                        "
                         class="add"
                       >
                         +
@@ -382,7 +390,11 @@
                     <div class="booking-count">
                       <button
                         [disabled]="flightBookingForm.get('flightChild').value == 0"
-                        (click)="flightChild = flightChild > 0 ? flightChild - 1 : 0"
+                        (click)="
+                          flightBookingForm
+                            .get('flightChild')
+                            .patchValue(flightBookingForm.get('flightChild').value - 1)
+                        "
                         class="subtract"
                       >
                         -
@@ -398,7 +410,11 @@
                       <!-- (change)="getFlightChild($event)" -->
                       <button
                         [disabled]="flightBookingForm.get('flightChild').value == 5"
-                        (click)="flightChild = flightChild + 1"
+                        (click)="
+                          flightBookingForm
+                            .get('flightChild')
+                            .patchValue(flightBookingForm.get('flightChild').value + 1)
+                        "
                         class="add"
                       >
                         +
@@ -412,7 +428,11 @@
                     <div class="booking-count">
                       <button
                         [disabled]="flightBookingForm.get('flightInfants').value == 0"
-                        (click)="flightInfants = flightInfants > 0 ? flightInfants - 1 : 0"
+                        (click)="
+                          flightBookingForm
+                            .get('flightInfants')
+                            .patchValue(flightBookingForm.get('flightInfants').value - 1)
+                        "
                         class="subtract"
                       >
                         -
@@ -428,7 +448,11 @@
                       <!-- (change)="getFlightInfants($event)" -->
                       <button
                         [disabled]="flightBookingForm.get('flightInfants').value == 5"
-                        (click)="flightInfants = flightInfants + 1"
+                        (click)="
+                          flightBookingForm
+                            .get('flightInfants')
+                            .patchValue(flightBookingForm.get('flightInfants').value + 1)
+                        "
                         class="add"
                       >
                         +

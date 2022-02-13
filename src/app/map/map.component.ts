@@ -94,7 +94,7 @@ export class MapComponent implements OnInit, AfterContentChecked {
         lng: obj[0]?.location?.coordinates[0],
       };
       // });
-      this.surroundings = obj[0].surroundings;
+      this.surroundings = this.sortSurroundings(obj[0].surroundings);
       this.infoWondowData.photo = obj[0].thumbnail;
       this.infoWondowData.alias = obj[0].alias;
       this.infoWondowData.redirectLink = `where-to-go/category/${obj[0].parentProvince}/${obj[0].type}/${obj[0].name}`;
@@ -121,4 +121,21 @@ export class MapComponent implements OnInit, AfterContentChecked {
       // console.log(this.surroundingMakers);
     });
   };
+
+  sortSurroundings(data: any) {
+    return data.sort((a: any, b: any) => {
+      let nameA = a.name.toLowerCase(),
+        nameB = b.name.toLowerCase();
+
+      if (nameA < nameB) {
+        return -1;
+      }
+
+      if (nameA > nameB) {
+        return 1;
+      }
+
+      return 0;
+    });
+  }
 }

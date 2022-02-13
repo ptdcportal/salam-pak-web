@@ -47,7 +47,7 @@
       <div class="blog-container" data-column-width=".col-md-4">
         <div
           *ngFor="let location of featuredCategories | paginate: { itemsPerPage: 3, currentPage: p }"
-          class="col-md-4 post-item"
+          class="col-md-4 post-item p-4"
         >
           <a [routerLink]="['/where-to-go/category', category.slug, 'location', location.slug]">
             <div class="post__img">

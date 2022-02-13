@@ -3,13 +3,55 @@ import { HomeService } from '../../services/home.service';
 import { FormBuilder, FormArray, FormGroup, Validators, AbstractControl, MaxLengthValidator } from '@angular/forms';
 import { NgxSmartModalService, NgxSmartModalComponent } from 'ngx-smart-modal';
 import * as moment from 'moment';
-import { BsDatepickerDirective } from 'ngx-bootstrap/datepicker';
+import { BsDatepickerDirective, DatepickerDateCustomClasses } from 'ngx-bootstrap/datepicker';
+import { EventService } from '@app/services/event.service';
+
+const responsiveSettings = [
+  {
+    breakpoint: 1920,
+    settings: {
+      slidesToShow: 1,
+      infinite: false,
+    },
+  },
+  {
+    breakpoint: 1200,
+    settings: {
+      slidesToShow: 1.0,
+      infinite: true,
+    },
+  },
+  {
+    breakpoint: 768,
+    settings: {
+      slidesToShow: 2.0,
+      infinite: true,
+    },
+  },
+  {
+    breakpoint: 600,
+    settings: {
+      slidesToShow: 1.5,
+      infinite: true,
+    },
+  },
+];
+
 @Component({
   selector: 'app-home-events',
   templateUrl: './home-events.component.html',
   styleUrls: ['./home-events.component.scss'],
 })
 export class HomeEventsComponent implements OnInit, AfterViewInit {
+  dateCustomClasses: DatepickerDateCustomClasses[];
+
+  slideConfig = {
+    slidesToShow: 1.0,
+    slidesToScroll: 1,
+    arrows: true,
+    responsive: responsiveSettings,
+  };
+
   bsInlineValue = new Date();
   bsInlineRangeValue: Date[];
   // maxDate = new Date();
@@ -34,8 +76,10 @@ export class HomeEventsComponent implements OnInit, AfterViewInit {
     private homeService: HomeService,
     private formBuilder: FormBuilder,
     public ngxSmartModalService: NgxSmartModalService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private readonly eventService: EventService
   ) {
+    const now = new Date();
     this.minDate = new Date();
     const oneYearFromNow = new Date();
     oneYearFromNow.setFullYear(oneYearFromNow.getFullYear() + 1);
@@ -64,7 +108,7 @@ export class HomeEventsComponent implements OnInit, AfterViewInit {
   // }
 
   getEvent = (selectedDate: any) => {
-    console.log('initial date: ', moment(this.form.value.date).format('YYYY-MM-DD'));
+    // console.log('initial date: ', moment(this.form.value.date).format('YYYY-MM-DD'));
     this.homeService.getEvents(selectedDate).subscribe((res: any) => {
       this.events = res;
     });
@@ -93,7 +137,33 @@ export class HomeEventsComponent implements OnInit, AfterViewInit {
     //  console.log(moment(e).format('YYYY-MM-DD'));
     //  this.dateChanged(moment(e).format('YYYY-MM-DD'));
     this.homeService.getEvents(moment(e).format('YYYY-MM-DD')).subscribe((res: any) => {
-      this.events = res;
+      if (res.length) {
+        this.events = res;
+        this.generateDateClass(this.events);
+      } else {
+        this.getAllEvents();
+      }
+    });
+  }
+
+  getAllEvents() {
+    this.eventService.getAllEvents().subscribe(
+      (res: any) => {
+        this.events.length = 0;
+        this.events = res.data;
+        this.dateCustomClasses = this.generateDateClass(this.events);
+      },
+      (err) => {}
+    );
+    console.log(new Date(1657182360000));
+  }
+
+  generateDateClass(data: any) {
+    return data.map((item: any) => {
+      return {
+        date: new Date(item.startDate),
+        classes: ['dateCustomClasses'],
+      };
     });
   }
 }

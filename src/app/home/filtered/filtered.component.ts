@@ -21,8 +21,7 @@ export class FilteredComponent implements OnInit {
   ngOnInit(): void {}
 
   navigate = (single: any) => {
-    var url =
-      single.type === 'activity' ? `/what-to-do/activity/${single.slug}` : `/where-to-go/category/${single.slug}`;
+    let url = single.categoryType ? `/where-to-go/category/${single.slug}` : `what-to-do/activity/${single.slug}`;
     this.router.navigate([url]);
   };
 }

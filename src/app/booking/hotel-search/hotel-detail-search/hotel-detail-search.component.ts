@@ -100,7 +100,8 @@ export class HotelDetailSearchComponent implements OnInit {
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
     public ngxSmartModalService: NgxSmartModalService,
-    private domSanitizer: DomSanitizer
+    private domSanitizer: DomSanitizer,
+    private readonly router: Router
   ) {
     let hotelSource = this.route.snapshot.queryParams.hotelSource.toLowerCase();
     this.data = {
@@ -259,8 +260,9 @@ export class HotelDetailSearchComponent implements OnInit {
           this.toastr.success('Your booking request has been received! you will be notify via email');
           this.formFlag = false;
           this.user = userInfo;
-          this.paymentFlag = true;
+          // this.paymentFlag = true;
           this.bookingId = res.data;
+          this.router.navigate(['user/my-bookings']);
           //this.ngxSmartModalService.getModal('hotelModalPopup').close();
         },
         (err) => {

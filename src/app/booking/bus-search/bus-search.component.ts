@@ -84,7 +84,8 @@ export class BusSearchComponent implements OnInit {
     private homeService: HomeService,
     public ngxSmartModalService: NgxSmartModalService,
     private toastr: ToastrService,
-    private domSanitizer: DomSanitizer
+    private domSanitizer: DomSanitizer,
+    private readonly router: Router
   ) {
     this.userId = localStorage.getItem('userId');
     this.userData = JSON.parse(localStorage.getItem('userData'));
@@ -436,8 +437,9 @@ export class BusSearchComponent implements OnInit {
           this.toastr.success('Your booking request has been received! you will be notify via email');
           this.formFlag = false;
           this.user = userInfo;
-          this.paymentFlag = true;
+          // this.paymentFlag = true;
           this.bookingId = res.data;
+          this.router.navigate(['user/my-bookings']);
           //this.ngxSmartModalService.getModal('busModalPopup').close();
         },
         (err) => {

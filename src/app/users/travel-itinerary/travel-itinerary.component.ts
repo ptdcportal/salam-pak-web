@@ -29,7 +29,7 @@ export class TravelItineraryComponent implements OnInit {
         }
       });
     }
-    console.log('this.plan', this.plan);
+    // console.log('this.plan', this.plan);
   }
 
   getRatingStars(rating?: any): string {

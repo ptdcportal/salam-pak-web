@@ -33,7 +33,7 @@ export class PlanListingComponent implements OnInit {
 
   fetchUserPlans() {
     this.eventService.getUserPlan(this.userId).subscribe((res: any) => {
-      console.log(res);
+      // console.log(res);
       this.userPlans = res;
     });
   }
@@ -42,7 +42,7 @@ export class PlanListingComponent implements OnInit {
     this.eventService.deleteAPlan(planId).subscribe((res: any) => {
       this.toastr.success('Plan has been removed');
       this.fetchUserPlans();
-      console.log(res);
+      // console.log(res);
     });
   }
 }

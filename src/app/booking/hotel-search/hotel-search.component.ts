@@ -97,7 +97,7 @@ export class HotelSearchComponent implements OnInit {
       this.filter = filters;
     });
     this.getCurrencyInfo();
-    console.log(this.allEvents);
+    // console.log(this.allEvents);
   }
 
   getHotels(data: any, pageSize = 0, skip = 0, filter: any) {
@@ -210,7 +210,7 @@ export class HotelSearchComponent implements OnInit {
   openCurrencyModal(event: any) {
     this.ammount = event;
     this.ngxSmartModalService.getModal('agoraCurrencyModal').open();
-    console.log(this.ammount);
+    // console.log(this.ammount);
   }
 
   setCountry(e: any) {

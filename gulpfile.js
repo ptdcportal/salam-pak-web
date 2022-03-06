@@ -24,12 +24,12 @@ gulp.task('purifyCSS', () => {
 });
 
 gulp.task('default', function () {
-  console.log('Hello Gulp!');
+  // console.log('Hello Gulp!');
 });
 gulp.task('exportWebP', function () {
   let src = 'src/assets/images/home/*'; // Where your PNGs are coming from.
   let dest = './src/assets/images/home'; // Where your WebPs are going.
-  console.log('WebP Conversion..');
+  // console.log('WebP Conversion..');
   return gulp
     .src(src)
     .pipe(

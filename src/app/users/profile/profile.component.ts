@@ -46,7 +46,7 @@ export class ProfileComponent implements OnInit {
         document.getElementById('dp').setAttribute('style', 'background-image: url(' + defaultImage + ')');
       }
     });
-    console.log(localStorage.getItem('userData'));
+    // console.log(localStorage.getItem('userData'));
     // debugger;
   }
 
@@ -60,7 +60,7 @@ export class ProfileComponent implements OnInit {
     // api
     this.userService.updateProfile(localStorage.getItem('userId'), this.userProfile.value).subscribe(
       (res) => {
-        console.log('updatedProfile', res);
+        // console.log('updatedProfile', res);
         this.getUserImage();
         // debugger;
         this.toastr.success('Success', res.message);

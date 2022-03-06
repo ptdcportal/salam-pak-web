@@ -90,7 +90,7 @@ export class FeaturedTripsComponent implements OnInit {
         this.locations = [];
       }
     });
-    console.log('dataaaaaaaaa: ', this.locations);
+    // console.log('dataaaaaaaaa: ', this.locations);
   }
 
   addToWishlist(id: any) {

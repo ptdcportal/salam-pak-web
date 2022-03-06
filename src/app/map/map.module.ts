@@ -5,9 +5,10 @@ import { MapRoutingModule } from './map-routing.module';
 import { MapComponent } from './map.component';
 
 import { AgmCoreModule } from '@agm/core';
+import { ThreeDMapComponent } from './three-d-map/three-d-map.component';
 
 @NgModule({
-  declarations: [MapComponent],
+  declarations: [MapComponent, ThreeDMapComponent],
   imports: [
     CommonModule,
     MapRoutingModule,

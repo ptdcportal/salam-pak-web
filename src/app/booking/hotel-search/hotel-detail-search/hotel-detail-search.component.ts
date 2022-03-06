@@ -118,7 +118,7 @@ export class HotelDetailSearchComponent implements OnInit {
 
     if (this.data.hotelId || this.data.hotelRefId) {
       this.eventService.gethotelDetail(this.data).subscribe((data: any) => {
-        console.log(data);
+        // console.log(data);
         this.hotelDetail = data.data && data.data.hotelDetails;
         this.hotelMedia = data.data && data.data.media;
         this.loadScript();
@@ -279,7 +279,7 @@ export class HotelDetailSearchComponent implements OnInit {
   onPaymentMethodSuccess(data: any) {
     this.paymentFlag = false;
     this.paymentSuccesFlag = true;
-    console.log(data);
+    // console.log(data);
     this.bookingResponse = data;
   }
 

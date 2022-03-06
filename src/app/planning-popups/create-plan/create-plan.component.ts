@@ -40,7 +40,7 @@ export class CreatePlanComponent implements OnInit, AfterViewInit {
     // this.ngxSmartModalService.removeModal('createPlanModal');
     this.ngxSmartModalService.removeModal('carouselModal');
     this.ngxSmartModalService.removeModal('feedbackModal');
-    console.log('crate plan modal stack: ', this.ngxSmartModalService.getModalStack());
+    // console.log('crate plan modal stack: ', this.ngxSmartModalService.getModalStack());
     this.createPlanForm();
     this.planForm.valueChanges.subscribe((value: any) => {
       if (value.startDate && value.endDate) {
@@ -78,7 +78,7 @@ export class CreatePlanComponent implements OnInit, AfterViewInit {
       .createUserPlan(this.userId, { ...this.planForm.value, ...this.planData })
       .subscribe((res: any) => {
         this.ngxSmartModalService.getModal('createPlanModal').close();
-        console.log(res);
+        // console.log(res);
         this.toastr.success('Plan created successfully!');
       });
   }

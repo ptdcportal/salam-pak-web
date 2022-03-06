@@ -52,7 +52,7 @@ export class FooterComponent implements OnInit {
     this.getFilters();
     this.getAllNews();
     this.commonService.currentMessage.subscribe((message: any) => {
-      console.log('Message from CommonService: ', message);
+      // console.log('Message from CommonService: ', message);
       this.show = message == 'inActive' ? false : true;
     });
 
@@ -109,7 +109,7 @@ export class FooterComponent implements OnInit {
 
   getBannerNews() {
     this.eventService.getNews().subscribe((news: any) => {
-      console.log(news);
+      // console.log(news);
     });
   }
 }

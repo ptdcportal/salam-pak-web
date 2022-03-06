@@ -52,7 +52,7 @@ export class AuthModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.ngxSmartModalService.get('authModal').onCloseFinished.subscribe((res: any) => {
-      console.log('res: ', res);
+      // console.log('res: ', res);
     });
   }
 
@@ -115,7 +115,7 @@ export class AuthModalComponent implements OnInit {
         }
       },
       (err) => {
-        console.log('login error', err.error);
+        // console.log('login error', err.error);
         this.ngxSmartModalService.getModal('authModal').close();
         this.toastr.error('Invalid E-mail or Password', 'Error');
       }
@@ -134,7 +134,7 @@ export class AuthModalComponent implements OnInit {
       },
       (err) => {
         this.toastr.error('Couldn`t create user', err.error.error.message || 'Error');
-        console.log('signup error', err);
+        // console.log('signup error', err);
       }
     );
   }

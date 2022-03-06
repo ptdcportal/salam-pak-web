@@ -220,7 +220,7 @@ export class BusSearchComponent implements OnInit {
   }
 
   checkFemaleOccupied(seatnumber: any) {
-    console.log(seatnumber, this.femaleOccoupiedSeats, this.femaleOccoupiedSeats.includes(seatnumber + ''));
+    // console.log(seatnumber, this.femaleOccoupiedSeats, this.femaleOccoupiedSeats.includes(seatnumber + ''));
     const exists = this.femaleOccoupiedSeats && this.femaleOccoupiedSeats.includes(seatnumber + '');
     return exists ? true : false;
   }
@@ -249,7 +249,7 @@ export class BusSearchComponent implements OnInit {
   }
 
   seatChange(event: any, seatNumber: any) {
-    console.log(event, seatNumber);
+    // console.log(event, seatNumber);
     if (
       event.target.classList.contains('seat') &&
       this.selectedSeats.length < 5 &&
@@ -456,7 +456,7 @@ export class BusSearchComponent implements OnInit {
   onPaymentMethodSuccess(data: any) {
     this.paymentFlag = false;
     this.paymentSuccesFlag = true;
-    console.log(data);
+    // console.log(data);
     this.bookingResponse = data;
   }
 }

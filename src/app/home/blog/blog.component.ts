@@ -59,7 +59,7 @@ export class BlogComponent implements OnInit {
       if (blogs) {
         this.blogs = blogs.length > 6 ? blogs.slice(0, 6) : blogs;
       }
-      console.log('Fetched blogs: ', this.blogs);
+      // console.log('Fetched blogs: ', this.blogs);
     });
   }
 }

@@ -29,7 +29,7 @@ export class ChangePasswordComponent implements OnInit {
         this.toastr.success('Success', 'Your password has been changed!');
       },
       (err) => {
-        console.log('Error changing password: ', err);
+        // console.log('Error changing password: ', err);
         this.toastr.error('Passwords Do not match', 'Error');
       }
     );

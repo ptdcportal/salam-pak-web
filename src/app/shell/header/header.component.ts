@@ -114,7 +114,7 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterContentChecked {
   }
   ngOnInit() {
     this.authService.authState.subscribe((user) => {
-      console.log('social user', user);
+      // console.log('social user', user);
       this.socialUser = user;
       this.socialLogin(user);
     });
@@ -139,7 +139,7 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterContentChecked {
     this.shellService.getProvinces().subscribe((data: any) => {
       //  console.log(data);
       this.provinces = data.data;
-      console.log('Provincessssssssssssss', this.provinces);
+      // console.log('Provincessssssssssssss', this.provinces);
       // debugger
     });
   }
@@ -198,7 +198,7 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterContentChecked {
         }
       },
       (err) => {
-        console.log('login error', err.error);
+        // console.log('login error', err.error);
         this.toastr.error('Invalid E-mail or Password', 'Error');
       }
     );
@@ -216,7 +216,7 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterContentChecked {
         }
       },
       (err) => {
-        console.log('login error', err.error);
+        // console.log('login error', err.error);
         this.toastr.error('Invalid E-mail or Password', 'Error');
       }
     );
@@ -232,7 +232,7 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterContentChecked {
       },
       (err) => {
         this.toastr.error('Couldn`t create user', err.error.error.message || 'Error');
-        console.log('signup error', err);
+        // console.log('signup error', err);
       }
     );
   }

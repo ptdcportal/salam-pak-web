@@ -67,7 +67,7 @@ export class PaymentComponent implements OnInit {
       ipn_url: `${environment.serverUrl}/ipn/${this.bookingId}`,
     };
     this.eventService.placeBookMeOrder(data).subscribe((res: any) => {
-      console.log('payment Data:', res);
+      // console.log('payment Data:', res);
       this.onSuccess.emit(res);
     });
   };

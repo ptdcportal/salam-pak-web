@@ -118,14 +118,18 @@
             >
           </li>
           <!-- [routerLink]="['/map']" -->
-          <li class="nav__item with-dropdown">
+          <li class="nav__item with-dropdown pointer">
             <a
-              [routerLink]="['/map']"
               [ngClass]="{ active: router.url.includes('map') }"
               class="dropdown-toggle nav__item-link"
               [translate]="'HEADERITEM6'"
               >map</a
             >
+            <i class="fa fa-angle-right" data-toggle="dropdown"></i>
+            <ul class="dropdown-menu">
+              <li class="nav__item"><a [routerLink]="['/map']" class="nav__item-link">Geolocational Map</a></li>
+              <li class="nav__item"><a [routerLink]="['/map/3d-map']" class="nav__item-link">3D map</a></li>
+            </ul>
           </li>
 
           <!-- [routerLink]="['/map']" -->

@@ -318,11 +318,11 @@ export class EventDetailComponent implements OnInit {
       isChild: this.bookingForm.get('noOfChildren').value > 0 ? true : false,
     };
     passengersDetail = { passengersDetail };
-    console.log(passengersDetail);
+    // console.log(passengersDetail);
     //  debugger;
     this.eventService.createEventBooking(this.eventId, passengersDetail).subscribe(
       (res: any) => {
-        console.log(res);
+        // console.log(res);
         this.ngxSmartModalService.getModal('bookingModal').close();
         this.toastr.success('booking created successfully!');
       },

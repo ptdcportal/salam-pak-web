@@ -243,7 +243,7 @@ export class FlightSearchComponent implements OnInit {
     this.bookingId = null;
     this.bookingResponse = null;
     this.ngxSmartModalService.getModal('flightModalPopup').open();
-    console.log(this.ammount);
+    // console.log(this.ammount);
   }
 
   setCountry(e: any) {
@@ -368,7 +368,7 @@ export class FlightSearchComponent implements OnInit {
   onPaymentMethodSuccess(data: any) {
     this.paymentFlag = false;
     this.paymentSuccesFlag = true;
-    console.log(data);
+    // console.log(data);
     this.bookingResponse = data;
   }
 }

@@ -155,7 +155,7 @@ export class HomeEventsComponent implements OnInit, AfterViewInit {
       },
       (err) => {}
     );
-    console.log(new Date(1657182360000));
+    // console.log(new Date(1657182360000));
   }
 
   generateDateClass(data: any) {

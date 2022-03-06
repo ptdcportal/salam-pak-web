@@ -201,7 +201,7 @@ export class BookingDetailsComponent implements OnInit {
   getCities() {
     states = [];
     this.homeService.getCities().subscribe((data: any) => {
-      console.log('Cities: ', data);
+      // console.log('Cities: ', data);
       this.locData = data;
       if (data) {
         data.forEach((i: any) => {
@@ -312,7 +312,7 @@ export class BookingDetailsComponent implements OnInit {
   // }
 
   navigateToFlightBooking() {
-    console.log('readed');
+    // console.log('readed');
     this.navigateflight();
     // console.log(this.ff[0].iataCode)
     // console.log(this.ft[0].iataCode)

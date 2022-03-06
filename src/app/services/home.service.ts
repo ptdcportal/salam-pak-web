@@ -36,7 +36,7 @@ export class HomeService {
 
   constructor(private httpClient: HttpClient) {
     this.checkCountry().subscribe((res: any) => {
-      console.log(res);
+      // console.log(res);
     });
   }
 

@@ -30,7 +30,7 @@ export class PlanListingComponent implements OnInit {
 
   ngOnInit(): void {
     this.userPlans = this.ngxSmartModalService.create('planListingModal', PlanListingComponent).getData();
-    console.log(this.userPlans);
+    // console.log(this.userPlans);
   }
 
   selectedPlan(plan: any) {

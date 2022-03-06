@@ -52,7 +52,7 @@ export class ContactComponent implements OnInit {
         this.toastr.success('Submitted Successfully!');
       },
       (err: any) => {
-        console.log(err.error.error.message);
+        // console.log(err.error.error.message);
         this.toastr.error(err.error.error.message);
       }
     );

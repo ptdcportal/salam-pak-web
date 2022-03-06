@@ -195,7 +195,7 @@ export class HomeWeatherComponent implements OnInit {
   }
 
   changeWeather = (event: any) => {
-    console.log(event);
+    // console.log(event);
     let widget = document.querySelector('.weatherwidget-io');
     let baseAttr = this.getAttributes(widget);
     let optionAttr = this.getAttributes(event.target.options[event.target.options.selectedIndex]);

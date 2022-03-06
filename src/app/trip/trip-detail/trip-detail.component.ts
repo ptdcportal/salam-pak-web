@@ -188,10 +188,10 @@ export class TripDetailComponent implements OnInit {
       isChild: this.bookingForm.get('noOfChildren').value > 0 ? true : false,
     };
     passengersDetail = { passengersDetail };
-    console.log(passengersDetail);
+    // console.log(passengersDetail);
     this.eventService.createTripBooking(this.tripId, passengersDetail).subscribe(
       (res: any) => {
-        console.log(res);
+        // console.log(res);
         this.ngxSmartModalService.getModal('bookingModal').close();
         this.toastr.success('booking created successfully!');
       },

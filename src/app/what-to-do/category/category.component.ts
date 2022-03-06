@@ -97,7 +97,7 @@ export class CategoryComponent implements OnInit {
     // debugger
     this.shellService.currentMessage.subscribe((data: any) => {
       this.categories = data.activities;
-      console.log('this.categories', this.categories);
+      // console.log('this.categories', this.categories);
     });
   }
   ngOnInit(): void {

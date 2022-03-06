@@ -28,7 +28,7 @@ export class MediaComponent implements OnInit {
         this.media = data.data;
       },
       (err) => {
-        console.log('Error: ', err);
+        // console.log('Error: ', err);
         this.error = true;
       }
     );

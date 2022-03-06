@@ -30,6 +30,6 @@ export class HomeSliderComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    this.homeSliderVideo.nativeElement.play();
+    // this.homeSliderVideo.nativeElement.play();
   }
 }

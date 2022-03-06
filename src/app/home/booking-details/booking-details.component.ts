@@ -193,8 +193,8 @@ export class BookingDetailsComponent implements OnInit {
       from: ['', Validators.required],
       flightTrip: [''],
       flightAdult: [1],
-      flightChild: [],
-      flightInfants: [],
+      flightChild: [0],
+      flightInfants: [0],
     });
   }
 

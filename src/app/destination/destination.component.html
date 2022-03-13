@@ -99,21 +99,21 @@
 <!-- ========================
               Services
           =========================== -->
-<section id="services" class="services pb-90">
+<section id="services" class="services">
   <div class="container">
     <div class="row heading heading-2 mb-40">
-      <div class="col-sm-12 col-md-12 col-lg-6">
+      <div class="col-sm-12 col-md-8 col-lg-8 mx-auto text-center">
         <p class="heading__desc">
           {{ location.longDescription }}
         </p>
       </div>
       <!-- /.col-lg-5 -->
-      <div class="col-sm-12 col-md-12 col-lg-6">
+      <!-- <div class="col-sm-12 col-md-12 col-lg-6">
         <img
           src="{{ location.photos[0] }}"
           onerror="this.onerror=null;this.src='assets/images/backgrounds/what-to-do.png';"
         />
-      </div>
+      </div> -->
       <!-- /.col-lg-6 -->
     </div>
     <!-- /.row -->
@@ -239,7 +239,7 @@
     <!-- /.row -->
     <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-12">
-        <div class="col-sm-12 col-md-3 col-lg-3 whattodo-sidebar p-0">
+        <!-- <div class="col-sm-12 col-md-3 col-lg-3 whattodo-sidebar p-0">
           <aside class="whattodo-sidebar mb-30">
             <div class="whattodo-widget whattodo-widget-categories">
               <div class="widget-content">
@@ -258,14 +258,11 @@
                   </li>
                 </ul>
               </div>
-              <!-- /.widget-content -->
             </div>
-            <!-- /.widget-categories -->
           </aside>
-          <!-- /.sidebar -->
-        </div>
+        </div> -->
         <!-- /.col-lg-4 -->
-        <div class="col-sm-12 col-md-9 col-lg-9 pl-80" *ngIf="!show">
+        <div class="col-sm-12 col-md-12 col-lg-12" *ngIf="!show">
           <div id="whattodo-map">
             <!--*ngIf="show"-->
             <!-- <agm-map [zoom]="6" [latitude]="center?.lat" [longitude]="center?.lng" >

@@ -50,7 +50,7 @@ a:hover {
 section {
   position: relative;
   padding-top: 110px;
-  padding-bottom: 110px;
+  /* padding-bottom: 110px; */
 }
 
 img {
@@ -73,13 +73,13 @@ li {
   margin: 0;
   padding: 0;
   font-family: Byom-Bold;
-  text-transform: lowercase;
+  text-transform: capitalize;
 }
 p {
   margin: 0;
   padding: 0;
   font-family: Byom-Regular !important;
-  text-transform: lowercase;
+  text-transform: capitalize;
 }
 *,
 :active,
@@ -91,12 +91,12 @@ ul,
 ol {
   list-style: none;
   font-family: Byom-Regular !important;
-  text-transform: lowercase;
+  text-transform: capitalize;
 }
 
 button {
   border: none;
-  text-transform: lowercase;
+  text-transform: capitalize;
 }
 
 button,
@@ -112,7 +112,7 @@ button:focus,
   -ms-box-shadow: none;
   -o-box-shadow: none;
   box-shadow: none;
-  text-transform: lowercase;
+  text-transform: capitalize;
 }
 
 textarea {
@@ -1135,7 +1135,7 @@ h5,
 h6 {
   color: #121c45;
   font-family: Byom-Bold;
-  text-transform: lowercase;
+  text-transform: capitalize;
   font-weight: 600;
   line-height: 1.1;
   margin-bottom: 23px;
@@ -1179,7 +1179,7 @@ h6 {
   color: #757575;
   display: inline-block;
   margin-bottom: 0px;
-  text-transform: lowercase;
+  text-transform: capitalize;
 }
 
 .heading__title {
@@ -1191,7 +1191,7 @@ h6 {
   font-size: 16px;
   line-height: 25px;
   margin-bottom: 0;
-  margin-right: 20%;
+  /* margin-right: 20%; */
 }
 
 .divider__line + .heading__desc {
@@ -1498,7 +1498,7 @@ h6 {
 .btn__primary {
   background-color: #8cc63e;
   color: #ffffff !important;
-  text-transform: lowercase;
+  text-transform: capitalize;
 }
 
 .btn__primary:active,
@@ -1528,7 +1528,7 @@ h6 {
   background-color: #8cc63e;
   color: #ffffff;
   border: 2px solid #8cc63e;
-  text-transform: lowercase;
+  text-transform: capitalize;
 }
 
 .btn__secondary:active,
@@ -1551,7 +1551,7 @@ h6 {
 .btn__white {
   background-color: #00a299;
   color: #fff !important;
-  text-transform: lowercase;
+  text-transform: capitalize;
 }
 
 .btn__white:active,
@@ -2522,7 +2522,7 @@ form input[type='file'] {
 .navbar .nav__item .nav__item-link {
   font-size: 15px;
   font-weight: 300;
-  text-transform: lowercase;
+  text-transform: capitalize;
   display: block;
   position: relative;
   color: #333333;
@@ -4615,7 +4615,7 @@ form input[type='file'] {
   color: #000;
   padding-right: 50px;
   margin-bottom: 35px;
-  text-transform: lowercase;
+  text-transform: capitalize;
 }
 .slider .slide__desc {
   /* font-size: 18px; */
@@ -4624,7 +4624,7 @@ form input[type='file'] {
   color: #fff;
   padding-right: 50px;
   margin-bottom: 35px;
-  text-transform: lowercase;
+  text-transform: capitalize;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -4768,7 +4768,7 @@ form input[type='file'] {
   background-color: #fffffff0;
   color: #000000;
   border: 2px solid #ffffff;
-  text-transform: lowercase;
+  text-transform: capitalize;
 }
 /* Large Size Screens */
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
@@ -5493,7 +5493,7 @@ form input[type='file'] {
 .post-item .btn__link {
   margin-top: 11px;
   padding-bottom: 5px;
-  text-transform: lowercase;
+  text-transform: capitalize;
 }
 
 .post-item .btn__link:after {
@@ -5894,7 +5894,7 @@ form input[type='file'] {
   background: #8cc63e;
   padding: 10px;
   color: #fff;
-  text-transform: lowercase;
+  text-transform: capitalize;
 }
 
 .places-item .btn__link:after {
@@ -8337,7 +8337,7 @@ form input[type='file'] {
   background: #f3f5f7;
   padding-top: 90px;
   padding-bottom: 90px;
-  margin-top: 100px;
+  /* margin-top: 100px; */
 }
 .season-image-item {
   box-shadow: 5px 7px 20px -4px;
@@ -8978,7 +8978,7 @@ table td {
   display: inline-block;
   text-decoration: none;
   padding: 22px;
-  text-transform: lowercase;
+  text-transform: capitalize;
   font-size: 20px;
   color: #231f20;
   text-align: center;
@@ -9013,7 +9013,7 @@ table td {
   display: inline-block;
   text-decoration: none;
   padding: 22px;
-  text-transform: lowercase;
+  text-transform: capitalize;
   font-size: 20px;
   color: #231f20;
   text-align: center;
@@ -9791,7 +9791,7 @@ table td {
     color: #000;
     padding-right: 50px;
     margin-bottom: 35px;
-    text-transform: lowercase;
+    text-transform: capitalize;
   }
   .slider-1 .slide-item {
     min-height: 0;
@@ -9809,7 +9809,7 @@ table td {
     display: inline-block;
     text-decoration: none;
     padding: 7px 15px;
-    text-transform: lowercase;
+    text-transform: capitalize;
     font-size: 15px;
     color: #231f20;
     text-align: center;

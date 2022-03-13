@@ -1,7 +1,9 @@
 .bg-img {
+  background-color: #000000 !important;
   img {
     min-height: 400px;
     object-fit: none;
+    opacity: 0.7 !important;
   }
   object-fit: cover;
   margin-top: -120px;

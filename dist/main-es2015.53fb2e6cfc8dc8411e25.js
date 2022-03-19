@@ -18293,7 +18293,7 @@
     ZAI4: function (e, t, n) {
       'use strict';
       n.d(t, 'a', function () {
-        return Hu;
+        return Vu;
       });
       var r = n('jhN1'),
         i = n('tk/3'),
@@ -18575,9 +18575,7 @@
               this.show = 'Pakistan' != e.country;
             });
           }
-          ngAfterViewInit() {
-            this.homeSliderVideo.nativeElement.play();
-          }
+          ngAfterViewInit() {}
         }
         return (
           (e.ɵfac = function (t) {
@@ -18709,7 +18707,6 @@
                 { name: 'poonch', alias: 'Poonch', city_code: '33d7774d09' },
               ]),
               (this.changeWeather = (e) => {
-                console.log(e);
                 let t = document.querySelector('.weatherwidget-io'),
                   n = this.getAttributes(t),
                   r = this.getAttributes(e.target.options[e.target.options.selectedIndex]),
@@ -20410,15 +20407,14 @@
                 from: ['', re.Validators.required],
                 flightTrip: [''],
                 flightAdult: [1],
-                flightChild: [],
-                flightInfants: [],
+                flightChild: [0],
+                flightInfants: [0],
               });
             }
             getCities() {
               (Re = []),
                 this.homeService.getCities().subscribe((e) => {
-                  console.log('Cities: ', e),
-                    (this.locData = e),
+                  (this.locData = e),
                     e &&
                       e.forEach((e) => {
                         Re.push(e.name);
@@ -20482,7 +20478,7 @@
               );
             }
             navigateToFlightBooking() {
-              console.log('readed'), this.navigateflight();
+              this.navigateflight();
             }
           }
           return (
@@ -22232,8 +22228,7 @@
                     this.locations.push(e._id);
                   })
                 : (this.locations = []);
-            }),
-              console.log('dataaaaaaaaa: ', this.locations);
+            });
           }
           addToWishlist(e) {
             this.eventService.addTripToWishlist(e).subscribe((e) => {
@@ -22575,7 +22570,7 @@
           }
           getBlogs() {
             this.homeService.getBlogs().subscribe((e) => {
-              e && (this.blogs = e.length > 6 ? e.slice(0, 6) : e), console.log('Fetched blogs: ', this.blogs);
+              e && (this.blogs = e.length > 6 ? e.slice(0, 6) : e);
             });
           }
         }
@@ -30940,8 +30935,7 @@
                   (this.dateCustomClasses = this.generateDateClass(this.events));
               },
               (e) => {}
-            ),
-              console.log(new Date(165718236e4));
+            );
           }
           generateDateClass(e) {
             return e.map((e) => ({ date: new Date(e.startDate), classes: ['dateCustomClasses'] }));
@@ -33941,7 +33935,7 @@
                   this.toastr.success('Submitted Successfully!');
                 },
                 (e) => {
-                  console.log(e.error.error.message), this.toastr.error(e.error.error.message);
+                  this.toastr.error(e.error.error.message);
                 }
               );
             }
@@ -36608,7 +36602,7 @@
                     this.media = e.data;
                   },
                   (e) => {
-                    console.log('Error: ', e), (this.error = !0);
+                    this.error = !0;
                   }
                 );
               }),
@@ -37181,11 +37175,11 @@
       function ol(e, t) {
         if (
           (1 & e &&
-            (a['\u0275\u0275elementStart'](0, 'li', 40),
+            (a['\u0275\u0275elementStart'](0, 'li', 42),
             a['\u0275\u0275text'](1, '\n            '),
-            a['\u0275\u0275elementStart'](2, 'a', 41),
+            a['\u0275\u0275elementStart'](2, 'a', 43),
             a['\u0275\u0275text'](3, '\n              '),
-            a['\u0275\u0275element'](4, 'i', 42),
+            a['\u0275\u0275element'](4, 'i', 44),
             a['\u0275\u0275text'](5),
             a['\u0275\u0275pipe'](6, 'titlecase'),
             a['\u0275\u0275elementEnd'](),
@@ -37203,7 +37197,7 @@
           const e = a['\u0275\u0275getCurrentView']();
           a['\u0275\u0275elementStart'](0, 'li', 17),
             a['\u0275\u0275text'](1, '\n                '),
-            a['\u0275\u0275elementStart'](2, 'a', 43),
+            a['\u0275\u0275elementStart'](2, 'a', 45),
             a['\u0275\u0275listener']('click', function () {
               a['\u0275\u0275restoreView'](e);
               const n = t.$implicit;
@@ -37224,9 +37218,9 @@
       };
       function dl(e, t) {
         1 & e &&
-          (a['\u0275\u0275elementStart'](0, 'li', 40),
+          (a['\u0275\u0275elementStart'](0, 'li', 42),
           a['\u0275\u0275text'](1, '\n            '),
-          a['\u0275\u0275elementStart'](2, 'a', 44),
+          a['\u0275\u0275elementStart'](2, 'a', 46),
           a['\u0275\u0275text'](3, 'Profile'),
           a['\u0275\u0275elementEnd'](),
           a['\u0275\u0275text'](4, '\n          '),
@@ -37237,9 +37231,9 @@
       }
       function ul(e, t) {
         1 & e &&
-          (a['\u0275\u0275elementStart'](0, 'li', 40),
+          (a['\u0275\u0275elementStart'](0, 'li', 42),
           a['\u0275\u0275text'](1, '\n            '),
-          a['\u0275\u0275elementStart'](2, 'a', 41),
+          a['\u0275\u0275elementStart'](2, 'a', 43),
           a['\u0275\u0275text'](3, 'Logout'),
           a['\u0275\u0275elementEnd'](),
           a['\u0275\u0275text'](4, '\n          '),
@@ -37248,18 +37242,18 @@
       function hl(e, t) {
         if (1 & e) {
           const e = a['\u0275\u0275getCurrentView']();
-          a['\u0275\u0275elementStart'](0, 'div', 45),
+          a['\u0275\u0275elementStart'](0, 'div', 47),
             a['\u0275\u0275text'](1, '\n              '),
-            a['\u0275\u0275elementStart'](2, 'a', 46),
+            a['\u0275\u0275elementStart'](2, 'a', 48),
             a['\u0275\u0275text'](3, '\n                '),
-            a['\u0275\u0275element'](4, 'i', 47),
+            a['\u0275\u0275element'](4, 'i', 49),
             a['\u0275\u0275text'](5, '\n              '),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](6, '\n              '),
-            a['\u0275\u0275elementStart'](7, 'ul', 48),
+            a['\u0275\u0275elementStart'](7, 'ul', 50),
             a['\u0275\u0275text'](8, '\n                '),
             a['\u0275\u0275elementStart'](9, 'li'),
-            a['\u0275\u0275elementStart'](10, 'a', 49),
+            a['\u0275\u0275elementStart'](10, 'a', 51),
             a['\u0275\u0275text'](11, 'login as vendor'),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275elementEnd'](),
@@ -37269,7 +37263,7 @@
             a['\u0275\u0275text'](15, '\n                '),
             a['\u0275\u0275elementStart'](16, 'li'),
             a['\u0275\u0275text'](17, '\n                  '),
-            a['\u0275\u0275elementStart'](18, 'a', 50),
+            a['\u0275\u0275elementStart'](18, 'a', 52),
             a['\u0275\u0275listener']('click', function () {
               a['\u0275\u0275restoreView'](e);
               const t = a['\u0275\u0275nextContext']();
@@ -37309,19 +37303,19 @@
       function bl(e, t) {
         if (1 & e) {
           const e = a['\u0275\u0275getCurrentView']();
-          a['\u0275\u0275elementStart'](0, 'div', 45),
+          a['\u0275\u0275elementStart'](0, 'div', 47),
             a['\u0275\u0275text'](1, '\n              '),
-            a['\u0275\u0275elementStart'](2, 'a', 46),
+            a['\u0275\u0275elementStart'](2, 'a', 48),
             a['\u0275\u0275text'](3, '\n                '),
-            a['\u0275\u0275element'](4, 'i', 47),
+            a['\u0275\u0275element'](4, 'i', 49),
             a['\u0275\u0275text'](5),
             a['\u0275\u0275pipe'](6, 'titlecase'),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](7, '\n              '),
-            a['\u0275\u0275elementStart'](8, 'ul', 48),
+            a['\u0275\u0275elementStart'](8, 'ul', 50),
             a['\u0275\u0275text'](9, '\n                '),
             a['\u0275\u0275elementStart'](10, 'li'),
-            a['\u0275\u0275elementStart'](11, 'a', 52),
+            a['\u0275\u0275elementStart'](11, 'a', 54),
             a['\u0275\u0275text'](12, 'Profile'),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275elementEnd'](),
@@ -37329,7 +37323,7 @@
             a['\u0275\u0275element'](14, 'hr'),
             a['\u0275\u0275text'](15, '\n                '),
             a['\u0275\u0275elementStart'](16, 'li'),
-            a['\u0275\u0275elementStart'](17, 'a', 52),
+            a['\u0275\u0275elementStart'](17, 'a', 54),
             a['\u0275\u0275text'](18, 'Plan Your Trip'),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275elementEnd'](),
@@ -37338,7 +37332,7 @@
             a['\u0275\u0275text'](21, '\n                '),
             a['\u0275\u0275text'](22, '\n                '),
             a['\u0275\u0275elementStart'](23, 'li'),
-            a['\u0275\u0275elementStart'](24, 'a', 52),
+            a['\u0275\u0275elementStart'](24, 'a', 54),
             a['\u0275\u0275text'](25, 'Travel Itinerary'),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275elementEnd'](),
@@ -37346,7 +37340,7 @@
             a['\u0275\u0275element'](27, 'hr'),
             a['\u0275\u0275text'](28, '\n                '),
             a['\u0275\u0275elementStart'](29, 'li'),
-            a['\u0275\u0275elementStart'](30, 'a', 52),
+            a['\u0275\u0275elementStart'](30, 'a', 54),
             a['\u0275\u0275text'](31, 'Wishlist'),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275elementEnd'](),
@@ -37355,7 +37349,7 @@
             a['\u0275\u0275text'](34, '\n                '),
             a['\u0275\u0275text'](35, '\n                '),
             a['\u0275\u0275elementStart'](36, 'li'),
-            a['\u0275\u0275elementStart'](37, 'a', 52),
+            a['\u0275\u0275elementStart'](37, 'a', 54),
             a['\u0275\u0275text'](38, 'Review & Feedback'),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275elementEnd'](),
@@ -37363,7 +37357,7 @@
             a['\u0275\u0275element'](40, 'hr'),
             a['\u0275\u0275text'](41, '\n                '),
             a['\u0275\u0275elementStart'](42, 'li'),
-            a['\u0275\u0275elementStart'](43, 'a', 52),
+            a['\u0275\u0275elementStart'](43, 'a', 54),
             a['\u0275\u0275text'](44, 'My Bookings'),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275elementEnd'](),
@@ -37371,7 +37365,7 @@
             a['\u0275\u0275element'](46, 'hr'),
             a['\u0275\u0275text'](47, '\n                '),
             a['\u0275\u0275elementStart'](48, 'li'),
-            a['\u0275\u0275elementStart'](49, 'a', 52),
+            a['\u0275\u0275elementStart'](49, 'a', 54),
             a['\u0275\u0275text'](50, 'change password'),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275elementEnd'](),
@@ -37379,7 +37373,7 @@
             a['\u0275\u0275element'](52, 'hr'),
             a['\u0275\u0275text'](53, '\n                '),
             a['\u0275\u0275elementStart'](54, 'li'),
-            a['\u0275\u0275elementStart'](55, 'a', 50),
+            a['\u0275\u0275elementStart'](55, 'a', 52),
             a['\u0275\u0275listener']('click', function () {
               return a['\u0275\u0275restoreView'](e), a['\u0275\u0275nextContext'](2).logout();
             }),
@@ -37414,9 +37408,9 @@
       function xl(e, t) {
         if (
           (1 & e &&
-            (a['\u0275\u0275elementStart'](0, 'li', 51),
+            (a['\u0275\u0275elementStart'](0, 'li', 53),
             a['\u0275\u0275text'](1, '\n            '),
-            a['\u0275\u0275template'](2, bl, 59, 17, 'div', 27),
+            a['\u0275\u0275template'](2, bl, 59, 17, 'div', 29),
             a['\u0275\u0275text'](3, '\n          '),
             a['\u0275\u0275elementEnd']()),
           2 & e)
@@ -37431,48 +37425,48 @@
           a['\u0275\u0275elementStart'](0, 'div'),
             a['\u0275\u0275text'](1, '\n          '),
             a['\u0275\u0275text'](2, '\n          '),
-            a['\u0275\u0275elementStart'](3, 'form', 53),
+            a['\u0275\u0275elementStart'](3, 'form', 55),
             a['\u0275\u0275text'](4, '\n            '),
-            a['\u0275\u0275elementStart'](5, 'p', 54),
+            a['\u0275\u0275elementStart'](5, 'p', 56),
             a['\u0275\u0275text'](6, '\n              '),
-            a['\u0275\u0275elementStart'](7, 'label', 55),
+            a['\u0275\u0275elementStart'](7, 'label', 57),
             a['\u0275\u0275text'](8, 'Enter your Email'),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](9, '\n              '),
-            a['\u0275\u0275element'](10, 'input', 56),
+            a['\u0275\u0275element'](10, 'input', 58),
             a['\u0275\u0275pipe'](11, 'translate'),
             a['\u0275\u0275text'](12, '\n              '),
             a['\u0275\u0275text'](13, '\n            '),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](14, '\n            '),
-            a['\u0275\u0275elementStart'](15, 'small', 57),
+            a['\u0275\u0275elementStart'](15, 'small', 59),
             a['\u0275\u0275text'](16, '\n              Email is required\n            '),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](17, '\n            '),
             a['\u0275\u0275text'](18, '\n\n            '),
-            a['\u0275\u0275elementStart'](19, 'p', 54),
+            a['\u0275\u0275elementStart'](19, 'p', 56),
             a['\u0275\u0275text'](20, '\n              '),
-            a['\u0275\u0275elementStart'](21, 'label', 58),
+            a['\u0275\u0275elementStart'](21, 'label', 60),
             a['\u0275\u0275text'](22, 'Enter your Password'),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](23, '\n              '),
-            a['\u0275\u0275element'](24, 'input', 59),
+            a['\u0275\u0275element'](24, 'input', 61),
             a['\u0275\u0275text'](25, '\n            '),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](26, '\n            '),
-            a['\u0275\u0275elementStart'](27, 'small', 57),
+            a['\u0275\u0275elementStart'](27, 'small', 59),
             a['\u0275\u0275text'](28, '\n              Password is required\n            '),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](29, '\n\n            '),
-            a['\u0275\u0275elementStart'](30, 'div', 60),
+            a['\u0275\u0275elementStart'](30, 'div', 62),
             a['\u0275\u0275text'](31, '\n              '),
             a['\u0275\u0275text'](32, '\n            '),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](33, '\n\n            '),
-            a['\u0275\u0275elementStart'](34, 'p', 61),
+            a['\u0275\u0275elementStart'](34, 'p', 63),
             a['\u0275\u0275text'](35, '\n              '),
             a['\u0275\u0275text'](36, '\n              '),
-            a['\u0275\u0275elementStart'](37, 'a', 62),
+            a['\u0275\u0275elementStart'](37, 'a', 64),
             a['\u0275\u0275listener']('click', function () {
               return a['\u0275\u0275restoreView'](e), a['\u0275\u0275nextContext']().openModal('resetPassword');
             }),
@@ -37482,9 +37476,9 @@
             a['\u0275\u0275text'](40, '\n            '),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](41, '\n\n            '),
-            a['\u0275\u0275elementStart'](42, 'p', 63),
+            a['\u0275\u0275elementStart'](42, 'p', 65),
             a['\u0275\u0275text'](43, '\n              '),
-            a['\u0275\u0275elementStart'](44, 'button', 64),
+            a['\u0275\u0275elementStart'](44, 'button', 66),
             a['\u0275\u0275listener']('click', function () {
               return a['\u0275\u0275restoreView'](e), a['\u0275\u0275nextContext']().login();
             }),
@@ -37495,31 +37489,31 @@
             a['\u0275\u0275text'](47, '\n          '),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](48, '\n\n          '),
-            a['\u0275\u0275elementStart'](49, 'div', 65),
+            a['\u0275\u0275elementStart'](49, 'div', 67),
             a['\u0275\u0275text'](50, '\n            '),
             a['\u0275\u0275elementStart'](51, 'p'),
             a['\u0275\u0275text'](52, 'Or'),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](53, '\n            '),
-            a['\u0275\u0275elementStart'](54, 'p', 63),
+            a['\u0275\u0275elementStart'](54, 'p', 65),
             a['\u0275\u0275text'](55, '\n              '),
-            a['\u0275\u0275elementStart'](56, 'a', 66),
+            a['\u0275\u0275elementStart'](56, 'a', 68),
             a['\u0275\u0275listener']('click', function () {
               return a['\u0275\u0275restoreView'](e), a['\u0275\u0275nextContext']().signInWithFB();
             }),
-            a['\u0275\u0275element'](57, 'i', 67),
+            a['\u0275\u0275element'](57, 'i', 69),
             a['\u0275\u0275text'](58, 'Facebook'),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](59, '\n            '),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](60, '\n            '),
-            a['\u0275\u0275elementStart'](61, 'p', 63),
+            a['\u0275\u0275elementStart'](61, 'p', 65),
             a['\u0275\u0275text'](62, '\n              '),
-            a['\u0275\u0275elementStart'](63, 'button', 68),
+            a['\u0275\u0275elementStart'](63, 'button', 70),
             a['\u0275\u0275listener']('click', function () {
               return a['\u0275\u0275restoreView'](e), a['\u0275\u0275nextContext']().signInWithGoogle();
             }),
-            a['\u0275\u0275element'](64, 'i', 69),
+            a['\u0275\u0275element'](64, 'i', 71),
             a['\u0275\u0275text'](65, 'Gmail'),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](66, '\n            '),
@@ -37556,120 +37550,120 @@
           a['\u0275\u0275elementStart'](0, 'div'),
             a['\u0275\u0275text'](1, '\n          '),
             a['\u0275\u0275text'](2, '\n          '),
-            a['\u0275\u0275elementStart'](3, 'form', 70),
+            a['\u0275\u0275elementStart'](3, 'form', 72),
             a['\u0275\u0275text'](4, '\n            '),
-            a['\u0275\u0275elementStart'](5, 'p', 54),
+            a['\u0275\u0275elementStart'](5, 'p', 56),
             a['\u0275\u0275text'](6, '\n              '),
-            a['\u0275\u0275elementStart'](7, 'label', 71),
+            a['\u0275\u0275elementStart'](7, 'label', 73),
             a['\u0275\u0275text'](8, 'First Name'),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](9, '\n              '),
-            a['\u0275\u0275element'](10, 'input', 72),
+            a['\u0275\u0275element'](10, 'input', 74),
             a['\u0275\u0275text'](11, '\n            '),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](12, '\n            '),
-            a['\u0275\u0275elementStart'](13, 'small', 57),
+            a['\u0275\u0275elementStart'](13, 'small', 59),
             a['\u0275\u0275text'](14, '\n              First Name is required\n            '),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](15, '\n            '),
-            a['\u0275\u0275elementStart'](16, 'p', 54),
+            a['\u0275\u0275elementStart'](16, 'p', 56),
             a['\u0275\u0275text'](17, '\n              '),
-            a['\u0275\u0275elementStart'](18, 'label', 71),
+            a['\u0275\u0275elementStart'](18, 'label', 73),
             a['\u0275\u0275text'](19, 'Last Name'),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](20, '\n              '),
-            a['\u0275\u0275element'](21, 'input', 73),
+            a['\u0275\u0275element'](21, 'input', 75),
             a['\u0275\u0275text'](22, '\n            '),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](23, '\n            '),
-            a['\u0275\u0275elementStart'](24, 'small', 57),
+            a['\u0275\u0275elementStart'](24, 'small', 59),
             a['\u0275\u0275text'](25, '\n              Last Name is required\n            '),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](26, '\n            '),
-            a['\u0275\u0275elementStart'](27, 'p', 54),
+            a['\u0275\u0275elementStart'](27, 'p', 56),
             a['\u0275\u0275text'](28, '\n              '),
-            a['\u0275\u0275elementStart'](29, 'label', 71),
+            a['\u0275\u0275elementStart'](29, 'label', 73),
             a['\u0275\u0275text'](30, 'Mobile'),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](31, '\n              '),
-            a['\u0275\u0275element'](32, 'input', 74),
+            a['\u0275\u0275element'](32, 'input', 76),
             a['\u0275\u0275text'](33, '\n            '),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](34, '\n\n            '),
-            a['\u0275\u0275elementStart'](35, 'small', 57),
+            a['\u0275\u0275elementStart'](35, 'small', 59),
             a['\u0275\u0275text'](36, '\n              Mobile Number is required\n            '),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](37, '\n            '),
-            a['\u0275\u0275elementStart'](38, 'p', 54),
+            a['\u0275\u0275elementStart'](38, 'p', 56),
             a['\u0275\u0275text'](39, '\n              '),
-            a['\u0275\u0275elementStart'](40, 'label', 75),
+            a['\u0275\u0275elementStart'](40, 'label', 77),
             a['\u0275\u0275text'](41, 'Email'),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](42, '\n              '),
-            a['\u0275\u0275element'](43, 'input', 76),
+            a['\u0275\u0275element'](43, 'input', 78),
             a['\u0275\u0275text'](44, '\n            '),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](45, '\n            '),
-            a['\u0275\u0275elementStart'](46, 'small', 57),
+            a['\u0275\u0275elementStart'](46, 'small', 59),
             a['\u0275\u0275text'](47, '\n              Email is required\n            '),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](48, '\n            '),
-            a['\u0275\u0275elementStart'](49, 'p', 63),
+            a['\u0275\u0275elementStart'](49, 'p', 65),
             a['\u0275\u0275text'](50, '\n              '),
             a['\u0275\u0275text'](51, '\n              '),
             a['\u0275\u0275text'](52, '\n              '),
-            a['\u0275\u0275element'](53, 'input', 77),
+            a['\u0275\u0275element'](53, 'input', 79),
             a['\u0275\u0275text'](54, ' Male\n              '),
-            a['\u0275\u0275element'](55, 'input', 78),
+            a['\u0275\u0275element'](55, 'input', 80),
             a['\u0275\u0275text'](56, ' Female\n            '),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](57, '\n\n            '),
-            a['\u0275\u0275elementStart'](58, 'p', 54),
+            a['\u0275\u0275elementStart'](58, 'p', 56),
             a['\u0275\u0275text'](59, '\n              '),
-            a['\u0275\u0275elementStart'](60, 'label', 71),
+            a['\u0275\u0275elementStart'](60, 'label', 73),
             a['\u0275\u0275text'](61, 'Password'),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](62, '\n              '),
-            a['\u0275\u0275element'](63, 'input', 79),
+            a['\u0275\u0275element'](63, 'input', 81),
             a['\u0275\u0275text'](64, '\n            '),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](65, '\n            '),
-            a['\u0275\u0275elementStart'](66, 'small', 57),
+            a['\u0275\u0275elementStart'](66, 'small', 59),
             a['\u0275\u0275text'](67, '\n              Password is required\n            '),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](68, '\n            '),
-            a['\u0275\u0275elementStart'](69, 'p', 54),
+            a['\u0275\u0275elementStart'](69, 'p', 56),
             a['\u0275\u0275text'](70, '\n              '),
-            a['\u0275\u0275elementStart'](71, 'label', 71),
+            a['\u0275\u0275elementStart'](71, 'label', 73),
             a['\u0275\u0275text'](72, 'Confirm Password'),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](73, '\n              '),
-            a['\u0275\u0275element'](74, 'input', 80),
+            a['\u0275\u0275element'](74, 'input', 82),
             a['\u0275\u0275text'](75, '\n            '),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](76, '\n            '),
-            a['\u0275\u0275elementStart'](77, 'small', 57),
+            a['\u0275\u0275elementStart'](77, 'small', 59),
             a['\u0275\u0275text'](78, '\n              Confirm Password is required\n            '),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](79, '\n            '),
-            a['\u0275\u0275elementStart'](80, 'p', 54),
+            a['\u0275\u0275elementStart'](80, 'p', 56),
             a['\u0275\u0275text'](81, '\n              '),
-            a['\u0275\u0275elementStart'](82, 'label', 81),
+            a['\u0275\u0275elementStart'](82, 'label', 83),
             a['\u0275\u0275text'](83, 'DOB'),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](84, '\n              '),
-            a['\u0275\u0275element'](85, 'input', 82),
+            a['\u0275\u0275element'](85, 'input', 84),
             a['\u0275\u0275text'](86, '\n            '),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](87, '\n            '),
-            a['\u0275\u0275elementStart'](88, 'small', 57),
+            a['\u0275\u0275elementStart'](88, 'small', 59),
             a['\u0275\u0275text'](89, '\n              DOB is required\n            '),
             a['\u0275\u0275elementEnd'](),
             a['\u0275\u0275text'](90, '\n            '),
             a['\u0275\u0275text'](91, '\n\n            '),
-            a['\u0275\u0275elementStart'](92, 'p', 63),
+            a['\u0275\u0275elementStart'](92, 'p', 65),
             a['\u0275\u0275text'](93, '\n              '),
-            a['\u0275\u0275elementStart'](94, 'button', 83),
+            a['\u0275\u0275elementStart'](94, 'button', 85),
             a['\u0275\u0275listener']('click', function () {
               return a['\u0275\u0275restoreView'](e), a['\u0275\u0275nextContext']().signUp();
             }),
@@ -37728,39 +37722,39 @@
           (a['\u0275\u0275elementStart'](0, 'div'),
           a['\u0275\u0275text'](1, '\n          '),
           a['\u0275\u0275text'](2, '\n          '),
-          a['\u0275\u0275elementStart'](3, 'p', 84),
+          a['\u0275\u0275elementStart'](3, 'p', 86),
           a['\u0275\u0275text'](
             4,
             '\n            Lost your password? Please enter your email address. You will receive a link to create a new password.\n          '
           ),
           a['\u0275\u0275elementEnd'](),
           a['\u0275\u0275text'](5, '\n\n          '),
-          a['\u0275\u0275elementStart'](6, 'form', 85),
+          a['\u0275\u0275elementStart'](6, 'form', 87),
           a['\u0275\u0275text'](7, '\n            '),
-          a['\u0275\u0275elementStart'](8, 'p', 63),
+          a['\u0275\u0275elementStart'](8, 'p', 65),
           a['\u0275\u0275text'](9, '\n              '),
-          a['\u0275\u0275elementStart'](10, 'label', 86),
+          a['\u0275\u0275elementStart'](10, 'label', 88),
           a['\u0275\u0275text'](11, 'E-mail'),
           a['\u0275\u0275elementEnd'](),
           a['\u0275\u0275text'](12, '\n              '),
-          a['\u0275\u0275element'](13, 'input', 87),
+          a['\u0275\u0275element'](13, 'input', 89),
           a['\u0275\u0275text'](14, '\n              '),
-          a['\u0275\u0275elementStart'](15, 'span', 88),
+          a['\u0275\u0275elementStart'](15, 'span', 90),
           a['\u0275\u0275text'](16, 'Error message here!'),
           a['\u0275\u0275elementEnd'](),
           a['\u0275\u0275text'](17, '\n            '),
           a['\u0275\u0275elementEnd'](),
           a['\u0275\u0275text'](18, '\n\n            '),
-          a['\u0275\u0275elementStart'](19, 'p', 63),
+          a['\u0275\u0275elementStart'](19, 'p', 65),
           a['\u0275\u0275text'](20, '\n              '),
-          a['\u0275\u0275element'](21, 'input', 89),
+          a['\u0275\u0275element'](21, 'input', 91),
           a['\u0275\u0275text'](22, '\n            '),
           a['\u0275\u0275elementEnd'](),
           a['\u0275\u0275text'](23, '\n          '),
           a['\u0275\u0275elementEnd'](),
           a['\u0275\u0275text'](24, '\n\n          '),
-          a['\u0275\u0275elementStart'](25, 'p', 90),
-          a['\u0275\u0275elementStart'](26, 'a', 91),
+          a['\u0275\u0275elementStart'](25, 'p', 92),
+          a['\u0275\u0275elementStart'](26, 'a', 93),
           a['\u0275\u0275text'](27, 'Back to log-in'),
           a['\u0275\u0275elementEnd'](),
           a['\u0275\u0275elementEnd'](),
@@ -37812,12 +37806,15 @@
         Nl = function () {
           return ['/map'];
         },
-        Hl = function (e) {
+        Hl = function () {
+          return ['/map/3d-map'];
+        },
+        Vl = function (e) {
           return { selected: e };
         },
-        Vl = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        Bl = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       new I.b('Login');
-      let Bl = (() => {
+      let Wl = (() => {
         class e {
           constructor(e, t, n, r, i, s, a, o, l, c, d, u, m) {
             (this.router = e),
@@ -37882,7 +37879,7 @@
           }
           ngOnInit() {
             this.authService.authState.subscribe((e) => {
-              console.log('social user', e), (this.socialUser = e), this.socialLogin(e);
+              (this.socialUser = e), this.socialLogin(e);
             }),
               this.getProvinces(),
               this.initializeSignup(),
@@ -37896,7 +37893,7 @@
           }
           getProvinces() {
             this.shellService.getProvinces().subscribe((e) => {
-              (this.provinces = e.data), console.log('Provincessssssssssssss', this.provinces);
+              this.provinces = e.data;
             });
           }
           switchLanguage(e) {
@@ -37948,7 +37945,7 @@
                 }
               },
               (e) => {
-                console.log('login error', e.error), this.toastr.error('Invalid E-mail or Password', 'Error');
+                this.toastr.error('Invalid E-mail or Password', 'Error');
               }
             );
           }
@@ -37964,7 +37961,7 @@
                 }
               },
               (e) => {
-                console.log('login error', e.error), this.toastr.error('Invalid E-mail or Password', 'Error');
+                this.toastr.error('Invalid E-mail or Password', 'Error');
               }
             );
           }
@@ -37977,8 +37974,7 @@
                   this.toastr.success('Logged In', `Welcome, ${localStorage.getItem('fName')}!`);
               },
               (e) => {
-                this.toastr.error('Couldn`t create user', e.error.error.message || 'Error'),
-                  console.log('signup error', e);
+                this.toastr.error('Couldn`t create user', e.error.error.message || 'Error');
               }
             );
           }
@@ -37992,7 +37988,7 @@
           ngOnDestroy() {}
           initializeLogin() {
             this.loginForm = this.formBuilder.group({
-              email: ['', [re.Validators.required, re.Validators.email, re.Validators.pattern(Vl)]],
+              email: ['', [re.Validators.required, re.Validators.email, re.Validators.pattern(Bl)]],
               password: ['', re.Validators.required],
               rememeber: !0,
             });
@@ -38052,8 +38048,8 @@
                   a['\u0275\u0275resolveWindow']
                 );
             },
-            decls: 231,
-            vars: 77,
+            decls: 244,
+            vars: 79,
             consts: [
               ['id', 'header', 1, 'header', 'header-transparent'],
               [1, 'navbar', 'navbar-expand-lg', 'sticky-navbar', 3, 'ngClass'],
@@ -38075,6 +38071,8 @@
               [1, 'nav__item'],
               [1, 'nav__item-link', 3, 'routerLink'],
               ['target', '_blank', 1, 'dropdown-toggle', 'nav__item-link', 3, 'href', 'ngClass', 'translate'],
+              [1, 'nav__item', 'with-dropdown', 'pointer'],
+              [1, 'dropdown-toggle', 'nav__item-link', 3, 'ngClass', 'translate'],
               [1, 'dropdown-toggle', 'nav__item-link', 'pointer', 3, 'translate', 'click'],
               [1, 'navbar-modules'],
               [1, 'modules__wrapper', 'd-flex', 'align-items-center', 'list-unstyled'],
@@ -38449,219 +38447,241 @@
                 a['\u0275\u0275elementEnd'](),
                 a['\u0275\u0275text'](115, '\n          '),
                 a['\u0275\u0275text'](116, '\n          '),
-                a['\u0275\u0275elementStart'](117, 'li', 11),
+                a['\u0275\u0275elementStart'](117, 'li', 20),
                 a['\u0275\u0275text'](118, '\n            '),
-                a['\u0275\u0275elementStart'](119, 'a', 13),
+                a['\u0275\u0275elementStart'](119, 'a', 21),
                 a['\u0275\u0275text'](120, 'map'),
                 a['\u0275\u0275elementEnd'](),
-                a['\u0275\u0275text'](121, '\n          '),
+                a['\u0275\u0275text'](121, '\n            '),
+                a['\u0275\u0275element'](122, 'i', 14),
+                a['\u0275\u0275text'](123, '\n            '),
+                a['\u0275\u0275elementStart'](124, 'ul', 15),
+                a['\u0275\u0275text'](125, '\n              '),
+                a['\u0275\u0275elementStart'](126, 'li', 17),
+                a['\u0275\u0275elementStart'](127, 'a', 18),
+                a['\u0275\u0275text'](128, 'Geolocational Map'),
                 a['\u0275\u0275elementEnd'](),
-                a['\u0275\u0275text'](122, '\n\n          '),
-                a['\u0275\u0275text'](123, '\n          '),
-                a['\u0275\u0275elementStart'](124, 'li', 11),
-                a['\u0275\u0275text'](125, '\n            '),
-                a['\u0275\u0275elementStart'](126, 'a', 20),
+                a['\u0275\u0275elementEnd'](),
+                a['\u0275\u0275text'](129, '\n              '),
+                a['\u0275\u0275elementStart'](130, 'li', 17),
+                a['\u0275\u0275elementStart'](131, 'a', 18),
+                a['\u0275\u0275text'](132, '3D map'),
+                a['\u0275\u0275elementEnd'](),
+                a['\u0275\u0275elementEnd'](),
+                a['\u0275\u0275text'](133, '\n            '),
+                a['\u0275\u0275elementEnd'](),
+                a['\u0275\u0275text'](134, '\n          '),
+                a['\u0275\u0275elementEnd'](),
+                a['\u0275\u0275text'](135, '\n\n          '),
+                a['\u0275\u0275text'](136, '\n          '),
+                a['\u0275\u0275elementStart'](137, 'li', 11),
+                a['\u0275\u0275text'](138, '\n            '),
+                a['\u0275\u0275elementStart'](139, 'a', 22),
                 a['\u0275\u0275listener']('click', function () {
                   return t.scrollToBookings();
                 }),
-                a['\u0275\u0275text'](127, 'bookings'),
+                a['\u0275\u0275text'](140, 'bookings'),
                 a['\u0275\u0275elementEnd'](),
-                a['\u0275\u0275text'](128, '\n          '),
+                a['\u0275\u0275text'](141, '\n          '),
                 a['\u0275\u0275elementEnd'](),
-                a['\u0275\u0275text'](129, '\n\n          '),
-                a['\u0275\u0275text'](130, '\n          '),
-                a['\u0275\u0275text'](131, '\n          '),
-                a['\u0275\u0275template'](132, dl, 5, 2, 'li', 10),
-                a['\u0275\u0275text'](133, '\n          '),
-                a['\u0275\u0275text'](134, '\n          '),
-                a['\u0275\u0275template'](135, ul, 5, 0, 'li', 10),
-                a['\u0275\u0275text'](136, '\n        '),
+                a['\u0275\u0275text'](142, '\n\n          '),
+                a['\u0275\u0275text'](143, '\n          '),
+                a['\u0275\u0275text'](144, '\n          '),
+                a['\u0275\u0275template'](145, dl, 5, 2, 'li', 10),
+                a['\u0275\u0275text'](146, '\n          '),
+                a['\u0275\u0275text'](147, '\n          '),
+                a['\u0275\u0275template'](148, ul, 5, 0, 'li', 10),
+                a['\u0275\u0275text'](149, '\n        '),
                 a['\u0275\u0275elementEnd'](),
-                a['\u0275\u0275text'](137, '\n        '),
-                a['\u0275\u0275text'](138, '\n      '),
+                a['\u0275\u0275text'](150, '\n        '),
+                a['\u0275\u0275text'](151, '\n      '),
                 a['\u0275\u0275elementEnd'](),
-                a['\u0275\u0275text'](139, '\n      '),
-                a['\u0275\u0275text'](140, '\n\n      '),
-                a['\u0275\u0275text'](141, '\n      '),
-                a['\u0275\u0275elementStart'](142, 'div', 21),
-                a['\u0275\u0275text'](143, '\n        '),
-                a['\u0275\u0275elementStart'](144, 'ul', 22),
-                a['\u0275\u0275text'](145, '\n          '),
-                a['\u0275\u0275elementStart'](146, 'li'),
-                a['\u0275\u0275text'](147, '\n            '),
-                a['\u0275\u0275element'](148, 'div', 23),
-                a['\u0275\u0275text'](149, '\n            '),
-                a['\u0275\u0275text'](150, '\n          '),
+                a['\u0275\u0275text'](152, '\n      '),
+                a['\u0275\u0275text'](153, '\n\n      '),
+                a['\u0275\u0275text'](154, '\n      '),
+                a['\u0275\u0275elementStart'](155, 'div', 23),
+                a['\u0275\u0275text'](156, '\n        '),
+                a['\u0275\u0275elementStart'](157, 'ul', 24),
+                a['\u0275\u0275text'](158, '\n          '),
+                a['\u0275\u0275elementStart'](159, 'li'),
+                a['\u0275\u0275text'](160, '\n            '),
+                a['\u0275\u0275element'](161, 'div', 25),
+                a['\u0275\u0275text'](162, '\n            '),
+                a['\u0275\u0275text'](163, '\n          '),
                 a['\u0275\u0275elementEnd'](),
-                a['\u0275\u0275text'](151, '\n          '),
-                a['\u0275\u0275elementStart'](152, 'li'),
-                a['\u0275\u0275text'](153, '\n            '),
-                a['\u0275\u0275elementStart'](154, 'button', 24),
+                a['\u0275\u0275text'](164, '\n          '),
+                a['\u0275\u0275elementStart'](165, 'li'),
+                a['\u0275\u0275text'](166, '\n            '),
+                a['\u0275\u0275elementStart'](167, 'button', 26),
                 a['\u0275\u0275listener']('click', function () {
                   return t.changeMessage();
                 }),
-                a['\u0275\u0275text'](155, '\n              '),
-                a['\u0275\u0275element'](156, 'i', 25),
-                a['\u0275\u0275text'](157, '\n            '),
+                a['\u0275\u0275text'](168, '\n              '),
+                a['\u0275\u0275element'](169, 'i', 27),
+                a['\u0275\u0275text'](170, '\n            '),
                 a['\u0275\u0275elementEnd'](),
-                a['\u0275\u0275text'](158, '\n          '),
+                a['\u0275\u0275text'](171, '\n          '),
                 a['\u0275\u0275elementEnd'](),
-                a['\u0275\u0275text'](159, '\n          '),
-                a['\u0275\u0275elementStart'](160, 'li', 26),
-                a['\u0275\u0275text'](161, '\n            '),
-                a['\u0275\u0275text'](162, '\n            '),
-                a['\u0275\u0275template'](163, hl, 23, 0, 'div', 27),
-                a['\u0275\u0275text'](164, '\n          '),
+                a['\u0275\u0275text'](172, '\n          '),
+                a['\u0275\u0275elementStart'](173, 'li', 28),
+                a['\u0275\u0275text'](174, '\n            '),
+                a['\u0275\u0275text'](175, '\n            '),
+                a['\u0275\u0275template'](176, hl, 23, 0, 'div', 29),
+                a['\u0275\u0275text'](177, '\n          '),
                 a['\u0275\u0275elementEnd'](),
-                a['\u0275\u0275text'](165, '\n          '),
-                a['\u0275\u0275template'](166, xl, 4, 1, 'li', 28),
-                a['\u0275\u0275text'](167, '\n        '),
+                a['\u0275\u0275text'](178, '\n          '),
+                a['\u0275\u0275template'](179, xl, 4, 1, 'li', 30),
+                a['\u0275\u0275text'](180, '\n        '),
                 a['\u0275\u0275elementEnd'](),
-                a['\u0275\u0275text'](168, '\n        '),
-                a['\u0275\u0275text'](169, '\n      '),
+                a['\u0275\u0275text'](181, '\n        '),
+                a['\u0275\u0275text'](182, '\n      '),
                 a['\u0275\u0275elementEnd'](),
-                a['\u0275\u0275text'](170, '\n      '),
-                a['\u0275\u0275text'](171, '\n    '),
+                a['\u0275\u0275text'](183, '\n      '),
+                a['\u0275\u0275text'](184, '\n    '),
                 a['\u0275\u0275elementEnd'](),
-                a['\u0275\u0275text'](172, '\n    '),
-                a['\u0275\u0275text'](173, '\n  '),
+                a['\u0275\u0275text'](185, '\n    '),
+                a['\u0275\u0275text'](186, '\n  '),
                 a['\u0275\u0275elementEnd'](),
-                a['\u0275\u0275text'](174, '\n  '),
-                a['\u0275\u0275text'](175, '\n'),
+                a['\u0275\u0275text'](187, '\n  '),
+                a['\u0275\u0275text'](188, '\n'),
                 a['\u0275\u0275elementEnd'](),
-                a['\u0275\u0275text'](176, '\n'),
-                a['\u0275\u0275text'](177, '\n\n'),
-                a['\u0275\u0275elementStart'](178, 'ngx-smart-modal', 29, 30),
-                a['\u0275\u0275text'](180, '\n  '),
-                a['\u0275\u0275text'](181, '\n  '),
-                a['\u0275\u0275elementStart'](182, 'div', 31),
-                a['\u0275\u0275text'](183, '\n    '),
-                a['\u0275\u0275text'](184, '\n\n    '),
-                a['\u0275\u0275elementStart'](185, 'div', 32),
-                a['\u0275\u0275text'](186, '\n      '),
-                a['\u0275\u0275elementStart'](187, 'div', 33),
-                a['\u0275\u0275text'](188, '\n        '),
-                a['\u0275\u0275element'](189, 'img', 34),
-                a['\u0275\u0275text'](190, '\n      '),
+                a['\u0275\u0275text'](189, '\n'),
+                a['\u0275\u0275text'](190, '\n\n'),
+                a['\u0275\u0275elementStart'](191, 'ngx-smart-modal', 31, 32),
+                a['\u0275\u0275text'](193, '\n  '),
+                a['\u0275\u0275text'](194, '\n  '),
+                a['\u0275\u0275elementStart'](195, 'div', 33),
+                a['\u0275\u0275text'](196, '\n    '),
+                a['\u0275\u0275text'](197, '\n\n    '),
+                a['\u0275\u0275elementStart'](198, 'div', 34),
+                a['\u0275\u0275text'](199, '\n      '),
+                a['\u0275\u0275elementStart'](200, 'div', 35),
+                a['\u0275\u0275text'](201, '\n        '),
+                a['\u0275\u0275element'](202, 'img', 36),
+                a['\u0275\u0275text'](203, '\n      '),
                 a['\u0275\u0275elementEnd'](),
-                a['\u0275\u0275text'](191, '\n      '),
-                a['\u0275\u0275text'](192, '\n      '),
-                a['\u0275\u0275elementStart'](193, 'div', 35),
-                a['\u0275\u0275text'](194, '\n        '),
-                a['\u0275\u0275text'](195, '\n        '),
-                a['\u0275\u0275elementStart'](196, 'ul', 36),
-                a['\u0275\u0275text'](197, '\n          '),
-                a['\u0275\u0275elementStart'](198, 'li'),
-                a['\u0275\u0275text'](199, '\n            '),
-                a['\u0275\u0275elementStart'](200, 'a', 37),
+                a['\u0275\u0275text'](204, '\n      '),
+                a['\u0275\u0275text'](205, '\n      '),
+                a['\u0275\u0275elementStart'](206, 'div', 37),
+                a['\u0275\u0275text'](207, '\n        '),
+                a['\u0275\u0275text'](208, '\n        '),
+                a['\u0275\u0275elementStart'](209, 'ul', 38),
+                a['\u0275\u0275text'](210, '\n          '),
+                a['\u0275\u0275elementStart'](211, 'li'),
+                a['\u0275\u0275text'](212, '\n            '),
+                a['\u0275\u0275elementStart'](213, 'a', 39),
                 a['\u0275\u0275listener']('click', function () {
                   return t.openModal('signIn');
                 }),
-                a['\u0275\u0275text'](201, 'Sign in'),
+                a['\u0275\u0275text'](214, 'Sign in'),
                 a['\u0275\u0275elementEnd'](),
-                a['\u0275\u0275text'](202, '\n          '),
+                a['\u0275\u0275text'](215, '\n          '),
                 a['\u0275\u0275elementEnd'](),
-                a['\u0275\u0275text'](203, '\n          '),
-                a['\u0275\u0275elementStart'](204, 'li'),
-                a['\u0275\u0275text'](205, '\n            '),
-                a['\u0275\u0275elementStart'](206, 'a', 37),
+                a['\u0275\u0275text'](216, '\n          '),
+                a['\u0275\u0275elementStart'](217, 'li'),
+                a['\u0275\u0275text'](218, '\n            '),
+                a['\u0275\u0275elementStart'](219, 'a', 39),
                 a['\u0275\u0275listener']('click', function () {
                   return t.openModal('signUp');
                 }),
-                a['\u0275\u0275text'](207, 'New account'),
+                a['\u0275\u0275text'](220, 'New account'),
                 a['\u0275\u0275elementEnd'](),
-                a['\u0275\u0275text'](208, '\n          '),
+                a['\u0275\u0275text'](221, '\n          '),
                 a['\u0275\u0275elementEnd'](),
-                a['\u0275\u0275text'](209, '\n        '),
+                a['\u0275\u0275text'](222, '\n        '),
                 a['\u0275\u0275elementEnd'](),
-                a['\u0275\u0275text'](210, '\n\n        '),
-                a['\u0275\u0275template'](211, wl, 70, 7, 'div', 38),
-                a['\u0275\u0275text'](212, '\n        '),
-                a['\u0275\u0275text'](213, '\n\n        '),
-                a['\u0275\u0275template'](214, Sl, 100, 9, 'div', 38),
-                a['\u0275\u0275text'](215, '\n        '),
-                a['\u0275\u0275text'](216, '\n\n        '),
-                a['\u0275\u0275template'](217, Ml, 29, 0, 'div', 38),
-                a['\u0275\u0275text'](218, '\n        '),
-                a['\u0275\u0275text'](219, '\n        '),
-                a['\u0275\u0275elementStart'](220, 'a', 39),
-                a['\u0275\u0275text'](221, 'Close'),
+                a['\u0275\u0275text'](223, '\n\n        '),
+                a['\u0275\u0275template'](224, wl, 70, 7, 'div', 40),
+                a['\u0275\u0275text'](225, '\n        '),
+                a['\u0275\u0275text'](226, '\n\n        '),
+                a['\u0275\u0275template'](227, Sl, 100, 9, 'div', 40),
+                a['\u0275\u0275text'](228, '\n        '),
+                a['\u0275\u0275text'](229, '\n\n        '),
+                a['\u0275\u0275template'](230, Ml, 29, 0, 'div', 40),
+                a['\u0275\u0275text'](231, '\n        '),
+                a['\u0275\u0275text'](232, '\n        '),
+                a['\u0275\u0275elementStart'](233, 'a', 41),
+                a['\u0275\u0275text'](234, 'Close'),
                 a['\u0275\u0275elementEnd'](),
-                a['\u0275\u0275text'](222, '\n      '),
+                a['\u0275\u0275text'](235, '\n      '),
                 a['\u0275\u0275elementEnd'](),
-                a['\u0275\u0275text'](223, '\n      '),
-                a['\u0275\u0275text'](224, '\n    '),
+                a['\u0275\u0275text'](236, '\n      '),
+                a['\u0275\u0275text'](237, '\n    '),
                 a['\u0275\u0275elementEnd'](),
-                a['\u0275\u0275text'](225, '\n    '),
-                a['\u0275\u0275text'](226, '\n  '),
+                a['\u0275\u0275text'](238, '\n    '),
+                a['\u0275\u0275text'](239, '\n  '),
                 a['\u0275\u0275elementEnd'](),
-                a['\u0275\u0275text'](227, '\n  '),
-                a['\u0275\u0275text'](228, '\n  '),
-                a['\u0275\u0275text'](229, '\n'),
+                a['\u0275\u0275text'](240, '\n  '),
+                a['\u0275\u0275text'](241, '\n  '),
+                a['\u0275\u0275text'](242, '\n'),
                 a['\u0275\u0275elementEnd'](),
-                a['\u0275\u0275text'](230, '\n')),
+                a['\u0275\u0275text'](243, '\n')),
                 2 & e &&
                   (a['\u0275\u0275advance'](3),
                   a['\u0275\u0275property'](
                     'ngClass',
-                    a['\u0275\u0275pureFunction2'](41, kl, t.addClassFixedNav, !t.addClassFixedNav)
+                    a['\u0275\u0275pureFunction2'](42, kl, t.addClassFixedNav, !t.addClassFixedNav)
                   ),
                   a['\u0275\u0275advance'](4),
-                  a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](44, El)),
+                  a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](45, El)),
                   a['\u0275\u0275advance'](7),
-                  a['\u0275\u0275property']('ngClass', a['\u0275\u0275pureFunction1'](45, Cl, t.show)),
+                  a['\u0275\u0275property']('ngClass', a['\u0275\u0275pureFunction1'](46, Cl, t.show)),
                   a['\u0275\u0275advance'](6),
-                  a['\u0275\u0275property']('ngClass', a['\u0275\u0275pureFunction1'](47, Dl, t.show)),
+                  a['\u0275\u0275property']('ngClass', a['\u0275\u0275pureFunction1'](48, Dl, t.show)),
                   a['\u0275\u0275advance'](4),
                   a['\u0275\u0275property']('ngIf', t.isLoggedIn),
                   a['\u0275\u0275advance'](4),
-                  a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](49, El))(
+                  a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](50, El))(
                     'translate',
                     'HEADERITEM1'
-                  )('ngClass', a['\u0275\u0275pureFunction1'](50, Ll, '/' === t.router.url)),
+                  )('ngClass', a['\u0275\u0275pureFunction1'](51, Ll, '/' === t.router.url)),
                   a['\u0275\u0275advance'](9),
-                  a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](52, Tl))(
+                  a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](53, Tl))(
                     'ngClass',
-                    a['\u0275\u0275pureFunction1'](53, Ll, t.router.url.includes('where-to-go'))
+                    a['\u0275\u0275pureFunction1'](54, Ll, t.router.url.includes('where-to-go'))
                   )('translate', 'HEADERITEM2'),
                   a['\u0275\u0275advance'](7),
                   a['\u0275\u0275property']('ngForOf', t.provinces),
                   a['\u0275\u0275advance'](11),
-                  a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](55, Ol))(
+                  a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](56, Ol))(
                     'ngClass',
-                    a['\u0275\u0275pureFunction1'](56, Ll, t.router.url.includes('what-to-do'))
+                    a['\u0275\u0275pureFunction1'](57, Ll, t.router.url.includes('what-to-do'))
                   )('translate', 'HEADERITEM3'),
                   a['\u0275\u0275advance'](10),
-                  a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](58, pl))(
+                  a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](59, pl))(
                     'ngClass',
-                    a['\u0275\u0275pureFunction1'](59, Ll, t.router.url.includes('planning'))
+                    a['\u0275\u0275pureFunction1'](60, Ll, t.router.url.includes('planning'))
                   )('translate', 'HEADERITEM5'),
                   a['\u0275\u0275advance'](8),
-                  a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](61, jl)),
+                  a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](62, jl)),
                   a['\u0275\u0275advance'](5),
-                  a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](62, Al)),
+                  a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](63, Al)),
                   a['\u0275\u0275advance'](6),
-                  a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](63, Il)),
+                  a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](64, Il)),
                   a['\u0275\u0275advance'](6),
-                  a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](64, Pl)),
+                  a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](65, Pl)),
                   a['\u0275\u0275advance'](6),
-                  a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](65, Yl)),
+                  a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](66, Yl)),
                   a['\u0275\u0275advance'](5),
-                  a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](66, Fl)),
+                  a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](67, Fl)),
                   a['\u0275\u0275advance'](4),
-                  a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](67, Rl)),
+                  a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](68, Rl)),
                   a['\u0275\u0275advance'](7),
                   a['\u0275\u0275propertyInterpolate']('href', t.blogUrl, a['\u0275\u0275sanitizeUrl']),
                   a['\u0275\u0275property'](
                     'ngClass',
-                    a['\u0275\u0275pureFunction1'](68, Ll, t.router.url.includes('blog'))
+                    a['\u0275\u0275pureFunction1'](69, Ll, t.router.url.includes('blog'))
                   )('translate', 'HEADERITEM8'),
                   a['\u0275\u0275advance'](7),
-                  a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](70, Nl))(
+                  a['\u0275\u0275property'](
                     'ngClass',
                     a['\u0275\u0275pureFunction1'](71, Ll, t.router.url.includes('map'))
                   )('translate', 'HEADERITEM6'),
-                  a['\u0275\u0275advance'](7),
+                  a['\u0275\u0275advance'](8),
+                  a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](73, Nl)),
+                  a['\u0275\u0275advance'](4),
+                  a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](74, Hl)),
+                  a['\u0275\u0275advance'](8),
                   a['\u0275\u0275property']('translate', 'HEADERITEM6'),
                   a['\u0275\u0275advance'](6),
                   a['\u0275\u0275property']('ngIf', t.isLoggedIn),
@@ -38672,9 +38692,9 @@
                   a['\u0275\u0275advance'](3),
                   a['\u0275\u0275property']('ngIf', t.isLoggedIn),
                   a['\u0275\u0275advance'](34),
-                  a['\u0275\u0275property']('ngClass', a['\u0275\u0275pureFunction1'](73, Hl, t.isLoginModal)),
+                  a['\u0275\u0275property']('ngClass', a['\u0275\u0275pureFunction1'](75, Vl, t.isLoginModal)),
                   a['\u0275\u0275advance'](6),
-                  a['\u0275\u0275property']('ngClass', a['\u0275\u0275pureFunction1'](75, Hl, t.isSignupModal)),
+                  a['\u0275\u0275property']('ngClass', a['\u0275\u0275pureFunction1'](77, Vl, t.isSignupModal)),
                   a['\u0275\u0275advance'](5),
                   a['\u0275\u0275property']('ngIf', t.isLoginModal),
                   a['\u0275\u0275advance'](3),
@@ -38708,7 +38728,7 @@
           e
         );
       })();
-      function Wl(e, t) {
+      function Ul(e, t) {
         if (
           (1 & e &&
             (a['\u0275\u0275elementStart'](0, 'span', 23), a['\u0275\u0275text'](1), a['\u0275\u0275elementEnd']()),
@@ -38719,7 +38739,7 @@
             a['\u0275\u0275textInterpolate2']('\n            1 ', e.name.id, ' = ', e.rate.toFixed(2), ' PKR');
         }
       }
-      function Ul(e, t) {
+      function zl(e, t) {
         if (
           (1 & e &&
             (a['\u0275\u0275elementStart'](0, 'option', 24), a['\u0275\u0275text'](1), a['\u0275\u0275elementEnd']()),
@@ -38731,7 +38751,7 @@
             a['\u0275\u0275textInterpolate1']('\n            ', e.name.currencyName, '\n          ');
         }
       }
-      function zl(e, t) {
+      function $l(e, t) {
         if (
           (1 & e &&
             (a['\u0275\u0275elementStart'](0, 'h5', 25),
@@ -38747,7 +38767,7 @@
           a['\u0275\u0275advance'](1), a['\u0275\u0275textInterpolate1']('\n        ', e.convertedPriceToPKR, ' ');
         }
       }
-      let $l = (() => {
+      let Gl = (() => {
         class e {
           constructor(e, t, n, r, i, s) {
             (this.homeService = e),
@@ -38908,7 +38928,7 @@
                 a['\u0275\u0275text'](27, '\n        '),
                 a['\u0275\u0275elementStart'](28, 'div', 10),
                 a['\u0275\u0275text'](29, '\n          '),
-                a['\u0275\u0275template'](30, Wl, 2, 2, 'span', 11),
+                a['\u0275\u0275template'](30, Ul, 2, 2, 'span', 11),
                 a['\u0275\u0275pipe'](31, 'slice'),
                 a['\u0275\u0275text'](32, '\n        '),
                 a['\u0275\u0275elementEnd'](),
@@ -38951,13 +38971,13 @@
                 a['\u0275\u0275elementEnd'](),
                 a['\u0275\u0275text'](58, '\n          '),
                 a['\u0275\u0275text'](59, '\n          '),
-                a['\u0275\u0275template'](60, Ul, 2, 2, 'option', 21),
+                a['\u0275\u0275template'](60, zl, 2, 2, 'option', 21),
                 a['\u0275\u0275text'](61, '\n        '),
                 a['\u0275\u0275elementEnd'](),
                 a['\u0275\u0275text'](62, '\n      '),
                 a['\u0275\u0275elementEnd'](),
                 a['\u0275\u0275text'](63, '\n      '),
-                a['\u0275\u0275template'](64, zl, 5, 1, 'h5', 22),
+                a['\u0275\u0275template'](64, $l, 5, 1, 'h5', 22),
                 a['\u0275\u0275text'](65, '\n    '),
                 a['\u0275\u0275elementEnd'](),
                 a['\u0275\u0275text'](66, '\n  '),
@@ -39006,7 +39026,7 @@
           e
         );
       })();
-      function Gl(e, t) {
+      function ql(e, t) {
         if (
           (1 & e &&
             (a['\u0275\u0275elementStart'](0, 'li', 35),
@@ -39022,7 +39042,7 @@
             a['\u0275\u0275textInterpolate2']('\n            ', e.description, ' : ', e.title, '\n            ');
         }
       }
-      function ql(e, t) {
+      function Kl(e, t) {
         if (
           (1 & e &&
             (a['\u0275\u0275text'](0, '\n      '),
@@ -39042,83 +39062,83 @@
             a['\u0275\u0275textInterpolate'](e);
         }
       }
-      const Kl = function () {
+      const Jl = function () {
           return ['/cookie'];
         },
-        Jl = function () {
+        Ql = function () {
           return ['/privacy'];
         },
-        Ql = function () {
+        Zl = function () {
           return ['/disclaimer'];
         },
-        Zl = function () {
+        Xl = function () {
           return ['/contact'];
         },
-        Xl = function () {
+        ec = function () {
           return ['/faq'];
         },
-        ec = function () {
+        tc = function () {
           return ['/media'];
         },
-        tc = function () {
+        nc = function () {
           return ['/pressrelease'];
         },
-        nc = function () {
+        rc = function () {
           return ['/where-to-go/category/cities/location/islamabad'];
         },
-        rc = function () {
+        ic = function () {
           return ['/where-to-go/category/cities/location/lahore'];
         },
-        ic = function () {
+        sc = function () {
           return ['/where-to-go/category/cities/location/karachi'];
         },
-        sc = function () {
+        ac = function () {
           return ['/where-to-go/category/cities/location/peshawar'];
         },
-        ac = function () {
+        oc = function () {
           return ['/where-to-go/category/cities/location/gilgit'];
         },
-        oc = function () {
+        lc = function () {
           return ['/where-to-go/category/cities/location/quetta'];
         },
-        lc = function () {
+        cc = function () {
           return ['/accomodation/category/5f66c1fb898584fe8756300f'];
         },
-        cc = function () {
+        dc = function () {
           return ['/accomodation/category/5f66c156e008c9f9b58dad06'];
         },
-        dc = function () {
+        uc = function () {
           return ['/accomodation/category/5f66c2b05b6d27ff5e7d8ce4'];
         },
-        uc = function () {
+        hc = function () {
           return ['/accomodation/category/5f66c2775b6d27ff5e7d8ce0'];
         },
-        hc = function () {
+        mc = function () {
           return ['/accomodation/category/5f66c2875b6d27ff5e7d8ce2'];
         },
-        mc = function () {
+        pc = function () {
           return ['/where-to-go/locations/punjab'];
         },
-        pc = function () {
+        fc = function () {
           return ['/where-to-go/locations/sindh'];
         },
-        fc = function () {
+        _c = function () {
           return ['/where-to-go/locations/khyber-pakhtunkhwa'];
         },
-        _c = function () {
+        gc = function () {
           return ['/where-to-go/locations/balochistan'];
         },
-        gc = function () {
+        yc = function () {
           return ['/where-to-go/locations/gilgit-baltistan'];
         },
-        yc = function () {
+        vc = function () {
           return ['/where-to-go/locations/azad-jamu-khashmir'];
         },
-        vc = function (e, t) {
+        bc = function (e, t) {
           return { actived: e, '': t };
         };
-      let bc = [],
-        xc = (() => {
+      let xc = [],
+        wc = (() => {
           class e {
             constructor(e, t, n, r, i, s) {
               (this.shellService = e),
@@ -39137,7 +39157,7 @@
                     Object(Se.a)(200),
                     Object(Me.a)(),
                     Object(f.a)((e) =>
-                      e.length < 2 ? [] : bc.filter((t) => t.toLowerCase().indexOf(e.toLowerCase()) > -1).slice(0, 10)
+                      e.length < 2 ? [] : xc.filter((t) => t.toLowerCase().indexOf(e.toLowerCase()) > -1).slice(0, 10)
                     )
                   )),
                 (this.formatter = (e) => e.site),
@@ -39149,17 +39169,17 @@
               this.getFilters(),
                 this.getAllNews(),
                 this.commonService.currentMessage.subscribe((e) => {
-                  console.log('Message from CommonService: ', e), (this.show = 'inActive' != e);
+                  this.show = 'inActive' != e;
                 }),
                 this.commonService.scrollY$.subscribe((e) => {
                   e > 700 ? (this.showUpArrow = !0) : e < 700 && (this.showUpArrow = !1);
                 });
             }
             getFilters() {
-              (bc = []),
+              (xc = []),
                 this.eventService.getAllCities().subscribe((e) => {
                   e.data.forEach((e) => {
-                    'city' === e.locationType && bc.push(e.name);
+                    'city' === e.locationType && xc.push(e.name);
                   });
                 });
             }
@@ -39184,9 +39204,7 @@
             }
             ngOnDestroy() {}
             getBannerNews() {
-              this.eventService.getNews().subscribe((e) => {
-                console.log(e);
-              });
+              this.eventService.getNews().subscribe((e) => {});
             }
           }
           return (
@@ -39291,7 +39309,7 @@
                     a['\u0275\u0275text'](10, '\n        '),
                     a['\u0275\u0275elementStart'](11, 'ul', 3),
                     a['\u0275\u0275text'](12, '\n          '),
-                    a['\u0275\u0275template'](13, Gl, 5, 2, 'li', 4),
+                    a['\u0275\u0275template'](13, ql, 5, 2, 'li', 4),
                     a['\u0275\u0275text'](14, '\n        '),
                     a['\u0275\u0275elementEnd'](),
                     a['\u0275\u0275text'](15, '\n      '),
@@ -39611,7 +39629,7 @@
                     a['\u0275\u0275text'](233, '\n    '),
                     a['\u0275\u0275template'](
                       234,
-                      ql,
+                      Kl,
                       6,
                       3,
                       'ng-template',
@@ -39677,53 +39695,53 @@
                   a['\u0275\u0275advance'](13),
                     a['\u0275\u0275property']('ngForOf', t.allNews),
                     a['\u0275\u0275advance'](26),
-                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](32, Kl)),
+                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](32, Jl)),
                     a['\u0275\u0275advance'](4),
-                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](33, Jl)),
+                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](33, Ql)),
                     a['\u0275\u0275advance'](4),
-                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](34, Ql)),
+                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](34, Zl)),
                     a['\u0275\u0275advance'](4),
-                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](35, Zl)),
+                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](35, Xl)),
                     a['\u0275\u0275advance'](4),
-                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](36, Xl)),
+                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](36, ec)),
                     a['\u0275\u0275advance'](4),
-                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](37, ec)),
+                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](37, tc)),
                     a['\u0275\u0275advance'](4),
-                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](38, tc)),
+                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](38, nc)),
                     a['\u0275\u0275advance'](25),
-                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](39, nc)),
+                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](39, rc)),
                     a['\u0275\u0275advance'](4),
-                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](40, rc)),
+                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](40, ic)),
                     a['\u0275\u0275advance'](4),
-                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](41, ic)),
+                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](41, sc)),
                     a['\u0275\u0275advance'](4),
-                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](42, sc)),
+                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](42, ac)),
                     a['\u0275\u0275advance'](4),
-                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](43, ac)),
+                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](43, oc)),
                     a['\u0275\u0275advance'](4),
-                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](44, oc)),
+                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](44, lc)),
                     a['\u0275\u0275advance'](21),
-                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](45, lc)),
+                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](45, cc)),
                     a['\u0275\u0275advance'](4),
-                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](46, cc)),
+                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](46, dc)),
                     a['\u0275\u0275advance'](4),
-                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](47, dc)),
+                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](47, uc)),
                     a['\u0275\u0275advance'](4),
-                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](48, uc)),
+                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](48, hc)),
                     a['\u0275\u0275advance'](4),
-                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](49, hc)),
+                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](49, mc)),
                     a['\u0275\u0275advance'](21),
-                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](50, mc)),
+                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](50, pc)),
                     a['\u0275\u0275advance'](4),
-                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](51, pc)),
+                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](51, fc)),
                     a['\u0275\u0275advance'](4),
-                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](52, fc)),
+                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](52, _c)),
                     a['\u0275\u0275advance'](4),
-                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](53, _c)),
+                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](53, gc)),
                     a['\u0275\u0275advance'](4),
-                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](54, gc)),
+                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](54, yc)),
                     a['\u0275\u0275advance'](4),
-                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](55, yc)),
+                    a['\u0275\u0275property']('routerLink', a['\u0275\u0275pureFunction0'](55, vc)),
                     a['\u0275\u0275advance'](40),
                     a['\u0275\u0275property']('ngClass', t.show ? 'active' : 'inActive'),
                     a['\u0275\u0275advance'](6),
@@ -39731,7 +39749,7 @@
                     a['\u0275\u0275advance'](18),
                     a['\u0275\u0275property'](
                       'ngClass',
-                      a['\u0275\u0275pureFunction2'](56, vc, t.showUpArrow, !t.showUpArrow)
+                      a['\u0275\u0275pureFunction2'](56, bc, t.showUpArrow, !t.showUpArrow)
                     ),
                     a['\u0275\u0275advance'](5),
                     a['\u0275\u0275property'](
@@ -39764,11 +39782,11 @@
             e
           );
         })();
-      const wc = function (e) {
+      const Sc = function (e) {
           return { 'home ': e };
         },
-        Sc = new I.b('App');
-      let Mc = (() => {
+        Mc = new I.b('App');
+      let kc = (() => {
         class e {
           constructor(e, t, n, r, i) {
             (this.router = e),
@@ -39779,7 +39797,7 @@
           }
           ngOnInit() {
             A.a.production && I.b.enableProductionMode(),
-              Sc.debug('init'),
+              Mc.debug('init'),
               this.i18nService.init(A.a.defaultLanguage, A.a.supportedLanguages);
             const e = this.router.events.pipe(Object(_.a)((e) => e instanceof F.b));
             Object(p.a)(this.translateService.onLangChange, e)
@@ -39835,15 +39853,15 @@
                 a['\u0275\u0275text'](11, '\n')),
                 2 & e &&
                   (a['\u0275\u0275advance'](1),
-                  a['\u0275\u0275property']('ngClass', a['\u0275\u0275pureFunction1'](1, wc, '/' === t.router.url)));
+                  a['\u0275\u0275property']('ngClass', a['\u0275\u0275pureFunction1'](1, Sc, '/' === t.router.url)));
             },
-            directives: [s.l, Bl, F.h, $l, xc],
+            directives: [s.l, Wl, F.h, Gl, wc],
             styles: [''],
           })),
           e
         );
       })();
-      const kc = [
+      const Ec = [
         {
           path: 'where-to-go',
           loadChildren: () =>
@@ -39910,7 +39928,7 @@
         },
         { path: '**', component: lo, pathMatch: 'full' },
       ];
-      let Ec = (() => {
+      let Cc = (() => {
         class e {}
         return (
           (e.ɵmod = a['\u0275\u0275defineNgModule']({ type: e })),
@@ -39919,13 +39937,13 @@
               return new (t || e)();
             },
             providers: [],
-            imports: [[F.g.forRoot(kc)], F.g],
+            imports: [[F.g.forRoot(Ec)], F.g],
           })),
           e
         );
       })();
-      var Cc = n('qfBg');
-      let Dc = (() => {
+      var Dc = n('qfBg');
+      let Lc = (() => {
         class e {
           constructor() {}
           intercept(e, t) {
@@ -39942,10 +39960,10 @@
           e
         );
       })();
-      function Lc() {
+      function Tc() {
         return 'undefined' != typeof process && '[object process]' === {}.toString.call(process);
       }
-      function Tc(e) {
+      function Oc(e) {
         switch (e.length) {
           case 0:
             return new $r.d();
@@ -39955,7 +39973,7 @@
             return new $r.k(e);
         }
       }
-      function Oc(e, t, n, r, i = {}, s = {}) {
+      function jc(e, t, n, r, i = {}, s = {}) {
         const a = [],
           o = [];
         let l = -1,
@@ -39992,21 +40010,21 @@
         }
         return o;
       }
-      function jc(e, t, n, r) {
+      function Ac(e, t, n, r) {
         switch (t) {
           case 'start':
-            e.onStart(() => r(n && Ac(n, 'start', e)));
+            e.onStart(() => r(n && Ic(n, 'start', e)));
             break;
           case 'done':
-            e.onDone(() => r(n && Ac(n, 'done', e)));
+            e.onDone(() => r(n && Ic(n, 'done', e)));
             break;
           case 'destroy':
-            e.onDestroy(() => r(n && Ac(n, 'destroy', e)));
+            e.onDestroy(() => r(n && Ic(n, 'destroy', e)));
         }
       }
-      function Ac(e, t, n) {
+      function Ic(e, t, n) {
         const r = n.totalTime,
-          i = Ic(
+          i = Pc(
             e.element,
             e.triggerName,
             e.fromState,
@@ -40018,25 +40036,25 @@
           s = e._data;
         return null != s && (i._data = s), i;
       }
-      function Ic(e, t, n, r, i = '', s = 0, a) {
+      function Pc(e, t, n, r, i = '', s = 0, a) {
         return { element: e, triggerName: t, fromState: n, toState: r, phaseName: i, totalTime: s, disabled: !!a };
       }
-      function Pc(e, t, n) {
+      function Yc(e, t, n) {
         let r;
         return e instanceof Map ? ((r = e.get(t)), r || e.set(t, (r = n))) : ((r = e[t]), r || (r = e[t] = n)), r;
       }
-      function Yc(e) {
+      function Fc(e) {
         const t = e.indexOf(':');
         return [e.substring(1, t), e.substr(t + 1)];
       }
-      let Fc = (e, t) => !1,
-        Rc = (e, t) => !1,
-        Nc = (e, t, n) => [];
-      const Hc = Lc();
-      (Hc || 'undefined' != typeof Element) &&
-        ((Fc = (e, t) => e.contains(t)),
-        (Rc = (() => {
-          if (Hc || Element.prototype.matches) return (e, t) => e.matches(t);
+      let Rc = (e, t) => !1,
+        Nc = (e, t) => !1,
+        Hc = (e, t, n) => [];
+      const Vc = Tc();
+      (Vc || 'undefined' != typeof Element) &&
+        ((Rc = (e, t) => e.contains(t)),
+        (Nc = (() => {
+          if (Vc || Element.prototype.matches) return (e, t) => e.matches(t);
           {
             const e = Element.prototype,
               t =
@@ -40045,10 +40063,10 @@
                 e.msMatchesSelector ||
                 e.oMatchesSelector ||
                 e.webkitMatchesSelector;
-            return t ? (e, n) => t.apply(e, [n]) : Rc;
+            return t ? (e, n) => t.apply(e, [n]) : Nc;
           }
         })()),
-        (Nc = (e, t, n) => {
+        (Hc = (e, t, n) => {
           let r = [];
           if (n) r.push(...e.querySelectorAll(t));
           else {
@@ -40057,27 +40075,27 @@
           }
           return r;
         }));
-      let Vc = null,
-        Bc = !1;
-      function Wc(e) {
-        Vc ||
-          ((Vc = ('undefined' != typeof document ? document.body : null) || {}),
-          (Bc = !!Vc.style && 'WebkitAppearance' in Vc.style));
+      let Bc = null,
+        Wc = !1;
+      function Uc(e) {
+        Bc ||
+          ((Bc = ('undefined' != typeof document ? document.body : null) || {}),
+          (Wc = !!Bc.style && 'WebkitAppearance' in Bc.style));
         let t = !0;
         return (
-          Vc.style &&
+          Bc.style &&
             !(function (e) {
               return 'ebkit' == e.substring(1, 6);
             })(e) &&
-            ((t = e in Vc.style), !t && Bc) &&
-            (t = 'Webkit' + e.charAt(0).toUpperCase() + e.substr(1) in Vc.style),
+            ((t = e in Bc.style), !t && Wc) &&
+            (t = 'Webkit' + e.charAt(0).toUpperCase() + e.substr(1) in Bc.style),
           t
         );
       }
-      const Uc = Rc,
-        zc = Fc,
-        $c = Nc;
-      function Gc(e) {
+      const zc = Nc,
+        $c = Rc,
+        Gc = Hc;
+      function qc(e) {
         const t = {};
         return (
           Object.keys(e).forEach((n) => {
@@ -40087,19 +40105,19 @@
           t
         );
       }
-      let qc = (() => {
+      let Kc = (() => {
           class e {
             validateStyleProperty(e) {
-              return Wc(e);
+              return Uc(e);
             }
             matchesElement(e, t) {
-              return Uc(e, t);
-            }
-            containsElement(e, t) {
               return zc(e, t);
             }
+            containsElement(e, t) {
+              return $c(e, t);
+            }
             query(e, t, n) {
-              return $c(e, t, n);
+              return Gc(e, t, n);
             }
             computeStyle(e, t, n) {
               return n || '';
@@ -40116,16 +40134,16 @@
             e
           );
         })(),
-        Kc = (() => {
+        Jc = (() => {
           class e {}
-          return (e.NOOP = new qc()), e;
+          return (e.NOOP = new Kc()), e;
         })();
-      function Jc(e) {
+      function Qc(e) {
         if ('number' == typeof e) return e;
         const t = e.match(/^(-?[\.\d]+)(m?s)/);
-        return !t || t.length < 2 ? 0 : Qc(parseFloat(t[1]), t[2]);
+        return !t || t.length < 2 ? 0 : Zc(parseFloat(t[1]), t[2]);
       }
-      function Qc(e, t) {
+      function Zc(e, t) {
         switch (t) {
           case 's':
             return 1e3 * e;
@@ -40133,7 +40151,7 @@
             return e;
         }
       }
-      function Zc(e, t, n) {
+      function Xc(e, t, n) {
         return e.hasOwnProperty('duration')
           ? e
           : (function (e, t, n) {
@@ -40144,9 +40162,9 @@
                 const n = e.match(/^(-?[\.\d]+)(m?s)(?:\s+(-?[\.\d]+)(m?s))?(?:\s+([-a-z]+(?:\(.+?\))?))?$/i);
                 if (null === n)
                   return t.push(`The provided timing value "${e}" is invalid.`), { duration: 0, delay: 0, easing: '' };
-                r = Qc(parseFloat(n[1]), n[2]);
+                r = Zc(parseFloat(n[1]), n[2]);
                 const a = n[3];
-                null != a && (i = Qc(parseFloat(a), n[4]));
+                null != a && (i = Zc(parseFloat(a), n[4]));
                 const o = n[5];
                 o && (s = o);
               } else r = e;
@@ -40160,7 +40178,7 @@
               return { duration: r, delay: i, easing: s };
             })(e, t, n);
       }
-      function Xc(e, t = {}) {
+      function ed(e, t = {}) {
         return (
           Object.keys(e).forEach((n) => {
             t[n] = e[n];
@@ -40168,58 +40186,58 @@
           t
         );
       }
-      function ed(e, t, n = {}) {
+      function td(e, t, n = {}) {
         if (t) for (let r in e) n[r] = e[r];
-        else Xc(e, n);
+        else ed(e, n);
         return n;
       }
-      function td(e, t, n) {
+      function nd(e, t, n) {
         return n ? t + ':' + n + ';' : '';
       }
-      function nd(e) {
+      function rd(e) {
         let t = '';
         for (let n = 0; n < e.style.length; n++) {
           const r = e.style.item(n);
-          t += td(0, r, e.style.getPropertyValue(r));
+          t += nd(0, r, e.style.getPropertyValue(r));
         }
         for (const n in e.style)
           e.style.hasOwnProperty(n) &&
             !n.startsWith('_') &&
-            (t += td(0, n.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase(), e.style[n]));
+            (t += nd(0, n.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase(), e.style[n]));
         e.setAttribute('style', t);
       }
-      function rd(e, t, n) {
+      function id(e, t, n) {
         e.style &&
           (Object.keys(t).forEach((r) => {
-            const i = ud(r);
+            const i = hd(r);
             n && !n.hasOwnProperty(r) && (n[r] = e.style[i]), (e.style[i] = t[r]);
           }),
-          Lc() && nd(e));
+          Tc() && rd(e));
       }
-      function id(e, t) {
+      function sd(e, t) {
         e.style &&
           (Object.keys(t).forEach((t) => {
-            const n = ud(t);
+            const n = hd(t);
             e.style[n] = '';
           }),
-          Lc() && nd(e));
+          Tc() && rd(e));
       }
-      function sd(e) {
+      function ad(e) {
         return Array.isArray(e) ? (1 == e.length ? e[0] : Object($r.f)(e)) : e;
       }
-      const ad = new RegExp('{{\\s*(.+?)\\s*}}', 'g');
-      function od(e) {
+      const od = new RegExp('{{\\s*(.+?)\\s*}}', 'g');
+      function ld(e) {
         let t = [];
         if ('string' == typeof e) {
           let n;
-          for (; (n = ad.exec(e)); ) t.push(n[1]);
-          ad.lastIndex = 0;
+          for (; (n = od.exec(e)); ) t.push(n[1]);
+          od.lastIndex = 0;
         }
         return t;
       }
-      function ld(e, t, n) {
+      function cd(e, t, n) {
         const r = e.toString(),
-          i = r.replace(ad, (e, r) => {
+          i = r.replace(od, (e, r) => {
             let i = t[r];
             return (
               t.hasOwnProperty(r) || (n.push('Please provide a value for the animation param ' + r), (i = '')),
@@ -40228,20 +40246,20 @@
           });
         return i == r ? e : i;
       }
-      function cd(e) {
+      function dd(e) {
         const t = [];
         let n = e.next();
         for (; !n.done; ) t.push(n.value), (n = e.next());
         return t;
       }
-      const dd = /-+([a-z0-9])/g;
-      function ud(e) {
-        return e.replace(dd, (...e) => e[1].toUpperCase());
+      const ud = /-+([a-z0-9])/g;
+      function hd(e) {
+        return e.replace(ud, (...e) => e[1].toUpperCase());
       }
-      function hd(e, t) {
+      function md(e, t) {
         return 0 === e || 0 === t;
       }
-      function md(e, t, n) {
+      function pd(e, t, n) {
         const r = Object.keys(n);
         if (r.length && t.length) {
           let s = t[0],
@@ -40255,13 +40273,13 @@
             for (var i = 1; i < t.length; i++) {
               let n = t[i];
               a.forEach(function (t) {
-                n[t] = fd(e, t);
+                n[t] = _d(e, t);
               });
             }
         }
         return t;
       }
-      function pd(e, t, n) {
+      function fd(e, t, n) {
         switch (t.type) {
           case 7:
             return e.visitTrigger(t, n);
@@ -40293,10 +40311,10 @@
             throw new Error('Unable to resolve animation metadata node #' + t.type);
         }
       }
-      function fd(e, t) {
+      function _d(e, t) {
         return window.getComputedStyle(e)[t];
       }
-      function _d(e, t) {
+      function gd(e, t) {
         const n = [];
         return (
           'string' == typeof e
@@ -40326,39 +40344,39 @@
                   const i = r[1],
                     s = r[2],
                     a = r[3];
-                  t.push(vd(i, a)), '<' != s[0] || ('*' == i && '*' == a) || t.push(vd(a, i));
+                  t.push(bd(i, a)), '<' != s[0] || ('*' == i && '*' == a) || t.push(bd(a, i));
                 })(e, n, t)
               )
             : n.push(e),
           n
         );
       }
-      const gd = new Set(['true', '1']),
-        yd = new Set(['false', '0']);
-      function vd(e, t) {
-        const n = gd.has(e) || yd.has(e),
-          r = gd.has(t) || yd.has(t);
+      const yd = new Set(['true', '1']),
+        vd = new Set(['false', '0']);
+      function bd(e, t) {
+        const n = yd.has(e) || vd.has(e),
+          r = yd.has(t) || vd.has(t);
         return (i, s) => {
           let a = '*' == e || e == i,
             o = '*' == t || t == s;
           return (
-            !a && n && 'boolean' == typeof i && (a = i ? gd.has(e) : yd.has(e)),
-            !o && r && 'boolean' == typeof s && (o = s ? gd.has(t) : yd.has(t)),
+            !a && n && 'boolean' == typeof i && (a = i ? yd.has(e) : vd.has(e)),
+            !o && r && 'boolean' == typeof s && (o = s ? yd.has(t) : vd.has(t)),
             a && o
           );
         };
       }
-      const bd = new RegExp('s*:selfs*,?', 'g');
-      function xd(e, t, n) {
-        return new wd(e).build(t, n);
+      const xd = new RegExp('s*:selfs*,?', 'g');
+      function wd(e, t, n) {
+        return new Sd(e).build(t, n);
       }
-      class wd {
+      class Sd {
         constructor(e) {
           this._driver = e;
         }
         build(e, t) {
-          const n = new Sd(t);
-          return this._resetContextStyleTimingState(n), pd(this, sd(e), n);
+          const n = new Md(t);
+          return this._resetContextStyleTimingState(n), fd(this, ad(e), n);
         }
         _resetContextStyleTimingState(e) {
           (e.currentQuerySelector = ''), (e.collectedStyles = {}), (e.collectedStyles[''] = {}), (e.currentTime = 0);
@@ -40398,10 +40416,10 @@
               s = r || {};
             if (
               (n.styles.forEach((e) => {
-                if (Md(e)) {
+                if (kd(e)) {
                   const t = e;
                   Object.keys(t).forEach((e) => {
-                    od(t[e]).forEach((e) => {
+                    ld(t[e]).forEach((e) => {
                       s.hasOwnProperty(e) || i.add(e);
                     });
                   });
@@ -40409,7 +40427,7 @@
               }),
               i.size)
             ) {
-              const n = cd(i.values());
+              const n = dd(i.values());
               t.errors.push(
                 `state("${e.name}", ...) must define default values for all the following style substitutions: ${n.join(
                   ', '
@@ -40421,40 +40439,40 @@
         }
         visitTransition(e, t) {
           (t.queryCount = 0), (t.depCount = 0);
-          const n = pd(this, sd(e.animation), t);
+          const n = fd(this, ad(e.animation), t);
           return {
             type: 1,
-            matchers: _d(e.expr, t.errors),
+            matchers: gd(e.expr, t.errors),
             animation: n,
             queryCount: t.queryCount,
             depCount: t.depCount,
-            options: kd(e.options),
+            options: Ed(e.options),
           };
         }
         visitSequence(e, t) {
-          return { type: 2, steps: e.steps.map((e) => pd(this, e, t)), options: kd(e.options) };
+          return { type: 2, steps: e.steps.map((e) => fd(this, e, t)), options: Ed(e.options) };
         }
         visitGroup(e, t) {
           const n = t.currentTime;
           let r = 0;
           const i = e.steps.map((e) => {
             t.currentTime = n;
-            const i = pd(this, e, t);
+            const i = fd(this, e, t);
             return (r = Math.max(r, t.currentTime)), i;
           });
-          return (t.currentTime = r), { type: 3, steps: i, options: kd(e.options) };
+          return (t.currentTime = r), { type: 3, steps: i, options: Ed(e.options) };
         }
         visitAnimate(e, t) {
           const n = (function (e, t) {
             let n = null;
             if (e.hasOwnProperty('duration')) n = e;
-            else if ('number' == typeof e) return Ed(Zc(e, t).duration, 0, '');
+            else if ('number' == typeof e) return Cd(Xc(e, t).duration, 0, '');
             const r = e;
             if (r.split(/\s+/).some((e) => '{' == e.charAt(0) && '{' == e.charAt(1))) {
-              const e = Ed(0, 0, '');
+              const e = Cd(0, 0, '');
               return (e.dynamic = !0), (e.strValue = r), e;
             }
-            return (n = n || Zc(r, t)), Ed(n.duration, n.delay, n.easing);
+            return (n = n || Xc(r, t)), Cd(n.duration, n.delay, n.easing);
           })(e.timings, t.errors);
           let r;
           t.currentAnimateTimings = n;
@@ -40493,7 +40511,7 @@
             i = null;
           return (
             n.forEach((e) => {
-              if (Md(e)) {
+              if (kd(e)) {
                 const t = e,
                   n = t.easing;
                 if ((n && ((i = n), delete t.easing), !r))
@@ -40535,7 +40553,7 @@
                     t.options &&
                       (function (e, t, n) {
                         const r = t.params || {},
-                          i = od(e);
+                          i = ld(e);
                         i.length &&
                           i.forEach((e) => {
                             r.hasOwnProperty(e) ||
@@ -40564,12 +40582,12 @@
                       let t = null;
                       if (Array.isArray(e))
                         e.forEach((e) => {
-                          if (Md(e) && e.hasOwnProperty('offset')) {
+                          if (kd(e) && e.hasOwnProperty('offset')) {
                             const n = e;
                             (t = parseFloat(n.offset)), delete n.offset;
                           }
                         });
-                      else if (Md(e) && e.hasOwnProperty('offset')) {
+                      else if (kd(e) && e.hasOwnProperty('offset')) {
                         const n = e;
                         (t = parseFloat(n.offset)), delete n.offset;
                       }
@@ -40605,13 +40623,13 @@
           );
         }
         visitReference(e, t) {
-          return { type: 8, animation: pd(this, sd(e.animation), t), options: kd(e.options) };
+          return { type: 8, animation: fd(this, ad(e.animation), t), options: Ed(e.options) };
         }
         visitAnimateChild(e, t) {
-          return t.depCount++, { type: 9, options: kd(e.options) };
+          return t.depCount++, { type: 9, options: Ed(e.options) };
         }
         visitAnimateRef(e, t) {
-          return { type: 10, animation: this.visitReference(e.animation, t), options: kd(e.options) };
+          return { type: 10, animation: this.visitReference(e.animation, t), options: Ed(e.options) };
         }
         visitQuery(e, t) {
           const n = t.currentQuerySelector,
@@ -40620,7 +40638,7 @@
           const [i, s] = (function (e) {
             const t = !!e.split(/\s*,\s*/).find((e) => ':self' == e);
             return (
-              t && (e = e.replace(bd, '')),
+              t && (e = e.replace(xd, '')),
               [
                 (e = e
                   .replace(/@\*/g, '.ng-trigger')
@@ -40630,8 +40648,8 @@
               ]
             );
           })(e.selector);
-          (t.currentQuerySelector = n.length ? n + ' ' + i : i), Pc(t.collectedStyles, t.currentQuerySelector, {});
-          const a = pd(this, sd(e.animation), t);
+          (t.currentQuerySelector = n.length ? n + ' ' + i : i), Yc(t.collectedStyles, t.currentQuerySelector, {});
+          const a = fd(this, ad(e.animation), t);
           return (
             (t.currentQuery = null),
             (t.currentQuerySelector = n),
@@ -40643,17 +40661,17 @@
               includeSelf: s,
               animation: a,
               originalSelector: e.selector,
-              options: kd(e.options),
+              options: Ed(e.options),
             }
           );
         }
         visitStagger(e, t) {
           t.currentQuery || t.errors.push('stagger() can only be used inside of query()');
-          const n = 'full' === e.timings ? { duration: 0, delay: 0, easing: 'full' } : Zc(e.timings, t.errors, !0);
-          return { type: 12, animation: pd(this, sd(e.animation), t), timings: n, options: null };
+          const n = 'full' === e.timings ? { duration: 0, delay: 0, easing: 'full' } : Xc(e.timings, t.errors, !0);
+          return { type: 12, animation: fd(this, ad(e.animation), t), timings: n, options: null };
         }
       }
-      class Sd {
+      class Md {
         constructor(e) {
           (this.errors = e),
             (this.queryCount = 0),
@@ -40667,17 +40685,17 @@
             (this.options = null);
         }
       }
-      function Md(e) {
+      function kd(e) {
         return !Array.isArray(e) && 'object' == typeof e;
       }
-      function kd(e) {
+      function Ed(e) {
         var t;
-        return e ? (e = Xc(e)).params && (e.params = (t = e.params) ? Xc(t) : null) : (e = {}), e;
+        return e ? (e = ed(e)).params && (e.params = (t = e.params) ? ed(t) : null) : (e = {}), e;
       }
-      function Ed(e, t, n) {
+      function Cd(e, t, n) {
         return { duration: e, delay: t, easing: n };
       }
-      function Cd(e, t, n, r, i, s, a = null, o = !1) {
+      function Dd(e, t, n, r, i, s, a = null, o = !1) {
         return {
           type: 1,
           element: e,
@@ -40691,7 +40709,7 @@
           subTimeline: o,
         };
       }
-      class Dd {
+      class Ld {
         constructor() {
           this._map = new Map();
         }
@@ -40710,22 +40728,22 @@
           this._map.clear();
         }
       }
-      const Ld = new RegExp(':enter', 'g'),
-        Td = new RegExp(':leave', 'g');
-      function Od(e, t, n, r, i, s = {}, a = {}, o, l, c = []) {
-        return new jd().buildKeyframes(e, t, n, r, i, s, a, o, l, c);
+      const Td = new RegExp(':enter', 'g'),
+        Od = new RegExp(':leave', 'g');
+      function jd(e, t, n, r, i, s = {}, a = {}, o, l, c = []) {
+        return new Ad().buildKeyframes(e, t, n, r, i, s, a, o, l, c);
       }
-      class jd {
+      class Ad {
         buildKeyframes(e, t, n, r, i, s, a, o, l, c = []) {
-          l = l || new Dd();
-          const d = new Id(e, t, l, r, i, c, []);
-          (d.options = o), d.currentTimeline.setStyles([s], null, d.errors, o), pd(this, n, d);
+          l = l || new Ld();
+          const d = new Pd(e, t, l, r, i, c, []);
+          (d.options = o), d.currentTimeline.setStyles([s], null, d.errors, o), fd(this, n, d);
           const u = d.timelines.filter((e) => e.containsAnimation());
           if (u.length && Object.keys(a).length) {
             const e = u[u.length - 1];
             e.allowOnlyTimelineStyles() || e.setStyles([a], null, d.errors, o);
           }
-          return u.length ? u.map((e) => e.buildKeyframes()) : [Cd(t, [], [], [], 0, 0, '', !1)];
+          return u.length ? u.map((e) => e.buildKeyframes()) : [Dd(t, [], [], [], 0, 0, '', !1)];
         }
         visitTrigger(e, t) {}
         visitState(e, t) {}
@@ -40749,8 +40767,8 @@
         }
         _visitSubInstructions(e, t, n) {
           let r = t.currentTimeline.currentTime;
-          const i = null != n.duration ? Jc(n.duration) : null,
-            s = null != n.delay ? Jc(n.delay) : null;
+          const i = null != n.duration ? Qc(n.duration) : null,
+            s = null != n.delay ? Qc(n.delay) : null;
           return (
             0 !== i &&
               e.forEach((e) => {
@@ -40761,7 +40779,7 @@
           );
         }
         visitReference(e, t) {
-          t.updateOptions(e.options, !0), pd(this, e.animation, t), (t.previousNode = e);
+          t.updateOptions(e.options, !0), fd(this, e.animation, t), (t.previousNode = e);
         }
         visitSequence(e, t) {
           const n = t.subContextCount;
@@ -40772,12 +40790,12 @@
             (i.params || i.delay) &&
             ((r = t.createSubContext(i)), r.transformIntoNewTimeline(), null != i.delay)
           ) {
-            6 == r.previousNode.type && (r.currentTimeline.snapshotCurrentStyles(), (r.previousNode = Ad));
-            const e = Jc(i.delay);
+            6 == r.previousNode.type && (r.currentTimeline.snapshotCurrentStyles(), (r.previousNode = Id));
+            const e = Qc(i.delay);
             r.delayNextStep(e);
           }
           e.steps.length &&
-            (e.steps.forEach((e) => pd(this, e, r)),
+            (e.steps.forEach((e) => fd(this, e, r)),
             r.currentTimeline.applyStylesToKeyframe(),
             r.subContextCount > n && r.transformIntoNewTimeline()),
             (t.previousNode = e);
@@ -40785,11 +40803,11 @@
         visitGroup(e, t) {
           const n = [];
           let r = t.currentTimeline.currentTime;
-          const i = e.options && e.options.delay ? Jc(e.options.delay) : 0;
+          const i = e.options && e.options.delay ? Qc(e.options.delay) : 0;
           e.steps.forEach((s) => {
             const a = t.createSubContext(e.options);
             i && a.delayNextStep(i),
-              pd(this, s, a),
+              fd(this, s, a),
               (r = Math.max(r, a.currentTimeline.currentTime)),
               n.push(a.currentTimeline);
           }),
@@ -40800,7 +40818,7 @@
         _visitTiming(e, t) {
           if (e.dynamic) {
             const n = e.strValue;
-            return Zc(t.params ? ld(n, t.params, t.errors) : n, t.errors);
+            return Xc(t.params ? cd(n, t.params, t.errors) : n, t.errors);
           }
           return { duration: e.duration, delay: e.delay, easing: e.easing };
         }
@@ -40840,10 +40858,10 @@
         visitQuery(e, t) {
           const n = t.currentTimeline.currentTime,
             r = e.options || {},
-            i = r.delay ? Jc(r.delay) : 0;
+            i = r.delay ? Qc(r.delay) : 0;
           i &&
             (6 === t.previousNode.type || (0 == n && t.currentTimeline.getCurrentStyleProperties().length)) &&
-            (t.currentTimeline.snapshotCurrentStyles(), (t.previousNode = Ad));
+            (t.currentTimeline.snapshotCurrentStyles(), (t.previousNode = Id));
           let s = n;
           const a = t.invokeQuery(e.selector, e.originalSelector, e.limit, e.includeSelf, !!r.optional, t.errors);
           t.currentQueryTotal = a.length;
@@ -40853,7 +40871,7 @@
             const a = t.createSubContext(e.options, n);
             i && a.delayNextStep(i),
               n === t.element && (o = a.currentTimeline),
-              pd(this, e.animation, a),
+              fd(this, e.animation, a),
               a.currentTimeline.applyStylesToKeyframe(),
               (s = Math.max(s, a.currentTimeline.currentTime));
           }),
@@ -40880,13 +40898,13 @@
           const l = t.currentTimeline;
           o && l.delayNextStep(o);
           const c = l.currentTime;
-          pd(this, e.animation, t),
+          fd(this, e.animation, t),
             (t.previousNode = e),
             (n.currentStaggerTime = r.currentTime - c + (r.startTime - n.currentTimeline.startTime));
         }
       }
-      const Ad = {};
-      class Id {
+      const Id = {};
+      class Pd {
         constructor(e, t, n, r, i, s, a, o) {
           (this._driver = e),
             (this.element = t),
@@ -40897,13 +40915,13 @@
             (this.timelines = a),
             (this.parentContext = null),
             (this.currentAnimateTimings = null),
-            (this.previousNode = Ad),
+            (this.previousNode = Id),
             (this.subContextCount = 0),
             (this.options = {}),
             (this.currentQueryIndex = 0),
             (this.currentQueryTotal = 0),
             (this.currentStaggerTime = 0),
-            (this.currentTimeline = o || new Pd(this._driver, t, 0)),
+            (this.currentTimeline = o || new Yd(this._driver, t, 0)),
             a.push(this.currentTimeline);
         }
         get params() {
@@ -40913,13 +40931,13 @@
           if (!e) return;
           const n = e;
           let r = this.options;
-          null != n.duration && (r.duration = Jc(n.duration)), null != n.delay && (r.delay = Jc(n.delay));
+          null != n.duration && (r.duration = Qc(n.duration)), null != n.delay && (r.delay = Qc(n.delay));
           const i = n.params;
           if (i) {
             let e = r.params;
             e || (e = this.options.params = {}),
               Object.keys(i).forEach((n) => {
-                (t && e.hasOwnProperty(n)) || (e[n] = ld(i[n], e, this.errors));
+                (t && e.hasOwnProperty(n)) || (e[n] = cd(i[n], e, this.errors));
               });
           }
         }
@@ -40938,7 +40956,7 @@
         }
         createSubContext(e = null, t, n) {
           const r = t || this.element,
-            i = new Id(
+            i = new Pd(
               this._driver,
               r,
               this.subInstructions,
@@ -40962,7 +40980,7 @@
         }
         transformIntoNewTimeline(e) {
           return (
-            (this.previousNode = Ad),
+            (this.previousNode = Id),
             (this.currentTimeline = this.currentTimeline.fork(this.element, e)),
             this.timelines.push(this.currentTimeline),
             this.currentTimeline
@@ -40974,7 +40992,7 @@
               delay: this.currentTimeline.currentTime + (null != n ? n : 0) + e.delay,
               easing: '',
             },
-            i = new Yd(
+            i = new Fd(
               this._driver,
               e.element,
               e.keyframes,
@@ -40994,7 +41012,7 @@
         invokeQuery(e, t, n, r, i, s) {
           let a = [];
           if ((r && a.push(this.element), e.length > 0)) {
-            e = (e = e.replace(Ld, '.' + this._enterClassName)).replace(Td, '.' + this._leaveClassName);
+            e = (e = e.replace(Td, '.' + this._enterClassName)).replace(Od, '.' + this._leaveClassName);
             let t = this._driver.query(this.element, e, 1 != n);
             0 !== n && (t = n < 0 ? t.slice(t.length + n, t.length) : t.slice(0, n)), a.push(...t);
           }
@@ -41008,7 +41026,7 @@
           );
         }
       }
-      class Pd {
+      class Yd {
         constructor(e, t, n, r) {
           (this._driver = e),
             (this.element = t),
@@ -41055,7 +41073,7 @@
         fork(e, t) {
           return (
             this.applyStylesToKeyframe(),
-            new Pd(this._driver, e, t || this.currentTime, this._elementTimelineStylesLookup)
+            new Yd(this._driver, e, t || this.currentTime, this._elementTimelineStylesLookup)
           );
         }
         _loadKeyframe() {
@@ -41099,13 +41117,13 @@
                       r.forEach((e) => {
                         n[e] = $r.a;
                       }))
-                    : ed(e, !1, n);
+                    : td(e, !1, n);
                 }),
                 n
               );
             })(e, this._globalTimelineStyles);
           Object.keys(s).forEach((e) => {
-            const t = ld(s[e], i, n);
+            const t = cd(s[e], i, n);
             (this._pendingStyles[e] = t),
               this._localTimelineStyles.hasOwnProperty(e) ||
                 (this._backFill[e] = this._globalTimelineStyles.hasOwnProperty(e)
@@ -41154,7 +41172,7 @@
             n = 1 === this._keyframes.size && 0 === this.duration;
           let r = [];
           this._keyframes.forEach((i, s) => {
-            const a = ed(i, !0);
+            const a = td(i, !0);
             Object.keys(a).forEach((n) => {
               const r = a[n];
               r == $r.l ? e.add(n) : r == $r.a && t.add(n);
@@ -41162,17 +41180,17 @@
               n || (a.offset = s / this.duration),
               r.push(a);
           });
-          const i = e.size ? cd(e.values()) : [],
-            s = t.size ? cd(t.values()) : [];
+          const i = e.size ? dd(e.values()) : [],
+            s = t.size ? dd(t.values()) : [];
           if (n) {
             const e = r[0],
-              t = Xc(e);
+              t = ed(e);
             (e.offset = 0), (t.offset = 1), (r = [e, t]);
           }
-          return Cd(this.element, r, i, s, this.duration, this.startTime, this.easing, !1);
+          return Dd(this.element, r, i, s, this.duration, this.startTime, this.easing, !1);
         }
       }
-      class Yd extends Pd {
+      class Fd extends Yd {
         constructor(e, t, n, r, i, s, a = !1) {
           super(e, t, s.delay),
             (this.element = t),
@@ -41192,33 +41210,33 @@
             const i = [],
               s = n + t,
               a = t / s,
-              o = ed(e[0], !1);
+              o = td(e[0], !1);
             (o.offset = 0), i.push(o);
-            const l = ed(e[0], !1);
-            (l.offset = Fd(a)), i.push(l);
+            const l = td(e[0], !1);
+            (l.offset = Rd(a)), i.push(l);
             const c = e.length - 1;
             for (let r = 1; r <= c; r++) {
-              let a = ed(e[r], !1);
-              (a.offset = Fd((t + a.offset * n) / s)), i.push(a);
+              let a = td(e[r], !1);
+              (a.offset = Rd((t + a.offset * n) / s)), i.push(a);
             }
             (n = s), (t = 0), (r = ''), (e = i);
           }
-          return Cd(this.element, e, this.preStyleProps, this.postStyleProps, n, t, r, !0);
+          return Dd(this.element, e, this.preStyleProps, this.postStyleProps, n, t, r, !0);
         }
       }
-      function Fd(e, t = 3) {
+      function Rd(e, t = 3) {
         const n = Math.pow(10, t - 1);
         return Math.round(e * n) / n;
       }
-      class Rd {}
-      class Nd extends Rd {
+      class Nd {}
+      class Hd extends Nd {
         normalizePropertyName(e, t) {
-          return ud(e);
+          return hd(e);
         }
         normalizeStyleValue(e, t, n, r) {
           let i = '';
           const s = n.toString().trim();
-          if (Hd[t] && 0 !== n && '0' !== n)
+          if (Vd[t] && 0 !== n && '0' !== n)
             if ('number' == typeof n) i = 'px';
             else {
               const t = n.match(/^[+-]?[\d\.]+([a-z]*)$/);
@@ -41227,7 +41245,7 @@
           return s + i;
         }
       }
-      const Hd = (() =>
+      const Vd = (() =>
         (function (e) {
           const t = {};
           return e.forEach((e) => (t[e] = !0)), t;
@@ -41236,7 +41254,7 @@
             ','
           )
         ))();
-      function Vd(e, t, n, r, i, s, a, o, l, c, d, u, h) {
+      function Bd(e, t, n, r, i, s, a, o, l, c, d, u, h) {
         return {
           type: 0,
           element: e,
@@ -41254,8 +41272,8 @@
           errors: h,
         };
       }
-      const Bd = {};
-      class Wd {
+      const Wd = {};
+      class Ud {
         constructor(e, t, n) {
           (this._triggerName = e), (this.ast = t), (this._stateStyles = n);
         }
@@ -41272,16 +41290,16 @@
         }
         build(e, t, n, r, i, s, a, o, l, c) {
           const d = [],
-            u = (this.ast.options && this.ast.options.params) || Bd,
-            h = this.buildStyles(n, (a && a.params) || Bd, d),
-            m = (o && o.params) || Bd,
+            u = (this.ast.options && this.ast.options.params) || Wd,
+            h = this.buildStyles(n, (a && a.params) || Wd, d),
+            m = (o && o.params) || Wd,
             p = this.buildStyles(r, m, d),
             f = new Set(),
             _ = new Map(),
             g = new Map(),
             y = 'void' === r,
             v = { params: Object.assign(Object.assign({}, u), m) },
-            b = c ? [] : Od(e, t, this.ast.animation, i, s, h, p, v, l, d);
+            b = c ? [] : jd(e, t, this.ast.animation, i, s, h, p, v, l, d);
           let x = 0;
           if (
             (b.forEach((e) => {
@@ -41289,25 +41307,25 @@
             }),
             d.length)
           )
-            return Vd(t, this._triggerName, n, r, y, h, p, [], [], _, g, x, d);
+            return Bd(t, this._triggerName, n, r, y, h, p, [], [], _, g, x, d);
           b.forEach((e) => {
             const n = e.element,
-              r = Pc(_, n, {});
+              r = Yc(_, n, {});
             e.preStyleProps.forEach((e) => (r[e] = !0));
-            const i = Pc(g, n, {});
+            const i = Yc(g, n, {});
             e.postStyleProps.forEach((e) => (i[e] = !0)), n !== t && f.add(n);
           });
-          const w = cd(f.values());
-          return Vd(t, this._triggerName, n, r, y, h, p, b, w, _, g, x);
+          const w = dd(f.values());
+          return Bd(t, this._triggerName, n, r, y, h, p, b, w, _, g, x);
         }
       }
-      class Ud {
+      class zd {
         constructor(e, t) {
           (this.styles = e), (this.defaultParams = t);
         }
         buildStyles(e, t) {
           const n = {},
-            r = Xc(this.defaultParams);
+            r = ed(this.defaultParams);
           return (
             Object.keys(e).forEach((t) => {
               const n = e[t];
@@ -41318,7 +41336,7 @@
                 const i = e;
                 Object.keys(i).forEach((e) => {
                   let s = i[e];
-                  s.length > 1 && (s = ld(s, r, t)), (n[e] = s);
+                  s.length > 1 && (s = cd(s, r, t)), (n[e] = s);
                 });
               }
             }),
@@ -41326,22 +41344,22 @@
           );
         }
       }
-      class zd {
+      class $d {
         constructor(e, t) {
           (this.name = e),
             (this.ast = t),
             (this.transitionFactories = []),
             (this.states = {}),
             t.states.forEach((e) => {
-              this.states[e.name] = new Ud(e.style, (e.options && e.options.params) || {});
+              this.states[e.name] = new zd(e.style, (e.options && e.options.params) || {});
             }),
-            $d(this.states, 'true', '1'),
-            $d(this.states, 'false', '0'),
+            Gd(this.states, 'true', '1'),
+            Gd(this.states, 'false', '0'),
             t.transitions.forEach((t) => {
-              this.transitionFactories.push(new Wd(e, t, this.states));
+              this.transitionFactories.push(new Ud(e, t, this.states));
             }),
             (this.fallbackTransition = (function (e, t) {
-              return new Wd(
+              return new Ud(
                 e,
                 {
                   type: 1,
@@ -41365,11 +41383,11 @@
           return this.fallbackTransition.buildStyles(e, t, n);
         }
       }
-      function $d(e, t, n) {
+      function Gd(e, t, n) {
         e.hasOwnProperty(t) ? e.hasOwnProperty(n) || (e[n] = e[t]) : e.hasOwnProperty(n) && (e[t] = e[n]);
       }
-      const Gd = new Dd();
-      class qd {
+      const qd = new Ld();
+      class Kd {
         constructor(e, t, n) {
           (this.bodyNode = e),
             (this._driver = t),
@@ -41380,13 +41398,13 @@
         }
         register(e, t) {
           const n = [],
-            r = xd(this._driver, t, n);
+            r = wd(this._driver, t, n);
           if (n.length) throw new Error('Unable to build the animation due to the following errors: ' + n.join('\n'));
           this._animations[e] = r;
         }
         _buildPlayer(e, t, n) {
           const r = e.element,
-            i = Oc(0, this._normalizer, 0, e.keyframes, t, n);
+            i = jc(0, this._normalizer, 0, e.keyframes, t, n);
           return this._driver.animate(r, i, e.duration, e.delay, e.easing, [], !0);
         }
         create(e, t, n = {}) {
@@ -41396,9 +41414,9 @@
           const a = new Map();
           if (
             (i
-              ? ((s = Od(this._driver, t, i, 'ng-enter', 'ng-leave', {}, {}, n, Gd, r)),
+              ? ((s = jd(this._driver, t, i, 'ng-enter', 'ng-leave', {}, {}, n, qd, r)),
                 s.forEach((e) => {
-                  const t = Pc(a, e.element, {});
+                  const t = Yc(a, e.element, {});
                   e.postStyleProps.forEach((e) => (t[e] = null));
                 }))
               : (r.push("The requested animation doesn't exist or has already been destroyed"), (s = [])),
@@ -41410,7 +41428,7 @@
               e[n] = this._driver.computeStyle(t, n, $r.a);
             });
           });
-          const o = Tc(
+          const o = Oc(
             s.map((e) => {
               const t = a.get(e.element);
               return this._buildPlayer(e, {}, t);
@@ -41430,8 +41448,8 @@
           return t;
         }
         listen(e, t, n, r) {
-          const i = Ic(t, '', '', '');
-          return jc(this._getPlayer(e), n, i, r), () => {};
+          const i = Pc(t, '', '', '');
+          return Ac(this._getPlayer(e), n, i, r), () => {};
         }
         command(e, t, n, r) {
           if ('register' == n) return void this.register(e, r[0]);
@@ -41464,15 +41482,15 @@
           }
         }
       }
-      const Kd = [],
-        Jd = { namespaceId: '', setForRemoval: !1, setForMove: !1, hasAnimation: !1, removedBeforeQueried: !1 },
-        Qd = { namespaceId: '', setForMove: !1, setForRemoval: !1, hasAnimation: !1, removedBeforeQueried: !0 };
-      class Zd {
+      const Jd = [],
+        Qd = { namespaceId: '', setForRemoval: !1, setForMove: !1, hasAnimation: !1, removedBeforeQueried: !1 },
+        Zd = { namespaceId: '', setForMove: !1, setForRemoval: !1, hasAnimation: !1, removedBeforeQueried: !0 };
+      class Xd {
         constructor(e, t = '') {
           this.namespaceId = t;
           const n = e && e.hasOwnProperty('value');
           if (((this.value = null != (r = n ? e.value : e) ? r : null), n)) {
-            const t = Xc(e);
+            const t = ed(e);
             delete t.value, (this.options = t);
           } else this.options = {};
           var r;
@@ -41491,8 +41509,8 @@
           }
         }
       }
-      const Xd = new Zd('void');
-      class eu {
+      const eu = new Xd('void');
+      class tu {
         constructor(e, t, n) {
           (this.id = e),
             (this.hostElement = t),
@@ -41502,7 +41520,7 @@
             (this._queue = []),
             (this._elementListeners = new Map()),
             (this._hostClassName = 'ng-tns-' + e),
-            ou(t, this._hostClassName);
+            lu(t, this._hostClassName);
         }
         listen(e, t, n, r) {
           if (!this._triggers.hasOwnProperty(t))
@@ -41518,12 +41536,12 @@
               `The provided animation trigger event "${n}" for the animation trigger "${t}" is not supported!`
             );
           var i;
-          const s = Pc(this._elementListeners, e, []),
+          const s = Yc(this._elementListeners, e, []),
             a = { name: t, phase: n, callback: r };
           s.push(a);
-          const o = Pc(this._engine.statesByElement, e, {});
+          const o = Yc(this._engine.statesByElement, e, {});
           return (
-            o.hasOwnProperty(t) || (ou(e, 'ng-trigger'), ou(e, 'ng-trigger-' + t), (o[t] = Xd)),
+            o.hasOwnProperty(t) || (lu(e, 'ng-trigger'), lu(e, 'ng-trigger-' + t), (o[t] = eu)),
             () => {
               this._engine.afterFlush(() => {
                 const e = s.indexOf(a);
@@ -41542,15 +41560,15 @@
         }
         trigger(e, t, n, r = !0) {
           const i = this._getTrigger(t),
-            s = new nu(this.id, t, e);
+            s = new ru(this.id, t, e);
           let a = this._engine.statesByElement.get(e);
-          a || (ou(e, 'ng-trigger'), ou(e, 'ng-trigger-' + t), this._engine.statesByElement.set(e, (a = {})));
+          a || (lu(e, 'ng-trigger'), lu(e, 'ng-trigger-' + t), this._engine.statesByElement.set(e, (a = {})));
           let o = a[t];
-          const l = new Zd(n, this.id);
+          const l = new Xd(n, this.id);
           if (
             (!(n && n.hasOwnProperty('value')) && o && l.absorbOptions(o.options),
             (a[t] = l),
-            o || (o = Xd),
+            o || (o = eu),
             'void' !== l.value && o.value === l.value)
           ) {
             if (
@@ -41571,12 +41589,12 @@
               t.length
                 ? this._engine.reportError(t)
                 : this._engine.afterFlush(() => {
-                    id(e, n), rd(e, r);
+                    sd(e, n), id(e, r);
                   });
             }
             return;
           }
-          const c = Pc(this._engine.playersByElement, e, []);
+          const c = Yc(this._engine.playersByElement, e, []);
           c.forEach((e) => {
             e.namespaceId == this.id && e.triggerName == t && e.queued && e.destroy();
           });
@@ -41598,9 +41616,9 @@
               isFallbackTransition: u,
             }),
             u ||
-              (ou(e, 'ng-animate-queued'),
+              (lu(e, 'ng-animate-queued'),
               s.onStart(() => {
-                lu(e, 'ng-animate-queued');
+                cu(e, 'ng-animate-queued');
               })),
             s.onDone(() => {
               let t = this.players.indexOf(s);
@@ -41657,7 +41675,7 @@
             )
               return (
                 this._engine.markElementAsRemoved(this.id, e, !0, t),
-                n && Tc(s).onDone(() => this._engine.processLeaveNode(e)),
+                n && Oc(s).onDone(() => this._engine.processLeaveNode(e)),
                 !0
               );
           }
@@ -41672,9 +41690,9 @@
               if (n.has(r)) return;
               n.add(r);
               const i = this._triggers[r].fallbackTransition,
-                s = this._engine.statesByElement.get(e)[r] || Xd,
-                a = new Zd('void'),
-                o = new nu(this.id, r, e);
+                s = this._engine.statesByElement.get(e)[r] || eu,
+                a = new Xd('void'),
+                o = new ru(this.id, r, e);
               this._engine.totalQueuedPlayers++,
                 this._queue.push({
                   element: e,
@@ -41708,12 +41726,12 @@
           if ((this.prepareLeaveAnimationListeners(e), r)) n.markElementAsRemoved(this.id, e, !1, t);
           else {
             const r = e.__ng_removed;
-            (r && r !== Jd) ||
+            (r && r !== Qd) ||
               (n.afterFlush(() => this.clearElementCache(e)), n.destroyInnerAnimations(e), n._onRemovalComplete(e, t));
           }
         }
         insertNode(e, t) {
-          ou(e, this._hostClassName);
+          lu(e, this._hostClassName);
         }
         drainQueuedTransitions(e) {
           const t = [];
@@ -41726,8 +41744,8 @@
               s &&
                 s.forEach((t) => {
                   if (t.name == n.triggerName) {
-                    const r = Ic(i, n.triggerName, n.fromState.value, n.toState.value);
-                    (r._data = e), jc(n.player, t.phase, r, t.callback);
+                    const r = Pc(i, n.triggerName, n.fromState.value, n.toState.value);
+                    (r._data = e), Ac(n.player, t.phase, r, t.callback);
                   }
                 }),
                 r.markedForDestroy
@@ -41752,7 +41770,7 @@
           return this._elementListeners.has(e) && (t = !0), (t = !!this._queue.find((t) => t.element === e) || t), t;
         }
       }
-      class tu {
+      class nu {
         constructor(e, t, n) {
           (this.bodyNode = e),
             (this.driver = t),
@@ -41789,7 +41807,7 @@
           );
         }
         createNamespace(e, t) {
-          const n = new eu(e, t, this);
+          const n = new tu(e, t, this);
           return (
             t.parentNode
               ? this._balanceNamespaceList(n, t)
@@ -41847,14 +41865,14 @@
           return t;
         }
         trigger(e, t, n, r) {
-          if (ru(t)) {
+          if (iu(t)) {
             const i = this._fetchNamespace(e);
             if (i) return i.trigger(t, n, r), !0;
           }
           return !1;
         }
         insertNode(e, t, n, r) {
-          if (!ru(t)) return;
+          if (!iu(t)) return;
           const i = t.__ng_removed;
           if (i && i.setForRemoval) {
             (i.setForRemoval = !1), (i.setForMove = !0);
@@ -41872,11 +41890,11 @@
         }
         markElementAsDisabled(e, t) {
           t
-            ? this.disabledNodes.has(e) || (this.disabledNodes.add(e), ou(e, 'ng-animate-disabled'))
-            : this.disabledNodes.has(e) && (this.disabledNodes.delete(e), lu(e, 'ng-animate-disabled'));
+            ? this.disabledNodes.has(e) || (this.disabledNodes.add(e), lu(e, 'ng-animate-disabled'))
+            : this.disabledNodes.has(e) && (this.disabledNodes.delete(e), cu(e, 'ng-animate-disabled'));
         }
         removeNode(e, t, n, r) {
-          if (ru(t)) {
+          if (iu(t)) {
             const i = e ? this._fetchNamespace(e) : null;
             if ((i ? i.removeNode(t, r) : this.markElementAsRemoved(e, t, !1, r), n)) {
               const n = this.namespacesByHostElement.get(t);
@@ -41889,7 +41907,7 @@
             (t.__ng_removed = { namespaceId: e, setForRemoval: r, hasAnimation: n, removedBeforeQueried: !1 });
         }
         listen(e, t, n, r, i) {
-          return ru(t) ? this._fetchNamespace(e).listen(t, n, r, i) : () => {};
+          return iu(t) ? this._fetchNamespace(e).listen(t, n, r, i) : () => {};
         }
         _buildInstruction(e, t, n, r, i) {
           return e.transition.build(
@@ -41925,14 +41943,14 @@
         }
         whenRenderingDone() {
           return new Promise((e) => {
-            if (this.players.length) return Tc(this.players).onDone(() => e());
+            if (this.players.length) return Oc(this.players).onDone(() => e());
             e();
           });
         }
         processLeaveNode(e) {
           const t = e.__ng_removed;
           if (t && t.setForRemoval) {
-            if (((e.__ng_removed = Jd), t.namespaceId)) {
+            if (((e.__ng_removed = Qd), t.namespaceId)) {
               this.destroyInnerAnimations(e);
               const n = this._fetchNamespace(t.namespaceId);
               n && n.clearElementCache(e);
@@ -41952,7 +41970,7 @@
             this.totalAnimations && this.collectedEnterElements.length)
           )
             for (let n = 0; n < this.collectedEnterElements.length; n++)
-              ou(this.collectedEnterElements[n], 'ng-star-inserted');
+              lu(this.collectedEnterElements[n], 'ng-star-inserted');
           if (this._namespaceList.length && (this.totalQueuedPlayers || this.collectedLeaveElements.length)) {
             const n = [];
             try {
@@ -41974,7 +41992,7 @@
             const e = this._whenQuietFns;
             (this._whenQuietFns = []),
               t.length
-                ? Tc(t).onDone(() => {
+                ? Oc(t).onDone(() => {
                     e.forEach((e) => e());
                   })
                 : e.forEach((e) => e());
@@ -41986,7 +42004,7 @@
           );
         }
         _flushAnimations(e, t) {
-          const n = new Dd(),
+          const n = new Ld(),
             r = [],
             i = new Map(),
             s = [],
@@ -42001,12 +42019,12 @@
           });
           const d = this.bodyNode,
             u = Array.from(this.statesByElement.keys()),
-            h = au(u, this.collectedEnterElements),
+            h = ou(u, this.collectedEnterElements),
             m = new Map();
           let p = 0;
           h.forEach((e, t) => {
             const n = 'ng-enter' + p++;
-            m.set(t, n), e.forEach((e) => ou(e, n));
+            m.set(t, n), e.forEach((e) => lu(e, n));
           });
           const f = [],
             _ = new Set(),
@@ -42021,19 +42039,19 @@
               t.hasAnimation ? this.driver.query(e, '.ng-star-inserted', !0).forEach((e) => _.add(e)) : g.add(e));
           }
           const y = new Map(),
-            v = au(u, Array.from(_));
+            v = ou(u, Array.from(_));
           v.forEach((e, t) => {
             const n = 'ng-leave' + p++;
-            y.set(t, n), e.forEach((e) => ou(e, n));
+            y.set(t, n), e.forEach((e) => lu(e, n));
           }),
             e.push(() => {
               h.forEach((e, t) => {
                 const n = m.get(t);
-                e.forEach((e) => lu(e, n));
+                e.forEach((e) => cu(e, n));
               }),
                 v.forEach((e, t) => {
                   const n = y.get(t);
-                  e.forEach((e) => lu(e, n));
+                  e.forEach((e) => cu(e, n));
                 }),
                 f.forEach((e) => {
                   this.processLeaveNode(e);
@@ -42056,13 +42074,13 @@
               if (p.errors && p.errors.length) x.push(p);
               else {
                 if (c)
-                  return t.onStart(() => id(i, p.fromStyles)), t.onDestroy(() => rd(i, p.toStyles)), void r.push(t);
+                  return t.onStart(() => sd(i, p.fromStyles)), t.onDestroy(() => id(i, p.toStyles)), void r.push(t);
                 if (e.isFallbackTransition)
-                  return t.onStart(() => id(i, p.fromStyles)), t.onDestroy(() => rd(i, p.toStyles)), void r.push(t);
+                  return t.onStart(() => sd(i, p.fromStyles)), t.onDestroy(() => id(i, p.toStyles)), void r.push(t);
                 p.timelines.forEach((e) => (e.stretchStartingKeyframe = !0)),
                   n.append(i, p.timelines),
                   s.push({ instruction: p, player: t, element: i }),
-                  p.queriedElements.forEach((e) => Pc(a, e, []).push(t)),
+                  p.queriedElements.forEach((e) => Yc(a, e, []).push(t)),
                   p.preStyleProps.forEach((e, t) => {
                     const n = Object.keys(e);
                     if (n.length) {
@@ -42094,17 +42112,17 @@
             r.forEach((e) => {
               const t = e.element;
               this._getPreviousPlayers(t, !1, e.namespaceId, e.triggerName, null).forEach((e) => {
-                Pc(w, t, []).push(e), e.destroy();
+                Yc(w, t, []).push(e), e.destroy();
               });
             });
-          const M = f.filter((e) => du(e, o, l)),
+          const M = f.filter((e) => uu(e, o, l)),
             k = new Map();
-          su(k, this.driver, g, l, $r.a).forEach((e) => {
-            du(e, o, l) && M.push(e);
+          au(k, this.driver, g, l, $r.a).forEach((e) => {
+            uu(e, o, l) && M.push(e);
           });
           const E = new Map();
           h.forEach((e, t) => {
-            su(E, this.driver, new Set(e), o, $r.l);
+            au(E, this.driver, new Set(e), o, $r.l);
           }),
             M.forEach((e) => {
               const t = k.get(e),
@@ -42119,7 +42137,7 @@
             if (n.has(t)) {
               if (c.has(t))
                 return (
-                  s.onDestroy(() => rd(t, a.toStyles)),
+                  s.onDestroy(() => id(t, a.toStyles)),
                   (s.disabled = !0),
                   s.overrideTotalTime(a.totalTime),
                   void r.push(s)
@@ -42142,14 +42160,14 @@
               if ((s.setRealPlayer(n), e === L)) C.push(s);
               else {
                 const t = this.playersByElement.get(e);
-                t && t.length && (s.parentPlayer = Tc(t)), r.push(s);
+                t && t.length && (s.parentPlayer = Oc(t)), r.push(s);
               }
-            } else id(t, a.fromStyles), s.onDestroy(() => rd(t, a.toStyles)), D.push(s), c.has(t) && r.push(s);
+            } else sd(t, a.fromStyles), s.onDestroy(() => id(t, a.toStyles)), D.push(s), c.has(t) && r.push(s);
           }),
             D.forEach((e) => {
               const t = i.get(e.element);
               if (t && t.length) {
-                const n = Tc(t);
+                const n = Oc(t);
                 e.setRealPlayer(n);
               }
             }),
@@ -42159,7 +42177,7 @@
           for (let T = 0; T < f.length; T++) {
             const e = f[T],
               t = e.__ng_removed;
-            if ((lu(e, 'ng-leave'), t && t.hasAnimation)) continue;
+            if ((cu(e, 'ng-leave'), t && t.hasAnimation)) continue;
             let n = [];
             if (a.size) {
               let t = a.get(e);
@@ -42171,7 +42189,7 @@
               }
             }
             const r = n.filter((e) => !e.destroyed);
-            r.length ? cu(this, e, r) : this.processLeaveNode(e);
+            r.length ? du(this, e, r) : this.processLeaveNode(e);
           }
           return (
             (f.length = 0),
@@ -42227,13 +42245,13 @@
           for (const a of t.timelines) {
             const e = a.element,
               o = e !== r,
-              l = Pc(n, e, []);
+              l = Yc(n, e, []);
             this._getPreviousPlayers(e, o, i, s, t.toState).forEach((e) => {
               const t = e.getRealPlayer();
               t.beforeDestroy && t.beforeDestroy(), e.destroy(), l.push(e);
             });
           }
-          id(r, t.fromStyles);
+          sd(r, t.fromStyles);
         }
         _buildAnimation(e, t, n, r, i, s) {
           const a = t.triggerName,
@@ -42258,19 +42276,19 @@
                     })(e, t),
                     t
                   );
-                })((n.get(u) || Kd).map((e) => e.getRealPlayer())).filter((e) => !!e.element && e.element === u),
+                })((n.get(u) || Jd).map((e) => e.getRealPlayer())).filter((e) => !!e.element && e.element === u),
                 f = i.get(u),
                 _ = s.get(u),
-                g = Oc(0, this._normalizer, 0, t.keyframes, f, _),
+                g = jc(0, this._normalizer, 0, t.keyframes, f, _),
                 y = this._buildPlayer(t, g, p);
               if ((t.subTimeline && r && d.add(u), m)) {
-                const t = new nu(e, a, u);
+                const t = new ru(e, a, u);
                 t.setRealPlayer(y), l.push(t);
               }
               return y;
             });
           l.forEach((e) => {
-            Pc(this.playersByQueriedElement, e.element, []).push(e),
+            Yc(this.playersByQueriedElement, e.element, []).push(e),
               e.onDone(() =>
                 (function (e, t, n) {
                   let r;
@@ -42293,14 +42311,14 @@
                 })(this.playersByQueriedElement, e.element, e)
               );
           }),
-            c.forEach((e) => ou(e, 'ng-animating'));
-          const h = Tc(u);
+            c.forEach((e) => lu(e, 'ng-animating'));
+          const h = Oc(u);
           return (
             h.onDestroy(() => {
-              c.forEach((e) => lu(e, 'ng-animating')), rd(o, t.toStyles);
+              c.forEach((e) => cu(e, 'ng-animating')), id(o, t.toStyles);
             }),
             d.forEach((e) => {
-              Pc(r, e, []).push(h);
+              Yc(r, e, []).push(h);
             }),
             h
           );
@@ -42311,7 +42329,7 @@
             : new $r.d(e.duration, e.delay);
         }
       }
-      class nu {
+      class ru {
         constructor(e, t, n) {
           (this.namespaceId = e),
             (this.triggerName = t),
@@ -42329,7 +42347,7 @@
           this._containsRealPlayer ||
             ((this._player = e),
             Object.keys(this._queuedCallbacks).forEach((t) => {
-              this._queuedCallbacks[t].forEach((n) => jc(e, t, void 0, n));
+              this._queuedCallbacks[t].forEach((n) => Ac(e, t, void 0, n));
             }),
             (this._queuedCallbacks = {}),
             (this._containsRealPlayer = !0),
@@ -42349,7 +42367,7 @@
             e.onDestroy(() => this.destroy());
         }
         _queueEvent(e, t) {
-          Pc(this._queuedCallbacks, e, []).push(t);
+          Yc(this._queuedCallbacks, e, []).push(t);
         }
         onDone(e) {
           this.queued && this._queueEvent('done', e), this._player.onDone(e);
@@ -42395,29 +42413,29 @@
           t.triggerCallback && t.triggerCallback(e);
         }
       }
-      function ru(e) {
+      function iu(e) {
         return e && 1 === e.nodeType;
       }
-      function iu(e, t) {
+      function su(e, t) {
         const n = e.style.display;
         return (e.style.display = null != t ? t : 'none'), n;
       }
-      function su(e, t, n, r, i) {
+      function au(e, t, n, r, i) {
         const s = [];
-        n.forEach((e) => s.push(iu(e)));
+        n.forEach((e) => s.push(su(e)));
         const a = [];
         r.forEach((n, r) => {
           const s = {};
           n.forEach((e) => {
             const n = (s[e] = t.computeStyle(r, e, i));
-            (n && 0 != n.length) || ((r.__ng_removed = Qd), a.push(r));
+            (n && 0 != n.length) || ((r.__ng_removed = Zd), a.push(r));
           }),
             e.set(r, s);
         });
         let o = 0;
-        return n.forEach((e) => iu(e, s[o++])), a;
+        return n.forEach((e) => su(e, s[o++])), a;
       }
-      function au(e, t) {
+      function ou(e, t) {
         const n = new Map();
         if ((e.forEach((e) => n.set(e, [])), 0 == t.length)) return n;
         const r = new Set(t),
@@ -42436,37 +42454,37 @@
           n
         );
       }
-      function ou(e, t) {
+      function lu(e, t) {
         if (e.classList) e.classList.add(t);
         else {
           let n = e.$$classes;
           n || (n = e.$$classes = {}), (n[t] = !0);
         }
       }
-      function lu(e, t) {
+      function cu(e, t) {
         if (e.classList) e.classList.remove(t);
         else {
           let n = e.$$classes;
           n && delete n[t];
         }
       }
-      function cu(e, t, n) {
-        Tc(n).onDone(() => e.processLeaveNode(t));
-      }
       function du(e, t, n) {
+        Oc(n).onDone(() => e.processLeaveNode(t));
+      }
+      function uu(e, t, n) {
         const r = n.get(e);
         if (!r) return !1;
         let i = t.get(e);
         return i ? r.forEach((e) => i.add(e)) : t.set(e, r), n.delete(e), !0;
       }
-      class uu {
+      class hu {
         constructor(e, t, n) {
           (this.bodyNode = e),
             (this._driver = t),
             (this._triggerCache = {}),
             (this.onRemovalComplete = (e, t) => {}),
-            (this._transitionEngine = new tu(e, t, n)),
-            (this._timelineEngine = new qd(e, t, n)),
+            (this._transitionEngine = new nu(e, t, n)),
+            (this._timelineEngine = new Kd(e, t, n)),
             (this._transitionEngine.onRemovalComplete = (e, t) => this.onRemovalComplete(e, t));
         }
         registerTrigger(e, t, n, r, i) {
@@ -42474,13 +42492,13 @@
           let a = this._triggerCache[s];
           if (!a) {
             const e = [],
-              t = xd(this._driver, i, e);
+              t = wd(this._driver, i, e);
             if (e.length)
               throw new Error(
                 `The animation trigger "${r}" has failed to build due to the following errors:\n - ${e.join('\n - ')}`
               );
             (a = (function (e, t) {
-              return new zd(e, t);
+              return new $d(e, t);
             })(r, t)),
               (this._triggerCache[s] = a);
           }
@@ -42503,13 +42521,13 @@
         }
         process(e, t, n, r) {
           if ('@' == n.charAt(0)) {
-            const [e, i] = Yc(n);
+            const [e, i] = Fc(n);
             this._timelineEngine.command(e, t, i, r);
           } else this._transitionEngine.trigger(e, t, n, r);
         }
         listen(e, t, n, r, i) {
           if ('@' == n.charAt(0)) {
-            const [e, r] = Yc(n);
+            const [e, r] = Fc(n);
             return this._timelineEngine.listen(e, t, r, i);
           }
           return this._transitionEngine.listen(e, t, n, r, i);
@@ -42524,15 +42542,15 @@
           return this._transitionEngine.whenRenderingDone();
         }
       }
-      function hu(e, t) {
+      function mu(e, t) {
         let n = null,
           r = null;
         return (
-          Array.isArray(t) && t.length ? ((n = pu(t[0])), t.length > 1 && (r = pu(t[t.length - 1]))) : t && (n = pu(t)),
-          n || r ? new mu(e, n, r) : null
+          Array.isArray(t) && t.length ? ((n = fu(t[0])), t.length > 1 && (r = fu(t[t.length - 1]))) : t && (n = fu(t)),
+          n || r ? new pu(e, n, r) : null
         );
       }
-      let mu = (() => {
+      let pu = (() => {
         class e {
           constructor(t, n, r) {
             (this._element = t), (this._startStyles = n), (this._endStyles = r), (this._state = 0);
@@ -42541,40 +42559,40 @@
           }
           start() {
             this._state < 1 &&
-              (this._startStyles && rd(this._element, this._startStyles, this._initialStyles), (this._state = 1));
+              (this._startStyles && id(this._element, this._startStyles, this._initialStyles), (this._state = 1));
           }
           finish() {
             this.start(),
               this._state < 2 &&
-                (rd(this._element, this._initialStyles),
-                this._endStyles && (rd(this._element, this._endStyles), (this._endStyles = null)),
+                (id(this._element, this._initialStyles),
+                this._endStyles && (id(this._element, this._endStyles), (this._endStyles = null)),
                 (this._state = 1));
           }
           destroy() {
             this.finish(),
               this._state < 3 &&
                 (e.initialStylesByElement.delete(this._element),
-                this._startStyles && (id(this._element, this._startStyles), (this._endStyles = null)),
-                this._endStyles && (id(this._element, this._endStyles), (this._endStyles = null)),
-                rd(this._element, this._initialStyles),
+                this._startStyles && (sd(this._element, this._startStyles), (this._endStyles = null)),
+                this._endStyles && (sd(this._element, this._endStyles), (this._endStyles = null)),
+                id(this._element, this._initialStyles),
                 (this._state = 3));
           }
         }
         return (e.initialStylesByElement = new WeakMap()), e;
       })();
-      function pu(e) {
+      function fu(e) {
         let t = null;
         const n = Object.keys(e);
         for (let r = 0; r < n.length; r++) {
           const i = n[r];
-          fu(i) && ((t = t || {}), (t[i] = e[i]));
+          _u(i) && ((t = t || {}), (t[i] = e[i]));
         }
         return t;
       }
-      function fu(e) {
+      function _u(e) {
         return 'display' === e || 'position' === e;
       }
-      class _u {
+      class gu {
         constructor(e, t, n, r, i, s, a) {
           (this._element = e),
             (this._name = t),
@@ -42591,30 +42609,30 @@
         }
         apply() {
           !(function (e, t) {
-            const n = wu(e, '').trim();
+            const n = Su(e, '').trim();
             n.length &&
               ((function (e, t) {
                 let n = 0;
                 for (let r = 0; r < e.length; r++) ',' === e.charAt(r) && n++;
               })(n),
               (t = `${n}, ${t}`)),
-              xu(e, '', t);
+              wu(e, '', t);
           })(
             this._element,
             `${this._duration}ms ${this._easing} ${this._delay}ms 1 normal ${this._fillMode} ${this._name}`
           ),
-            bu(this._element, this._eventFn, !1),
+            xu(this._element, this._eventFn, !1),
             (this._startTime = Date.now());
         }
         pause() {
-          gu(this._element, this._name, 'paused');
+          yu(this._element, this._name, 'paused');
         }
         resume() {
-          gu(this._element, this._name, 'running');
+          yu(this._element, this._name, 'running');
         }
         setPosition(e) {
-          const t = yu(this._element, this._name);
-          (this._position = e * this._duration), xu(this._element, 'Delay', `-${this._position}ms`, t);
+          const t = vu(this._element, this._name);
+          (this._position = e * this._duration), wu(this._element, 'Delay', `-${this._position}ms`, t);
         }
         getPosition() {
           return this._position;
@@ -42628,34 +42646,34 @@
             this.finish();
         }
         finish() {
-          this._finished || ((this._finished = !0), this._onDoneFn(), bu(this._element, this._eventFn, !0));
+          this._finished || ((this._finished = !0), this._onDoneFn(), xu(this._element, this._eventFn, !0));
         }
         destroy() {
           this._destroyed ||
             ((this._destroyed = !0),
             this.finish(),
             (function (e, t) {
-              const n = wu(e, '').split(','),
-                r = vu(n, t);
-              r >= 0 && (n.splice(r, 1), xu(e, '', n.join(',')));
+              const n = Su(e, '').split(','),
+                r = bu(n, t);
+              r >= 0 && (n.splice(r, 1), wu(e, '', n.join(',')));
             })(this._element, this._name));
         }
       }
-      function gu(e, t, n) {
-        xu(e, 'PlayState', n, yu(e, t));
-      }
-      function yu(e, t) {
-        const n = wu(e, '');
-        return n.indexOf(',') > 0 ? vu(n.split(','), t) : vu([n], t);
+      function yu(e, t, n) {
+        wu(e, 'PlayState', n, vu(e, t));
       }
       function vu(e, t) {
+        const n = Su(e, '');
+        return n.indexOf(',') > 0 ? bu(n.split(','), t) : bu([n], t);
+      }
+      function bu(e, t) {
         for (let n = 0; n < e.length; n++) if (e[n].indexOf(t) >= 0) return n;
         return -1;
       }
-      function bu(e, t, n) {
+      function xu(e, t, n) {
         n ? e.removeEventListener('animationend', t) : e.addEventListener('animationend', t);
       }
-      function xu(e, t, n, r) {
+      function wu(e, t, n, r) {
         const i = 'animation' + t;
         if (null != r) {
           const t = e.style[i];
@@ -42666,10 +42684,10 @@
         }
         e.style[i] = n;
       }
-      function wu(e, t) {
+      function Su(e, t) {
         return e.style['animation' + t];
       }
-      class Su {
+      class Mu {
         constructor(e, t, n, r, i, s, a, o) {
           (this.element = e),
             (this.keyframes = t),
@@ -42751,7 +42769,7 @@
           this._styler.destroy(), this._buildStyler(), this._styler.apply();
         }
         _buildStyler() {
-          this._styler = new _u(
+          this._styler = new gu(
             this.element,
             this.animationName,
             this._duration,
@@ -42771,15 +42789,15 @@
           if (this.hasStarted()) {
             const t = this._state >= 3;
             Object.keys(this._finalStyles).forEach((n) => {
-              'offset' != n && (e[n] = t ? this._finalStyles[n] : fd(this.element, n));
+              'offset' != n && (e[n] = t ? this._finalStyles[n] : _d(this.element, n));
             });
           }
           this.currentSnapshot = e;
         }
       }
-      class Mu extends $r.d {
+      class ku extends $r.d {
         constructor(e, t) {
-          super(), (this.element = e), (this._startingStyles = {}), (this.__initialized = !1), (this._styles = Gc(t));
+          super(), (this.element = e), (this._startingStyles = {}), (this.__initialized = !1), (this._styles = qc(t));
         }
         init() {
           !this.__initialized &&
@@ -42806,27 +42824,27 @@
             super.destroy());
         }
       }
-      class ku {
+      class Eu {
         constructor() {
           (this._count = 0), (this._head = document.querySelector('head')), (this._warningIssued = !1);
         }
         validateStyleProperty(e) {
-          return Wc(e);
+          return Uc(e);
         }
         matchesElement(e, t) {
-          return Uc(e, t);
-        }
-        containsElement(e, t) {
           return zc(e, t);
         }
+        containsElement(e, t) {
+          return $c(e, t);
+        }
         query(e, t, n) {
-          return $c(e, t, n);
+          return Gc(e, t, n);
         }
         computeStyle(e, t, n) {
           return window.getComputedStyle(e)[t];
         }
         buildKeyframeElement(e, t, n) {
-          n = n.map((e) => Gc(e));
+          n = n.map((e) => qc(e));
           let r = `@keyframes ${t} {\n`,
             i = '';
           n.forEach((e) => {
@@ -42853,9 +42871,9 @@
         }
         animate(e, t, n, r, i, s = [], a) {
           a && this._notifyFaultyScrubber();
-          const o = s.filter((e) => e instanceof Su),
+          const o = s.filter((e) => e instanceof Mu),
             l = {};
-          hd(n, r) &&
+          md(n, r) &&
             o.forEach((e) => {
               let t = e.currentSnapshot;
               Object.keys(t).forEach((e) => (l[e] = t[e]));
@@ -42871,13 +42889,13 @@
                 }),
               t
             );
-          })((t = md(e, t, l)));
-          if (0 == n) return new Mu(e, c);
+          })((t = pd(e, t, l)));
+          if (0 == n) return new ku(e, c);
           const d = 'gen_css_kf_' + this._count++,
             u = this.buildKeyframeElement(e, d, t);
           document.querySelector('head').appendChild(u);
-          const h = hu(e, t),
-            m = new Su(e, t, d, n, r, i, c, h);
+          const h = mu(e, t),
+            m = new Mu(e, t, d, n, r, i, c, h);
           return (
             m.onDestroy(() => {
               var e;
@@ -42895,7 +42913,7 @@
             (this._warningIssued = !0));
         }
       }
-      class Eu {
+      class Cu {
         constructor(e, t, n, r) {
           (this.element = e),
             (this.keyframes = t),
@@ -42993,7 +43011,7 @@
           const e = {};
           this.hasStarted() &&
             Object.keys(this._finalKeyframe).forEach((t) => {
-              'offset' != t && (e[t] = this._finished ? this._finalKeyframe[t] : fd(this.element, t));
+              'offset' != t && (e[t] = this._finished ? this._finalKeyframe[t] : _d(this.element, t));
             }),
             (this.currentSnapshot = e);
         }
@@ -43002,22 +43020,22 @@
           t.forEach((e) => e()), (t.length = 0);
         }
       }
-      class Cu {
+      class Du {
         constructor() {
-          (this._isNativeImpl = /\{\s*\[native\s+code\]\s*\}/.test(Du().toString())),
-            (this._cssKeyframesDriver = new ku());
+          (this._isNativeImpl = /\{\s*\[native\s+code\]\s*\}/.test(Lu().toString())),
+            (this._cssKeyframesDriver = new Eu());
         }
         validateStyleProperty(e) {
-          return Wc(e);
+          return Uc(e);
         }
         matchesElement(e, t) {
-          return Uc(e, t);
-        }
-        containsElement(e, t) {
           return zc(e, t);
         }
+        containsElement(e, t) {
+          return $c(e, t);
+        }
         query(e, t, n) {
-          return $c(e, t, n);
+          return Gc(e, t, n);
         }
         computeStyle(e, t, n) {
           return window.getComputedStyle(e)[t];
@@ -43030,20 +43048,20 @@
           const o = { duration: n, delay: r, fill: 0 == r ? 'both' : 'forwards' };
           i && (o.easing = i);
           const l = {},
-            c = s.filter((e) => e instanceof Eu);
-          hd(n, r) &&
+            c = s.filter((e) => e instanceof Cu);
+          md(n, r) &&
             c.forEach((e) => {
               let t = e.currentSnapshot;
               Object.keys(t).forEach((e) => (l[e] = t[e]));
             });
-          const d = hu(e, (t = md(e, (t = t.map((e) => ed(e, !1))), l)));
-          return new Eu(e, t, o, d);
+          const d = mu(e, (t = pd(e, (t = t.map((e) => td(e, !1))), l)));
+          return new Cu(e, t, o, d);
         }
       }
-      function Du() {
+      function Lu() {
         return ('undefined' != typeof window && void 0 !== window.document && Element.prototype.animate) || {};
       }
-      let Lu = (() => {
+      let Tu = (() => {
         class e extends $r.b {
           constructor(e, t) {
             super(),
@@ -43059,7 +43077,7 @@
             const t = this._nextAnimationId.toString();
             this._nextAnimationId++;
             const n = Array.isArray(e) ? Object($r.f)(e) : e;
-            return ju(this._renderer, null, t, 'register', [n]), new Tu(t, this._renderer);
+            return Au(this._renderer, null, t, 'register', [n]), new Ou(t, this._renderer);
           }
         }
         return (
@@ -43070,15 +43088,15 @@
           e
         );
       })();
-      class Tu extends $r.c {
+      class Ou extends $r.c {
         constructor(e, t) {
           super(), (this._id = e), (this._renderer = t);
         }
         create(e, t) {
-          return new Ou(this._id, e, t || {}, this._renderer);
+          return new ju(this._id, e, t || {}, this._renderer);
         }
       }
-      class Ou {
+      class ju {
         constructor(e, t, n, r) {
           (this.id = e),
             (this.element = t),
@@ -43092,7 +43110,7 @@
           return this._renderer.listen(this.element, `@@${this.id}:${e}`, t);
         }
         _command(e, ...t) {
-          return ju(this._renderer, this.element, this.id, e, t);
+          return Au(this._renderer, this.element, this.id, e, t);
         }
         onDone(e) {
           this._listen('done', e);
@@ -43134,10 +43152,10 @@
           return 0;
         }
       }
-      function ju(e, t, n, r, i) {
+      function Au(e, t, n, r, i) {
         return e.setProperty(t, `@@${n}:${r}`, i);
       }
-      let Au = (() => {
+      let Iu = (() => {
         class e {
           constructor(e, t, n) {
             (this.delegate = e),
@@ -43157,7 +43175,7 @@
             const n = this.delegate.createRenderer(e, t);
             if (!(e && t && t.data && t.data.animation)) {
               let e = this._rendererCache.get(n);
-              return e || ((e = new Iu('', n, this.engine)), this._rendererCache.set(n, e)), e;
+              return e || ((e = new Pu('', n, this.engine)), this._rendererCache.set(n, e)), e;
             }
             const r = t.id,
               i = t.id + '-' + this._currentId;
@@ -43165,7 +43183,7 @@
             const s = (t) => {
               Array.isArray(t) ? t.forEach(s) : this.engine.registerTrigger(r, i, e, t.name, t);
             };
-            return t.data.animation.forEach(s), new Pu(this, i, n, this.engine);
+            return t.data.animation.forEach(s), new Yu(this, i, n, this.engine);
           }
           begin() {
             this._cdRecurDepth++, this.delegate.begin && this.delegate.begin();
@@ -43206,7 +43224,7 @@
           (e.ɵfac = function (t) {
             return new (t || e)(
               a['\u0275\u0275inject'](a.RendererFactory2),
-              a['\u0275\u0275inject'](uu),
+              a['\u0275\u0275inject'](hu),
               a['\u0275\u0275inject'](a.NgZone)
             );
           }),
@@ -43214,7 +43232,7 @@
           e
         );
       })();
-      class Iu {
+      class Pu {
         constructor(e, t, n) {
           (this.namespaceId = e),
             (this.delegate = t),
@@ -43285,7 +43303,7 @@
           this.engine.disableAnimations(e, t);
         }
       }
-      class Pu extends Iu {
+      class Yu extends Pu {
         constructor(e, t, n, r) {
           super(t, n, r), (this.factory = e), (this.namespaceId = t);
         }
@@ -43326,45 +43344,45 @@
           return this.delegate.listen(e, t, n);
         }
       }
-      let Yu = (() => {
-        class e extends uu {
+      let Fu = (() => {
+        class e extends hu {
           constructor(e, t, n) {
             super(e.body, t, n);
           }
         }
         return (
           (e.ɵfac = function (t) {
-            return new (t || e)(a['\u0275\u0275inject'](s.d), a['\u0275\u0275inject'](Kc), a['\u0275\u0275inject'](Rd));
+            return new (t || e)(a['\u0275\u0275inject'](s.d), a['\u0275\u0275inject'](Jc), a['\u0275\u0275inject'](Nd));
           }),
           (e.ɵprov = a['\u0275\u0275defineInjectable']({ token: e, factory: e.ɵfac })),
           e
         );
       })();
-      const Fu = [
+      const Ru = [
         {
-          provide: Kc,
+          provide: Jc,
           useFactory: function () {
-            return 'function' == typeof Du() ? new Cu() : new ku();
+            return 'function' == typeof Lu() ? new Du() : new Eu();
           },
         },
         { provide: new a.InjectionToken('AnimationModuleType'), useValue: 'BrowserAnimations' },
-        { provide: $r.b, useClass: Lu },
+        { provide: $r.b, useClass: Tu },
         {
-          provide: Rd,
+          provide: Nd,
           useFactory: function () {
-            return new Nd();
+            return new Hd();
           },
         },
-        { provide: uu, useClass: Yu },
+        { provide: hu, useClass: Fu },
         {
           provide: a.RendererFactory2,
           useFactory: function (e, t, n) {
-            return new Au(e, t, n);
+            return new Iu(e, t, n);
           },
-          deps: [r['\u0275DomRendererFactory2'], uu, a.NgZone],
+          deps: [r['\u0275DomRendererFactory2'], hu, a.NgZone],
         },
       ];
-      let Ru = (() => {
+      let Nu = (() => {
         class e {}
         return (
           (e.ɵmod = a['\u0275\u0275defineNgModule']({ type: e })),
@@ -43372,26 +43390,26 @@
             factory: function (t) {
               return new (t || e)();
             },
-            providers: Fu,
+            providers: Ru,
             imports: [r.BrowserModule],
           })),
           e
         );
       })();
-      function Nu(e) {
+      function Hu(e) {
         return new j(e, './assets/i18n/', '.json');
       }
-      let Hu = (() => {
+      let Vu = (() => {
         class e {}
         return (
-          (e.ɵmod = a['\u0275\u0275defineNgModule']({ type: e, bootstrap: [Mc] })),
+          (e.ɵmod = a['\u0275\u0275defineNgModule']({ type: e, bootstrap: [kc] })),
           (e.ɵinj = a['\u0275\u0275defineInjector']({
             factory: function (t) {
               return new (t || e)();
             },
             providers: [
-              Cc.a,
-              { provide: i.a, useClass: Dc, multi: !0 },
+              Dc.a,
+              { provide: i.a, useClass: Lc, multi: !0 },
               {
                 provide: 'SocialAuthServiceConfig',
                 useValue: {
@@ -43412,16 +43430,16 @@
                 r.BrowserModule,
                 T.register('./ngsw-worker.js', { enabled: A.a.production }),
                 i.c,
-                O.c.forRoot({ loader: { provide: O.b, useFactory: Nu, deps: [i.b] } }),
+                O.c.forRoot({ loader: { provide: O.b, useFactory: Hu, deps: [i.b] } }),
                 I.a,
                 P.a,
                 Zo,
                 Jo,
                 nl,
                 Y.a,
-                Ru,
+                Nu,
                 wo.a.forRoot(),
-                Ec,
+                Cc,
               ],
             ],
           })),
@@ -44457,9 +44475,7 @@
               a.setDefaultLang('en');
           }
           ngOnInit() {
-            this.ngxSmartModalService.get('authModal').onCloseFinished.subscribe((e) => {
-              console.log('res: ', e);
-            });
+            this.ngxSmartModalService.get('authModal').onCloseFinished.subscribe((e) => {});
           }
           createForm() {
             this.loginForm = this.formBuilder.group({
@@ -44507,8 +44523,7 @@
                 }
               },
               (e) => {
-                console.log('login error', e.error),
-                  this.ngxSmartModalService.getModal('authModal').close(),
+                this.ngxSmartModalService.getModal('authModal').close(),
                   this.toastr.error('Invalid E-mail or Password', 'Error');
               }
             );
@@ -44522,8 +44537,7 @@
                   this.toastr.success('Logged In', `Welcome, ${localStorage.getItem('fName')}!`);
               },
               (e) => {
-                this.toastr.error('Couldn`t create user', e.error.error.message || 'Error'),
-                  console.log('signup error', e);
+                this.toastr.error('Couldn`t create user', e.error.error.message || 'Error');
               }
             );
           }
@@ -65413,9 +65427,7 @@
             (this.httpClient = e),
               (this.messageSource = new r.a('')),
               (this.countryMessage = this.messageSource.asObservable()),
-              this.checkCountry().subscribe((e) => {
-                console.log(e);
-              });
+              this.checkCountry().subscribe((e) => {});
           }
           changeMessage(e) {
             this.messageSource.next(e);

@@ -22782,7 +22782,7 @@ function _createClass(e, t, n) {
     ZAI4: function (e, t, n) {
       'use strict';
       n.d(t, 'a', function () {
-        return _f;
+        return vf;
       });
       var r,
         i,
@@ -23212,12 +23212,7 @@ function _createClass(e, t, n) {
                     });
                   },
                 },
-                {
-                  key: 'ngAfterViewInit',
-                  value: function () {
-                    this.homeSliderVideo.nativeElement.play();
-                  },
-                },
+                { key: 'ngAfterViewInit', value: function () {} },
               ]),
               e
             );
@@ -23351,7 +23346,6 @@ function _createClass(e, t, n) {
                   { name: 'poonch', alias: 'Poonch', city_code: '33d7774d09' },
                 ]),
                 (this.changeWeather = function (e) {
-                  console.log(e);
                   var n = document.querySelector('.weatherwidget-io'),
                     r = t.getAttributes(n),
                     i = t.getAttributes(e.target.options[e.target.options.selectedIndex]),
@@ -25106,8 +25100,8 @@ function _createClass(e, t, n) {
                       from: ['', se.Validators.required],
                       flightTrip: [''],
                       flightAdult: [1],
-                      flightChild: [],
-                      flightInfants: [],
+                      flightChild: [0],
+                      flightInfants: [0],
                     });
                   },
                 },
@@ -25117,8 +25111,7 @@ function _createClass(e, t, n) {
                     var e = this;
                     (qe = []),
                       this.homeService.getCities().subscribe(function (t) {
-                        console.log('Cities: ', t),
-                          (e.locData = t),
+                        (e.locData = t),
                           t &&
                             t.forEach(function (e) {
                               qe.push(e.name);
@@ -25258,7 +25251,7 @@ function _createClass(e, t, n) {
                 {
                   key: 'navigateToFlightBooking',
                   value: function () {
-                    console.log('readed'), this.navigateflight();
+                    this.navigateflight();
                   },
                 },
               ]),
@@ -27025,8 +27018,7 @@ function _createClass(e, t, n) {
                             e.locations.push(t._id);
                           })
                         : (e.locations = []);
-                    }),
-                      console.log('dataaaaaaaaa: ', this.locations);
+                    });
                   },
                 },
                 {
@@ -27404,7 +27396,7 @@ function _createClass(e, t, n) {
                   value: function () {
                     var e = this;
                     this.homeService.getBlogs().subscribe(function (t) {
-                      t && (e.blogs = t.length > 6 ? t.slice(0, 6) : t), console.log('Fetched blogs: ', e.blogs);
+                      t && (e.blogs = t.length > 6 ? t.slice(0, 6) : t);
                     });
                   },
                 },
@@ -37052,8 +37044,7 @@ function _createClass(e, t, n) {
                           (e.dateCustomClasses = e.generateDateClass(e.events));
                       },
                       function (e) {}
-                    ),
-                      console.log(new Date(165718236e4));
+                    );
                   },
                 },
                 {
@@ -40186,7 +40177,7 @@ function _createClass(e, t, n) {
                         e.toastr.success('Submitted Successfully!');
                       },
                       function (t) {
-                        console.log(t.error.error.message), e.toastr.error(t.error.error.message);
+                        e.toastr.error(t.error.error.message);
                       }
                     );
                   },
@@ -42874,7 +42865,7 @@ function _createClass(e, t, n) {
                       r.media = e.data;
                     },
                     function (e) {
-                      console.log('Error: ', e), (r.error = !0);
+                      r.error = !0;
                     }
                   );
                 }),
@@ -43491,11 +43482,11 @@ function _createClass(e, t, n) {
       function Su(e, t) {
         if (
           (1 & e &&
-            (l['\u0275\u0275elementStart'](0, 'li', 40),
+            (l['\u0275\u0275elementStart'](0, 'li', 42),
             l['\u0275\u0275text'](1, '\n            '),
-            l['\u0275\u0275elementStart'](2, 'a', 41),
+            l['\u0275\u0275elementStart'](2, 'a', 43),
             l['\u0275\u0275text'](3, '\n              '),
-            l['\u0275\u0275element'](4, 'i', 42),
+            l['\u0275\u0275element'](4, 'i', 44),
             l['\u0275\u0275text'](5),
             l['\u0275\u0275pipe'](6, 'titlecase'),
             l['\u0275\u0275elementEnd'](),
@@ -43513,7 +43504,7 @@ function _createClass(e, t, n) {
           var n = l['\u0275\u0275getCurrentView']();
           l['\u0275\u0275elementStart'](0, 'li', 17),
             l['\u0275\u0275text'](1, '\n                '),
-            l['\u0275\u0275elementStart'](2, 'a', 43),
+            l['\u0275\u0275elementStart'](2, 'a', 45),
             l['\u0275\u0275listener']('click', function () {
               l['\u0275\u0275restoreView'](n);
               var e = t.$implicit;
@@ -43534,9 +43525,9 @@ function _createClass(e, t, n) {
       };
       function Du(e, t) {
         1 & e &&
-          (l['\u0275\u0275elementStart'](0, 'li', 40),
+          (l['\u0275\u0275elementStart'](0, 'li', 42),
           l['\u0275\u0275text'](1, '\n            '),
-          l['\u0275\u0275elementStart'](2, 'a', 44),
+          l['\u0275\u0275elementStart'](2, 'a', 46),
           l['\u0275\u0275text'](3, 'Profile'),
           l['\u0275\u0275elementEnd'](),
           l['\u0275\u0275text'](4, '\n          '),
@@ -43547,9 +43538,9 @@ function _createClass(e, t, n) {
       }
       function Lu(e, t) {
         1 & e &&
-          (l['\u0275\u0275elementStart'](0, 'li', 40),
+          (l['\u0275\u0275elementStart'](0, 'li', 42),
           l['\u0275\u0275text'](1, '\n            '),
-          l['\u0275\u0275elementStart'](2, 'a', 41),
+          l['\u0275\u0275elementStart'](2, 'a', 43),
           l['\u0275\u0275text'](3, 'Logout'),
           l['\u0275\u0275elementEnd'](),
           l['\u0275\u0275text'](4, '\n          '),
@@ -43558,18 +43549,18 @@ function _createClass(e, t, n) {
       function Tu(e, t) {
         if (1 & e) {
           var n = l['\u0275\u0275getCurrentView']();
-          l['\u0275\u0275elementStart'](0, 'div', 45),
+          l['\u0275\u0275elementStart'](0, 'div', 47),
             l['\u0275\u0275text'](1, '\n              '),
-            l['\u0275\u0275elementStart'](2, 'a', 46),
+            l['\u0275\u0275elementStart'](2, 'a', 48),
             l['\u0275\u0275text'](3, '\n                '),
-            l['\u0275\u0275element'](4, 'i', 47),
+            l['\u0275\u0275element'](4, 'i', 49),
             l['\u0275\u0275text'](5, '\n              '),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](6, '\n              '),
-            l['\u0275\u0275elementStart'](7, 'ul', 48),
+            l['\u0275\u0275elementStart'](7, 'ul', 50),
             l['\u0275\u0275text'](8, '\n                '),
             l['\u0275\u0275elementStart'](9, 'li'),
-            l['\u0275\u0275elementStart'](10, 'a', 49),
+            l['\u0275\u0275elementStart'](10, 'a', 51),
             l['\u0275\u0275text'](11, 'login as vendor'),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275elementEnd'](),
@@ -43579,7 +43570,7 @@ function _createClass(e, t, n) {
             l['\u0275\u0275text'](15, '\n                '),
             l['\u0275\u0275elementStart'](16, 'li'),
             l['\u0275\u0275text'](17, '\n                  '),
-            l['\u0275\u0275elementStart'](18, 'a', 50),
+            l['\u0275\u0275elementStart'](18, 'a', 52),
             l['\u0275\u0275listener']('click', function () {
               l['\u0275\u0275restoreView'](n);
               var e = l['\u0275\u0275nextContext']();
@@ -43619,19 +43610,19 @@ function _createClass(e, t, n) {
       function Ru(e, t) {
         if (1 & e) {
           var n = l['\u0275\u0275getCurrentView']();
-          l['\u0275\u0275elementStart'](0, 'div', 45),
+          l['\u0275\u0275elementStart'](0, 'div', 47),
             l['\u0275\u0275text'](1, '\n              '),
-            l['\u0275\u0275elementStart'](2, 'a', 46),
+            l['\u0275\u0275elementStart'](2, 'a', 48),
             l['\u0275\u0275text'](3, '\n                '),
-            l['\u0275\u0275element'](4, 'i', 47),
+            l['\u0275\u0275element'](4, 'i', 49),
             l['\u0275\u0275text'](5),
             l['\u0275\u0275pipe'](6, 'titlecase'),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](7, '\n              '),
-            l['\u0275\u0275elementStart'](8, 'ul', 48),
+            l['\u0275\u0275elementStart'](8, 'ul', 50),
             l['\u0275\u0275text'](9, '\n                '),
             l['\u0275\u0275elementStart'](10, 'li'),
-            l['\u0275\u0275elementStart'](11, 'a', 52),
+            l['\u0275\u0275elementStart'](11, 'a', 54),
             l['\u0275\u0275text'](12, 'Profile'),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275elementEnd'](),
@@ -43639,7 +43630,7 @@ function _createClass(e, t, n) {
             l['\u0275\u0275element'](14, 'hr'),
             l['\u0275\u0275text'](15, '\n                '),
             l['\u0275\u0275elementStart'](16, 'li'),
-            l['\u0275\u0275elementStart'](17, 'a', 52),
+            l['\u0275\u0275elementStart'](17, 'a', 54),
             l['\u0275\u0275text'](18, 'Plan Your Trip'),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275elementEnd'](),
@@ -43648,7 +43639,7 @@ function _createClass(e, t, n) {
             l['\u0275\u0275text'](21, '\n                '),
             l['\u0275\u0275text'](22, '\n                '),
             l['\u0275\u0275elementStart'](23, 'li'),
-            l['\u0275\u0275elementStart'](24, 'a', 52),
+            l['\u0275\u0275elementStart'](24, 'a', 54),
             l['\u0275\u0275text'](25, 'Travel Itinerary'),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275elementEnd'](),
@@ -43656,7 +43647,7 @@ function _createClass(e, t, n) {
             l['\u0275\u0275element'](27, 'hr'),
             l['\u0275\u0275text'](28, '\n                '),
             l['\u0275\u0275elementStart'](29, 'li'),
-            l['\u0275\u0275elementStart'](30, 'a', 52),
+            l['\u0275\u0275elementStart'](30, 'a', 54),
             l['\u0275\u0275text'](31, 'Wishlist'),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275elementEnd'](),
@@ -43665,7 +43656,7 @@ function _createClass(e, t, n) {
             l['\u0275\u0275text'](34, '\n                '),
             l['\u0275\u0275text'](35, '\n                '),
             l['\u0275\u0275elementStart'](36, 'li'),
-            l['\u0275\u0275elementStart'](37, 'a', 52),
+            l['\u0275\u0275elementStart'](37, 'a', 54),
             l['\u0275\u0275text'](38, 'Review & Feedback'),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275elementEnd'](),
@@ -43673,7 +43664,7 @@ function _createClass(e, t, n) {
             l['\u0275\u0275element'](40, 'hr'),
             l['\u0275\u0275text'](41, '\n                '),
             l['\u0275\u0275elementStart'](42, 'li'),
-            l['\u0275\u0275elementStart'](43, 'a', 52),
+            l['\u0275\u0275elementStart'](43, 'a', 54),
             l['\u0275\u0275text'](44, 'My Bookings'),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275elementEnd'](),
@@ -43681,7 +43672,7 @@ function _createClass(e, t, n) {
             l['\u0275\u0275element'](46, 'hr'),
             l['\u0275\u0275text'](47, '\n                '),
             l['\u0275\u0275elementStart'](48, 'li'),
-            l['\u0275\u0275elementStart'](49, 'a', 52),
+            l['\u0275\u0275elementStart'](49, 'a', 54),
             l['\u0275\u0275text'](50, 'change password'),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275elementEnd'](),
@@ -43689,7 +43680,7 @@ function _createClass(e, t, n) {
             l['\u0275\u0275element'](52, 'hr'),
             l['\u0275\u0275text'](53, '\n                '),
             l['\u0275\u0275elementStart'](54, 'li'),
-            l['\u0275\u0275elementStart'](55, 'a', 50),
+            l['\u0275\u0275elementStart'](55, 'a', 52),
             l['\u0275\u0275listener']('click', function () {
               return l['\u0275\u0275restoreView'](n), l['\u0275\u0275nextContext'](2).logout();
             }),
@@ -43724,9 +43715,9 @@ function _createClass(e, t, n) {
       function Nu(e, t) {
         if (
           (1 & e &&
-            (l['\u0275\u0275elementStart'](0, 'li', 51),
+            (l['\u0275\u0275elementStart'](0, 'li', 53),
             l['\u0275\u0275text'](1, '\n            '),
-            l['\u0275\u0275template'](2, Ru, 59, 17, 'div', 27),
+            l['\u0275\u0275template'](2, Ru, 59, 17, 'div', 29),
             l['\u0275\u0275text'](3, '\n          '),
             l['\u0275\u0275elementEnd']()),
           2 & e)
@@ -43741,48 +43732,48 @@ function _createClass(e, t, n) {
           l['\u0275\u0275elementStart'](0, 'div'),
             l['\u0275\u0275text'](1, '\n          '),
             l['\u0275\u0275text'](2, '\n          '),
-            l['\u0275\u0275elementStart'](3, 'form', 53),
+            l['\u0275\u0275elementStart'](3, 'form', 55),
             l['\u0275\u0275text'](4, '\n            '),
-            l['\u0275\u0275elementStart'](5, 'p', 54),
+            l['\u0275\u0275elementStart'](5, 'p', 56),
             l['\u0275\u0275text'](6, '\n              '),
-            l['\u0275\u0275elementStart'](7, 'label', 55),
+            l['\u0275\u0275elementStart'](7, 'label', 57),
             l['\u0275\u0275text'](8, 'Enter your Email'),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](9, '\n              '),
-            l['\u0275\u0275element'](10, 'input', 56),
+            l['\u0275\u0275element'](10, 'input', 58),
             l['\u0275\u0275pipe'](11, 'translate'),
             l['\u0275\u0275text'](12, '\n              '),
             l['\u0275\u0275text'](13, '\n            '),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](14, '\n            '),
-            l['\u0275\u0275elementStart'](15, 'small', 57),
+            l['\u0275\u0275elementStart'](15, 'small', 59),
             l['\u0275\u0275text'](16, '\n              Email is required\n            '),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](17, '\n            '),
             l['\u0275\u0275text'](18, '\n\n            '),
-            l['\u0275\u0275elementStart'](19, 'p', 54),
+            l['\u0275\u0275elementStart'](19, 'p', 56),
             l['\u0275\u0275text'](20, '\n              '),
-            l['\u0275\u0275elementStart'](21, 'label', 58),
+            l['\u0275\u0275elementStart'](21, 'label', 60),
             l['\u0275\u0275text'](22, 'Enter your Password'),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](23, '\n              '),
-            l['\u0275\u0275element'](24, 'input', 59),
+            l['\u0275\u0275element'](24, 'input', 61),
             l['\u0275\u0275text'](25, '\n            '),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](26, '\n            '),
-            l['\u0275\u0275elementStart'](27, 'small', 57),
+            l['\u0275\u0275elementStart'](27, 'small', 59),
             l['\u0275\u0275text'](28, '\n              Password is required\n            '),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](29, '\n\n            '),
-            l['\u0275\u0275elementStart'](30, 'div', 60),
+            l['\u0275\u0275elementStart'](30, 'div', 62),
             l['\u0275\u0275text'](31, '\n              '),
             l['\u0275\u0275text'](32, '\n            '),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](33, '\n\n            '),
-            l['\u0275\u0275elementStart'](34, 'p', 61),
+            l['\u0275\u0275elementStart'](34, 'p', 63),
             l['\u0275\u0275text'](35, '\n              '),
             l['\u0275\u0275text'](36, '\n              '),
-            l['\u0275\u0275elementStart'](37, 'a', 62),
+            l['\u0275\u0275elementStart'](37, 'a', 64),
             l['\u0275\u0275listener']('click', function () {
               return l['\u0275\u0275restoreView'](n), l['\u0275\u0275nextContext']().openModal('resetPassword');
             }),
@@ -43792,9 +43783,9 @@ function _createClass(e, t, n) {
             l['\u0275\u0275text'](40, '\n            '),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](41, '\n\n            '),
-            l['\u0275\u0275elementStart'](42, 'p', 63),
+            l['\u0275\u0275elementStart'](42, 'p', 65),
             l['\u0275\u0275text'](43, '\n              '),
-            l['\u0275\u0275elementStart'](44, 'button', 64),
+            l['\u0275\u0275elementStart'](44, 'button', 66),
             l['\u0275\u0275listener']('click', function () {
               return l['\u0275\u0275restoreView'](n), l['\u0275\u0275nextContext']().login();
             }),
@@ -43805,31 +43796,31 @@ function _createClass(e, t, n) {
             l['\u0275\u0275text'](47, '\n          '),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](48, '\n\n          '),
-            l['\u0275\u0275elementStart'](49, 'div', 65),
+            l['\u0275\u0275elementStart'](49, 'div', 67),
             l['\u0275\u0275text'](50, '\n            '),
             l['\u0275\u0275elementStart'](51, 'p'),
             l['\u0275\u0275text'](52, 'Or'),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](53, '\n            '),
-            l['\u0275\u0275elementStart'](54, 'p', 63),
+            l['\u0275\u0275elementStart'](54, 'p', 65),
             l['\u0275\u0275text'](55, '\n              '),
-            l['\u0275\u0275elementStart'](56, 'a', 66),
+            l['\u0275\u0275elementStart'](56, 'a', 68),
             l['\u0275\u0275listener']('click', function () {
               return l['\u0275\u0275restoreView'](n), l['\u0275\u0275nextContext']().signInWithFB();
             }),
-            l['\u0275\u0275element'](57, 'i', 67),
+            l['\u0275\u0275element'](57, 'i', 69),
             l['\u0275\u0275text'](58, 'Facebook'),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](59, '\n            '),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](60, '\n            '),
-            l['\u0275\u0275elementStart'](61, 'p', 63),
+            l['\u0275\u0275elementStart'](61, 'p', 65),
             l['\u0275\u0275text'](62, '\n              '),
-            l['\u0275\u0275elementStart'](63, 'button', 68),
+            l['\u0275\u0275elementStart'](63, 'button', 70),
             l['\u0275\u0275listener']('click', function () {
               return l['\u0275\u0275restoreView'](n), l['\u0275\u0275nextContext']().signInWithGoogle();
             }),
-            l['\u0275\u0275element'](64, 'i', 69),
+            l['\u0275\u0275element'](64, 'i', 71),
             l['\u0275\u0275text'](65, 'Gmail'),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](66, '\n            '),
@@ -43866,120 +43857,120 @@ function _createClass(e, t, n) {
           l['\u0275\u0275elementStart'](0, 'div'),
             l['\u0275\u0275text'](1, '\n          '),
             l['\u0275\u0275text'](2, '\n          '),
-            l['\u0275\u0275elementStart'](3, 'form', 70),
+            l['\u0275\u0275elementStart'](3, 'form', 72),
             l['\u0275\u0275text'](4, '\n            '),
-            l['\u0275\u0275elementStart'](5, 'p', 54),
+            l['\u0275\u0275elementStart'](5, 'p', 56),
             l['\u0275\u0275text'](6, '\n              '),
-            l['\u0275\u0275elementStart'](7, 'label', 71),
+            l['\u0275\u0275elementStart'](7, 'label', 73),
             l['\u0275\u0275text'](8, 'First Name'),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](9, '\n              '),
-            l['\u0275\u0275element'](10, 'input', 72),
+            l['\u0275\u0275element'](10, 'input', 74),
             l['\u0275\u0275text'](11, '\n            '),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](12, '\n            '),
-            l['\u0275\u0275elementStart'](13, 'small', 57),
+            l['\u0275\u0275elementStart'](13, 'small', 59),
             l['\u0275\u0275text'](14, '\n              First Name is required\n            '),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](15, '\n            '),
-            l['\u0275\u0275elementStart'](16, 'p', 54),
+            l['\u0275\u0275elementStart'](16, 'p', 56),
             l['\u0275\u0275text'](17, '\n              '),
-            l['\u0275\u0275elementStart'](18, 'label', 71),
+            l['\u0275\u0275elementStart'](18, 'label', 73),
             l['\u0275\u0275text'](19, 'Last Name'),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](20, '\n              '),
-            l['\u0275\u0275element'](21, 'input', 73),
+            l['\u0275\u0275element'](21, 'input', 75),
             l['\u0275\u0275text'](22, '\n            '),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](23, '\n            '),
-            l['\u0275\u0275elementStart'](24, 'small', 57),
+            l['\u0275\u0275elementStart'](24, 'small', 59),
             l['\u0275\u0275text'](25, '\n              Last Name is required\n            '),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](26, '\n            '),
-            l['\u0275\u0275elementStart'](27, 'p', 54),
+            l['\u0275\u0275elementStart'](27, 'p', 56),
             l['\u0275\u0275text'](28, '\n              '),
-            l['\u0275\u0275elementStart'](29, 'label', 71),
+            l['\u0275\u0275elementStart'](29, 'label', 73),
             l['\u0275\u0275text'](30, 'Mobile'),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](31, '\n              '),
-            l['\u0275\u0275element'](32, 'input', 74),
+            l['\u0275\u0275element'](32, 'input', 76),
             l['\u0275\u0275text'](33, '\n            '),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](34, '\n\n            '),
-            l['\u0275\u0275elementStart'](35, 'small', 57),
+            l['\u0275\u0275elementStart'](35, 'small', 59),
             l['\u0275\u0275text'](36, '\n              Mobile Number is required\n            '),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](37, '\n            '),
-            l['\u0275\u0275elementStart'](38, 'p', 54),
+            l['\u0275\u0275elementStart'](38, 'p', 56),
             l['\u0275\u0275text'](39, '\n              '),
-            l['\u0275\u0275elementStart'](40, 'label', 75),
+            l['\u0275\u0275elementStart'](40, 'label', 77),
             l['\u0275\u0275text'](41, 'Email'),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](42, '\n              '),
-            l['\u0275\u0275element'](43, 'input', 76),
+            l['\u0275\u0275element'](43, 'input', 78),
             l['\u0275\u0275text'](44, '\n            '),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](45, '\n            '),
-            l['\u0275\u0275elementStart'](46, 'small', 57),
+            l['\u0275\u0275elementStart'](46, 'small', 59),
             l['\u0275\u0275text'](47, '\n              Email is required\n            '),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](48, '\n            '),
-            l['\u0275\u0275elementStart'](49, 'p', 63),
+            l['\u0275\u0275elementStart'](49, 'p', 65),
             l['\u0275\u0275text'](50, '\n              '),
             l['\u0275\u0275text'](51, '\n              '),
             l['\u0275\u0275text'](52, '\n              '),
-            l['\u0275\u0275element'](53, 'input', 77),
+            l['\u0275\u0275element'](53, 'input', 79),
             l['\u0275\u0275text'](54, ' Male\n              '),
-            l['\u0275\u0275element'](55, 'input', 78),
+            l['\u0275\u0275element'](55, 'input', 80),
             l['\u0275\u0275text'](56, ' Female\n            '),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](57, '\n\n            '),
-            l['\u0275\u0275elementStart'](58, 'p', 54),
+            l['\u0275\u0275elementStart'](58, 'p', 56),
             l['\u0275\u0275text'](59, '\n              '),
-            l['\u0275\u0275elementStart'](60, 'label', 71),
+            l['\u0275\u0275elementStart'](60, 'label', 73),
             l['\u0275\u0275text'](61, 'Password'),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](62, '\n              '),
-            l['\u0275\u0275element'](63, 'input', 79),
+            l['\u0275\u0275element'](63, 'input', 81),
             l['\u0275\u0275text'](64, '\n            '),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](65, '\n            '),
-            l['\u0275\u0275elementStart'](66, 'small', 57),
+            l['\u0275\u0275elementStart'](66, 'small', 59),
             l['\u0275\u0275text'](67, '\n              Password is required\n            '),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](68, '\n            '),
-            l['\u0275\u0275elementStart'](69, 'p', 54),
+            l['\u0275\u0275elementStart'](69, 'p', 56),
             l['\u0275\u0275text'](70, '\n              '),
-            l['\u0275\u0275elementStart'](71, 'label', 71),
+            l['\u0275\u0275elementStart'](71, 'label', 73),
             l['\u0275\u0275text'](72, 'Confirm Password'),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](73, '\n              '),
-            l['\u0275\u0275element'](74, 'input', 80),
+            l['\u0275\u0275element'](74, 'input', 82),
             l['\u0275\u0275text'](75, '\n            '),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](76, '\n            '),
-            l['\u0275\u0275elementStart'](77, 'small', 57),
+            l['\u0275\u0275elementStart'](77, 'small', 59),
             l['\u0275\u0275text'](78, '\n              Confirm Password is required\n            '),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](79, '\n            '),
-            l['\u0275\u0275elementStart'](80, 'p', 54),
+            l['\u0275\u0275elementStart'](80, 'p', 56),
             l['\u0275\u0275text'](81, '\n              '),
-            l['\u0275\u0275elementStart'](82, 'label', 81),
+            l['\u0275\u0275elementStart'](82, 'label', 83),
             l['\u0275\u0275text'](83, 'DOB'),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](84, '\n              '),
-            l['\u0275\u0275element'](85, 'input', 82),
+            l['\u0275\u0275element'](85, 'input', 84),
             l['\u0275\u0275text'](86, '\n            '),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](87, '\n            '),
-            l['\u0275\u0275elementStart'](88, 'small', 57),
+            l['\u0275\u0275elementStart'](88, 'small', 59),
             l['\u0275\u0275text'](89, '\n              DOB is required\n            '),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](90, '\n            '),
             l['\u0275\u0275text'](91, '\n\n            '),
-            l['\u0275\u0275elementStart'](92, 'p', 63),
+            l['\u0275\u0275elementStart'](92, 'p', 65),
             l['\u0275\u0275text'](93, '\n              '),
-            l['\u0275\u0275elementStart'](94, 'button', 83),
+            l['\u0275\u0275elementStart'](94, 'button', 85),
             l['\u0275\u0275listener']('click', function () {
               return l['\u0275\u0275restoreView'](n), l['\u0275\u0275nextContext']().signUp();
             }),
@@ -44038,39 +44029,39 @@ function _createClass(e, t, n) {
           (l['\u0275\u0275elementStart'](0, 'div'),
           l['\u0275\u0275text'](1, '\n          '),
           l['\u0275\u0275text'](2, '\n          '),
-          l['\u0275\u0275elementStart'](3, 'p', 84),
+          l['\u0275\u0275elementStart'](3, 'p', 86),
           l['\u0275\u0275text'](
             4,
             '\n            Lost your password? Please enter your email address. You will receive a link to create a new password.\n          '
           ),
           l['\u0275\u0275elementEnd'](),
           l['\u0275\u0275text'](5, '\n\n          '),
-          l['\u0275\u0275elementStart'](6, 'form', 85),
+          l['\u0275\u0275elementStart'](6, 'form', 87),
           l['\u0275\u0275text'](7, '\n            '),
-          l['\u0275\u0275elementStart'](8, 'p', 63),
+          l['\u0275\u0275elementStart'](8, 'p', 65),
           l['\u0275\u0275text'](9, '\n              '),
-          l['\u0275\u0275elementStart'](10, 'label', 86),
+          l['\u0275\u0275elementStart'](10, 'label', 88),
           l['\u0275\u0275text'](11, 'E-mail'),
           l['\u0275\u0275elementEnd'](),
           l['\u0275\u0275text'](12, '\n              '),
-          l['\u0275\u0275element'](13, 'input', 87),
+          l['\u0275\u0275element'](13, 'input', 89),
           l['\u0275\u0275text'](14, '\n              '),
-          l['\u0275\u0275elementStart'](15, 'span', 88),
+          l['\u0275\u0275elementStart'](15, 'span', 90),
           l['\u0275\u0275text'](16, 'Error message here!'),
           l['\u0275\u0275elementEnd'](),
           l['\u0275\u0275text'](17, '\n            '),
           l['\u0275\u0275elementEnd'](),
           l['\u0275\u0275text'](18, '\n\n            '),
-          l['\u0275\u0275elementStart'](19, 'p', 63),
+          l['\u0275\u0275elementStart'](19, 'p', 65),
           l['\u0275\u0275text'](20, '\n              '),
-          l['\u0275\u0275element'](21, 'input', 89),
+          l['\u0275\u0275element'](21, 'input', 91),
           l['\u0275\u0275text'](22, '\n            '),
           l['\u0275\u0275elementEnd'](),
           l['\u0275\u0275text'](23, '\n          '),
           l['\u0275\u0275elementEnd'](),
           l['\u0275\u0275text'](24, '\n\n          '),
-          l['\u0275\u0275elementStart'](25, 'p', 90),
-          l['\u0275\u0275elementStart'](26, 'a', 91),
+          l['\u0275\u0275elementStart'](25, 'p', 92),
+          l['\u0275\u0275elementStart'](26, 'a', 93),
           l['\u0275\u0275text'](27, 'Back to log-in'),
           l['\u0275\u0275elementEnd'](),
           l['\u0275\u0275elementEnd'](),
@@ -44122,14 +44113,17 @@ function _createClass(e, t, n) {
         rc = function () {
           return ['/map'];
         },
-        ic = function (e) {
+        ic = function () {
+          return ['/map/3d-map'];
+        },
+        ac = function (e) {
           return { selected: e };
         },
-        ac = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        oc = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       new R.b('Login');
-      var oc,
-        sc =
-          (((oc = (function () {
+      var sc,
+        lc =
+          (((sc = (function () {
             function e(t, n, r, i, a, o, s, l, u, c, d, h, f) {
               var p = this;
               _classCallCheck(this, e),
@@ -44212,7 +44206,7 @@ function _createClass(e, t, n) {
                   value: function () {
                     var e = this;
                     this.authService.authState.subscribe(function (t) {
-                      console.log('social user', t), (e.socialUser = t), e.socialLogin(t);
+                      (e.socialUser = t), e.socialLogin(t);
                     }),
                       this.getProvinces(),
                       this.initializeSignup(),
@@ -44237,7 +44231,7 @@ function _createClass(e, t, n) {
                   value: function () {
                     var e = this;
                     this.shellService.getProvinces().subscribe(function (t) {
-                      (e.provinces = t.data), console.log('Provincessssssssssssss', e.provinces);
+                      e.provinces = t.data;
                     });
                   },
                 },
@@ -44313,7 +44307,7 @@ function _createClass(e, t, n) {
                         }
                       },
                       function (e) {
-                        console.log('login error', e.error), t.toastr.error('Invalid E-mail or Password', 'Error');
+                        t.toastr.error('Invalid E-mail or Password', 'Error');
                       }
                     );
                   },
@@ -44333,7 +44327,7 @@ function _createClass(e, t, n) {
                         }
                       },
                       function (t) {
-                        console.log('login error', t.error), e.toastr.error('Invalid E-mail or Password', 'Error');
+                        e.toastr.error('Invalid E-mail or Password', 'Error');
                       }
                     );
                   },
@@ -44350,8 +44344,7 @@ function _createClass(e, t, n) {
                           e.toastr.success('Logged In', 'Welcome, '.concat(localStorage.getItem('fName'), '!'));
                       },
                       function (t) {
-                        e.toastr.error('Couldn`t create user', t.error.error.message || 'Error'),
-                          console.log('signup error', t);
+                        e.toastr.error('Couldn`t create user', t.error.error.message || 'Error');
                       }
                     );
                   },
@@ -44371,7 +44364,7 @@ function _createClass(e, t, n) {
                   key: 'initializeLogin',
                   value: function () {
                     this.loginForm = this.formBuilder.group({
-                      email: ['', [se.Validators.required, se.Validators.email, se.Validators.pattern(ac)]],
+                      email: ['', [se.Validators.required, se.Validators.email, se.Validators.pattern(oc)]],
                       password: ['', se.Validators.required],
                       rememeber: !0,
                     });
@@ -44420,7 +44413,7 @@ function _createClass(e, t, n) {
               e
             );
           })()).ɵfac = function (e) {
-            return new (e || oc)(
+            return new (e || sc)(
               l['\u0275\u0275directiveInject'](V.d),
               l['\u0275\u0275directiveInject'](H.b),
               l['\u0275\u0275directiveInject'](H.c),
@@ -44436,8 +44429,8 @@ function _createClass(e, t, n) {
               l['\u0275\u0275directiveInject'](s.y)
             );
           }),
-          (oc.ɵcmp = l['\u0275\u0275defineComponent']({
-            type: oc,
+          (sc.ɵcmp = l['\u0275\u0275defineComponent']({
+            type: sc,
             selectors: [['app-header']],
             hostBindings: function (e, t) {
               1 & e &&
@@ -44450,8 +44443,8 @@ function _createClass(e, t, n) {
                   l['\u0275\u0275resolveWindow']
                 );
             },
-            decls: 231,
-            vars: 77,
+            decls: 244,
+            vars: 79,
             consts: [
               ['id', 'header', 1, 'header', 'header-transparent'],
               [1, 'navbar', 'navbar-expand-lg', 'sticky-navbar', 3, 'ngClass'],
@@ -44473,6 +44466,8 @@ function _createClass(e, t, n) {
               [1, 'nav__item'],
               [1, 'nav__item-link', 3, 'routerLink'],
               ['target', '_blank', 1, 'dropdown-toggle', 'nav__item-link', 3, 'href', 'ngClass', 'translate'],
+              [1, 'nav__item', 'with-dropdown', 'pointer'],
+              [1, 'dropdown-toggle', 'nav__item-link', 3, 'ngClass', 'translate'],
               [1, 'dropdown-toggle', 'nav__item-link', 'pointer', 3, 'translate', 'click'],
               [1, 'navbar-modules'],
               [1, 'modules__wrapper', 'd-flex', 'align-items-center', 'list-unstyled'],
@@ -44847,219 +44842,241 @@ function _createClass(e, t, n) {
                 l['\u0275\u0275elementEnd'](),
                 l['\u0275\u0275text'](115, '\n          '),
                 l['\u0275\u0275text'](116, '\n          '),
-                l['\u0275\u0275elementStart'](117, 'li', 11),
+                l['\u0275\u0275elementStart'](117, 'li', 20),
                 l['\u0275\u0275text'](118, '\n            '),
-                l['\u0275\u0275elementStart'](119, 'a', 13),
+                l['\u0275\u0275elementStart'](119, 'a', 21),
                 l['\u0275\u0275text'](120, 'map'),
                 l['\u0275\u0275elementEnd'](),
-                l['\u0275\u0275text'](121, '\n          '),
+                l['\u0275\u0275text'](121, '\n            '),
+                l['\u0275\u0275element'](122, 'i', 14),
+                l['\u0275\u0275text'](123, '\n            '),
+                l['\u0275\u0275elementStart'](124, 'ul', 15),
+                l['\u0275\u0275text'](125, '\n              '),
+                l['\u0275\u0275elementStart'](126, 'li', 17),
+                l['\u0275\u0275elementStart'](127, 'a', 18),
+                l['\u0275\u0275text'](128, 'Geolocational Map'),
                 l['\u0275\u0275elementEnd'](),
-                l['\u0275\u0275text'](122, '\n\n          '),
-                l['\u0275\u0275text'](123, '\n          '),
-                l['\u0275\u0275elementStart'](124, 'li', 11),
-                l['\u0275\u0275text'](125, '\n            '),
-                l['\u0275\u0275elementStart'](126, 'a', 20),
+                l['\u0275\u0275elementEnd'](),
+                l['\u0275\u0275text'](129, '\n              '),
+                l['\u0275\u0275elementStart'](130, 'li', 17),
+                l['\u0275\u0275elementStart'](131, 'a', 18),
+                l['\u0275\u0275text'](132, '3D map'),
+                l['\u0275\u0275elementEnd'](),
+                l['\u0275\u0275elementEnd'](),
+                l['\u0275\u0275text'](133, '\n            '),
+                l['\u0275\u0275elementEnd'](),
+                l['\u0275\u0275text'](134, '\n          '),
+                l['\u0275\u0275elementEnd'](),
+                l['\u0275\u0275text'](135, '\n\n          '),
+                l['\u0275\u0275text'](136, '\n          '),
+                l['\u0275\u0275elementStart'](137, 'li', 11),
+                l['\u0275\u0275text'](138, '\n            '),
+                l['\u0275\u0275elementStart'](139, 'a', 22),
                 l['\u0275\u0275listener']('click', function () {
                   return t.scrollToBookings();
                 }),
-                l['\u0275\u0275text'](127, 'bookings'),
+                l['\u0275\u0275text'](140, 'bookings'),
                 l['\u0275\u0275elementEnd'](),
-                l['\u0275\u0275text'](128, '\n          '),
+                l['\u0275\u0275text'](141, '\n          '),
                 l['\u0275\u0275elementEnd'](),
-                l['\u0275\u0275text'](129, '\n\n          '),
-                l['\u0275\u0275text'](130, '\n          '),
-                l['\u0275\u0275text'](131, '\n          '),
-                l['\u0275\u0275template'](132, Du, 5, 2, 'li', 10),
-                l['\u0275\u0275text'](133, '\n          '),
-                l['\u0275\u0275text'](134, '\n          '),
-                l['\u0275\u0275template'](135, Lu, 5, 0, 'li', 10),
-                l['\u0275\u0275text'](136, '\n        '),
+                l['\u0275\u0275text'](142, '\n\n          '),
+                l['\u0275\u0275text'](143, '\n          '),
+                l['\u0275\u0275text'](144, '\n          '),
+                l['\u0275\u0275template'](145, Du, 5, 2, 'li', 10),
+                l['\u0275\u0275text'](146, '\n          '),
+                l['\u0275\u0275text'](147, '\n          '),
+                l['\u0275\u0275template'](148, Lu, 5, 0, 'li', 10),
+                l['\u0275\u0275text'](149, '\n        '),
                 l['\u0275\u0275elementEnd'](),
-                l['\u0275\u0275text'](137, '\n        '),
-                l['\u0275\u0275text'](138, '\n      '),
+                l['\u0275\u0275text'](150, '\n        '),
+                l['\u0275\u0275text'](151, '\n      '),
                 l['\u0275\u0275elementEnd'](),
-                l['\u0275\u0275text'](139, '\n      '),
-                l['\u0275\u0275text'](140, '\n\n      '),
-                l['\u0275\u0275text'](141, '\n      '),
-                l['\u0275\u0275elementStart'](142, 'div', 21),
-                l['\u0275\u0275text'](143, '\n        '),
-                l['\u0275\u0275elementStart'](144, 'ul', 22),
-                l['\u0275\u0275text'](145, '\n          '),
-                l['\u0275\u0275elementStart'](146, 'li'),
-                l['\u0275\u0275text'](147, '\n            '),
-                l['\u0275\u0275element'](148, 'div', 23),
-                l['\u0275\u0275text'](149, '\n            '),
-                l['\u0275\u0275text'](150, '\n          '),
+                l['\u0275\u0275text'](152, '\n      '),
+                l['\u0275\u0275text'](153, '\n\n      '),
+                l['\u0275\u0275text'](154, '\n      '),
+                l['\u0275\u0275elementStart'](155, 'div', 23),
+                l['\u0275\u0275text'](156, '\n        '),
+                l['\u0275\u0275elementStart'](157, 'ul', 24),
+                l['\u0275\u0275text'](158, '\n          '),
+                l['\u0275\u0275elementStart'](159, 'li'),
+                l['\u0275\u0275text'](160, '\n            '),
+                l['\u0275\u0275element'](161, 'div', 25),
+                l['\u0275\u0275text'](162, '\n            '),
+                l['\u0275\u0275text'](163, '\n          '),
                 l['\u0275\u0275elementEnd'](),
-                l['\u0275\u0275text'](151, '\n          '),
-                l['\u0275\u0275elementStart'](152, 'li'),
-                l['\u0275\u0275text'](153, '\n            '),
-                l['\u0275\u0275elementStart'](154, 'button', 24),
+                l['\u0275\u0275text'](164, '\n          '),
+                l['\u0275\u0275elementStart'](165, 'li'),
+                l['\u0275\u0275text'](166, '\n            '),
+                l['\u0275\u0275elementStart'](167, 'button', 26),
                 l['\u0275\u0275listener']('click', function () {
                   return t.changeMessage();
                 }),
-                l['\u0275\u0275text'](155, '\n              '),
-                l['\u0275\u0275element'](156, 'i', 25),
-                l['\u0275\u0275text'](157, '\n            '),
+                l['\u0275\u0275text'](168, '\n              '),
+                l['\u0275\u0275element'](169, 'i', 27),
+                l['\u0275\u0275text'](170, '\n            '),
                 l['\u0275\u0275elementEnd'](),
-                l['\u0275\u0275text'](158, '\n          '),
+                l['\u0275\u0275text'](171, '\n          '),
                 l['\u0275\u0275elementEnd'](),
-                l['\u0275\u0275text'](159, '\n          '),
-                l['\u0275\u0275elementStart'](160, 'li', 26),
-                l['\u0275\u0275text'](161, '\n            '),
-                l['\u0275\u0275text'](162, '\n            '),
-                l['\u0275\u0275template'](163, Tu, 23, 0, 'div', 27),
-                l['\u0275\u0275text'](164, '\n          '),
+                l['\u0275\u0275text'](172, '\n          '),
+                l['\u0275\u0275elementStart'](173, 'li', 28),
+                l['\u0275\u0275text'](174, '\n            '),
+                l['\u0275\u0275text'](175, '\n            '),
+                l['\u0275\u0275template'](176, Tu, 23, 0, 'div', 29),
+                l['\u0275\u0275text'](177, '\n          '),
                 l['\u0275\u0275elementEnd'](),
-                l['\u0275\u0275text'](165, '\n          '),
-                l['\u0275\u0275template'](166, Nu, 4, 1, 'li', 28),
-                l['\u0275\u0275text'](167, '\n        '),
+                l['\u0275\u0275text'](178, '\n          '),
+                l['\u0275\u0275template'](179, Nu, 4, 1, 'li', 30),
+                l['\u0275\u0275text'](180, '\n        '),
                 l['\u0275\u0275elementEnd'](),
-                l['\u0275\u0275text'](168, '\n        '),
-                l['\u0275\u0275text'](169, '\n      '),
+                l['\u0275\u0275text'](181, '\n        '),
+                l['\u0275\u0275text'](182, '\n      '),
                 l['\u0275\u0275elementEnd'](),
-                l['\u0275\u0275text'](170, '\n      '),
-                l['\u0275\u0275text'](171, '\n    '),
+                l['\u0275\u0275text'](183, '\n      '),
+                l['\u0275\u0275text'](184, '\n    '),
                 l['\u0275\u0275elementEnd'](),
-                l['\u0275\u0275text'](172, '\n    '),
-                l['\u0275\u0275text'](173, '\n  '),
+                l['\u0275\u0275text'](185, '\n    '),
+                l['\u0275\u0275text'](186, '\n  '),
                 l['\u0275\u0275elementEnd'](),
-                l['\u0275\u0275text'](174, '\n  '),
-                l['\u0275\u0275text'](175, '\n'),
+                l['\u0275\u0275text'](187, '\n  '),
+                l['\u0275\u0275text'](188, '\n'),
                 l['\u0275\u0275elementEnd'](),
-                l['\u0275\u0275text'](176, '\n'),
-                l['\u0275\u0275text'](177, '\n\n'),
-                l['\u0275\u0275elementStart'](178, 'ngx-smart-modal', 29, 30),
-                l['\u0275\u0275text'](180, '\n  '),
-                l['\u0275\u0275text'](181, '\n  '),
-                l['\u0275\u0275elementStart'](182, 'div', 31),
-                l['\u0275\u0275text'](183, '\n    '),
-                l['\u0275\u0275text'](184, '\n\n    '),
-                l['\u0275\u0275elementStart'](185, 'div', 32),
-                l['\u0275\u0275text'](186, '\n      '),
-                l['\u0275\u0275elementStart'](187, 'div', 33),
-                l['\u0275\u0275text'](188, '\n        '),
-                l['\u0275\u0275element'](189, 'img', 34),
-                l['\u0275\u0275text'](190, '\n      '),
+                l['\u0275\u0275text'](189, '\n'),
+                l['\u0275\u0275text'](190, '\n\n'),
+                l['\u0275\u0275elementStart'](191, 'ngx-smart-modal', 31, 32),
+                l['\u0275\u0275text'](193, '\n  '),
+                l['\u0275\u0275text'](194, '\n  '),
+                l['\u0275\u0275elementStart'](195, 'div', 33),
+                l['\u0275\u0275text'](196, '\n    '),
+                l['\u0275\u0275text'](197, '\n\n    '),
+                l['\u0275\u0275elementStart'](198, 'div', 34),
+                l['\u0275\u0275text'](199, '\n      '),
+                l['\u0275\u0275elementStart'](200, 'div', 35),
+                l['\u0275\u0275text'](201, '\n        '),
+                l['\u0275\u0275element'](202, 'img', 36),
+                l['\u0275\u0275text'](203, '\n      '),
                 l['\u0275\u0275elementEnd'](),
-                l['\u0275\u0275text'](191, '\n      '),
-                l['\u0275\u0275text'](192, '\n      '),
-                l['\u0275\u0275elementStart'](193, 'div', 35),
-                l['\u0275\u0275text'](194, '\n        '),
-                l['\u0275\u0275text'](195, '\n        '),
-                l['\u0275\u0275elementStart'](196, 'ul', 36),
-                l['\u0275\u0275text'](197, '\n          '),
-                l['\u0275\u0275elementStart'](198, 'li'),
-                l['\u0275\u0275text'](199, '\n            '),
-                l['\u0275\u0275elementStart'](200, 'a', 37),
+                l['\u0275\u0275text'](204, '\n      '),
+                l['\u0275\u0275text'](205, '\n      '),
+                l['\u0275\u0275elementStart'](206, 'div', 37),
+                l['\u0275\u0275text'](207, '\n        '),
+                l['\u0275\u0275text'](208, '\n        '),
+                l['\u0275\u0275elementStart'](209, 'ul', 38),
+                l['\u0275\u0275text'](210, '\n          '),
+                l['\u0275\u0275elementStart'](211, 'li'),
+                l['\u0275\u0275text'](212, '\n            '),
+                l['\u0275\u0275elementStart'](213, 'a', 39),
                 l['\u0275\u0275listener']('click', function () {
                   return t.openModal('signIn');
                 }),
-                l['\u0275\u0275text'](201, 'Sign in'),
+                l['\u0275\u0275text'](214, 'Sign in'),
                 l['\u0275\u0275elementEnd'](),
-                l['\u0275\u0275text'](202, '\n          '),
+                l['\u0275\u0275text'](215, '\n          '),
                 l['\u0275\u0275elementEnd'](),
-                l['\u0275\u0275text'](203, '\n          '),
-                l['\u0275\u0275elementStart'](204, 'li'),
-                l['\u0275\u0275text'](205, '\n            '),
-                l['\u0275\u0275elementStart'](206, 'a', 37),
+                l['\u0275\u0275text'](216, '\n          '),
+                l['\u0275\u0275elementStart'](217, 'li'),
+                l['\u0275\u0275text'](218, '\n            '),
+                l['\u0275\u0275elementStart'](219, 'a', 39),
                 l['\u0275\u0275listener']('click', function () {
                   return t.openModal('signUp');
                 }),
-                l['\u0275\u0275text'](207, 'New account'),
+                l['\u0275\u0275text'](220, 'New account'),
                 l['\u0275\u0275elementEnd'](),
-                l['\u0275\u0275text'](208, '\n          '),
+                l['\u0275\u0275text'](221, '\n          '),
                 l['\u0275\u0275elementEnd'](),
-                l['\u0275\u0275text'](209, '\n        '),
+                l['\u0275\u0275text'](222, '\n        '),
                 l['\u0275\u0275elementEnd'](),
-                l['\u0275\u0275text'](210, '\n\n        '),
-                l['\u0275\u0275template'](211, Hu, 70, 7, 'div', 38),
-                l['\u0275\u0275text'](212, '\n        '),
-                l['\u0275\u0275text'](213, '\n\n        '),
-                l['\u0275\u0275template'](214, Vu, 100, 9, 'div', 38),
-                l['\u0275\u0275text'](215, '\n        '),
-                l['\u0275\u0275text'](216, '\n\n        '),
-                l['\u0275\u0275template'](217, Bu, 29, 0, 'div', 38),
-                l['\u0275\u0275text'](218, '\n        '),
-                l['\u0275\u0275text'](219, '\n        '),
-                l['\u0275\u0275elementStart'](220, 'a', 39),
-                l['\u0275\u0275text'](221, 'Close'),
+                l['\u0275\u0275text'](223, '\n\n        '),
+                l['\u0275\u0275template'](224, Hu, 70, 7, 'div', 40),
+                l['\u0275\u0275text'](225, '\n        '),
+                l['\u0275\u0275text'](226, '\n\n        '),
+                l['\u0275\u0275template'](227, Vu, 100, 9, 'div', 40),
+                l['\u0275\u0275text'](228, '\n        '),
+                l['\u0275\u0275text'](229, '\n\n        '),
+                l['\u0275\u0275template'](230, Bu, 29, 0, 'div', 40),
+                l['\u0275\u0275text'](231, '\n        '),
+                l['\u0275\u0275text'](232, '\n        '),
+                l['\u0275\u0275elementStart'](233, 'a', 41),
+                l['\u0275\u0275text'](234, 'Close'),
                 l['\u0275\u0275elementEnd'](),
-                l['\u0275\u0275text'](222, '\n      '),
+                l['\u0275\u0275text'](235, '\n      '),
                 l['\u0275\u0275elementEnd'](),
-                l['\u0275\u0275text'](223, '\n      '),
-                l['\u0275\u0275text'](224, '\n    '),
+                l['\u0275\u0275text'](236, '\n      '),
+                l['\u0275\u0275text'](237, '\n    '),
                 l['\u0275\u0275elementEnd'](),
-                l['\u0275\u0275text'](225, '\n    '),
-                l['\u0275\u0275text'](226, '\n  '),
+                l['\u0275\u0275text'](238, '\n    '),
+                l['\u0275\u0275text'](239, '\n  '),
                 l['\u0275\u0275elementEnd'](),
-                l['\u0275\u0275text'](227, '\n  '),
-                l['\u0275\u0275text'](228, '\n  '),
-                l['\u0275\u0275text'](229, '\n'),
+                l['\u0275\u0275text'](240, '\n  '),
+                l['\u0275\u0275text'](241, '\n  '),
+                l['\u0275\u0275text'](242, '\n'),
                 l['\u0275\u0275elementEnd'](),
-                l['\u0275\u0275text'](230, '\n')),
+                l['\u0275\u0275text'](243, '\n')),
                 2 & e &&
                   (l['\u0275\u0275advance'](3),
                   l['\u0275\u0275property'](
                     'ngClass',
-                    l['\u0275\u0275pureFunction2'](41, Wu, t.addClassFixedNav, !t.addClassFixedNav)
+                    l['\u0275\u0275pureFunction2'](42, Wu, t.addClassFixedNav, !t.addClassFixedNav)
                   ),
                   l['\u0275\u0275advance'](4),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](44, Uu)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](45, Uu)),
                   l['\u0275\u0275advance'](7),
-                  l['\u0275\u0275property']('ngClass', l['\u0275\u0275pureFunction1'](45, zu, t.show)),
+                  l['\u0275\u0275property']('ngClass', l['\u0275\u0275pureFunction1'](46, zu, t.show)),
                   l['\u0275\u0275advance'](6),
-                  l['\u0275\u0275property']('ngClass', l['\u0275\u0275pureFunction1'](47, Gu, t.show)),
+                  l['\u0275\u0275property']('ngClass', l['\u0275\u0275pureFunction1'](48, Gu, t.show)),
                   l['\u0275\u0275advance'](4),
                   l['\u0275\u0275property']('ngIf', t.isLoggedIn),
                   l['\u0275\u0275advance'](4),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](49, Uu))(
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](50, Uu))(
                     'translate',
                     'HEADERITEM1'
-                  )('ngClass', l['\u0275\u0275pureFunction1'](50, qu, '/' === t.router.url)),
+                  )('ngClass', l['\u0275\u0275pureFunction1'](51, qu, '/' === t.router.url)),
                   l['\u0275\u0275advance'](9),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](52, Ku))(
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](53, Ku))(
                     'ngClass',
-                    l['\u0275\u0275pureFunction1'](53, qu, t.router.url.includes('where-to-go'))
+                    l['\u0275\u0275pureFunction1'](54, qu, t.router.url.includes('where-to-go'))
                   )('translate', 'HEADERITEM2'),
                   l['\u0275\u0275advance'](7),
                   l['\u0275\u0275property']('ngForOf', t.provinces),
                   l['\u0275\u0275advance'](11),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](55, Ju))(
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](56, Ju))(
                     'ngClass',
-                    l['\u0275\u0275pureFunction1'](56, qu, t.router.url.includes('what-to-do'))
+                    l['\u0275\u0275pureFunction1'](57, qu, t.router.url.includes('what-to-do'))
                   )('translate', 'HEADERITEM3'),
                   l['\u0275\u0275advance'](10),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](58, ju))(
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](59, ju))(
                     'ngClass',
-                    l['\u0275\u0275pureFunction1'](59, qu, t.router.url.includes('planning'))
+                    l['\u0275\u0275pureFunction1'](60, qu, t.router.url.includes('planning'))
                   )('translate', 'HEADERITEM5'),
                   l['\u0275\u0275advance'](8),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](61, Qu)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](62, Qu)),
                   l['\u0275\u0275advance'](5),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](62, Zu)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](63, Zu)),
                   l['\u0275\u0275advance'](6),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](63, $u)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](64, $u)),
                   l['\u0275\u0275advance'](6),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](64, Xu)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](65, Xu)),
                   l['\u0275\u0275advance'](6),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](65, ec)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](66, ec)),
                   l['\u0275\u0275advance'](5),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](66, tc)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](67, tc)),
                   l['\u0275\u0275advance'](4),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](67, nc)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](68, nc)),
                   l['\u0275\u0275advance'](7),
                   l['\u0275\u0275propertyInterpolate']('href', t.blogUrl, l['\u0275\u0275sanitizeUrl']),
                   l['\u0275\u0275property'](
                     'ngClass',
-                    l['\u0275\u0275pureFunction1'](68, qu, t.router.url.includes('blog'))
+                    l['\u0275\u0275pureFunction1'](69, qu, t.router.url.includes('blog'))
                   )('translate', 'HEADERITEM8'),
                   l['\u0275\u0275advance'](7),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](70, rc))(
+                  l['\u0275\u0275property'](
                     'ngClass',
                     l['\u0275\u0275pureFunction1'](71, qu, t.router.url.includes('map'))
                   )('translate', 'HEADERITEM6'),
-                  l['\u0275\u0275advance'](7),
+                  l['\u0275\u0275advance'](8),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](73, rc)),
+                  l['\u0275\u0275advance'](4),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](74, ic)),
+                  l['\u0275\u0275advance'](8),
                   l['\u0275\u0275property']('translate', 'HEADERITEM6'),
                   l['\u0275\u0275advance'](6),
                   l['\u0275\u0275property']('ngIf', t.isLoggedIn),
@@ -45070,9 +45087,9 @@ function _createClass(e, t, n) {
                   l['\u0275\u0275advance'](3),
                   l['\u0275\u0275property']('ngIf', t.isLoggedIn),
                   l['\u0275\u0275advance'](34),
-                  l['\u0275\u0275property']('ngClass', l['\u0275\u0275pureFunction1'](73, ic, t.isLoginModal)),
+                  l['\u0275\u0275property']('ngClass', l['\u0275\u0275pureFunction1'](75, ac, t.isLoginModal)),
                   l['\u0275\u0275advance'](6),
-                  l['\u0275\u0275property']('ngClass', l['\u0275\u0275pureFunction1'](75, ic, t.isSignupModal)),
+                  l['\u0275\u0275property']('ngClass', l['\u0275\u0275pureFunction1'](77, ac, t.isSignupModal)),
                   l['\u0275\u0275advance'](5),
                   l['\u0275\u0275property']('ngIf', t.isLoginModal),
                   l['\u0275\u0275advance'](3),
@@ -45103,8 +45120,8 @@ function _createClass(e, t, n) {
             ],
             encapsulation: 2,
           })),
-          oc);
-      function lc(e, t) {
+          sc);
+      function uc(e, t) {
         if (
           (1 & e &&
             (l['\u0275\u0275elementStart'](0, 'span', 23), l['\u0275\u0275text'](1), l['\u0275\u0275elementEnd']()),
@@ -45115,7 +45132,7 @@ function _createClass(e, t, n) {
             l['\u0275\u0275textInterpolate2']('\n            1 ', n.name.id, ' = ', n.rate.toFixed(2), ' PKR');
         }
       }
-      function uc(e, t) {
+      function cc(e, t) {
         if (
           (1 & e &&
             (l['\u0275\u0275elementStart'](0, 'option', 24), l['\u0275\u0275text'](1), l['\u0275\u0275elementEnd']()),
@@ -45127,7 +45144,7 @@ function _createClass(e, t, n) {
             l['\u0275\u0275textInterpolate1']('\n            ', n.name.currencyName, '\n          ');
         }
       }
-      function cc(e, t) {
+      function dc(e, t) {
         if (
           (1 & e &&
             (l['\u0275\u0275elementStart'](0, 'h5', 25),
@@ -45143,9 +45160,9 @@ function _createClass(e, t, n) {
           l['\u0275\u0275advance'](1), l['\u0275\u0275textInterpolate1']('\n        ', n.convertedPriceToPKR, ' ');
         }
       }
-      var dc,
-        hc =
-          (((dc = (function () {
+      var hc,
+        fc =
+          (((hc = (function () {
             function e(t, n, r, i, a, o) {
               _classCallCheck(this, e),
                 (this.homeService = t),
@@ -45235,7 +45252,7 @@ function _createClass(e, t, n) {
               e
             );
           })()).ɵfac = function (e) {
-            return new (e || dc)(
+            return new (e || hc)(
               l['\u0275\u0275directiveInject'](U.a),
               l['\u0275\u0275directiveInject'](o.b),
               l['\u0275\u0275directiveInject'](vu.a),
@@ -45244,8 +45261,8 @@ function _createClass(e, t, n) {
               l['\u0275\u0275directiveInject'](ve.c)
             );
           }),
-          (dc.ɵcmp = l['\u0275\u0275defineComponent']({
-            type: dc,
+          (hc.ɵcmp = l['\u0275\u0275defineComponent']({
+            type: hc,
             selectors: [['app-weather-widget']],
             inputs: { locationName: 'locationName' },
             decls: 70,
@@ -45339,7 +45356,7 @@ function _createClass(e, t, n) {
                 l['\u0275\u0275text'](27, '\n        '),
                 l['\u0275\u0275elementStart'](28, 'div', 10),
                 l['\u0275\u0275text'](29, '\n          '),
-                l['\u0275\u0275template'](30, lc, 2, 2, 'span', 11),
+                l['\u0275\u0275template'](30, uc, 2, 2, 'span', 11),
                 l['\u0275\u0275pipe'](31, 'slice'),
                 l['\u0275\u0275text'](32, '\n        '),
                 l['\u0275\u0275elementEnd'](),
@@ -45382,13 +45399,13 @@ function _createClass(e, t, n) {
                 l['\u0275\u0275elementEnd'](),
                 l['\u0275\u0275text'](58, '\n          '),
                 l['\u0275\u0275text'](59, '\n          '),
-                l['\u0275\u0275template'](60, uc, 2, 2, 'option', 21),
+                l['\u0275\u0275template'](60, cc, 2, 2, 'option', 21),
                 l['\u0275\u0275text'](61, '\n        '),
                 l['\u0275\u0275elementEnd'](),
                 l['\u0275\u0275text'](62, '\n      '),
                 l['\u0275\u0275elementEnd'](),
                 l['\u0275\u0275text'](63, '\n      '),
-                l['\u0275\u0275template'](64, cc, 5, 1, 'h5', 22),
+                l['\u0275\u0275template'](64, dc, 5, 1, 'h5', 22),
                 l['\u0275\u0275text'](65, '\n    '),
                 l['\u0275\u0275elementEnd'](),
                 l['\u0275\u0275text'](66, '\n  '),
@@ -45434,8 +45451,8 @@ function _createClass(e, t, n) {
               '.verticalCurrencyFlip[_ngcontent-%COMP%]{display:inline;text-indent:8px}.verticalCurrencyFlip[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]{animation:vertical 8s linear 0s infinite;-ms-animation:vertical 8s linear infinite 0s;-webkit-animation:vertical 8s linear 0s infinite;color:#000;opacity:0;overflow:hidden;position:absolute}.verticalCurrencyFlip[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:nth-child(2){animation-delay:1.5s;-ms-animation-delay:1.5s;-webkit-animation-delay:1.5s}.verticalCurrencyFlip[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:nth-child(3){animation-delay:3s;-ms-animation-delay:3s;-webkit-animation-delay:3s}.verticalCurrencyFlip[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:nth-child(4){animation-delay:4.5s;-ms-animation-delay:4.5s;-webkit-animation-delay:4.5s}.verticalCurrencyFlip[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:nth-child(5){animation-delay:6s;-ms-animation-delay:6s;-webkit-animation-delay:6s}.verticalCurrencyFlip[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:nth-child(6){animation-delay:7.5s;-ms-animation-delay:7.5s;-webkit-animation-delay:7.5s}.verticalCurrencyFlip[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:nth-child(7){animation-delay:9s;-ms-animation-delay:9s;-webkit-animation-delay:9s}.verticalCurrencyFlip[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:nth-child(8){animation-delay:10.5s;-ms-animation-delay:10.5s;-webkit-animation-delay:10.5s}.verticalCurrencyFlip[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:nth-child(9){animation-delay:12s;-ms-animation-delay:12s;-webkit-animation-delay:12s}.verticalCurrencyFlip[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:nth-child(10){animation-delay:13.5s;-ms-animation-delay:13.5s;-webkit-animation-delay:13.5s}.verticalCurrencyFlip[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:nth-child(11){animation-delay:15s;-ms-animation-delay:15s;-webkit-animation-delay:15s}.verticalCurrencyFlip[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:nth-child(12){animation-delay:16.5s;-ms-animation-delay:16.5s;-webkit-animation-delay:16.5s}.verticalCurrencyFlip[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:nth-child(13){animation-delay:18s;-ms-animation-delay:18s;-webkit-animation-delay:18s}.verticalCurrencyFlip[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:nth-child(14){animation-delay:19.5s;-ms-animation-delay:19.5s;-webkit-animation-delay:19.5s}.verticalCurrencyFlip[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:nth-child(15){animation-delay:21s;-ms-animation-delay:21s;-webkit-animation-delay:21s}.verticalCurrencyFlip[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:nth-child(16){animation-delay:22.5s;-ms-animation-delay:22.5s;-webkit-animation-delay:22.5s}.verticalCurrencyFlip[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:nth-child(17){animation-delay:24s;-ms-animation-delay:24s;-webkit-animation-delay:24s}.verticalCurrencyFlip[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]:nth-child(18){animation-delay:25.5s;-ms-animation-delay:25.5s;-webkit-animation-delay:25.5s}',
             ],
           })),
-          dc);
-      function fc(e, t) {
+          hc);
+      function mc(e, t) {
         if (
           (1 & e &&
             (l['\u0275\u0275elementStart'](0, 'li', 35),
@@ -45451,7 +45468,7 @@ function _createClass(e, t, n) {
             l['\u0275\u0275textInterpolate2']('\n            ', n.description, ' : ', n.title, '\n            ');
         }
       }
-      function mc(e, t) {
+      function pc(e, t) {
         if (
           (1 & e &&
             (l['\u0275\u0275text'](0, '\n      '),
@@ -45471,88 +45488,88 @@ function _createClass(e, t, n) {
             l['\u0275\u0275textInterpolate'](n);
         }
       }
-      var pc,
-        _c,
+      var _c,
         vc,
         gc,
-        yc = function () {
+        yc,
+        bc = function () {
           return ['/cookie'];
         },
-        bc = function () {
+        kc = function () {
           return ['/privacy'];
         },
-        kc = function () {
+        xc = function () {
           return ['/disclaimer'];
         },
-        xc = function () {
+        wc = function () {
           return ['/contact'];
         },
-        wc = function () {
+        Cc = function () {
           return ['/faq'];
         },
-        Cc = function () {
+        Sc = function () {
           return ['/media'];
         },
-        Sc = function () {
+        Mc = function () {
           return ['/pressrelease'];
         },
-        Mc = function () {
+        Ec = function () {
           return ['/where-to-go/category/cities/location/islamabad'];
         },
-        Ec = function () {
+        Dc = function () {
           return ['/where-to-go/category/cities/location/lahore'];
         },
-        Dc = function () {
+        Lc = function () {
           return ['/where-to-go/category/cities/location/karachi'];
         },
-        Lc = function () {
+        Tc = function () {
           return ['/where-to-go/category/cities/location/peshawar'];
         },
-        Tc = function () {
+        Oc = function () {
           return ['/where-to-go/category/cities/location/gilgit'];
         },
-        Oc = function () {
+        jc = function () {
           return ['/where-to-go/category/cities/location/quetta'];
         },
-        jc = function () {
+        Ac = function () {
           return ['/accomodation/category/5f66c1fb898584fe8756300f'];
         },
-        Ac = function () {
+        Ic = function () {
           return ['/accomodation/category/5f66c156e008c9f9b58dad06'];
         },
-        Ic = function () {
+        Pc = function () {
           return ['/accomodation/category/5f66c2b05b6d27ff5e7d8ce4'];
         },
-        Pc = function () {
+        Yc = function () {
           return ['/accomodation/category/5f66c2775b6d27ff5e7d8ce0'];
         },
-        Yc = function () {
+        Fc = function () {
           return ['/accomodation/category/5f66c2875b6d27ff5e7d8ce2'];
         },
-        Fc = function () {
+        Rc = function () {
           return ['/where-to-go/locations/punjab'];
         },
-        Rc = function () {
+        Nc = function () {
           return ['/where-to-go/locations/sindh'];
         },
-        Nc = function () {
+        Hc = function () {
           return ['/where-to-go/locations/khyber-pakhtunkhwa'];
         },
-        Hc = function () {
+        Vc = function () {
           return ['/where-to-go/locations/balochistan'];
         },
-        Vc = function () {
+        Bc = function () {
           return ['/where-to-go/locations/gilgit-baltistan'];
         },
-        Bc = function () {
+        Wc = function () {
           return ['/where-to-go/locations/azad-jamu-khashmir'];
         },
-        Wc = function (e, t) {
+        Uc = function (e, t) {
           return { actived: e, '': t };
         },
-        Uc = [],
-        zc =
-          (((pc = (function () {
+        zc = [],
+        Gc =
+          (((_c = (function () {
             function e(t, n, r, i, a, o) {
               var s = this;
               _classCallCheck(this, e),
@@ -45574,9 +45591,11 @@ function _createClass(e, t, n) {
                     Object(v.a)(function (e) {
                       return e.length < 2
                         ? []
-                        : Uc.filter(function (t) {
-                            return t.toLowerCase().indexOf(e.toLowerCase()) > -1;
-                          }).slice(0, 10);
+                        : zc
+                            .filter(function (t) {
+                              return t.toLowerCase().indexOf(e.toLowerCase()) > -1;
+                            })
+                            .slice(0, 10);
                     })
                   );
                 }),
@@ -45596,7 +45615,7 @@ function _createClass(e, t, n) {
                     this.getFilters(),
                       this.getAllNews(),
                       this.commonService.currentMessage.subscribe(function (t) {
-                        console.log('Message from CommonService: ', t), (e.show = 'inActive' != t);
+                        e.show = 'inActive' != t;
                       }),
                       this.commonService.scrollY$.subscribe(function (t) {
                         t > 700 ? (e.showUpArrow = !0) : t < 700 && (e.showUpArrow = !1);
@@ -45606,10 +45625,10 @@ function _createClass(e, t, n) {
                 {
                   key: 'getFilters',
                   value: function () {
-                    (Uc = []),
+                    (zc = []),
                       this.eventService.getAllCities().subscribe(function (e) {
                         e.data.forEach(function (e) {
-                          'city' === e.locationType && Uc.push(e.name);
+                          'city' === e.locationType && zc.push(e.name);
                         });
                       });
                   },
@@ -45651,16 +45670,14 @@ function _createClass(e, t, n) {
                 {
                   key: 'getBannerNews',
                   value: function () {
-                    this.eventService.getNews().subscribe(function (e) {
-                      console.log(e);
-                    });
+                    this.eventService.getNews().subscribe(function (e) {});
                   },
                 },
               ]),
               e
             );
           })()).ɵfac = function (e) {
-            return new (e || pc)(
+            return new (e || _c)(
               l['\u0275\u0275directiveInject'](vu.a),
               l['\u0275\u0275directiveInject'](Je.a),
               l['\u0275\u0275directiveInject'](V.d),
@@ -45669,8 +45686,8 @@ function _createClass(e, t, n) {
               l['\u0275\u0275directiveInject'](ve.c)
             );
           }),
-          (pc.ɵcmp = l['\u0275\u0275defineComponent']({
-            type: pc,
+          (_c.ɵcmp = l['\u0275\u0275defineComponent']({
+            type: _c,
             selectors: [['app-footer']],
             decls: 275,
             vars: 59,
@@ -45760,7 +45777,7 @@ function _createClass(e, t, n) {
                   l['\u0275\u0275text'](10, '\n        '),
                   l['\u0275\u0275elementStart'](11, 'ul', 3),
                   l['\u0275\u0275text'](12, '\n          '),
-                  l['\u0275\u0275template'](13, fc, 5, 2, 'li', 4),
+                  l['\u0275\u0275template'](13, mc, 5, 2, 'li', 4),
                   l['\u0275\u0275text'](14, '\n        '),
                   l['\u0275\u0275elementEnd'](),
                   l['\u0275\u0275text'](15, '\n      '),
@@ -46080,7 +46097,7 @@ function _createClass(e, t, n) {
                   l['\u0275\u0275text'](233, '\n    '),
                   l['\u0275\u0275template'](
                     234,
-                    mc,
+                    pc,
                     6,
                     3,
                     'ng-template',
@@ -46146,53 +46163,53 @@ function _createClass(e, t, n) {
                 l['\u0275\u0275advance'](13),
                   l['\u0275\u0275property']('ngForOf', t.allNews),
                   l['\u0275\u0275advance'](26),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](32, yc)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](32, bc)),
                   l['\u0275\u0275advance'](4),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](33, bc)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](33, kc)),
                   l['\u0275\u0275advance'](4),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](34, kc)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](34, xc)),
                   l['\u0275\u0275advance'](4),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](35, xc)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](35, wc)),
                   l['\u0275\u0275advance'](4),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](36, wc)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](36, Cc)),
                   l['\u0275\u0275advance'](4),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](37, Cc)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](37, Sc)),
                   l['\u0275\u0275advance'](4),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](38, Sc)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](38, Mc)),
                   l['\u0275\u0275advance'](25),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](39, Mc)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](39, Ec)),
                   l['\u0275\u0275advance'](4),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](40, Ec)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](40, Dc)),
                   l['\u0275\u0275advance'](4),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](41, Dc)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](41, Lc)),
                   l['\u0275\u0275advance'](4),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](42, Lc)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](42, Tc)),
                   l['\u0275\u0275advance'](4),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](43, Tc)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](43, Oc)),
                   l['\u0275\u0275advance'](4),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](44, Oc)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](44, jc)),
                   l['\u0275\u0275advance'](21),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](45, jc)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](45, Ac)),
                   l['\u0275\u0275advance'](4),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](46, Ac)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](46, Ic)),
                   l['\u0275\u0275advance'](4),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](47, Ic)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](47, Pc)),
                   l['\u0275\u0275advance'](4),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](48, Pc)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](48, Yc)),
                   l['\u0275\u0275advance'](4),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](49, Yc)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](49, Fc)),
                   l['\u0275\u0275advance'](21),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](50, Fc)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](50, Rc)),
                   l['\u0275\u0275advance'](4),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](51, Rc)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](51, Nc)),
                   l['\u0275\u0275advance'](4),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](52, Nc)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](52, Hc)),
                   l['\u0275\u0275advance'](4),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](53, Hc)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](53, Vc)),
                   l['\u0275\u0275advance'](4),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](54, Vc)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](54, Bc)),
                   l['\u0275\u0275advance'](4),
-                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](55, Bc)),
+                  l['\u0275\u0275property']('routerLink', l['\u0275\u0275pureFunction0'](55, Wc)),
                   l['\u0275\u0275advance'](40),
                   l['\u0275\u0275property']('ngClass', t.show ? 'active' : 'inActive'),
                   l['\u0275\u0275advance'](6),
@@ -46200,7 +46217,7 @@ function _createClass(e, t, n) {
                   l['\u0275\u0275advance'](18),
                   l['\u0275\u0275property'](
                     'ngClass',
-                    l['\u0275\u0275pureFunction2'](56, Wc, t.showUpArrow, !t.showUpArrow)
+                    l['\u0275\u0275pureFunction2'](56, Uc, t.showUpArrow, !t.showUpArrow)
                   ),
                   l['\u0275\u0275advance'](5),
                   l['\u0275\u0275property'](
@@ -46230,13 +46247,13 @@ function _createClass(e, t, n) {
               'ngb-typeahead-window.dropdown-menu {\n    width: 100% !important;\n  }\n\n    ngb-typeahead-window.dropdown-menu .active {\n    background-color: #8cc63e !important;\n  }\n\n  .drop-down-items[_ngcontent-%COMP%] {\n    margin-top: 15px !important;\n  }',
             ],
           })),
-          pc),
-        Gc = function (e) {
+          _c),
+        qc = function (e) {
           return { 'home ': e };
         },
-        qc = new R.b('App'),
-        Kc =
-          (((_c = (function () {
+        Kc = new R.b('App'),
+        Jc =
+          (((vc = (function () {
             function e(t, n, r, i, a) {
               _classCallCheck(this, e),
                 (this.router = t),
@@ -46252,7 +46269,7 @@ function _createClass(e, t, n) {
                   value: function () {
                     var e = this;
                     F.a.production && R.b.enableProductionMode(),
-                      qc.debug('init'),
+                      Kc.debug('init'),
                       this.i18nService.init(F.a.defaultLanguage, F.a.supportedLanguages);
                     var t = this.router.events.pipe(
                       Object(g.a)(function (e) {
@@ -46289,7 +46306,7 @@ function _createClass(e, t, n) {
               e
             );
           })()).ɵfac = function (e) {
-            return new (e || _c)(
+            return new (e || vc)(
               l['\u0275\u0275directiveInject'](V.d),
               l['\u0275\u0275directiveInject'](V.a),
               l['\u0275\u0275directiveInject'](a.Title),
@@ -46297,8 +46314,8 @@ function _createClass(e, t, n) {
               l['\u0275\u0275directiveInject'](B.b)
             );
           }),
-          (_c.ɵcmp = l['\u0275\u0275defineComponent']({
-            type: _c,
+          (vc.ɵcmp = l['\u0275\u0275defineComponent']({
+            type: vc,
             selectors: [['app-root']],
             decls: 12,
             vars: 3,
@@ -46320,13 +46337,13 @@ function _createClass(e, t, n) {
                 l['\u0275\u0275text'](11, '\n')),
                 2 & e &&
                   (l['\u0275\u0275advance'](1),
-                  l['\u0275\u0275property']('ngClass', l['\u0275\u0275pureFunction1'](1, Gc, '/' === t.router.url)));
+                  l['\u0275\u0275property']('ngClass', l['\u0275\u0275pureFunction1'](1, qc, '/' === t.router.url)));
             },
-            directives: [s.l, sc, V.h, hc, zc],
+            directives: [s.l, lc, V.h, fc, Gc],
             styles: [''],
           })),
-          _c),
-        Jc = [
+          vc),
+        Qc = [
           {
             path: 'where-to-go',
             loadChildren: function () {
@@ -46420,21 +46437,21 @@ function _createClass(e, t, n) {
           },
           { path: '**', component: ul, pathMatch: 'full' },
         ],
-        Qc =
-          (((vc = function e() {
+        Zc =
+          (((gc = function e() {
             _classCallCheck(this, e);
-          }).ɵmod = l['\u0275\u0275defineNgModule']({ type: vc })),
-          (vc.ɵinj = l['\u0275\u0275defineInjector']({
+          }).ɵmod = l['\u0275\u0275defineNgModule']({ type: gc })),
+          (gc.ɵinj = l['\u0275\u0275defineInjector']({
             factory: function (e) {
-              return new (e || vc)();
+              return new (e || gc)();
             },
             providers: [],
-            imports: [[V.g.forRoot(Jc)], V.g],
+            imports: [[V.g.forRoot(Qc)], V.g],
           })),
-          vc),
-        Zc = n('qfBg'),
-        $c =
-          (((gc = (function () {
+          gc),
+        $c = n('qfBg'),
+        Xc =
+          (((yc = (function () {
             function e() {
               _classCallCheck(this, e);
             }
@@ -46453,14 +46470,14 @@ function _createClass(e, t, n) {
               e
             );
           })()).ɵfac = function (e) {
-            return new (e || gc)();
+            return new (e || yc)();
           }),
-          (gc.ɵprov = l['\u0275\u0275defineInjectable']({ token: gc, factory: gc.ɵfac })),
-          gc);
-      function Xc() {
+          (yc.ɵprov = l['\u0275\u0275defineInjectable']({ token: yc, factory: yc.ɵfac })),
+          yc);
+      function ed() {
         return 'undefined' != typeof process && '[object process]' === {}.toString.call(process);
       }
-      function ed(e) {
+      function td(e) {
         switch (e.length) {
           case 0:
             return new si.d();
@@ -46470,7 +46487,7 @@ function _createClass(e, t, n) {
             return new si.k(e);
         }
       }
-      function td(e, t, n, r) {
+      function nd(e, t, n, r) {
         var i = arguments.length > 4 && void 0 !== arguments[4] ? arguments[4] : {},
           a = arguments.length > 5 && void 0 !== arguments[5] ? arguments[5] : {},
           o = [],
@@ -46509,27 +46526,27 @@ function _createClass(e, t, n) {
         }
         return s;
       }
-      function nd(e, t, n, r) {
+      function rd(e, t, n, r) {
         switch (t) {
           case 'start':
             e.onStart(function () {
-              return r(n && rd(n, 'start', e));
+              return r(n && id(n, 'start', e));
             });
             break;
           case 'done':
             e.onDone(function () {
-              return r(n && rd(n, 'done', e));
+              return r(n && id(n, 'done', e));
             });
             break;
           case 'destroy':
             e.onDestroy(function () {
-              return r(n && rd(n, 'destroy', e));
+              return r(n && id(n, 'destroy', e));
             });
         }
       }
-      function rd(e, t, n) {
+      function id(e, t, n) {
         var r = n.totalTime,
-          i = id(
+          i = ad(
             e.element,
             e.triggerName,
             e.fromState,
@@ -46541,36 +46558,36 @@ function _createClass(e, t, n) {
           a = e._data;
         return null != a && (i._data = a), i;
       }
-      function id(e, t, n, r) {
+      function ad(e, t, n, r) {
         var i = arguments.length > 4 && void 0 !== arguments[4] ? arguments[4] : '',
           a = arguments.length > 5 && void 0 !== arguments[5] ? arguments[5] : 0,
           o = arguments.length > 6 ? arguments[6] : void 0;
         return { element: e, triggerName: t, fromState: n, toState: r, phaseName: i, totalTime: a, disabled: !!o };
       }
-      function ad(e, t, n) {
+      function od(e, t, n) {
         var r;
         return e instanceof Map ? (r = e.get(t)) || e.set(t, (r = n)) : (r = e[t]) || (r = e[t] = n), r;
       }
-      function od(e) {
+      function sd(e) {
         var t = e.indexOf(':');
         return [e.substring(1, t), e.substr(t + 1)];
       }
-      var sd = function (e, t) {
+      var ld = function (e, t) {
           return !1;
         },
-        ld = function (e, t) {
+        ud = function (e, t) {
           return !1;
         },
-        ud = function (e, t, n) {
+        cd = function (e, t, n) {
           return [];
         },
-        cd = Xc();
-      (cd || 'undefined' != typeof Element) &&
-        ((sd = function (e, t) {
+        dd = ed();
+      (dd || 'undefined' != typeof Element) &&
+        ((ld = function (e, t) {
           return e.contains(t);
         }),
-        (ld = (function () {
-          if (cd || Element.prototype.matches)
+        (ud = (function () {
+          if (dd || Element.prototype.matches)
             return function (e, t) {
               return e.matches(t);
             };
@@ -46585,9 +46602,9 @@ function _createClass(e, t, n) {
             ? function (e, n) {
                 return t.apply(e, [n]);
               }
-            : ld;
+            : ud;
         })()),
-        (ud = function (e, t, n) {
+        (cd = function (e, t, n) {
           var r = [];
           if (n) r.push.apply(r, _toConsumableArray(e.querySelectorAll(t)));
           else {
@@ -46596,28 +46613,28 @@ function _createClass(e, t, n) {
           }
           return r;
         }));
-      var dd = null,
-        hd = !1;
-      function fd(e) {
-        dd ||
-          ((dd = ('undefined' != typeof document ? document.body : null) || {}),
-          (hd = !!dd.style && 'WebkitAppearance' in dd.style));
+      var hd = null,
+        fd = !1;
+      function md(e) {
+        hd ||
+          ((hd = ('undefined' != typeof document ? document.body : null) || {}),
+          (fd = !!hd.style && 'WebkitAppearance' in hd.style));
         var t = !0;
         return (
-          dd.style &&
+          hd.style &&
             !(function (e) {
               return 'ebkit' == e.substring(1, 6);
             })(e) &&
-            !(t = e in dd.style) &&
-            hd &&
-            (t = 'Webkit' + e.charAt(0).toUpperCase() + e.substr(1) in dd.style),
+            !(t = e in hd.style) &&
+            fd &&
+            (t = 'Webkit' + e.charAt(0).toUpperCase() + e.substr(1) in hd.style),
           t
         );
       }
-      var md = ld,
-        pd = sd,
-        _d = ud;
-      function vd(e) {
+      var pd = ud,
+        _d = ld,
+        vd = cd;
+      function gd(e) {
         var t = {};
         return (
           Object.keys(e).forEach(function (n) {
@@ -46627,9 +46644,9 @@ function _createClass(e, t, n) {
           t
         );
       }
-      var gd,
-        yd =
-          (((gd = (function () {
+      var yd,
+        bd =
+          (((yd = (function () {
             function e() {
               _classCallCheck(this, e);
             }
@@ -46638,25 +46655,25 @@ function _createClass(e, t, n) {
                 {
                   key: 'validateStyleProperty',
                   value: function (e) {
-                    return fd(e);
+                    return md(e);
                   },
                 },
                 {
                   key: 'matchesElement',
                   value: function (e, t) {
-                    return md(e, t);
+                    return pd(e, t);
                   },
                 },
                 {
                   key: 'containsElement',
                   value: function (e, t) {
-                    return pd(e, t);
+                    return _d(e, t);
                   },
                 },
                 {
                   key: 'query',
                   value: function (e, t, n) {
-                    return _d(e, t, n);
+                    return vd(e, t, n);
                   },
                 },
                 {
@@ -46679,22 +46696,22 @@ function _createClass(e, t, n) {
               e
             );
           })()).ɵfac = function (e) {
-            return new (e || gd)();
+            return new (e || yd)();
           }),
-          (gd.ɵprov = l['\u0275\u0275defineInjectable']({ token: gd, factory: gd.ɵfac })),
-          gd),
-        bd = (function () {
+          (yd.ɵprov = l['\u0275\u0275defineInjectable']({ token: yd, factory: yd.ɵfac })),
+          yd),
+        kd = (function () {
           var e = function e() {
             _classCallCheck(this, e);
           };
-          return (e.NOOP = new yd()), e;
+          return (e.NOOP = new bd()), e;
         })();
-      function kd(e) {
+      function xd(e) {
         if ('number' == typeof e) return e;
         var t = e.match(/^(-?[\.\d]+)(m?s)/);
-        return !t || t.length < 2 ? 0 : xd(parseFloat(t[1]), t[2]);
+        return !t || t.length < 2 ? 0 : wd(parseFloat(t[1]), t[2]);
       }
-      function xd(e, t) {
+      function wd(e, t) {
         switch (t) {
           case 's':
             return 1e3 * e;
@@ -46702,7 +46719,7 @@ function _createClass(e, t, n) {
             return e;
         }
       }
-      function wd(e, t, n) {
+      function Cd(e, t, n) {
         return e.hasOwnProperty('duration')
           ? e
           : (function (e, t, n) {
@@ -46716,9 +46733,9 @@ function _createClass(e, t, n) {
                     t.push('The provided timing value "'.concat(e, '" is invalid.')),
                     { duration: 0, delay: 0, easing: '' }
                   );
-                r = xd(parseFloat(o[1]), o[2]);
+                r = wd(parseFloat(o[1]), o[2]);
                 var s = o[3];
-                null != s && (i = xd(parseFloat(s), o[4]));
+                null != s && (i = wd(parseFloat(s), o[4]));
                 var l = o[5];
                 l && (a = l);
               } else r = e;
@@ -46732,7 +46749,7 @@ function _createClass(e, t, n) {
               return { duration: r, delay: i, easing: a };
             })(e, t, n);
       }
-      function Cd(e) {
+      function Sd(e) {
         var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
         return (
           Object.keys(e).forEach(function (n) {
@@ -46741,57 +46758,57 @@ function _createClass(e, t, n) {
           t
         );
       }
-      function Sd(e, t) {
+      function Md(e, t) {
         var n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {};
         if (t) for (var r in e) n[r] = e[r];
-        else Cd(e, n);
+        else Sd(e, n);
         return n;
       }
-      function Md(e, t, n) {
+      function Ed(e, t, n) {
         return n ? t + ':' + n + ';' : '';
       }
-      function Ed(e) {
+      function Dd(e) {
         for (var t = '', n = 0; n < e.style.length; n++) {
           var r = e.style.item(n);
-          t += Md(0, r, e.style.getPropertyValue(r));
+          t += Ed(0, r, e.style.getPropertyValue(r));
         }
         for (var i in e.style)
           e.style.hasOwnProperty(i) &&
             !i.startsWith('_') &&
-            (t += Md(0, i.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase(), e.style[i]));
+            (t += Ed(0, i.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase(), e.style[i]));
         e.setAttribute('style', t);
       }
-      function Dd(e, t, n) {
+      function Ld(e, t, n) {
         e.style &&
           (Object.keys(t).forEach(function (r) {
-            var i = Yd(r);
+            var i = Fd(r);
             n && !n.hasOwnProperty(r) && (n[r] = e.style[i]), (e.style[i] = t[r]);
           }),
-          Xc() && Ed(e));
+          ed() && Dd(e));
       }
-      function Ld(e, t) {
+      function Td(e, t) {
         e.style &&
           (Object.keys(t).forEach(function (t) {
-            var n = Yd(t);
+            var n = Fd(t);
             e.style[n] = '';
           }),
-          Xc() && Ed(e));
+          ed() && Dd(e));
       }
-      function Td(e) {
+      function Od(e) {
         return Array.isArray(e) ? (1 == e.length ? e[0] : Object(si.f)(e)) : e;
       }
-      var Od = new RegExp('{{\\s*(.+?)\\s*}}', 'g');
-      function jd(e) {
+      var jd = new RegExp('{{\\s*(.+?)\\s*}}', 'g');
+      function Ad(e) {
         var t = [];
         if ('string' == typeof e) {
-          for (var n; (n = Od.exec(e)); ) t.push(n[1]);
-          Od.lastIndex = 0;
+          for (var n; (n = jd.exec(e)); ) t.push(n[1]);
+          jd.lastIndex = 0;
         }
         return t;
       }
-      function Ad(e, t, n) {
+      function Id(e, t, n) {
         var r = e.toString(),
-          i = r.replace(Od, function (e, r) {
+          i = r.replace(jd, function (e, r) {
             var i = t[r];
             return (
               t.hasOwnProperty(r) || (n.push('Please provide a value for the animation param ' + r), (i = '')),
@@ -46800,21 +46817,21 @@ function _createClass(e, t, n) {
           });
         return i == r ? e : i;
       }
-      function Id(e) {
+      function Pd(e) {
         for (var t = [], n = e.next(); !n.done; ) t.push(n.value), (n = e.next());
         return t;
       }
-      var Pd = /-+([a-z0-9])/g;
-      function Yd(e) {
-        return e.replace(Pd, function () {
+      var Yd = /-+([a-z0-9])/g;
+      function Fd(e) {
+        return e.replace(Yd, function () {
           for (var e = arguments.length, t = new Array(e), n = 0; n < e; n++) t[n] = arguments[n];
           return t[1].toUpperCase();
         });
       }
-      function Fd(e, t) {
+      function Rd(e, t) {
         return 0 === e || 0 === t;
       }
-      function Rd(e, t, n) {
+      function Nd(e, t, n) {
         var r = Object.keys(n);
         if (r.length && t.length) {
           var i = t[0],
@@ -46829,7 +46846,7 @@ function _createClass(e, t, n) {
               var o = function () {
                   var n = t[s];
                   a.forEach(function (t) {
-                    n[t] = Hd(e, t);
+                    n[t] = Vd(e, t);
                   });
                 },
                 s = 1;
@@ -46840,7 +46857,7 @@ function _createClass(e, t, n) {
         }
         return t;
       }
-      function Nd(e, t, n) {
+      function Hd(e, t, n) {
         switch (t.type) {
           case 7:
             return e.visitTrigger(t, n);
@@ -46872,29 +46889,29 @@ function _createClass(e, t, n) {
             throw new Error('Unable to resolve animation metadata node #' + t.type);
         }
       }
-      function Hd(e, t) {
+      function Vd(e, t) {
         return window.getComputedStyle(e)[t];
       }
-      var Vd = new Set(['true', '1']),
-        Bd = new Set(['false', '0']);
-      function Wd(e, t) {
-        var n = Vd.has(e) || Bd.has(e),
-          r = Vd.has(t) || Bd.has(t);
+      var Bd = new Set(['true', '1']),
+        Wd = new Set(['false', '0']);
+      function Ud(e, t) {
+        var n = Bd.has(e) || Wd.has(e),
+          r = Bd.has(t) || Wd.has(t);
         return function (i, a) {
           var o = '*' == e || e == i,
             s = '*' == t || t == a;
           return (
-            !o && n && 'boolean' == typeof i && (o = i ? Vd.has(e) : Bd.has(e)),
-            !s && r && 'boolean' == typeof a && (s = a ? Vd.has(t) : Bd.has(t)),
+            !o && n && 'boolean' == typeof i && (o = i ? Bd.has(e) : Wd.has(e)),
+            !s && r && 'boolean' == typeof a && (s = a ? Bd.has(t) : Wd.has(t)),
             o && s
           );
         };
       }
-      var Ud = new RegExp('s*:selfs*,?', 'g');
-      function zd(e, t, n) {
-        return new Gd(e).build(t, n);
+      var zd = new RegExp('s*:selfs*,?', 'g');
+      function Gd(e, t, n) {
+        return new qd(e).build(t, n);
       }
-      var Gd = (function () {
+      var qd = (function () {
           function e(t) {
             _classCallCheck(this, e), (this._driver = t);
           }
@@ -46903,8 +46920,8 @@ function _createClass(e, t, n) {
               {
                 key: 'build',
                 value: function (e, t) {
-                  var n = new qd(t);
-                  return this._resetContextStyleTimingState(n), Nd(this, Td(e), n);
+                  var n = new Kd(t);
+                  return this._resetContextStyleTimingState(n), Hd(this, Od(e), n);
                 },
               },
               {
@@ -46959,10 +46976,10 @@ function _createClass(e, t, n) {
                       a = r || {};
                     if (
                       (n.styles.forEach(function (e) {
-                        if (Kd(e)) {
+                        if (Jd(e)) {
                           var t = e;
                           Object.keys(t).forEach(function (e) {
-                            jd(t[e]).forEach(function (e) {
+                            Ad(t[e]).forEach(function (e) {
                               a.hasOwnProperty(e) || i.add(e);
                             });
                           });
@@ -46970,7 +46987,7 @@ function _createClass(e, t, n) {
                       }),
                       i.size)
                     ) {
-                      var o = Id(i.values());
+                      var o = Pd(i.values());
                       t.errors.push(
                         'state("'
                           .concat(
@@ -46991,7 +47008,7 @@ function _createClass(e, t, n) {
                   var n,
                     r,
                     i,
-                    a = Nd(this, Td(e.animation), t);
+                    a = Hd(this, Od(e.animation), t);
                   return {
                     type: 1,
                     matchers:
@@ -47033,7 +47050,7 @@ function _createClass(e, t, n) {
                               var a = i[1],
                                 o = i[2],
                                 s = i[3];
-                              t.push(Wd(a, s)), '<' != o[0] || ('*' == a && '*' == s) || t.push(Wd(s, a));
+                              t.push(Ud(a, s)), '<' != o[0] || ('*' == a && '*' == s) || t.push(Ud(s, a));
                             })(e, i, r);
                           })
                         : i.push(n),
@@ -47041,7 +47058,7 @@ function _createClass(e, t, n) {
                     animation: a,
                     queryCount: t.queryCount,
                     depCount: t.depCount,
-                    options: Jd(e.options),
+                    options: Qd(e.options),
                   };
                 },
               },
@@ -47052,9 +47069,9 @@ function _createClass(e, t, n) {
                   return {
                     type: 2,
                     steps: e.steps.map(function (e) {
-                      return Nd(n, e, t);
+                      return Hd(n, e, t);
                     }),
-                    options: Jd(e.options),
+                    options: Qd(e.options),
                   };
                 },
               },
@@ -47066,10 +47083,10 @@ function _createClass(e, t, n) {
                     i = 0,
                     a = e.steps.map(function (e) {
                       t.currentTime = r;
-                      var a = Nd(n, e, t);
+                      var a = Hd(n, e, t);
                       return (i = Math.max(i, t.currentTime)), a;
                     });
-                  return (t.currentTime = i), { type: 3, steps: a, options: Jd(e.options) };
+                  return (t.currentTime = i), { type: 3, steps: a, options: Qd(e.options) };
                 },
               },
               {
@@ -47079,17 +47096,17 @@ function _createClass(e, t, n) {
                     r = (function (e, t) {
                       var n = null;
                       if (e.hasOwnProperty('duration')) n = e;
-                      else if ('number' == typeof e) return Qd(wd(e, t).duration, 0, '');
+                      else if ('number' == typeof e) return Zd(Cd(e, t).duration, 0, '');
                       var r = e;
                       if (
                         r.split(/\s+/).some(function (e) {
                           return '{' == e.charAt(0) && '{' == e.charAt(1);
                         })
                       ) {
-                        var i = Qd(0, 0, '');
+                        var i = Zd(0, 0, '');
                         return (i.dynamic = !0), (i.strValue = r), i;
                       }
-                      return Qd((n = n || wd(r, t)).duration, n.delay, n.easing);
+                      return Zd((n = n || Cd(r, t)).duration, n.delay, n.easing);
                     })(e.timings, t.errors);
                   t.currentAnimateTimings = r;
                   var i = e.styles ? e.styles : Object(si.h)({});
@@ -47133,7 +47150,7 @@ function _createClass(e, t, n) {
                     i = null;
                   return (
                     n.forEach(function (e) {
-                      if (Kd(e)) {
+                      if (Jd(e)) {
                         var t = e,
                           n = t.easing;
                         if ((n && ((i = n), delete t.easing), !r))
@@ -47191,7 +47208,7 @@ function _createClass(e, t, n) {
                                 (s = t.options),
                                 (l = t.errors),
                                 (u = s.params || {}),
-                                (c = jd(o)).length &&
+                                (c = Ad(o)).length &&
                                   c.forEach(function (e) {
                                     u.hasOwnProperty(e) ||
                                       l.push(
@@ -47234,12 +47251,12 @@ function _createClass(e, t, n) {
                                 var t = null;
                                 if (Array.isArray(e))
                                   e.forEach(function (e) {
-                                    if (Kd(e) && e.hasOwnProperty('offset')) {
+                                    if (Jd(e) && e.hasOwnProperty('offset')) {
                                       var n = e;
                                       (t = parseFloat(n.offset)), delete n.offset;
                                     }
                                   });
-                                else if (Kd(e) && e.hasOwnProperty('offset')) {
+                                else if (Jd(e) && e.hasOwnProperty('offset')) {
                                   var n = e;
                                   (t = parseFloat(n.offset)), delete n.offset;
                                 }
@@ -47283,19 +47300,19 @@ function _createClass(e, t, n) {
               {
                 key: 'visitReference',
                 value: function (e, t) {
-                  return { type: 8, animation: Nd(this, Td(e.animation), t), options: Jd(e.options) };
+                  return { type: 8, animation: Hd(this, Od(e.animation), t), options: Qd(e.options) };
                 },
               },
               {
                 key: 'visitAnimateChild',
                 value: function (e, t) {
-                  return t.depCount++, { type: 9, options: Jd(e.options) };
+                  return t.depCount++, { type: 9, options: Qd(e.options) };
                 },
               },
               {
                 key: 'visitAnimateRef',
                 value: function (e, t) {
-                  return { type: 10, animation: this.visitReference(e.animation, t), options: Jd(e.options) };
+                  return { type: 10, animation: this.visitReference(e.animation, t), options: Qd(e.options) };
                 },
               },
               {
@@ -47310,7 +47327,7 @@ function _createClass(e, t, n) {
                           return ':self' == e;
                         });
                         return (
-                          t && (e = e.replace(Ud, '')),
+                          t && (e = e.replace(zd, '')),
                           [
                             (e = e
                               .replace(/@\*/g, '.ng-trigger')
@@ -47327,8 +47344,8 @@ function _createClass(e, t, n) {
                     a = i[0],
                     o = i[1];
                   (t.currentQuerySelector = n.length ? n + ' ' + a : a),
-                    ad(t.collectedStyles, t.currentQuerySelector, {});
-                  var s = Nd(this, Td(e.animation), t);
+                    od(t.collectedStyles, t.currentQuerySelector, {});
+                  var s = Hd(this, Od(e.animation), t);
                   return (
                     (t.currentQuery = null),
                     (t.currentQuerySelector = n),
@@ -47340,7 +47357,7 @@ function _createClass(e, t, n) {
                       includeSelf: o,
                       animation: s,
                       originalSelector: e.selector,
-                      options: Jd(e.options),
+                      options: Qd(e.options),
                     }
                   );
                 },
@@ -47350,15 +47367,15 @@ function _createClass(e, t, n) {
                 value: function (e, t) {
                   t.currentQuery || t.errors.push('stagger() can only be used inside of query()');
                   var n =
-                    'full' === e.timings ? { duration: 0, delay: 0, easing: 'full' } : wd(e.timings, t.errors, !0);
-                  return { type: 12, animation: Nd(this, Td(e.animation), t), timings: n, options: null };
+                    'full' === e.timings ? { duration: 0, delay: 0, easing: 'full' } : Cd(e.timings, t.errors, !0);
+                  return { type: 12, animation: Hd(this, Od(e.animation), t), timings: n, options: null };
                 },
               },
             ]),
             e
           );
         })(),
-        qd = function e(t) {
+        Kd = function e(t) {
           _classCallCheck(this, e),
             (this.errors = t),
             (this.queryCount = 0),
@@ -47371,17 +47388,17 @@ function _createClass(e, t, n) {
             (this.collectedStyles = {}),
             (this.options = null);
         };
-      function Kd(e) {
+      function Jd(e) {
         return !Array.isArray(e) && 'object' == typeof e;
       }
-      function Jd(e) {
+      function Qd(e) {
         var t;
-        return e ? (e = Cd(e)).params && (e.params = (t = e.params) ? Cd(t) : null) : (e = {}), e;
+        return e ? (e = Sd(e)).params && (e.params = (t = e.params) ? Sd(t) : null) : (e = {}), e;
       }
-      function Qd(e, t, n) {
+      function Zd(e, t, n) {
         return { duration: e, delay: t, easing: n };
       }
-      function Zd(e, t, n, r, i, a) {
+      function $d(e, t, n, r, i, a) {
         var o = arguments.length > 6 && void 0 !== arguments[6] ? arguments[6] : null,
           s = arguments.length > 7 && void 0 !== arguments[7] && arguments[7];
         return {
@@ -47397,7 +47414,7 @@ function _createClass(e, t, n) {
           subTimeline: s,
         };
       }
-      var $d = (function () {
+      var Xd = (function () {
           function e() {
             _classCallCheck(this, e), (this._map = new Map());
           }
@@ -47434,17 +47451,17 @@ function _createClass(e, t, n) {
             e
           );
         })(),
-        Xd = new RegExp(':enter', 'g'),
-        eh = new RegExp(':leave', 'g');
-      function th(e, t, n, r, i) {
+        eh = new RegExp(':enter', 'g'),
+        th = new RegExp(':leave', 'g');
+      function nh(e, t, n, r, i) {
         var a = arguments.length > 5 && void 0 !== arguments[5] ? arguments[5] : {},
           o = arguments.length > 6 && void 0 !== arguments[6] ? arguments[6] : {},
           s = arguments.length > 7 ? arguments[7] : void 0,
           l = arguments.length > 8 ? arguments[8] : void 0,
           u = arguments.length > 9 && void 0 !== arguments[9] ? arguments[9] : [];
-        return new nh().buildKeyframes(e, t, n, r, i, a, o, s, l, u);
+        return new rh().buildKeyframes(e, t, n, r, i, a, o, s, l, u);
       }
-      var nh = (function () {
+      var rh = (function () {
           function e() {
             _classCallCheck(this, e);
           }
@@ -47454,9 +47471,9 @@ function _createClass(e, t, n) {
                 key: 'buildKeyframes',
                 value: function (e, t, n, r, i, a, o, s, l) {
                   var u = arguments.length > 9 && void 0 !== arguments[9] ? arguments[9] : [];
-                  l = l || new $d();
-                  var c = new ih(e, t, l, r, i, u, []);
-                  (c.options = s), c.currentTimeline.setStyles([a], null, c.errors, s), Nd(this, n, c);
+                  l = l || new Xd();
+                  var c = new ah(e, t, l, r, i, u, []);
+                  (c.options = s), c.currentTimeline.setStyles([a], null, c.errors, s), Hd(this, n, c);
                   var d = c.timelines.filter(function (e) {
                     return e.containsAnimation();
                   });
@@ -47468,7 +47485,7 @@ function _createClass(e, t, n) {
                     ? d.map(function (e) {
                         return e.buildKeyframes();
                       })
-                    : [Zd(t, [], [], [], 0, 0, '', !1)];
+                    : [$d(t, [], [], [], 0, 0, '', !1)];
                 },
               },
               { key: 'visitTrigger', value: function (e, t) {} },
@@ -47501,8 +47518,8 @@ function _createClass(e, t, n) {
                 key: '_visitSubInstructions',
                 value: function (e, t, n) {
                   var r = t.currentTimeline.currentTime,
-                    i = null != n.duration ? kd(n.duration) : null,
-                    a = null != n.delay ? kd(n.delay) : null;
+                    i = null != n.duration ? xd(n.duration) : null,
+                    a = null != n.delay ? xd(n.delay) : null;
                   return (
                     0 !== i &&
                       e.forEach(function (e) {
@@ -47516,7 +47533,7 @@ function _createClass(e, t, n) {
               {
                 key: 'visitReference',
                 value: function (e, t) {
-                  t.updateOptions(e.options, !0), Nd(this, e.animation, t), (t.previousNode = e);
+                  t.updateOptions(e.options, !0), Hd(this, e.animation, t), (t.previousNode = e);
                 },
               },
               {
@@ -47531,13 +47548,13 @@ function _createClass(e, t, n) {
                     (a.params || a.delay) &&
                     ((i = t.createSubContext(a)).transformIntoNewTimeline(), null != a.delay)
                   ) {
-                    6 == i.previousNode.type && (i.currentTimeline.snapshotCurrentStyles(), (i.previousNode = rh));
-                    var o = kd(a.delay);
+                    6 == i.previousNode.type && (i.currentTimeline.snapshotCurrentStyles(), (i.previousNode = ih));
+                    var o = xd(a.delay);
                     i.delayNextStep(o);
                   }
                   e.steps.length &&
                     (e.steps.forEach(function (e) {
-                      return Nd(n, e, i);
+                      return Hd(n, e, i);
                     }),
                     i.currentTimeline.applyStylesToKeyframe(),
                     i.subContextCount > r && i.transformIntoNewTimeline()),
@@ -47550,11 +47567,11 @@ function _createClass(e, t, n) {
                   var n = this,
                     r = [],
                     i = t.currentTimeline.currentTime,
-                    a = e.options && e.options.delay ? kd(e.options.delay) : 0;
+                    a = e.options && e.options.delay ? xd(e.options.delay) : 0;
                   e.steps.forEach(function (o) {
                     var s = t.createSubContext(e.options);
                     a && s.delayNextStep(a),
-                      Nd(n, o, s),
+                      Hd(n, o, s),
                       (i = Math.max(i, s.currentTimeline.currentTime)),
                       r.push(s.currentTimeline);
                   }),
@@ -47570,7 +47587,7 @@ function _createClass(e, t, n) {
                 value: function (e, t) {
                   if (e.dynamic) {
                     var n = e.strValue;
-                    return wd(t.params ? Ad(n, t.params, t.errors) : n, t.errors);
+                    return Cd(t.params ? Id(n, t.params, t.errors) : n, t.errors);
                   }
                   return { duration: e.duration, delay: e.delay, easing: e.easing };
                 },
@@ -47624,10 +47641,10 @@ function _createClass(e, t, n) {
                   var n = this,
                     r = t.currentTimeline.currentTime,
                     i = e.options || {},
-                    a = i.delay ? kd(i.delay) : 0;
+                    a = i.delay ? xd(i.delay) : 0;
                   a &&
                     (6 === t.previousNode.type || (0 == r && t.currentTimeline.getCurrentStyleProperties().length)) &&
-                    (t.currentTimeline.snapshotCurrentStyles(), (t.previousNode = rh));
+                    (t.currentTimeline.snapshotCurrentStyles(), (t.previousNode = ih));
                   var o = r,
                     s = t.invokeQuery(e.selector, e.originalSelector, e.limit, e.includeSelf, !!i.optional, t.errors);
                   t.currentQueryTotal = s.length;
@@ -47637,7 +47654,7 @@ function _createClass(e, t, n) {
                     var s = t.createSubContext(e.options, r);
                     a && s.delayNextStep(a),
                       r === t.element && (l = s.currentTimeline),
-                      Nd(n, e.animation, s),
+                      Hd(n, e.animation, s),
                       s.currentTimeline.applyStylesToKeyframe(),
                       (o = Math.max(o, s.currentTimeline.currentTime));
                   }),
@@ -47667,7 +47684,7 @@ function _createClass(e, t, n) {
                   var l = t.currentTimeline;
                   s && l.delayNextStep(s);
                   var u = l.currentTime;
-                  Nd(this, e.animation, t),
+                  Hd(this, e.animation, t),
                     (t.previousNode = e),
                     (n.currentStaggerTime = r.currentTime - u + (r.startTime - n.currentTimeline.startTime));
                 },
@@ -47676,8 +47693,8 @@ function _createClass(e, t, n) {
             e
           );
         })(),
-        rh = {},
-        ih = (function () {
+        ih = {},
+        ah = (function () {
           function e(t, n, r, i, a, o, s, l) {
             _classCallCheck(this, e),
               (this._driver = t),
@@ -47689,13 +47706,13 @@ function _createClass(e, t, n) {
               (this.timelines = s),
               (this.parentContext = null),
               (this.currentAnimateTimings = null),
-              (this.previousNode = rh),
+              (this.previousNode = ih),
               (this.subContextCount = 0),
               (this.options = {}),
               (this.currentQueryIndex = 0),
               (this.currentQueryTotal = 0),
               (this.currentStaggerTime = 0),
-              (this.currentTimeline = l || new ah(this._driver, n, 0)),
+              (this.currentTimeline = l || new oh(this._driver, n, 0)),
               s.push(this.currentTimeline);
           }
           return (
@@ -47707,13 +47724,13 @@ function _createClass(e, t, n) {
                   if (e) {
                     var r = e,
                       i = this.options;
-                    null != r.duration && (i.duration = kd(r.duration)), null != r.delay && (i.delay = kd(r.delay));
+                    null != r.duration && (i.duration = xd(r.duration)), null != r.delay && (i.delay = xd(r.delay));
                     var a = r.params;
                     if (a) {
                       var o = i.params;
                       o || (o = this.options.params = {}),
                         Object.keys(a).forEach(function (e) {
-                          (t && o.hasOwnProperty(e)) || (o[e] = Ad(a[e], o, n.errors));
+                          (t && o.hasOwnProperty(e)) || (o[e] = Id(a[e], o, n.errors));
                         });
                     }
                   }
@@ -47769,7 +47786,7 @@ function _createClass(e, t, n) {
                 key: 'transformIntoNewTimeline',
                 value: function (e) {
                   return (
-                    (this.previousNode = rh),
+                    (this.previousNode = ih),
                     (this.currentTimeline = this.currentTimeline.fork(this.element, e)),
                     this.timelines.push(this.currentTimeline),
                     this.currentTimeline
@@ -47784,7 +47801,7 @@ function _createClass(e, t, n) {
                       delay: this.currentTimeline.currentTime + (null != n ? n : 0) + e.delay,
                       easing: '',
                     },
-                    i = new oh(
+                    i = new sh(
                       this._driver,
                       e.element,
                       e.keyframes,
@@ -47813,7 +47830,7 @@ function _createClass(e, t, n) {
                 value: function (e, t, n, r, i, a) {
                   var o = [];
                   if ((r && o.push(this.element), e.length > 0)) {
-                    e = (e = e.replace(Xd, '.' + this._enterClassName)).replace(eh, '.' + this._leaveClassName);
+                    e = (e = e.replace(eh, '.' + this._enterClassName)).replace(th, '.' + this._leaveClassName);
                     var s = this._driver.query(this.element, e, 1 != n);
                     0 !== n && (s = n < 0 ? s.slice(s.length + n, s.length) : s.slice(0, n)),
                       o.push.apply(o, _toConsumableArray(s));
@@ -47840,7 +47857,7 @@ function _createClass(e, t, n) {
             e
           );
         })(),
-        ah = (function () {
+        oh = (function () {
           function e(t, n, r, i) {
             _classCallCheck(this, e),
               (this._driver = t),
@@ -47964,13 +47981,13 @@ function _createClass(e, t, n) {
                             ? (n = n || Object.keys(t)).forEach(function (e) {
                                 r[e] = si.a;
                               })
-                            : Sd(e, !1, r);
+                            : Md(e, !1, r);
                         }),
                         r
                       );
                     })(e, this._globalTimelineStyles);
                   Object.keys(o).forEach(function (e) {
-                    var t = Ad(o[e], a, n);
+                    var t = Id(o[e], a, n);
                     (i._pendingStyles[e] = t),
                       i._localTimelineStyles.hasOwnProperty(e) ||
                         (i._backFill[e] = i._globalTimelineStyles.hasOwnProperty(e)
@@ -48033,7 +48050,7 @@ function _createClass(e, t, n) {
                     r = 1 === this._keyframes.size && 0 === this.duration,
                     i = [];
                   this._keyframes.forEach(function (a, o) {
-                    var s = Sd(a, !0);
+                    var s = Md(a, !0);
                     Object.keys(s).forEach(function (e) {
                       var r = s[e];
                       r == si.l ? t.add(e) : r == si.a && n.add(e);
@@ -48041,14 +48058,14 @@ function _createClass(e, t, n) {
                       r || (s.offset = o / e.duration),
                       i.push(s);
                   });
-                  var a = t.size ? Id(t.values()) : [],
-                    o = n.size ? Id(n.values()) : [];
+                  var a = t.size ? Pd(t.values()) : [],
+                    o = n.size ? Pd(n.values()) : [];
                   if (r) {
                     var s = i[0],
-                      l = Cd(s);
+                      l = Sd(s);
                     (s.offset = 0), (l.offset = 1), (i = [s, l]);
                   }
-                  return Zd(this.element, i, a, o, this.duration, this.startTime, this.easing, !1);
+                  return $d(this.element, i, a, o, this.duration, this.startTime, this.easing, !1);
                 },
               },
               {
@@ -48069,7 +48086,7 @@ function _createClass(e, t, n) {
             e
           );
         })(),
-        oh = (function (e) {
+        sh = (function (e) {
           _inherits(n, e);
           var t = _createSuper(n);
           function n(e, r, i, a, o, s) {
@@ -48106,32 +48123,32 @@ function _createClass(e, t, n) {
                     var a = [],
                       o = r + n,
                       s = n / o,
-                      l = Sd(e[0], !1);
+                      l = Md(e[0], !1);
                     (l.offset = 0), a.push(l);
-                    var u = Sd(e[0], !1);
-                    (u.offset = sh(s)), a.push(u);
+                    var u = Md(e[0], !1);
+                    (u.offset = lh(s)), a.push(u);
                     for (var c = e.length - 1, d = 1; d <= c; d++) {
-                      var h = Sd(e[d], !1);
-                      (h.offset = sh((n + h.offset * r) / o)), a.push(h);
+                      var h = Md(e[d], !1);
+                      (h.offset = lh((n + h.offset * r) / o)), a.push(h);
                     }
                     (r = o), (n = 0), (i = ''), (e = a);
                   }
-                  return Zd(this.element, e, this.preStyleProps, this.postStyleProps, r, n, i, !0);
+                  return $d(this.element, e, this.preStyleProps, this.postStyleProps, r, n, i, !0);
                 },
               },
             ]),
             n
           );
-        })(ah);
-      function sh(e) {
+        })(oh);
+      function lh(e) {
         var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 3,
           n = Math.pow(10, t - 1);
         return Math.round(e * n) / n;
       }
-      var lh = function e() {
+      var uh = function e() {
           _classCallCheck(this, e);
         },
-        uh = (function (e) {
+        ch = (function (e) {
           _inherits(n, e);
           var t = _createSuper(n);
           function n() {
@@ -48142,7 +48159,7 @@ function _createClass(e, t, n) {
               {
                 key: 'normalizePropertyName',
                 value: function (e, t) {
-                  return Yd(e);
+                  return Fd(e);
                 },
               },
               {
@@ -48150,7 +48167,7 @@ function _createClass(e, t, n) {
                 value: function (e, t, n, r) {
                   var i = '',
                     a = n.toString().trim();
-                  if (ch[t] && 0 !== n && '0' !== n)
+                  if (dh[t] && 0 !== n && '0' !== n)
                     if ('number' == typeof n) i = 'px';
                     else {
                       var o = n.match(/^[+-]?[\d\.]+([a-z]*)$/);
@@ -48162,8 +48179,8 @@ function _createClass(e, t, n) {
             ]),
             n
           );
-        })(lh),
-        ch = (function (e) {
+        })(uh),
+        dh = (function (e) {
           var t = {};
           return (
             e.forEach(function (e) {
@@ -48176,7 +48193,7 @@ function _createClass(e, t, n) {
             ','
           )
         );
-      function dh(e, t, n, r, i, a, o, s, l, u, c, d, h) {
+      function hh(e, t, n, r, i, a, o, s, l, u, c, d, h) {
         return {
           type: 0,
           element: e,
@@ -48194,8 +48211,8 @@ function _createClass(e, t, n) {
           errors: h,
         };
       }
-      var hh = {},
-        fh = (function () {
+      var fh = {},
+        mh = (function () {
           function e(t, n, r) {
             _classCallCheck(this, e), (this._triggerName = t), (this.ast = n), (this._stateStyles = r);
           }
@@ -48224,16 +48241,16 @@ function _createClass(e, t, n) {
                 key: 'build',
                 value: function (e, t, n, r, i, a, o, s, l, u) {
                   var c = [],
-                    d = (this.ast.options && this.ast.options.params) || hh,
-                    h = this.buildStyles(n, (o && o.params) || hh, c),
-                    f = (s && s.params) || hh,
+                    d = (this.ast.options && this.ast.options.params) || fh,
+                    h = this.buildStyles(n, (o && o.params) || fh, c),
+                    f = (s && s.params) || fh,
                     m = this.buildStyles(r, f, c),
                     p = new Set(),
                     _ = new Map(),
                     v = new Map(),
                     g = 'void' === r,
                     y = { params: Object.assign(Object.assign({}, d), f) },
-                    b = u ? [] : th(e, t, this.ast.animation, i, a, h, m, y, l, c),
+                    b = u ? [] : nh(e, t, this.ast.animation, i, a, h, m, y, l, c),
                     k = 0;
                   if (
                     (b.forEach(function (e) {
@@ -48241,28 +48258,28 @@ function _createClass(e, t, n) {
                     }),
                     c.length)
                   )
-                    return dh(t, this._triggerName, n, r, g, h, m, [], [], _, v, k, c);
+                    return hh(t, this._triggerName, n, r, g, h, m, [], [], _, v, k, c);
                   b.forEach(function (e) {
                     var n = e.element,
-                      r = ad(_, n, {});
+                      r = od(_, n, {});
                     e.preStyleProps.forEach(function (e) {
                       return (r[e] = !0);
                     });
-                    var i = ad(v, n, {});
+                    var i = od(v, n, {});
                     e.postStyleProps.forEach(function (e) {
                       return (i[e] = !0);
                     }),
                       n !== t && p.add(n);
                   });
-                  var x = Id(p.values());
-                  return dh(t, this._triggerName, n, r, g, h, m, b, x, _, v, k);
+                  var x = Pd(p.values());
+                  return hh(t, this._triggerName, n, r, g, h, m, b, x, _, v, k);
                 },
               },
             ]),
             e
           );
         })(),
-        mh = (function () {
+        ph = (function () {
           function e(t, n) {
             _classCallCheck(this, e), (this.styles = t), (this.defaultParams = n);
           }
@@ -48272,7 +48289,7 @@ function _createClass(e, t, n) {
                 key: 'buildStyles',
                 value: function (e, t) {
                   var n = {},
-                    r = Cd(this.defaultParams);
+                    r = Sd(this.defaultParams);
                   return (
                     Object.keys(e).forEach(function (t) {
                       var n = e[t];
@@ -48283,7 +48300,7 @@ function _createClass(e, t, n) {
                         var i = e;
                         Object.keys(i).forEach(function (e) {
                           var a = i[e];
-                          a.length > 1 && (a = Ad(a, r, t)), (n[e] = a);
+                          a.length > 1 && (a = Id(a, r, t)), (n[e] = a);
                         });
                       }
                     }),
@@ -48295,7 +48312,7 @@ function _createClass(e, t, n) {
             e
           );
         })(),
-        ph = (function () {
+        _h = (function () {
           function e(t, n) {
             var r = this;
             _classCallCheck(this, e),
@@ -48304,15 +48321,15 @@ function _createClass(e, t, n) {
               (this.transitionFactories = []),
               (this.states = {}),
               n.states.forEach(function (e) {
-                r.states[e.name] = new mh(e.style, (e.options && e.options.params) || {});
+                r.states[e.name] = new ph(e.style, (e.options && e.options.params) || {});
               }),
-              _h(this.states, 'true', '1'),
-              _h(this.states, 'false', '0'),
+              vh(this.states, 'true', '1'),
+              vh(this.states, 'false', '0'),
               n.transitions.forEach(function (e) {
-                r.transitionFactories.push(new fh(t, e, r.states));
+                r.transitionFactories.push(new mh(t, e, r.states));
               }),
               (this.fallbackTransition = (function (e, t) {
-                return new fh(
+                return new mh(
                   e,
                   {
                     type: 1,
@@ -48358,11 +48375,11 @@ function _createClass(e, t, n) {
             e
           );
         })();
-      function _h(e, t, n) {
+      function vh(e, t, n) {
         e.hasOwnProperty(t) ? e.hasOwnProperty(n) || (e[n] = e[t]) : e.hasOwnProperty(n) && (e[t] = e[n]);
       }
-      var vh = new $d(),
-        gh = (function () {
+      var gh = new Xd(),
+        yh = (function () {
           function e(t, n, r) {
             _classCallCheck(this, e),
               (this.bodyNode = t),
@@ -48378,7 +48395,7 @@ function _createClass(e, t, n) {
                 key: 'register',
                 value: function (e, t) {
                   var n = [],
-                    r = zd(this._driver, t, n);
+                    r = Gd(this._driver, t, n);
                   if (n.length)
                     throw new Error('Unable to build the animation due to the following errors: ' + n.join('\n'));
                   this._animations[e] = r;
@@ -48388,7 +48405,7 @@ function _createClass(e, t, n) {
                 key: '_buildPlayer',
                 value: function (e, t, n) {
                   var r = e.element,
-                    i = td(0, this._normalizer, 0, e.keyframes, t, n);
+                    i = nd(0, this._normalizer, 0, e.keyframes, t, n);
                   return this._driver.animate(r, i, e.duration, e.delay, e.easing, [], !0);
                 },
               },
@@ -48403,8 +48420,8 @@ function _createClass(e, t, n) {
                     s = new Map();
                   if (
                     (o
-                      ? (n = th(this._driver, t, o, 'ng-enter', 'ng-leave', {}, {}, i, vh, a)).forEach(function (e) {
-                          var t = ad(s, e.element, {});
+                      ? (n = nh(this._driver, t, o, 'ng-enter', 'ng-leave', {}, {}, i, gh, a)).forEach(function (e) {
+                          var t = od(s, e.element, {});
                           e.postStyleProps.forEach(function (e) {
                             return (t[e] = null);
                           });
@@ -48418,7 +48435,7 @@ function _createClass(e, t, n) {
                       e[n] = r._driver.computeStyle(t, n, si.a);
                     });
                   });
-                  var l = ed(
+                  var l = td(
                     n.map(function (e) {
                       var t = s.get(e.element);
                       return r._buildPlayer(e, {}, t);
@@ -48454,8 +48471,8 @@ function _createClass(e, t, n) {
               {
                 key: 'listen',
                 value: function (e, t, n, r) {
-                  var i = id(t, '', '', '');
-                  return nd(this._getPlayer(e), n, i, r), function () {};
+                  var i = ad(t, '', '', '');
+                  return rd(this._getPlayer(e), n, i, r), function () {};
                 },
               },
               {
@@ -48497,17 +48514,17 @@ function _createClass(e, t, n) {
             e
           );
         })(),
-        yh = [],
-        bh = { namespaceId: '', setForRemoval: !1, setForMove: !1, hasAnimation: !1, removedBeforeQueried: !1 },
-        kh = { namespaceId: '', setForMove: !1, setForRemoval: !1, hasAnimation: !1, removedBeforeQueried: !0 },
-        xh = (function () {
+        bh = [],
+        kh = { namespaceId: '', setForRemoval: !1, setForMove: !1, hasAnimation: !1, removedBeforeQueried: !1 },
+        xh = { namespaceId: '', setForMove: !1, setForRemoval: !1, hasAnimation: !1, removedBeforeQueried: !0 },
+        wh = (function () {
           function e(t) {
             var n = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : '';
             _classCallCheck(this, e), (this.namespaceId = n);
             var r,
               i = t && t.hasOwnProperty('value');
             if (((this.value = null != (r = i ? t.value : t) ? r : null), i)) {
-              var a = Cd(t);
+              var a = Sd(t);
               delete a.value, (this.options = a);
             } else this.options = {};
             this.options.params || (this.options.params = {});
@@ -48536,8 +48553,8 @@ function _createClass(e, t, n) {
             e
           );
         })(),
-        wh = new xh('void'),
-        Ch = (function () {
+        Ch = new wh('void'),
+        Sh = (function () {
           function e(t, n, r) {
             _classCallCheck(this, e),
               (this.id = t),
@@ -48548,7 +48565,7 @@ function _createClass(e, t, n) {
               (this._queue = []),
               (this._elementListeners = new Map()),
               (this._hostClassName = 'ng-tns-' + t),
-              Oh(n, this._hostClassName);
+              jh(n, this._hostClassName);
           }
           return (
             _createClass(e, [
@@ -48576,12 +48593,12 @@ function _createClass(e, t, n) {
                         .concat(n, '" for the animation trigger "')
                         .concat(t, '" is not supported!')
                     );
-                  var o = ad(this._elementListeners, e, []),
+                  var o = od(this._elementListeners, e, []),
                     s = { name: t, phase: n, callback: r };
                   o.push(s);
-                  var l = ad(this._engine.statesByElement, e, {});
+                  var l = od(this._engine.statesByElement, e, {});
                   return (
-                    l.hasOwnProperty(t) || (Oh(e, 'ng-trigger'), Oh(e, 'ng-trigger-' + t), (l[t] = wh)),
+                    l.hasOwnProperty(t) || (jh(e, 'ng-trigger'), jh(e, 'ng-trigger-' + t), (l[t] = Ch)),
                     function () {
                       a._engine.afterFlush(function () {
                         var e = o.indexOf(s);
@@ -48611,18 +48628,18 @@ function _createClass(e, t, n) {
                   var r = this,
                     i = !(arguments.length > 3 && void 0 !== arguments[3]) || arguments[3],
                     a = this._getTrigger(t),
-                    o = new Mh(this.id, t, e),
+                    o = new Eh(this.id, t, e),
                     s = this._engine.statesByElement.get(e);
-                  s || (Oh(e, 'ng-trigger'), Oh(e, 'ng-trigger-' + t), this._engine.statesByElement.set(e, (s = {})));
+                  s || (jh(e, 'ng-trigger'), jh(e, 'ng-trigger-' + t), this._engine.statesByElement.set(e, (s = {})));
                   var l = s[t],
-                    u = new xh(n, this.id);
+                    u = new wh(n, this.id);
                   if (
                     (!(n && n.hasOwnProperty('value')) && l && u.absorbOptions(l.options),
                     (s[t] = u),
-                    l || (l = wh),
+                    l || (l = Ch),
                     'void' === u.value || l.value !== u.value)
                   ) {
-                    var c = ad(this._engine.playersByElement, e, []);
+                    var c = od(this._engine.playersByElement, e, []);
                     c.forEach(function (e) {
                       e.namespaceId == r.id && e.triggerName == t && e.queued && e.destroy();
                     });
@@ -48644,9 +48661,9 @@ function _createClass(e, t, n) {
                         isFallbackTransition: h,
                       }),
                       h ||
-                        (Oh(e, 'ng-animate-queued'),
+                        (jh(e, 'ng-animate-queued'),
                         o.onStart(function () {
-                          jh(e, 'ng-animate-queued');
+                          Ah(e, 'ng-animate-queued');
                         })),
                       o.onDone(function () {
                         var t = r.players.indexOf(o);
@@ -48680,7 +48697,7 @@ function _createClass(e, t, n) {
                     f.length
                       ? this._engine.reportError(f)
                       : this._engine.afterFlush(function () {
-                          Ld(e, m), Dd(e, p);
+                          Td(e, m), Ld(e, p);
                         });
                   }
                 },
@@ -48756,7 +48773,7 @@ function _createClass(e, t, n) {
                       return (
                         this._engine.markElementAsRemoved(this.id, e, !0, t),
                         n &&
-                          ed(o).onDone(function () {
+                          td(o).onDone(function () {
                             return i._engine.processLeaveNode(e);
                           }),
                         !0
@@ -48777,9 +48794,9 @@ function _createClass(e, t, n) {
                       if (!r.has(i)) {
                         r.add(i);
                         var a = t._triggers[i].fallbackTransition,
-                          o = t._engine.statesByElement.get(e)[i] || wh,
-                          s = new xh('void'),
-                          l = new Mh(t.id, i, e);
+                          o = t._engine.statesByElement.get(e)[i] || Ch,
+                          s = new wh('void'),
+                          l = new Eh(t.id, i, e);
                         t._engine.totalQueuedPlayers++,
                           t._queue.push({
                             element: e,
@@ -48818,7 +48835,7 @@ function _createClass(e, t, n) {
                     if ((this.prepareLeaveAnimationListeners(e), i)) r.markElementAsRemoved(this.id, e, !1, t);
                     else {
                       var s = e.__ng_removed;
-                      (s && s !== bh) ||
+                      (s && s !== kh) ||
                         (r.afterFlush(function () {
                           return n.clearElementCache(e);
                         }),
@@ -48831,7 +48848,7 @@ function _createClass(e, t, n) {
               {
                 key: 'insertNode',
                 value: function (e, t) {
-                  Oh(e, this._hostClassName);
+                  jh(e, this._hostClassName);
                 },
               },
               {
@@ -48848,8 +48865,8 @@ function _createClass(e, t, n) {
                         o &&
                           o.forEach(function (t) {
                             if (t.name == r.triggerName) {
-                              var n = id(a, r.triggerName, r.fromState.value, r.toState.value);
-                              (n._data = e), nd(r.player, t.phase, n, t.callback);
+                              var n = ad(a, r.triggerName, r.fromState.value, r.toState.value);
+                              (n._data = e), rd(r.player, t.phase, n, t.callback);
                             }
                           }),
                           i.markedForDestroy
@@ -48894,7 +48911,7 @@ function _createClass(e, t, n) {
             e
           );
         })(),
-        Sh = (function () {
+        Mh = (function () {
           function e(t, n, r) {
             _classCallCheck(this, e),
               (this.bodyNode = t),
@@ -48928,7 +48945,7 @@ function _createClass(e, t, n) {
               {
                 key: 'createNamespace',
                 value: function (e, t) {
-                  var n = new Ch(e, t, this);
+                  var n = new Sh(e, t, this);
                   return (
                     t.parentNode
                       ? this._balanceNamespaceList(n, t)
@@ -49008,7 +49025,7 @@ function _createClass(e, t, n) {
               {
                 key: 'trigger',
                 value: function (e, t, n, r) {
-                  if (Eh(t)) {
+                  if (Dh(t)) {
                     var i = this._fetchNamespace(e);
                     if (i) return i.trigger(t, n, r), !0;
                   }
@@ -49018,7 +49035,7 @@ function _createClass(e, t, n) {
               {
                 key: 'insertNode',
                 value: function (e, t, n, r) {
-                  if (Eh(t)) {
+                  if (Dh(t)) {
                     var i = t.__ng_removed;
                     if (i && i.setForRemoval) {
                       (i.setForRemoval = !1), (i.setForMove = !0);
@@ -49043,14 +49060,14 @@ function _createClass(e, t, n) {
                 key: 'markElementAsDisabled',
                 value: function (e, t) {
                   t
-                    ? this.disabledNodes.has(e) || (this.disabledNodes.add(e), Oh(e, 'ng-animate-disabled'))
-                    : this.disabledNodes.has(e) && (this.disabledNodes.delete(e), jh(e, 'ng-animate-disabled'));
+                    ? this.disabledNodes.has(e) || (this.disabledNodes.add(e), jh(e, 'ng-animate-disabled'))
+                    : this.disabledNodes.has(e) && (this.disabledNodes.delete(e), Ah(e, 'ng-animate-disabled'));
                 },
               },
               {
                 key: 'removeNode',
                 value: function (e, t, n, r) {
-                  if (Eh(t)) {
+                  if (Dh(t)) {
                     var i = e ? this._fetchNamespace(e) : null;
                     if ((i ? i.removeNode(t, r) : this.markElementAsRemoved(e, t, !1, r), n)) {
                       var a = this.namespacesByHostElement.get(t);
@@ -49069,7 +49086,7 @@ function _createClass(e, t, n) {
               {
                 key: 'listen',
                 value: function (e, t, n, r, i) {
-                  return Eh(t) ? this._fetchNamespace(e).listen(t, n, r, i) : function () {};
+                  return Dh(t) ? this._fetchNamespace(e).listen(t, n, r, i) : function () {};
                 },
               },
               {
@@ -49129,7 +49146,7 @@ function _createClass(e, t, n) {
                   var e = this;
                   return new Promise(function (t) {
                     if (e.players.length)
-                      return ed(e.players).onDone(function () {
+                      return td(e.players).onDone(function () {
                         return t();
                       });
                     t();
@@ -49142,7 +49159,7 @@ function _createClass(e, t, n) {
                   var t = this,
                     n = e.__ng_removed;
                   if (n && n.setForRemoval) {
-                    if (((e.__ng_removed = bh), n.namespaceId)) {
+                    if (((e.__ng_removed = kh), n.namespaceId)) {
                       this.destroyInnerAnimations(e);
                       var r = this._fetchNamespace(n.namespaceId);
                       r && r.clearElementCache(e);
@@ -49170,7 +49187,7 @@ function _createClass(e, t, n) {
                     this.totalAnimations && this.collectedEnterElements.length)
                   )
                     for (var r = 0; r < this.collectedEnterElements.length; r++)
-                      Oh(this.collectedEnterElements[r], 'ng-star-inserted');
+                      jh(this.collectedEnterElements[r], 'ng-star-inserted');
                   if (this._namespaceList.length && (this.totalQueuedPlayers || this.collectedLeaveElements.length)) {
                     var i = [];
                     try {
@@ -49194,7 +49211,7 @@ function _createClass(e, t, n) {
                     var s = this._whenQuietFns;
                     (this._whenQuietFns = []),
                       n.length
-                        ? ed(n).onDone(function () {
+                        ? td(n).onDone(function () {
                             s.forEach(function (e) {
                               return e();
                             });
@@ -49217,7 +49234,7 @@ function _createClass(e, t, n) {
                 key: '_flushAnimations',
                 value: function (e, t) {
                   var n = this,
-                    r = new $d(),
+                    r = new Xd(),
                     i = [],
                     a = new Map(),
                     o = [],
@@ -49231,14 +49248,14 @@ function _createClass(e, t, n) {
                   });
                   var d = this.bodyNode,
                     h = Array.from(this.statesByElement.keys()),
-                    f = Th(h, this.collectedEnterElements),
+                    f = Oh(h, this.collectedEnterElements),
                     m = new Map(),
                     p = 0;
                   f.forEach(function (e, t) {
                     var n = 'ng-enter' + p++;
                     m.set(t, n),
                       e.forEach(function (e) {
-                        return Oh(e, n);
+                        return jh(e, n);
                       });
                   });
                   for (var _ = [], v = new Set(), g = new Set(), y = 0; y < this.collectedLeaveElements.length; y++) {
@@ -49255,25 +49272,25 @@ function _createClass(e, t, n) {
                         : g.add(b));
                   }
                   var x = new Map(),
-                    w = Th(h, Array.from(v));
+                    w = Oh(h, Array.from(v));
                   w.forEach(function (e, t) {
                     var n = 'ng-leave' + p++;
                     x.set(t, n),
                       e.forEach(function (e) {
-                        return Oh(e, n);
+                        return jh(e, n);
                       });
                   }),
                     e.push(function () {
                       f.forEach(function (e, t) {
                         var n = m.get(t);
                         e.forEach(function (e) {
-                          return jh(e, n);
+                          return Ah(e, n);
                         });
                       }),
                         w.forEach(function (e, t) {
                           var n = x.get(t);
                           e.forEach(function (e) {
-                            return jh(e, n);
+                            return Ah(e, n);
                           });
                         }),
                         _.forEach(function (e) {
@@ -49297,20 +49314,20 @@ function _createClass(e, t, n) {
                         if (h)
                           return (
                             t.onStart(function () {
-                              return Ld(a, _.fromStyles);
+                              return Td(a, _.fromStyles);
                             }),
                             t.onDestroy(function () {
-                              return Dd(a, _.toStyles);
+                              return Ld(a, _.toStyles);
                             }),
                             void i.push(t)
                           );
                         if (e.isFallbackTransition)
                           return (
                             t.onStart(function () {
-                              return Ld(a, _.fromStyles);
+                              return Td(a, _.fromStyles);
                             }),
                             t.onDestroy(function () {
-                              return Dd(a, _.toStyles);
+                              return Ld(a, _.toStyles);
                             }),
                             void i.push(t)
                           );
@@ -49320,7 +49337,7 @@ function _createClass(e, t, n) {
                           r.append(a, _.timelines),
                           o.push({ instruction: _, player: t, element: a }),
                           _.queriedElements.forEach(function (e) {
-                            return ad(s, e, []).push(t);
+                            return od(s, e, []).push(t);
                           }),
                           _.preStyleProps.forEach(function (e, t) {
                             var n = Object.keys(e);
@@ -49364,19 +49381,19 @@ function _createClass(e, t, n) {
                     i.forEach(function (e) {
                       var t = e.element;
                       n._getPreviousPlayers(t, !1, e.namespaceId, e.triggerName, null).forEach(function (e) {
-                        ad(D, t, []).push(e), e.destroy();
+                        od(D, t, []).push(e), e.destroy();
                       });
                     });
                   var T = _.filter(function (e) {
-                      return Ih(e, l, u);
+                      return Ph(e, l, u);
                     }),
                     O = new Map();
-                  Lh(O, this.driver, g, u, si.a).forEach(function (e) {
-                    Ih(e, l, u) && T.push(e);
+                  Th(O, this.driver, g, u, si.a).forEach(function (e) {
+                    Ph(e, l, u) && T.push(e);
                   });
                   var j = new Map();
                   f.forEach(function (e, t) {
-                    Lh(j, n.driver, new Set(e), l, si.l);
+                    Th(j, n.driver, new Set(e), l, si.l);
                   }),
                     T.forEach(function (e) {
                       var t = O.get(e),
@@ -49394,7 +49411,7 @@ function _createClass(e, t, n) {
                       if (c.has(t))
                         return (
                           o.onDestroy(function () {
-                            return Dd(t, s.toStyles);
+                            return Ld(t, s.toStyles);
                           }),
                           (o.disabled = !0),
                           o.overrideTotalTime(s.totalTime),
@@ -49418,12 +49435,12 @@ function _createClass(e, t, n) {
                       if ((o.setRealPlayer(f), l === P)) A.push(o);
                       else {
                         var m = n.playersByElement.get(l);
-                        m && m.length && (o.parentPlayer = ed(m)), i.push(o);
+                        m && m.length && (o.parentPlayer = td(m)), i.push(o);
                       }
                     } else
-                      Ld(t, s.fromStyles),
+                      Td(t, s.fromStyles),
                         o.onDestroy(function () {
-                          return Dd(t, s.toStyles);
+                          return Ld(t, s.toStyles);
                         }),
                         I.push(o),
                         c.has(t) && i.push(o);
@@ -49431,7 +49448,7 @@ function _createClass(e, t, n) {
                     I.forEach(function (e) {
                       var t = a.get(e.element);
                       if (t && t.length) {
-                        var n = ed(t);
+                        var n = td(t);
                         e.setRealPlayer(n);
                       }
                     }),
@@ -49441,7 +49458,7 @@ function _createClass(e, t, n) {
                   for (var Y = 0; Y < _.length; Y++) {
                     var F = _[Y],
                       R = F.__ng_removed;
-                    if ((jh(F, 'ng-leave'), !R || !R.hasAnimation)) {
+                    if ((Ah(F, 'ng-leave'), !R || !R.hasAnimation)) {
                       var N = [];
                       if (s.size) {
                         var H = s.get(F);
@@ -49454,7 +49471,7 @@ function _createClass(e, t, n) {
                       var U = N.filter(function (e) {
                         return !e.destroyed;
                       });
-                      U.length ? Ah(this, F, U) : this.processLeaveNode(F);
+                      U.length ? Ih(this, F, U) : this.processLeaveNode(F);
                     }
                   }
                   return (
@@ -49536,7 +49553,7 @@ function _createClass(e, t, n) {
                     var u = function () {
                       var e = r.value.element,
                         l = e !== a,
-                        u = ad(n, e, []);
+                        u = od(n, e, []);
                       i._getPreviousPlayers(e, l, o, s, t.toState).forEach(function (e) {
                         var t = e.getRealPlayer();
                         t.beforeDestroy && t.beforeDestroy(), e.destroy(), u.push(e);
@@ -49548,7 +49565,7 @@ function _createClass(e, t, n) {
                   } finally {
                     l.f();
                   }
-                  Ld(a, t.fromStyles);
+                  Td(a, t.fromStyles);
                 },
               },
               {
@@ -49568,7 +49585,7 @@ function _createClass(e, t, n) {
                       var m,
                         p,
                         _ = h !== l,
-                        v = ((m = (n.get(h) || yh).map(function (e) {
+                        v = ((m = (n.get(h) || bh).map(function (e) {
                           return e.getRealPlayer();
                         })),
                         (p = []),
@@ -49583,16 +49600,16 @@ function _createClass(e, t, n) {
                         }),
                         g = i.get(h),
                         y = a.get(h),
-                        b = td(0, o._normalizer, 0, t.keyframes, g, y),
+                        b = nd(0, o._normalizer, 0, t.keyframes, g, y),
                         k = o._buildPlayer(t, b, v);
                       if ((t.subTimeline && r && d.add(h), _)) {
-                        var x = new Mh(e, s, h);
+                        var x = new Eh(e, s, h);
                         x.setRealPlayer(k), u.push(x);
                       }
                       return k;
                     });
                   u.forEach(function (e) {
-                    ad(o.playersByQueriedElement, e.element, []).push(e),
+                    od(o.playersByQueriedElement, e.element, []).push(e),
                       e.onDone(function () {
                         return (function (e, t, n) {
                           var r;
@@ -49616,18 +49633,18 @@ function _createClass(e, t, n) {
                       });
                   }),
                     c.forEach(function (e) {
-                      return Oh(e, 'ng-animating');
+                      return jh(e, 'ng-animating');
                     });
-                  var f = ed(h);
+                  var f = td(h);
                   return (
                     f.onDestroy(function () {
                       c.forEach(function (e) {
-                        return jh(e, 'ng-animating');
+                        return Ah(e, 'ng-animating');
                       }),
-                        Dd(l, t.toStyles);
+                        Ld(l, t.toStyles);
                     }),
                     d.forEach(function (e) {
-                      ad(r, e, []).push(f);
+                      od(r, e, []).push(f);
                     }),
                     f
                   );
@@ -49659,7 +49676,7 @@ function _createClass(e, t, n) {
             e
           );
         })(),
-        Mh = (function () {
+        Eh = (function () {
           function e(t, n, r) {
             _classCallCheck(this, e),
               (this.namespaceId = t),
@@ -49684,7 +49701,7 @@ function _createClass(e, t, n) {
                     ((this._player = e),
                     Object.keys(this._queuedCallbacks).forEach(function (n) {
                       t._queuedCallbacks[n].forEach(function (t) {
-                        return nd(e, n, void 0, t);
+                        return rd(e, n, void 0, t);
                       });
                     }),
                     (this._queuedCallbacks = {}),
@@ -49725,7 +49742,7 @@ function _createClass(e, t, n) {
               {
                 key: '_queueEvent',
                 value: function (e, t) {
-                  ad(this._queuedCallbacks, e, []).push(t);
+                  od(this._queuedCallbacks, e, []).push(t);
                 },
               },
               {
@@ -49817,36 +49834,36 @@ function _createClass(e, t, n) {
             e
           );
         })();
-      function Eh(e) {
+      function Dh(e) {
         return e && 1 === e.nodeType;
       }
-      function Dh(e, t) {
+      function Lh(e, t) {
         var n = e.style.display;
         return (e.style.display = null != t ? t : 'none'), n;
       }
-      function Lh(e, t, n, r, i) {
+      function Th(e, t, n, r, i) {
         var a = [];
         n.forEach(function (e) {
-          return a.push(Dh(e));
+          return a.push(Lh(e));
         });
         var o = [];
         r.forEach(function (n, r) {
           var a = {};
           n.forEach(function (e) {
             var n = (a[e] = t.computeStyle(r, e, i));
-            (n && 0 != n.length) || ((r.__ng_removed = kh), o.push(r));
+            (n && 0 != n.length) || ((r.__ng_removed = xh), o.push(r));
           }),
             e.set(r, a);
         });
         var s = 0;
         return (
           n.forEach(function (e) {
-            return Dh(e, a[s++]);
+            return Lh(e, a[s++]);
           }),
           o
         );
       }
-      function Th(e, t) {
+      function Oh(e, t) {
         var n = new Map();
         if (
           (e.forEach(function (e) {
@@ -49871,26 +49888,26 @@ function _createClass(e, t, n) {
           n
         );
       }
-      function Oh(e, t) {
+      function jh(e, t) {
         if (e.classList) e.classList.add(t);
         else {
           var n = e.$$classes;
           n || (n = e.$$classes = {}), (n[t] = !0);
         }
       }
-      function jh(e, t) {
+      function Ah(e, t) {
         if (e.classList) e.classList.remove(t);
         else {
           var n = e.$$classes;
           n && delete n[t];
         }
       }
-      function Ah(e, t, n) {
-        ed(n).onDone(function () {
+      function Ih(e, t, n) {
+        td(n).onDone(function () {
           return e.processLeaveNode(t);
         });
       }
-      function Ih(e, t, n) {
+      function Ph(e, t, n) {
         var r = n.get(e);
         if (!r) return !1;
         var i = t.get(e);
@@ -49904,7 +49921,7 @@ function _createClass(e, t, n) {
           !0
         );
       }
-      var Ph = (function () {
+      var Yh = (function () {
         function e(t, n, r) {
           var i = this;
           _classCallCheck(this, e),
@@ -49912,8 +49929,8 @@ function _createClass(e, t, n) {
             (this._driver = n),
             (this._triggerCache = {}),
             (this.onRemovalComplete = function (e, t) {}),
-            (this._transitionEngine = new Sh(t, n, r)),
-            (this._timelineEngine = new gh(t, n, r)),
+            (this._transitionEngine = new Mh(t, n, r)),
+            (this._timelineEngine = new yh(t, n, r)),
             (this._transitionEngine.onRemovalComplete = function (e, t) {
               return i.onRemovalComplete(e, t);
             });
@@ -49927,7 +49944,7 @@ function _createClass(e, t, n) {
                   o = this._triggerCache[a];
                 if (!o) {
                   var s = [],
-                    l = zd(this._driver, i, s);
+                    l = Gd(this._driver, i, s);
                   if (s.length)
                     throw new Error(
                       'The animation trigger "'
@@ -49935,7 +49952,7 @@ function _createClass(e, t, n) {
                         .concat(s.join('\n - '))
                     );
                   (o = (function (e, t) {
-                    return new ph(e, t);
+                    return new _h(e, t);
                   })(r, l)),
                     (this._triggerCache[a] = o);
                 }
@@ -49976,7 +49993,7 @@ function _createClass(e, t, n) {
               key: 'process',
               value: function (e, t, n, r) {
                 if ('@' == n.charAt(0)) {
-                  var i = _slicedToArray2(od(n), 2),
+                  var i = _slicedToArray2(sd(n), 2),
                     a = i[0],
                     o = i[1];
                   this._timelineEngine.command(a, t, o, r);
@@ -49987,7 +50004,7 @@ function _createClass(e, t, n) {
               key: 'listen',
               value: function (e, t, n, r, i) {
                 if ('@' == n.charAt(0)) {
-                  var a = _slicedToArray2(od(n), 2),
+                  var a = _slicedToArray2(sd(n), 2),
                     o = a[0],
                     s = a[1];
                   return this._timelineEngine.listen(o, t, s, i);
@@ -50018,15 +50035,15 @@ function _createClass(e, t, n) {
           e
         );
       })();
-      function Yh(e, t) {
+      function Fh(e, t) {
         var n = null,
           r = null;
         return (
-          Array.isArray(t) && t.length ? ((n = Rh(t[0])), t.length > 1 && (r = Rh(t[t.length - 1]))) : t && (n = Rh(t)),
-          n || r ? new Fh(e, n, r) : null
+          Array.isArray(t) && t.length ? ((n = Nh(t[0])), t.length > 1 && (r = Nh(t[t.length - 1]))) : t && (n = Nh(t)),
+          n || r ? new Rh(e, n, r) : null
         );
       }
-      var Fh = (function () {
+      var Rh = (function () {
         var e = (function () {
           function e(t, n, r) {
             _classCallCheck(this, e),
@@ -50043,7 +50060,7 @@ function _createClass(e, t, n) {
                 key: 'start',
                 value: function () {
                   this._state < 1 &&
-                    (this._startStyles && Dd(this._element, this._startStyles, this._initialStyles), (this._state = 1));
+                    (this._startStyles && Ld(this._element, this._startStyles, this._initialStyles), (this._state = 1));
                 },
               },
               {
@@ -50051,8 +50068,8 @@ function _createClass(e, t, n) {
                 value: function () {
                   this.start(),
                     this._state < 2 &&
-                      (Dd(this._element, this._initialStyles),
-                      this._endStyles && (Dd(this._element, this._endStyles), (this._endStyles = null)),
+                      (Ld(this._element, this._initialStyles),
+                      this._endStyles && (Ld(this._element, this._endStyles), (this._endStyles = null)),
                       (this._state = 1));
                 },
               },
@@ -50062,9 +50079,9 @@ function _createClass(e, t, n) {
                   this.finish(),
                     this._state < 3 &&
                       (e.initialStylesByElement.delete(this._element),
-                      this._startStyles && (Ld(this._element, this._startStyles), (this._endStyles = null)),
-                      this._endStyles && (Ld(this._element, this._endStyles), (this._endStyles = null)),
-                      Dd(this._element, this._initialStyles),
+                      this._startStyles && (Td(this._element, this._startStyles), (this._endStyles = null)),
+                      this._endStyles && (Td(this._element, this._endStyles), (this._endStyles = null)),
+                      Ld(this._element, this._initialStyles),
                       (this._state = 3));
                 },
               },
@@ -50074,17 +50091,17 @@ function _createClass(e, t, n) {
         })();
         return (e.initialStylesByElement = new WeakMap()), e;
       })();
-      function Rh(e) {
+      function Nh(e) {
         for (var t = null, n = Object.keys(e), r = 0; r < n.length; r++) {
           var i = n[r];
-          Nh(i) && ((t = t || {})[i] = e[i]);
+          Hh(i) && ((t = t || {})[i] = e[i]);
         }
         return t;
       }
-      function Nh(e) {
+      function Hh(e) {
         return 'display' === e || 'position' === e;
       }
-      var Hh = (function () {
+      var Vh = (function () {
         function e(t, n, r, i, a, o, s) {
           var l = this;
           _classCallCheck(this, e),
@@ -50116,33 +50133,33 @@ function _createClass(e, t, n) {
                     .concat(this._delay, 'ms 1 normal ')
                     .concat(this._fillMode, ' ')
                     .concat(this._name)),
-                  (n = Gh(e, '').trim()).length &&
+                  (n = qh(e, '').trim()).length &&
                     ((function (e, t) {
                       for (var n = 0; n < e.length; n++) e.charAt(n);
                     })(n),
                     (t = ''.concat(n, ', ').concat(t))),
-                  zh(e, '', t),
-                  Uh(this._element, this._eventFn, !1),
+                  Gh(e, '', t),
+                  zh(this._element, this._eventFn, !1),
                   (this._startTime = Date.now());
               },
             },
             {
               key: 'pause',
               value: function () {
-                Vh(this._element, this._name, 'paused');
+                Bh(this._element, this._name, 'paused');
               },
             },
             {
               key: 'resume',
               value: function () {
-                Vh(this._element, this._name, 'running');
+                Bh(this._element, this._name, 'running');
               },
             },
             {
               key: 'setPosition',
               value: function (e) {
-                var t = Bh(this._element, this._name);
-                (this._position = e * this._duration), zh(this._element, 'Delay', '-'.concat(this._position, 'ms'), t);
+                var t = Wh(this._element, this._name);
+                (this._position = e * this._duration), Gh(this._element, 'Delay', '-'.concat(this._position, 'ms'), t);
               },
             },
             {
@@ -50165,7 +50182,7 @@ function _createClass(e, t, n) {
             {
               key: 'finish',
               value: function () {
-                this._finished || ((this._finished = !0), this._onDoneFn(), Uh(this._element, this._eventFn, !0));
+                this._finished || ((this._finished = !0), this._onDoneFn(), zh(this._element, this._eventFn, !0));
               },
             },
             {
@@ -50175,9 +50192,9 @@ function _createClass(e, t, n) {
                   ((this._destroyed = !0),
                   this.finish(),
                   (function (e, t) {
-                    var n = Gh(e, '').split(','),
-                      r = Wh(n, t);
-                    r >= 0 && (n.splice(r, 1), zh(e, '', n.join(',')));
+                    var n = qh(e, '').split(','),
+                      r = Uh(n, t);
+                    r >= 0 && (n.splice(r, 1), Gh(e, '', n.join(',')));
                   })(this._element, this._name));
               },
             },
@@ -50185,21 +50202,21 @@ function _createClass(e, t, n) {
           e
         );
       })();
-      function Vh(e, t, n) {
-        zh(e, 'PlayState', n, Bh(e, t));
-      }
-      function Bh(e, t) {
-        var n = Gh(e, '');
-        return n.indexOf(',') > 0 ? Wh(n.split(','), t) : Wh([n], t);
+      function Bh(e, t, n) {
+        Gh(e, 'PlayState', n, Wh(e, t));
       }
       function Wh(e, t) {
+        var n = qh(e, '');
+        return n.indexOf(',') > 0 ? Uh(n.split(','), t) : Uh([n], t);
+      }
+      function Uh(e, t) {
         for (var n = 0; n < e.length; n++) if (e[n].indexOf(t) >= 0) return n;
         return -1;
       }
-      function Uh(e, t, n) {
+      function zh(e, t, n) {
         n ? e.removeEventListener('animationend', t) : e.addEventListener('animationend', t);
       }
-      function zh(e, t, n, r) {
+      function Gh(e, t, n, r) {
         var i = 'animation' + t;
         if (null != r) {
           var a = e.style[i];
@@ -50210,10 +50227,10 @@ function _createClass(e, t, n) {
         }
         e.style[i] = n;
       }
-      function Gh(e, t) {
+      function qh(e, t) {
         return e.style['animation' + t];
       }
-      var qh = (function () {
+      var Kh = (function () {
           function e(t, n, r, i, a, o, s, l) {
             _classCallCheck(this, e),
               (this.element = t),
@@ -50354,7 +50371,7 @@ function _createClass(e, t, n) {
                 key: '_buildStyler',
                 value: function () {
                   var e = this;
-                  this._styler = new Hh(
+                  this._styler = new Vh(
                     this.element,
                     this.animationName,
                     this._duration,
@@ -50386,7 +50403,7 @@ function _createClass(e, t, n) {
                   if (this.hasStarted()) {
                     var n = this._state >= 3;
                     Object.keys(this._finalStyles).forEach(function (r) {
-                      'offset' != r && (t[r] = n ? e._finalStyles[r] : Hd(e.element, r));
+                      'offset' != r && (t[r] = n ? e._finalStyles[r] : Vd(e.element, r));
                     });
                   }
                   this.currentSnapshot = t;
@@ -50396,7 +50413,7 @@ function _createClass(e, t, n) {
             e
           );
         })(),
-        Kh = (function (e) {
+        Jh = (function (e) {
           _inherits(n, e);
           var t = _createSuper(n);
           function n(e, r) {
@@ -50406,7 +50423,7 @@ function _createClass(e, t, n) {
               ((i = t.call(this)).element = e),
               (i._startingStyles = {}),
               (i.__initialized = !1),
-              (i._styles = vd(r)),
+              (i._styles = gd(r)),
               i
             );
           }
@@ -50454,7 +50471,7 @@ function _createClass(e, t, n) {
             n
           );
         })(si.d),
-        Jh = (function () {
+        Qh = (function () {
           function e() {
             _classCallCheck(this, e),
               (this._count = 0),
@@ -50466,25 +50483,25 @@ function _createClass(e, t, n) {
               {
                 key: 'validateStyleProperty',
                 value: function (e) {
-                  return fd(e);
+                  return md(e);
                 },
               },
               {
                 key: 'matchesElement',
                 value: function (e, t) {
-                  return md(e, t);
+                  return pd(e, t);
                 },
               },
               {
                 key: 'containsElement',
                 value: function (e, t) {
-                  return pd(e, t);
+                  return _d(e, t);
                 },
               },
               {
                 key: 'query',
                 value: function (e, t, n) {
-                  return _d(e, t, n);
+                  return vd(e, t, n);
                 },
               },
               {
@@ -50497,7 +50514,7 @@ function _createClass(e, t, n) {
                 key: 'buildKeyframeElement',
                 value: function (e, t, n) {
                   n = n.map(function (e) {
-                    return vd(e);
+                    return gd(e);
                   });
                   var r = '@keyframes '.concat(t, ' {\n'),
                     i = '';
@@ -50531,10 +50548,10 @@ function _createClass(e, t, n) {
                     o = arguments.length > 6 ? arguments[6] : void 0;
                   o && this._notifyFaultyScrubber();
                   var s = a.filter(function (e) {
-                      return e instanceof qh;
+                      return e instanceof Kh;
                     }),
                     l = {};
-                  Fd(n, r) &&
+                  Rd(n, r) &&
                     s.forEach(function (e) {
                       var t = e.currentSnapshot;
                       Object.keys(t).forEach(function (e) {
@@ -50552,13 +50569,13 @@ function _createClass(e, t, n) {
                         }),
                       t
                     );
-                  })((t = Rd(e, t, l)));
-                  if (0 == n) return new Kh(e, u);
+                  })((t = Nd(e, t, l)));
+                  if (0 == n) return new Jh(e, u);
                   var c = 'gen_css_kf_' + this._count++,
                     d = this.buildKeyframeElement(e, c, t);
                   document.querySelector('head').appendChild(d);
-                  var h = Yh(e, t),
-                    f = new qh(e, t, c, n, r, i, u, h);
+                  var h = Fh(e, t),
+                    f = new Kh(e, t, c, n, r, i, u, h);
                   return (
                     f.onDestroy(function () {
                       var e;
@@ -50583,7 +50600,7 @@ function _createClass(e, t, n) {
             e
           );
         })(),
-        Qh = (function () {
+        Zh = (function () {
           function e(t, n, r, i) {
             _classCallCheck(this, e),
               (this.element = t),
@@ -50754,7 +50771,7 @@ function _createClass(e, t, n) {
                     t = {};
                   this.hasStarted() &&
                     Object.keys(this._finalKeyframe).forEach(function (n) {
-                      'offset' != n && (t[n] = e._finished ? e._finalKeyframe[n] : Hd(e.element, n));
+                      'offset' != n && (t[n] = e._finished ? e._finalKeyframe[n] : Vd(e.element, n));
                     }),
                     (this.currentSnapshot = t);
                 },
@@ -50779,36 +50796,36 @@ function _createClass(e, t, n) {
             e
           );
         })(),
-        Zh = (function () {
+        $h = (function () {
           function e() {
             _classCallCheck(this, e),
-              (this._isNativeImpl = /\{\s*\[native\s+code\]\s*\}/.test($h().toString())),
-              (this._cssKeyframesDriver = new Jh());
+              (this._isNativeImpl = /\{\s*\[native\s+code\]\s*\}/.test(Xh().toString())),
+              (this._cssKeyframesDriver = new Qh());
           }
           return (
             _createClass(e, [
               {
                 key: 'validateStyleProperty',
                 value: function (e) {
-                  return fd(e);
+                  return md(e);
                 },
               },
               {
                 key: 'matchesElement',
                 value: function (e, t) {
-                  return md(e, t);
+                  return pd(e, t);
                 },
               },
               {
                 key: 'containsElement',
                 value: function (e, t) {
-                  return pd(e, t);
+                  return _d(e, t);
                 },
               },
               {
                 key: 'query',
                 value: function (e, t, n) {
-                  return _d(e, t, n);
+                  return vd(e, t, n);
                 },
               },
               {
@@ -50833,38 +50850,38 @@ function _createClass(e, t, n) {
                   i && (s.easing = i);
                   var l = {},
                     u = a.filter(function (e) {
-                      return e instanceof Qh;
+                      return e instanceof Zh;
                     });
-                  Fd(n, r) &&
+                  Rd(n, r) &&
                     u.forEach(function (e) {
                       var t = e.currentSnapshot;
                       Object.keys(t).forEach(function (e) {
                         return (l[e] = t[e]);
                       });
                     });
-                  var c = Yh(
+                  var c = Fh(
                     e,
-                    (t = Rd(
+                    (t = Nd(
                       e,
                       (t = t.map(function (e) {
-                        return Sd(e, !1);
+                        return Md(e, !1);
                       })),
                       l
                     ))
                   );
-                  return new Qh(e, t, s, c);
+                  return new Zh(e, t, s, c);
                 },
               },
             ]),
             e
           );
         })();
-      function $h() {
+      function Xh() {
         return ('undefined' != typeof window && void 0 !== window.document && Element.prototype.animate) || {};
       }
-      var Xh,
-        ef =
-          (((Xh = (function (e) {
+      var ef,
+        tf =
+          (((ef = (function (e) {
             _inherits(n, e);
             var t = _createSuper(n);
             function n(e, r) {
@@ -50889,18 +50906,18 @@ function _createClass(e, t, n) {
                     var t = this._nextAnimationId.toString();
                     this._nextAnimationId++;
                     var n = Array.isArray(e) ? Object(si.f)(e) : e;
-                    return rf(this._renderer, null, t, 'register', [n]), new tf(t, this._renderer);
+                    return af(this._renderer, null, t, 'register', [n]), new nf(t, this._renderer);
                   },
                 },
               ]),
               n
             );
           })(si.b)).ɵfac = function (e) {
-            return new (e || Xh)(l['\u0275\u0275inject'](l.RendererFactory2), l['\u0275\u0275inject'](s.d));
+            return new (e || ef)(l['\u0275\u0275inject'](l.RendererFactory2), l['\u0275\u0275inject'](s.d));
           }),
-          (Xh.ɵprov = l['\u0275\u0275defineInjectable']({ token: Xh, factory: Xh.ɵfac })),
-          Xh),
-        tf = (function (e) {
+          (ef.ɵprov = l['\u0275\u0275defineInjectable']({ token: ef, factory: ef.ɵfac })),
+          ef),
+        nf = (function (e) {
           _inherits(n, e);
           var t = _createSuper(n);
           function n(e, r) {
@@ -50912,14 +50929,14 @@ function _createClass(e, t, n) {
               {
                 key: 'create',
                 value: function (e, t) {
-                  return new nf(this._id, e, t || {}, this._renderer);
+                  return new rf(this._id, e, t || {}, this._renderer);
                 },
               },
             ]),
             n
           );
         })(si.c),
-        nf = (function () {
+        rf = (function () {
           function e(t, n, r, i) {
             _classCallCheck(this, e),
               (this.id = t),
@@ -50943,7 +50960,7 @@ function _createClass(e, t, n) {
                 value: function (e) {
                   for (var t = arguments.length, n = new Array(t > 1 ? t - 1 : 0), r = 1; r < t; r++)
                     n[r - 1] = arguments[r];
-                  return rf(this._renderer, this.element, this.id, e, n);
+                  return af(this._renderer, this.element, this.id, e, n);
                 },
               },
               {
@@ -51028,14 +51045,14 @@ function _createClass(e, t, n) {
             e
           );
         })();
-      function rf(e, t, n, r, i) {
+      function af(e, t, n, r, i) {
         return e.setProperty(t, '@@'.concat(n, ':').concat(r), i);
       }
-      var af,
-        of,
+      var of,
         sf,
-        lf =
-          (((af = (function () {
+        lf,
+        uf =
+          (((of = (function () {
             function e(t, n, r) {
               _classCallCheck(this, e),
                 (this.delegate = t),
@@ -51060,7 +51077,7 @@ function _createClass(e, t, n) {
                       r = this.delegate.createRenderer(e, t);
                     if (!(e && t && t.data && t.data.animation)) {
                       var i = this._rendererCache.get(r);
-                      return i || ((i = new uf('', r, this.engine)), this._rendererCache.set(r, i)), i;
+                      return i || ((i = new cf('', r, this.engine)), this._rendererCache.set(r, i)), i;
                     }
                     var a = t.id,
                       o = t.id + '-' + this._currentId;
@@ -51070,7 +51087,7 @@ function _createClass(e, t, n) {
                       t.data.animation.forEach(function t(r) {
                         Array.isArray(r) ? r.forEach(t) : n.engine.registerTrigger(a, o, e, r.name, r);
                       }),
-                      new cf(this, o, r, this.engine)
+                      new df(this, o, r, this.engine)
                     );
                   },
                 },
@@ -51132,15 +51149,15 @@ function _createClass(e, t, n) {
               e
             );
           })()).ɵfac = function (e) {
-            return new (e || af)(
+            return new (e || of)(
               l['\u0275\u0275inject'](l.RendererFactory2),
-              l['\u0275\u0275inject'](Ph),
+              l['\u0275\u0275inject'](Yh),
               l['\u0275\u0275inject'](l.NgZone)
             );
           }),
-          (af.ɵprov = l['\u0275\u0275defineInjectable']({ token: af, factory: af.ɵfac })),
-          af),
-        uf = (function () {
+          (of.ɵprov = l['\u0275\u0275defineInjectable']({ token: of, factory: of.ɵfac })),
+          of),
+        cf = (function () {
           function e(t, n, r) {
             _classCallCheck(this, e),
               (this.namespaceId = t),
@@ -51286,7 +51303,7 @@ function _createClass(e, t, n) {
             e
           );
         })(),
-        cf = (function (e) {
+        df = (function (e) {
           _inherits(n, e);
           var t = _createSuper(n);
           function n(e, r, i, a) {
@@ -51343,75 +51360,75 @@ function _createClass(e, t, n) {
             ]),
             n
           );
-        })(uf),
-        df =
-          (((of = (function (e) {
+        })(cf),
+        hf =
+          (((sf = (function (e) {
             _inherits(n, e);
             var t = _createSuper(n);
             function n(e, r, i) {
               return _classCallCheck(this, n), t.call(this, e.body, r, i);
             }
             return n;
-          })(Ph)).ɵfac = function (e) {
-            return new (e || of)(
+          })(Yh)).ɵfac = function (e) {
+            return new (e || sf)(
               l['\u0275\u0275inject'](s.d),
-              l['\u0275\u0275inject'](bd),
-              l['\u0275\u0275inject'](lh)
+              l['\u0275\u0275inject'](kd),
+              l['\u0275\u0275inject'](uh)
             );
           }),
-          (of.ɵprov = l['\u0275\u0275defineInjectable']({ token: of, factory: of.ɵfac })),
-          of),
-        hf = [
+          (sf.ɵprov = l['\u0275\u0275defineInjectable']({ token: sf, factory: sf.ɵfac })),
+          sf),
+        ff = [
           {
-            provide: bd,
+            provide: kd,
             useFactory: function () {
-              return 'function' == typeof $h() ? new Zh() : new Jh();
+              return 'function' == typeof Xh() ? new $h() : new Qh();
             },
           },
           { provide: new l.InjectionToken('AnimationModuleType'), useValue: 'BrowserAnimations' },
-          { provide: si.b, useClass: ef },
+          { provide: si.b, useClass: tf },
           {
-            provide: lh,
+            provide: uh,
             useFactory: function () {
-              return new uh();
+              return new ch();
             },
           },
-          { provide: Ph, useClass: df },
+          { provide: Yh, useClass: hf },
           {
             provide: l.RendererFactory2,
             useFactory: function (e, t, n) {
-              return new lf(e, t, n);
+              return new uf(e, t, n);
             },
-            deps: [a['\u0275DomRendererFactory2'], Ph, l.NgZone],
+            deps: [a['\u0275DomRendererFactory2'], Yh, l.NgZone],
           },
         ],
-        ff =
-          (((sf = function e() {
+        mf =
+          (((lf = function e() {
             _classCallCheck(this, e);
-          }).ɵmod = l['\u0275\u0275defineNgModule']({ type: sf })),
-          (sf.ɵinj = l['\u0275\u0275defineInjector']({
+          }).ɵmod = l['\u0275\u0275defineNgModule']({ type: lf })),
+          (lf.ɵinj = l['\u0275\u0275defineInjector']({
             factory: function (e) {
-              return new (e || sf)();
+              return new (e || lf)();
             },
-            providers: hf,
+            providers: ff,
             imports: [a.BrowserModule],
           })),
-          sf);
-      function mf(e) {
+          lf);
+      function pf(e) {
         return new Y(e, './assets/i18n/', '.json');
       }
-      var pf,
-        _f =
-          (((pf = function e() {
+      var _f,
+        vf =
+          (((_f = function e() {
             _classCallCheck(this, e);
-          }).ɵmod = l['\u0275\u0275defineNgModule']({ type: pf, bootstrap: [Kc] })),
-          (pf.ɵinj = l['\u0275\u0275defineInjector']({
+          }).ɵmod = l['\u0275\u0275defineNgModule']({ type: _f, bootstrap: [Jc] })),
+          (_f.ɵinj = l['\u0275\u0275defineInjector']({
             factory: function (e) {
-              return new (e || pf)();
+              return new (e || _f)();
             },
             providers: [
-              Zc.a,
-              { provide: o.a, useClass: $c, multi: !0 },
+              $c.a,
+              { provide: o.a, useClass: Xc, multi: !0 },
               {
                 provide: 'SocialAuthServiceConfig',
                 useValue: {
@@ -51432,20 +51449,20 @@ function _createClass(e, t, n) {
                 a.BrowserModule,
                 I.register('./ngsw-worker.js', { enabled: F.a.production }),
                 o.c,
-                P.c.forRoot({ loader: { provide: P.b, useFactory: mf, deps: [o.b] } }),
+                P.c.forRoot({ loader: { provide: P.b, useFactory: pf, deps: [o.b] } }),
                 R.a,
                 N.a,
                 _u,
                 lu,
                 bu,
                 H.a,
-                ff,
+                mf,
                 Ll.a.forRoot(),
-                Qc,
+                Zc,
               ],
             ],
           })),
-          pf);
+          _f);
     },
     ZAMP: function (e, t, n) {
       !(function (e) {
@@ -52625,9 +52642,7 @@ function _createClass(e, t, n) {
                 {
                   key: 'ngOnInit',
                   value: function () {
-                    this.ngxSmartModalService.get('authModal').onCloseFinished.subscribe(function (e) {
-                      console.log('res: ', e);
-                    });
+                    this.ngxSmartModalService.get('authModal').onCloseFinished.subscribe(function (e) {});
                   },
                 },
                 {
@@ -52691,8 +52706,7 @@ function _createClass(e, t, n) {
                         }
                       },
                       function (t) {
-                        console.log('login error', t.error),
-                          e.ngxSmartModalService.getModal('authModal').close(),
+                        e.ngxSmartModalService.getModal('authModal').close(),
                           e.toastr.error('Invalid E-mail or Password', 'Error');
                       }
                     );
@@ -52710,8 +52724,7 @@ function _createClass(e, t, n) {
                           e.toastr.success('Logged In', 'Welcome, '.concat(localStorage.getItem('fName'), '!'));
                       },
                       function (t) {
-                        e.toastr.error('Couldn`t create user', t.error.error.message || 'Error'),
-                          console.log('signup error', t);
+                        e.toastr.error('Couldn`t create user', t.error.error.message || 'Error');
                       }
                     );
                   },
@@ -77816,9 +77829,7 @@ function _createClass(e, t, n) {
                 (this.httpClient = t),
                 (this.messageSource = new r.a('')),
                 (this.countryMessage = this.messageSource.asObservable()),
-                this.checkCountry().subscribe(function (e) {
-                  console.log(e);
-                });
+                this.checkCountry().subscribe(function (e) {});
             }
             return (
               _createClass(e, [

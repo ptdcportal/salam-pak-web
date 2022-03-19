@@ -2770,7 +2770,7 @@ form input[type='file'] {
 /* navbar-transparent */
 .header-transparent .navbar {
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  background-color: #ffffffc2;
+  background-color: #ffffff;
 }
 .home .header-transparent .navbar {
   /* border-bottom: 1px solid rgba(255, 255, 255, 0.15);

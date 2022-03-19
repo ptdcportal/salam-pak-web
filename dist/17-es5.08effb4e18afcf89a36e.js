@@ -1,26 +1,26 @@
-function _classCallCheck(e, t) {
-  if (!(e instanceof t)) throw new TypeError('Cannot call a class as a function');
+function _classCallCheck(t, e) {
+  if (!(t instanceof e)) throw new TypeError('Cannot call a class as a function');
 }
-function _defineProperties(e, t) {
-  for (var n = 0; n < t.length; n++) {
-    var a = t[n];
+function _defineProperties(t, e) {
+  for (var n = 0; n < e.length; n++) {
+    var a = e[n];
     (a.enumerable = a.enumerable || !1),
       (a.configurable = !0),
       'value' in a && (a.writable = !0),
-      Object.defineProperty(e, a.key, a);
+      Object.defineProperty(t, a.key, a);
   }
 }
-function _createClass(e, t, n) {
-  return t && _defineProperties(e.prototype, t), n && _defineProperties(e, n), e;
+function _createClass(t, e, n) {
+  return e && _defineProperties(t.prototype, e), n && _defineProperties(t, n), t;
 }
 (window.webpackJsonp = window.webpackJsonp || []).push([
   [17],
   {
-    Q287: function (e, t, n) {
+    Q287: function (t, e, n) {
       'use strict';
-      n.r(t),
-        n.d(t, 'WhereToGoModule', function () {
-          return re;
+      n.r(e),
+        n.d(e, 'WhereToGoModule', function () {
+          return rt;
         });
       var a,
         r = n('ofXK'),
@@ -31,31 +31,31 @@ function _createClass(e, t, n) {
         c = n('fXoL'),
         d =
           (((a = (function () {
-            function e(t) {
-              _classCallCheck(this, e), (this.eventService = t);
+            function t(e) {
+              _classCallCheck(this, t), (this.eventService = e);
             }
             return (
-              _createClass(e, [
+              _createClass(t, [
                 {
                   key: 'resolve',
-                  value: function (e, t) {
-                    return this.eventService.getCategoryDetail(e.params.slug);
+                  value: function (t, e) {
+                    return this.eventService.getCategoryDetail(t.params.slug);
                   },
                 },
               ]),
-              e
+              t
             );
-          })()).ɵfac = function (e) {
-            return new (e || a)(c['\u0275\u0275inject'](s.a));
+          })()).ɵfac = function (t) {
+            return new (t || a)(c['\u0275\u0275inject'](s.a));
           }),
           (a.ɵprov = c['\u0275\u0275defineInjectable']({ token: a, factory: a.ɵfac, providedIn: 'root' })),
           a),
         m = n('NO7T'),
         x = n('3Pt+'),
         p = n('oOf3');
-      function g(e, t) {
+      function g(t, e) {
         if (
-          (1 & e &&
+          (1 & t &&
             (c['\u0275\u0275elementStart'](0, 'div', 31),
             c['\u0275\u0275text'](1, '\n          '),
             c['\u0275\u0275elementStart'](2, 'a', 32),
@@ -80,9 +80,9 @@ function _createClass(e, t, n) {
             c['\u0275\u0275elementEnd'](),
             c['\u0275\u0275text'](18, '\n        '),
             c['\u0275\u0275elementEnd']()),
-          2 & e)
+          2 & t)
         ) {
-          var n = t.$implicit,
+          var n = e.$implicit,
             a = c['\u0275\u0275nextContext']();
           c['\u0275\u0275advance'](2),
             c['\u0275\u0275propertyInterpolate2'](
@@ -100,14 +100,14 @@ function _createClass(e, t, n) {
             c['\u0275\u0275textInterpolate'](n.alias);
         }
       }
-      function u(e, t) {
-        if (1 & e) {
+      function u(t, e) {
+        if (1 & t) {
           var n = c['\u0275\u0275getCurrentView']();
           c['\u0275\u0275elementStart'](0, 'div'),
             c['\u0275\u0275text'](1, '\n          '),
             c['\u0275\u0275elementStart'](2, 'pagination-controls', 37),
-            c['\u0275\u0275listener']('pageChange', function (e) {
-              return c['\u0275\u0275restoreView'](n), (c['\u0275\u0275nextContext']().p = e);
+            c['\u0275\u0275listener']('pageChange', function (t) {
+              return c['\u0275\u0275restoreView'](n), (c['\u0275\u0275nextContext']().p = t);
             }),
             c['\u0275\u0275elementEnd'](),
             c['\u0275\u0275text'](3, '\n        '),
@@ -115,14 +115,14 @@ function _createClass(e, t, n) {
         }
       }
       var v,
-        h = function (e) {
-          return { itemsPerPage: 6, currentPage: e };
+        h = function (t) {
+          return { itemsPerPage: 6, currentPage: t };
         },
         f =
           (((v = (function () {
-            function e(t, n) {
-              _classCallCheck(this, e),
-                (this.route = t),
+            function t(e, n) {
+              _classCallCheck(this, t),
+                (this.route = e),
                 (this.eventService = n),
                 (this.p = 1),
                 (this.data = this.route.snapshot.data.category
@@ -134,7 +134,7 @@ function _createClass(e, t, n) {
                   : this.getLocationsListing(this.slug);
             }
             return (
-              _createClass(e, [
+              _createClass(t, [
                 {
                   key: 'ngOnInit',
                   value: function () {
@@ -143,49 +143,49 @@ function _createClass(e, t, n) {
                 },
                 {
                   key: 'getCategoryLocations',
-                  value: function (e) {
-                    var t = this;
-                    this.eventService.getCategoryLocations(e).subscribe(function (e) {
-                      t.filteredRes = e.filter(function (e) {
-                        return (e.isFeatured = !0);
+                  value: function (t) {
+                    var e = this;
+                    this.eventService.getCategoryLocations(t).subscribe(function (t) {
+                      e.filteredRes = t.filter(function (t) {
+                        return (t.isFeatured = !0);
                       });
                     });
                   },
                 },
                 {
                   key: 'getLocationsListing',
-                  value: function (e) {
-                    var t = this;
-                    this.eventService.getTrips(e).subscribe(function (e) {
-                      t.filteredRes = e.filter(function (e) {
-                        return (e.isFeatured = !0);
+                  value: function (t) {
+                    var e = this;
+                    this.eventService.getTrips(t).subscribe(function (t) {
+                      e.filteredRes = t.filter(function (t) {
+                        return (t.isFeatured = !0);
                       });
                     });
                   },
                 },
                 {
                   key: 'getRatingStars',
-                  value: function (e) {
-                    return (parseFloat(e) / 5) * 100 + '%';
+                  value: function (t) {
+                    return (parseFloat(t) / 5) * 100 + '%';
                   },
                 },
                 {
                   key: 'loadScript',
                   value: function () {
-                    var e = document.body,
-                      t = document.createElement('script');
-                    (t.innerHTML = ''),
-                      (t.src = '../../assets/js/where-to-go.js'),
-                      (t.async = !0),
-                      (t.defer = !0),
-                      e.appendChild(t);
+                    var t = document.body,
+                      e = document.createElement('script');
+                    (e.innerHTML = ''),
+                      (e.src = '../../assets/js/where-to-go.js'),
+                      (e.async = !0),
+                      (e.defer = !0),
+                      t.appendChild(e);
                   },
                 },
               ]),
-              e
+              t
             );
-          })()).ɵfac = function (e) {
-            return new (e || v)(c['\u0275\u0275directiveInject'](i.a), c['\u0275\u0275directiveInject'](s.a));
+          })()).ɵfac = function (t) {
+            return new (t || v)(c['\u0275\u0275directiveInject'](i.a), c['\u0275\u0275directiveInject'](s.a));
           }),
           (v.ɵcmp = c['\u0275\u0275defineComponent']({
             type: v,
@@ -239,8 +239,8 @@ function _createClass(e, t, n) {
               [1, 'post__title'],
               [1, 'my-pagination', 3, 'pageChange'],
             ],
-            template: function (e, t) {
-              1 & e &&
+            template: function (t, e) {
+              1 & t &&
                 (c['\u0275\u0275text'](0, '\n'),
                 c['\u0275\u0275elementStart'](1, 'section', 0),
                 c['\u0275\u0275text'](2, '\n  '),
@@ -399,28 +399,28 @@ function _createClass(e, t, n) {
                 c['\u0275\u0275text'](122, '\n'),
                 c['\u0275\u0275elementEnd'](),
                 c['\u0275\u0275text'](123, '\n')),
-                2 & e &&
+                2 & t &&
                   (c['\u0275\u0275advance'](5),
                   c['\u0275\u0275property'](
                     'src',
-                    null == t.data ? null : t.data.photos[0],
+                    null == e.data ? null : e.data.photos[0],
                     c['\u0275\u0275sanitizeUrl']
                   ),
                   c['\u0275\u0275advance'](13),
-                  c['\u0275\u0275textInterpolate'](t.data.slug),
+                  c['\u0275\u0275textInterpolate'](e.data.slug),
                   c['\u0275\u0275advance'](3),
-                  c['\u0275\u0275textInterpolate'](t.data.description),
+                  c['\u0275\u0275textInterpolate'](e.data.description),
                   c['\u0275\u0275advance'](25),
-                  c['\u0275\u0275textInterpolate1']('all ', t.data.name, ''),
+                  c['\u0275\u0275textInterpolate1']('all ', e.data.name, ''),
                   c['\u0275\u0275advance'](12),
                   c['\u0275\u0275property'](
                     'ngForOf',
-                    c['\u0275\u0275pipeBind2'](59, 7, t.filteredRes, c['\u0275\u0275pureFunction1'](10, h, t.p))
+                    c['\u0275\u0275pipeBind2'](59, 7, e.filteredRes, c['\u0275\u0275pureFunction1'](10, h, e.p))
                   ),
                   c['\u0275\u0275advance'](14),
-                  c['\u0275\u0275property']('ngIf', (null == t.filteredRes ? null : t.filteredRes.length) > 3),
+                  c['\u0275\u0275property']('ngIf', (null == e.filteredRes ? null : e.filteredRes.length) > 3),
                   c['\u0275\u0275advance'](18),
-                  c['\u0275\u0275textInterpolate1']('Browse ', t.data.name, ''));
+                  c['\u0275\u0275textInterpolate1']('Browse ', e.data.name, ''));
             },
             directives: [r.m, r.n, x['\u0275angular_packages_forms_forms_y'], x.NgControlStatusGroup, x.NgForm, p.c],
             pipes: [p.b],
@@ -435,12 +435,12 @@ function _createClass(e, t, n) {
         E = n('PSy5'),
         b = n('eSVu'),
         C = ['slickModal'],
-        w = function (e, t) {
-          return ['/where-to-go/category', e, 'location', t];
+        w = function (t, e) {
+          return ['/where-to-go/category', t, 'location', e];
         };
-      function k(e, t) {
+      function k(t, e) {
         if (
-          (1 & e &&
+          (1 & t &&
             (c['\u0275\u0275elementStart'](0, 'div', 41),
             c['\u0275\u0275text'](1, '\n          '),
             c['\u0275\u0275elementStart'](2, 'a', 22),
@@ -468,9 +468,9 @@ function _createClass(e, t, n) {
             c['\u0275\u0275elementEnd'](),
             c['\u0275\u0275text'](20, '\n        '),
             c['\u0275\u0275elementEnd']()),
-          2 & e)
+          2 & t)
         ) {
-          var n = t.$implicit,
+          var n = e.$implicit,
             a = c['\u0275\u0275nextContext']();
           c['\u0275\u0275advance'](2),
             c['\u0275\u0275property']('routerLink', c['\u0275\u0275pureFunction2'](4, w, a.category.slug, n.slug)),
@@ -482,23 +482,23 @@ function _createClass(e, t, n) {
             c['\u0275\u0275textInterpolate'](n.description);
         }
       }
-      function O(e, t) {
-        if (1 & e) {
+      function O(t, e) {
+        if (1 & t) {
           var n = c['\u0275\u0275getCurrentView']();
           c['\u0275\u0275elementStart'](0, 'div'),
             c['\u0275\u0275text'](1, '\n          '),
             c['\u0275\u0275elementStart'](2, 'pagination-controls', 47),
-            c['\u0275\u0275listener']('pageChange', function (e) {
-              return c['\u0275\u0275restoreView'](n), (c['\u0275\u0275nextContext']().p = e);
+            c['\u0275\u0275listener']('pageChange', function (t) {
+              return c['\u0275\u0275restoreView'](n), (c['\u0275\u0275nextContext']().p = t);
             }),
             c['\u0275\u0275elementEnd'](),
             c['\u0275\u0275text'](3, '\n        '),
             c['\u0275\u0275elementEnd']();
         }
       }
-      function P(e, t) {
+      function P(t, e) {
         if (
-          (1 & e &&
+          (1 & t &&
             (c['\u0275\u0275elementStart'](0, 'div', 48),
             c['\u0275\u0275text'](1, '\n            '),
             c['\u0275\u0275elementStart'](2, 'a', 22),
@@ -523,9 +523,9 @@ function _createClass(e, t, n) {
             c['\u0275\u0275elementEnd'](),
             c['\u0275\u0275text'](18, '\n          '),
             c['\u0275\u0275elementEnd']()),
-          2 & e)
+          2 & t)
         ) {
-          var n = t.$implicit,
+          var n = e.$implicit,
             a = c['\u0275\u0275nextContext']();
           c['\u0275\u0275advance'](2),
             c['\u0275\u0275property']('routerLink', c['\u0275\u0275pureFunction2'](3, w, a.category.slug, n.slug)),
@@ -535,11 +535,11 @@ function _createClass(e, t, n) {
             c['\u0275\u0275textInterpolate'](n.alias);
         }
       }
-      function I(e, t) {
+      function I(t, e) {
         if (
-          (1 & e &&
+          (1 & t &&
             (c['\u0275\u0275elementStart'](0, 'a', 54), c['\u0275\u0275text'](1), c['\u0275\u0275elementEnd']()),
-          2 & e)
+          2 & t)
         ) {
           var n = c['\u0275\u0275nextContext']().$implicit;
           c['\u0275\u0275propertyInterpolate1'](
@@ -553,27 +553,27 @@ function _createClass(e, t, n) {
             c['\u0275\u0275textInterpolate1']('\n                ', n.name, '\n              ');
         }
       }
-      function M(e, t) {
+      function M(t, e) {
         if (
-          (1 & e &&
+          (1 & t &&
             (c['\u0275\u0275elementStart'](0, 'span', 52),
             c['\u0275\u0275text'](1, '\n              '),
             c['\u0275\u0275template'](2, I, 2, 2, 'a', 53),
             c['\u0275\u0275text'](3, '\n            '),
             c['\u0275\u0275elementEnd']()),
-          2 & e)
+          2 & t)
         ) {
-          var n = t.$implicit;
+          var n = e.$implicit;
           c['\u0275\u0275advance'](2), c['\u0275\u0275property']('ngIf', 'category' === n.type);
         }
       }
       var j,
         F,
-        T = function (e) {
-          return { itemsPerPage: 3, currentPage: e };
+        T = function (t) {
+          return { itemsPerPage: 3, currentPage: t };
         },
-        L = function (e) {
-          return ['/where-to-go/category', e, 'listing'];
+        L = function (t) {
+          return ['/where-to-go/category', t, 'listing'];
         },
         z = [
           { breakpoint: 1920, settings: { slidesToShow: 4 } },
@@ -583,9 +583,9 @@ function _createClass(e, t, n) {
         ],
         R =
           (((F = (function () {
-            function e(t, n, a) {
-              _classCallCheck(this, e),
-                (this.shellService = t),
+            function t(e, n, a) {
+              _classCallCheck(this, t),
+                (this.shellService = e),
                 (this.route = n),
                 (this.eventService = a),
                 (this.p = 1),
@@ -598,7 +598,7 @@ function _createClass(e, t, n) {
                 this.getCategoryLocations(this.category._id);
             }
             return (
-              _createClass(e, [
+              _createClass(t, [
                 { key: 'ngAfterViewInit', value: function () {} },
                 {
                   key: 'ngOnInit',
@@ -609,18 +609,18 @@ function _createClass(e, t, n) {
                 {
                   key: 'getFilters',
                   value: function () {
-                    var e = this;
-                    this.eventService.getDestinationFilters().subscribe(function (t) {
-                      e.categories = t;
+                    var t = this;
+                    this.eventService.getDestinationFilters().subscribe(function (e) {
+                      t.categories = e;
                     });
                   },
                 },
                 {
                   key: 'getCategoryLocations',
-                  value: function (e) {
-                    var t = this;
-                    this.eventService.getCategoryLocations(e).subscribe(function (e) {
-                      t.locations = e;
+                  value: function (t) {
+                    var e = this;
+                    this.eventService.getCategoryLocations(t).subscribe(function (t) {
+                      e.locations = t;
                     });
                   },
                 },
@@ -628,8 +628,8 @@ function _createClass(e, t, n) {
                   key: 'ngAfterContentChecked',
                   value: function () {
                     this.locations.length > 0 &&
-                      ((this.featuredCategories = this.locations.filter(function (e) {
-                        return (e.isFeatured = !0);
+                      ((this.featuredCategories = this.locations.filter(function (t) {
+                        return (t.isFeatured = !0);
                       })),
                       (this.featuredCategories = this.featuredCategories.slice(0, 5)));
                   },
@@ -648,27 +648,27 @@ function _createClass(e, t, n) {
                 },
                 {
                   key: 'getRatingStars',
-                  value: function (e) {
-                    return (parseFloat(e) / 5) * 100 + '%';
+                  value: function (t) {
+                    return (parseFloat(t) / 5) * 100 + '%';
                   },
                 },
                 {
                   key: 'loadScript',
                   value: function () {
-                    var e = document.body,
-                      t = document.createElement('script');
-                    (t.innerHTML = ''),
-                      (t.src = '../../assets/js/where-to-go.js'),
-                      (t.async = !0),
-                      (t.defer = !0),
-                      e.appendChild(t);
+                    var t = document.body,
+                      e = document.createElement('script');
+                    (e.innerHTML = ''),
+                      (e.src = '../../assets/js/where-to-go.js'),
+                      (e.async = !0),
+                      (e.defer = !0),
+                      t.appendChild(e);
                   },
                 },
               ]),
-              e
+              t
             );
-          })()).ɵfac = function (e) {
-            return new (e || F)(
+          })()).ɵfac = function (t) {
+            return new (t || F)(
               c['\u0275\u0275directiveInject'](E.a),
               c['\u0275\u0275directiveInject'](i.a),
               c['\u0275\u0275directiveInject'](s.a)
@@ -677,10 +677,10 @@ function _createClass(e, t, n) {
           (F.ɵcmp = c['\u0275\u0275defineComponent']({
             type: F,
             selectors: [['app-category-where']],
-            viewQuery: function (e, t) {
+            viewQuery: function (t, e) {
               var n;
-              1 & e && c['\u0275\u0275viewQuery'](C, !0),
-                2 & e && c['\u0275\u0275queryRefresh']((n = c['\u0275\u0275loadQuery']())) && (t.slickModal = n.first);
+              1 & t && c['\u0275\u0275viewQuery'](C, !0),
+                2 & t && c['\u0275\u0275queryRefresh']((n = c['\u0275\u0275loadQuery']())) && (e.slickModal = n.first);
             },
             decls: 173,
             vars: 19,
@@ -757,8 +757,8 @@ function _createClass(e, t, n) {
               ['class', 'category-btn', 3, 'href', 4, 'ngIf'],
               [1, 'category-btn', 3, 'href'],
             ],
-            template: function (e, t) {
-              1 & e &&
+            template: function (t, e) {
+              1 & t &&
                 (c['\u0275\u0275text'](0, '\n'),
                 c['\u0275\u0275elementStart'](1, 'section', 0),
                 c['\u0275\u0275text'](2, '\n  '),
@@ -975,38 +975,38 @@ function _createClass(e, t, n) {
                 c['\u0275\u0275text'](171, '\n'),
                 c['\u0275\u0275elementEnd'](),
                 c['\u0275\u0275text'](172, '\n')),
-                2 & e &&
+                2 & t &&
                   (c['\u0275\u0275advance'](8),
                   c['\u0275\u0275property'](
                     'src',
-                    t.category.thumbnails[0] || 'assets/images/backgrounds/trip-detail.png',
+                    e.category.thumbnails[0] || 'assets/images/backgrounds/trip-detail.png',
                     c['\u0275\u0275sanitizeUrl']
                   ),
                   c['\u0275\u0275advance'](12),
-                  c['\u0275\u0275textInterpolate'](t.category.name),
+                  c['\u0275\u0275textInterpolate'](e.category.name),
                   c['\u0275\u0275advance'](3),
-                  c['\u0275\u0275textInterpolate'](t.category.description),
+                  c['\u0275\u0275textInterpolate'](e.category.description),
                   c['\u0275\u0275advance'](25),
-                  c['\u0275\u0275textInterpolate1']('featured ', t.category.name, ''),
+                  c['\u0275\u0275textInterpolate1']('featured ', e.category.name, ''),
                   c['\u0275\u0275advance'](12),
                   c['\u0275\u0275property'](
                     'ngForOf',
-                    c['\u0275\u0275pipeBind2'](61, 12, t.featuredCategories, c['\u0275\u0275pureFunction1'](15, T, t.p))
+                    c['\u0275\u0275pipeBind2'](61, 12, e.featuredCategories, c['\u0275\u0275pureFunction1'](15, T, e.p))
                   ),
                   c['\u0275\u0275advance'](14),
-                  c['\u0275\u0275property']('ngIf', (null == t.locations ? null : t.locations.length) > 3),
+                  c['\u0275\u0275property']('ngIf', (null == e.locations ? null : e.locations.length) > 3),
                   c['\u0275\u0275advance'](16),
-                  c['\u0275\u0275textInterpolate1']('all ', t.category.name, ''),
+                  c['\u0275\u0275textInterpolate1']('all ', e.category.name, ''),
                   c['\u0275\u0275advance'](5),
-                  c['\u0275\u0275property']('routerLink', c['\u0275\u0275pureFunction1'](17, L, t.category.slug)),
+                  c['\u0275\u0275property']('routerLink', c['\u0275\u0275pureFunction1'](17, L, e.category.slug)),
                   c['\u0275\u0275advance'](15),
-                  c['\u0275\u0275property']('config', t.slideConfig),
+                  c['\u0275\u0275property']('config', e.slideConfig),
                   c['\u0275\u0275advance'](4),
-                  c['\u0275\u0275property']('ngForOf', t.locations),
+                  c['\u0275\u0275property']('ngForOf', e.locations),
                   c['\u0275\u0275advance'](24),
-                  c['\u0275\u0275textInterpolate1']('Browse ', t.category.name, ''),
+                  c['\u0275\u0275textInterpolate1']('Browse ', e.category.name, ''),
                   c['\u0275\u0275advance'](26),
-                  c['\u0275\u0275property']('ngForOf', t.categories));
+                  c['\u0275\u0275property']('ngForOf', e.categories));
             },
             directives: [
               r.m,
@@ -1021,37 +1021,37 @@ function _createClass(e, t, n) {
             ],
             pipes: [p.b],
             styles: [
-              '.bg-img[_ngcontent-%COMP%]{-o-object-fit:cover;object-fit:cover;margin-top:-120px}.bg-img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{min-height:400px;-o-object-fit:none;object-fit:none}.bg-img[_ngcontent-%COMP%]   .header-image[_ngcontent-%COMP%]{width:100%;height:500px;-o-object-fit:cover;object-fit:cover}.slide__content[_ngcontent-%COMP%]{position:absolute;top:-220px;z-index:1;text-align:left}.category-btn[_ngcontent-%COMP%]{display:inline-block;margin:3px}.post__content[_ngcontent-%COMP%]{background-color:transparent}.post__img[_ngcontent-%COMP%]{height:230px!important}.post__img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{height:100%;-o-object-fit:cover;object-fit:cover;width:100%;-o-object-position:center center;object-position:center center}.places__img[_ngcontent-%COMP%]{height:200px!important}.places__img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{height:100%;-o-object-fit:cover;object-fit:cover;width:100%;-o-object-position:center center;object-position:center center}.blog-container[_ngcontent-%COMP%]{display:flex;justify-content:space-evenly}.blog-container[_ngcontent-%COMP%]   .post-item[_ngcontent-%COMP%]{border:1px solid #e6dbdb;border-radius:18px;max-width:32%;box-shadow:0 3px 10px rgba(0,0,0,.2)}',
+              '.bg-img[_ngcontent-%COMP%]{background-color:#000!important;-o-object-fit:cover;object-fit:cover;margin-top:-120px}.bg-img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{min-height:400px;-o-object-fit:none;object-fit:none;opacity:.7!important}.bg-img[_ngcontent-%COMP%]   .header-image[_ngcontent-%COMP%]{width:100%;height:500px;-o-object-fit:cover;object-fit:cover}.slide__content[_ngcontent-%COMP%]{position:absolute;top:-220px;z-index:1;text-align:left}.category-btn[_ngcontent-%COMP%]{display:inline-block;margin:3px}.post__content[_ngcontent-%COMP%]{background-color:transparent}.post__img[_ngcontent-%COMP%]{height:230px!important}.post__img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{height:100%;-o-object-fit:cover;object-fit:cover;width:100%;-o-object-position:center center;object-position:center center}.places__img[_ngcontent-%COMP%]{height:200px!important}.places__img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{height:100%;-o-object-fit:cover;object-fit:cover;width:100%;-o-object-position:center center;object-position:center center}.blog-container[_ngcontent-%COMP%]{display:flex;justify-content:space-evenly}.blog-container[_ngcontent-%COMP%]   .post-item[_ngcontent-%COMP%]{border:1px solid #e6dbdb;border-radius:18px;max-width:32%;box-shadow:0 3px 10px rgba(0,0,0,.2)}',
             ],
           })),
           F),
         U =
           (((j = (function () {
-            function e(t) {
-              _classCallCheck(this, e), (this.eventService = t);
+            function t(e) {
+              _classCallCheck(this, t), (this.eventService = e);
             }
             return (
-              _createClass(e, [
+              _createClass(t, [
                 {
                   key: 'resolve',
-                  value: function (e, t) {
-                    return this.eventService.getTrips(e.params.slug);
+                  value: function (t, e) {
+                    return this.eventService.getTrips(t.params.slug);
                   },
                 },
               ]),
-              e
+              t
             );
-          })()).ɵfac = function (e) {
-            return new (e || j)(c['\u0275\u0275inject'](s.a));
+          })()).ɵfac = function (t) {
+            return new (t || j)(c['\u0275\u0275inject'](s.a));
           }),
           (j.ɵprov = c['\u0275\u0275defineInjectable']({ token: j, factory: j.ɵfac, providedIn: 'root' })),
           j),
-        N = function (e, t) {
-          return ['/where-to-go/category', e, 'location', t];
+        N = function (t, e) {
+          return ['/where-to-go/category', t, 'location', e];
         };
-      function A(e, t) {
+      function A(t, e) {
         if (
-          (1 & e &&
+          (1 & t &&
             (c['\u0275\u0275elementStart'](0, 'div', 36),
             c['\u0275\u0275text'](1, '\n        '),
             c['\u0275\u0275elementStart'](2, 'div', 37),
@@ -1084,9 +1084,9 @@ function _createClass(e, t, n) {
             c['\u0275\u0275text'](23, '\n\n        '),
             c['\u0275\u0275text'](24, '\n      '),
             c['\u0275\u0275elementEnd']()),
-          2 & e)
+          2 & t)
         ) {
-          var n = t.$implicit,
+          var n = e.$implicit,
             a = c['\u0275\u0275nextContext']();
           c['\u0275\u0275advance'](4),
             c['\u0275\u0275property']('routerLink', c['\u0275\u0275pureFunction2'](4, N, a.slug, n.slug)),
@@ -1098,12 +1098,12 @@ function _createClass(e, t, n) {
             c['\u0275\u0275textInterpolate'](n.description);
         }
       }
-      var G = function (e) {
-        return { width: e };
+      var G = function (t) {
+        return { width: t };
       };
-      function W(e, t) {
+      function W(t, e) {
         if (
-          (1 & e &&
+          (1 & t &&
             (c['\u0275\u0275elementStart'](0, 'div', 44),
             c['\u0275\u0275text'](1, '\n            '),
             c['\u0275\u0275elementStart'](2, 'a', 38),
@@ -1151,9 +1151,9 @@ function _createClass(e, t, n) {
             c['\u0275\u0275elementEnd'](),
             c['\u0275\u0275text'](36, '\n          '),
             c['\u0275\u0275elementEnd']()),
-          2 & e)
+          2 & t)
         ) {
-          var n = t.$implicit,
+          var n = e.$implicit,
             a = c['\u0275\u0275nextContext']();
           c['\u0275\u0275advance'](2),
             c['\u0275\u0275property']('routerLink', c['\u0275\u0275pureFunction2'](7, N, n.slug, n.slug)),
@@ -1175,14 +1175,14 @@ function _createClass(e, t, n) {
         }
       }
       var $,
-        Q = function (e) {
-          return ['/where-to-go/location', e, 'listing'];
+        Q = function (t) {
+          return ['/where-to-go/location', t, 'listing'];
         },
         B =
           ((($ = (function () {
-            function e(t, n, a) {
-              _classCallCheck(this, e),
-                (this.route = t),
+            function t(e, n, a) {
+              _classCallCheck(this, t),
+                (this.route = e),
                 (this.eventService = n),
                 (this.shellService = a),
                 (this.locations = []),
@@ -1204,25 +1204,25 @@ function _createClass(e, t, n) {
                 this.getProvinces();
             }
             return (
-              _createClass(e, [
+              _createClass(t, [
                 {
                   key: 'ngOnInit',
                   value: function () {
-                    var e = this;
+                    var t = this;
                     window.scrollTo({ top: 0, behavior: 'smooth' }),
-                      this.route.params.subscribe(function (t) {
-                        (e.trip = e.route.snapshot.data.trip[0]), (e.slug = t.slug), e.getFeaturedEvents();
+                      this.route.params.subscribe(function (e) {
+                        (t.trip = t.route.snapshot.data.trip[0]), (t.slug = e.slug), t.getFeaturedEvents();
                       });
                   },
                 },
                 {
                   key: 'getProvinces',
                   value: function () {
-                    var e = this;
-                    this.shellService.getProvinces().subscribe(function (t) {
-                      e.province = t.data.filter(function (t) {
-                        t.slug === e.trip.parentProvince &&
-                          ((e.province = t), (e.provinceImage = e.province.thumbnail));
+                    var t = this;
+                    this.shellService.getProvinces().subscribe(function (e) {
+                      t.province = e.data.filter(function (e) {
+                        e.slug === t.trip.parentProvince &&
+                          ((t.province = e), (t.provinceImage = t.province.thumbnail));
                       });
                     });
                   },
@@ -1230,9 +1230,9 @@ function _createClass(e, t, n) {
                 {
                   key: 'getFeaturedEvents',
                   value: function () {
-                    var e = this;
-                    this.eventService.getFetrauredEvents(this.trip.parentProvince).subscribe(function (t) {
-                      e.locations = t.data;
+                    var t = this;
+                    this.eventService.getFetrauredEvents(this.trip.parentProvince).subscribe(function (e) {
+                      t.locations = e.data;
                     });
                   },
                 },
@@ -1250,15 +1250,15 @@ function _createClass(e, t, n) {
                 },
                 {
                   key: 'getRatingStars',
-                  value: function (e) {
-                    return (parseFloat(e) / 5) * 100 + '%';
+                  value: function (t) {
+                    return (parseFloat(t) / 5) * 100 + '%';
                   },
                 },
               ]),
-              e
+              t
             );
-          })()).ɵfac = function (e) {
-            return new (e || $)(
+          })()).ɵfac = function (t) {
+            return new (t || $)(
               c['\u0275\u0275directiveInject'](i.a),
               c['\u0275\u0275directiveInject'](s.a),
               c['\u0275\u0275directiveInject'](E.a)
@@ -1331,8 +1331,8 @@ function _createClass(e, t, n) {
               [1, 'stars2', 2, 'display', 'inline-table'],
               [1, 'font-regular'],
             ],
-            template: function (e, t) {
-              1 & e &&
+            template: function (t, e) {
+              1 & t &&
                 (c['\u0275\u0275text'](0, '\n'),
                 c['\u0275\u0275elementStart'](1, 'section', 0),
                 c['\u0275\u0275text'](2, '\n  '),
@@ -1525,39 +1525,39 @@ function _createClass(e, t, n) {
                 c['\u0275\u0275text'](152, '\n'),
                 c['\u0275\u0275elementEnd'](),
                 c['\u0275\u0275text'](153, '\n')),
-                2 & e &&
+                2 & t &&
                   (c['\u0275\u0275advance'](8),
                   c['\u0275\u0275property'](
                     'src',
-                    t.provinceImage || 'assets/images/backgrounds/trip-detail.png',
+                    e.provinceImage || 'assets/images/backgrounds/trip-detail.png',
                     c['\u0275\u0275sanitizeUrl']
                   ),
                   c['\u0275\u0275advance'](12),
-                  c['\u0275\u0275textInterpolate'](t.slug),
+                  c['\u0275\u0275textInterpolate'](e.slug),
                   c['\u0275\u0275advance'](26),
-                  c['\u0275\u0275textInterpolate1']('featured locations in ', t.slug, ''),
+                  c['\u0275\u0275textInterpolate1']('featured locations in ', e.slug, ''),
                   c['\u0275\u0275advance'](10),
-                  c['\u0275\u0275property']('ngForOf', c['\u0275\u0275pipeBind3'](57, 11, t.locations, 0, 3)),
+                  c['\u0275\u0275property']('ngForOf', c['\u0275\u0275pipeBind3'](57, 11, e.locations, 0, 3)),
                   c['\u0275\u0275advance'](17),
-                  c['\u0275\u0275textInterpolate1']('all ', t.slug, ' locations'),
+                  c['\u0275\u0275textInterpolate1']('all ', e.slug, ' locations'),
                   c['\u0275\u0275advance'](5),
-                  c['\u0275\u0275property']('routerLink', c['\u0275\u0275pureFunction1'](15, Q, t.slug)),
+                  c['\u0275\u0275property']('routerLink', c['\u0275\u0275pureFunction1'](15, Q, e.slug)),
                   c['\u0275\u0275advance'](14),
-                  c['\u0275\u0275property']('config', t.slideConfig),
+                  c['\u0275\u0275property']('config', e.slideConfig),
                   c['\u0275\u0275advance'](3),
-                  c['\u0275\u0275property']('ngForOf', t.locations),
+                  c['\u0275\u0275property']('ngForOf', e.locations),
                   c['\u0275\u0275advance'](24),
-                  c['\u0275\u0275textInterpolate1']('Browse ', t.trip.name, ''),
+                  c['\u0275\u0275textInterpolate1']('Browse ', e.trip.name, ''),
                   c['\u0275\u0275advance'](23),
                   c['\u0275\u0275propertyInterpolate1'](
                     'href',
                     '/trips/locations/',
-                    t.slug,
+                    e.slug,
                     '',
                     c['\u0275\u0275sanitizeUrl']
                   ),
                   c['\u0275\u0275advance'](1),
-                  c['\u0275\u0275textInterpolate1'](' ', t.slug, ''));
+                  c['\u0275\u0275textInterpolate1'](' ', e.slug, ''));
             },
             directives: [
               r.m,
@@ -1571,7 +1571,7 @@ function _createClass(e, t, n) {
             ],
             pipes: [r.v],
             styles: [
-              '.bg-img[_ngcontent-%COMP%]{margin-top:-120px}.bg-img[_ngcontent-%COMP%]   .header-image[_ngcontent-%COMP%]{width:100%;height:500px;-o-object-fit:cover;object-fit:cover}.slide__content[_ngcontent-%COMP%]{position:absolute;top:-175px;z-index:1;text-align:left}.post__content[_ngcontent-%COMP%]{background-color:transparent}.post__img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{height:270px}.places__img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{height:230px}.post-item[_ngcontent-%COMP%]{display:inline-block}',
+              '.bg-img[_ngcontent-%COMP%]{background-color:#000!important;margin-top:-120px}.bg-img[_ngcontent-%COMP%]   .header-image[_ngcontent-%COMP%]{width:100%;height:500px;-o-object-fit:cover;object-fit:cover;opacity:.7!important}.slide__content[_ngcontent-%COMP%]{position:absolute;top:-175px;z-index:1;text-align:left}.post__content[_ngcontent-%COMP%]{background-color:transparent}.post__img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{height:270px}.places__img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{height:230px}.post-item[_ngcontent-%COMP%]{display:inline-block}',
             ],
           })),
           $),
@@ -1579,12 +1579,12 @@ function _createClass(e, t, n) {
         V = n('44p1'),
         D = n('0yyg'),
         q = n('CQy9'),
-        K = function (e) {
-          return ['/where-to-go/category', e];
+        K = function (t) {
+          return ['/where-to-go/category', t];
         };
-      function X(e, t) {
+      function X(t, e) {
         if (
-          (1 & e &&
+          (1 & t &&
             (c['\u0275\u0275elementStart'](0, 'div', 13),
             c['\u0275\u0275text'](1, '\n          '),
             c['\u0275\u0275text'](2, '\n          '),
@@ -1616,9 +1616,9 @@ function _createClass(e, t, n) {
             c['\u0275\u0275elementEnd'](),
             c['\u0275\u0275text'](24, '\n        '),
             c['\u0275\u0275elementEnd']()),
-          2 & e)
+          2 & t)
         ) {
-          var n = t.$implicit;
+          var n = e.$implicit;
           c['\u0275\u0275advance'](3),
             c['\u0275\u0275property']('routerLink', c['\u0275\u0275pureFunction1'](4, K, n.slug)),
             c['\u0275\u0275advance'](4),
@@ -1640,14 +1640,14 @@ function _createClass(e, t, n) {
       var J,
         Z,
         Y,
-        ee = [
+        tt = [
           {
             path: '',
             component:
               ((J = (function () {
-                function e(t, n) {
-                  _classCallCheck(this, e),
-                    (this.homeService = t),
+                function t(e, n) {
+                  _classCallCheck(this, t),
+                    (this.homeService = e),
                     (this.router = n),
                     (this.isLoading = !0),
                     (this.categories = []),
@@ -1655,20 +1655,20 @@ function _createClass(e, t, n) {
                     (this.images = [S.a, y.a, _.a, D.a, q.a, S.a]);
                 }
                 return (
-                  _createClass(e, [
+                  _createClass(t, [
                     {
                       key: 'getWhereToGoCategories',
                       value: function () {
-                        var e = this;
+                        var t = this;
                         this.homeService
                           .getWhereToGoCategories()
                           .pipe(
                             Object(V.finalize)(function () {
-                              e.isLoading = !1;
+                              t.isLoading = !1;
                             })
                           )
-                          .subscribe(function (t) {
-                            (e.categories = t), e.categories.filter(function (e, t) {});
+                          .subscribe(function (e) {
+                            (t.categories = e), t.categories.filter(function (t, e) {});
                           });
                       },
                     },
@@ -1680,28 +1680,28 @@ function _createClass(e, t, n) {
                     },
                     {
                       key: 'getRatingStars',
-                      value: function (e) {
-                        return (parseFloat(e) / 5) * 100 + '%';
+                      value: function (t) {
+                        return (parseFloat(t) / 5) * 100 + '%';
                       },
                     },
                     {
                       key: 'loadScript',
                       value: function () {
-                        var e = document.body,
-                          t = document.createElement('script');
-                        (t.innerHTML = ''),
-                          (t.src = '../../assets/js/where-to-go.js'),
-                          (t.async = !0),
-                          (t.defer = !0),
-                          e.appendChild(t);
+                        var t = document.body,
+                          e = document.createElement('script');
+                        (e.innerHTML = ''),
+                          (e.src = '../../assets/js/where-to-go.js'),
+                          (e.async = !0),
+                          (e.defer = !0),
+                          t.appendChild(e);
                       },
                     },
                   ]),
-                  e
+                  t
                 );
               })()),
-              (J.ɵfac = function (e) {
-                return new (e || J)(c['\u0275\u0275directiveInject'](H.a), c['\u0275\u0275directiveInject'](i.d));
+              (J.ɵfac = function (t) {
+                return new (t || J)(c['\u0275\u0275directiveInject'](H.a), c['\u0275\u0275directiveInject'](i.d));
               }),
               (J.ɵcmp = c['\u0275\u0275defineComponent']({
                 type: J,
@@ -1730,8 +1730,8 @@ function _createClass(e, t, n) {
                   [1, 'post__title'],
                   [1, 'post__desc'],
                 ],
-                template: function (e, t) {
-                  1 & e &&
+                template: function (t, e) {
+                  1 & t &&
                     (c['\u0275\u0275text'](0, '\n'),
                     c['\u0275\u0275elementStart'](1, 'section', 0),
                     c['\u0275\u0275text'](2, '\n  '),
@@ -1800,11 +1800,11 @@ function _createClass(e, t, n) {
                     c['\u0275\u0275text'](51, '\n'),
                     c['\u0275\u0275elementEnd'](),
                     c['\u0275\u0275text'](52, '\n')),
-                    2 & e &&
+                    2 & t &&
                       (c['\u0275\u0275advance'](16),
                       c['\u0275\u0275property']('translate', 'WHERETOGOHEADING'),
                       c['\u0275\u0275advance'](28),
-                      c['\u0275\u0275property']('ngForOf', t.categories)('ngForOf', t.images));
+                      c['\u0275\u0275property']('ngForOf', e.categories)('ngForOf', e.images));
                 },
                 directives: [r.m, i.f],
                 styles: [
@@ -1819,28 +1819,28 @@ function _createClass(e, t, n) {
           { path: 'category/:category/location/:slug', component: l.a, resolve: { location: m.a } },
           { path: 'locations/:slug', component: B, resolve: { trip: U } },
         ],
-        te =
-          (((Z = function e() {
-            _classCallCheck(this, e);
+        et =
+          (((Z = function t() {
+            _classCallCheck(this, t);
           }).ɵmod = c['\u0275\u0275defineNgModule']({ type: Z })),
           (Z.ɵinj = c['\u0275\u0275defineInjector']({
-            factory: function (e) {
-              return new (e || Z)();
+            factory: function (t) {
+              return new (t || Z)();
             },
-            imports: [[i.g.forChild(ee)], i.g],
+            imports: [[i.g.forChild(tt)], i.g],
           })),
           Z),
-        ne = n('pxUr'),
-        ae = n('1207'),
-        re =
-          (((Y = function e() {
-            _classCallCheck(this, e);
+        nt = n('pxUr'),
+        at = n('1207'),
+        rt =
+          (((Y = function t() {
+            _classCallCheck(this, t);
           }).ɵmod = c['\u0275\u0275defineNgModule']({ type: Y })),
           (Y.ɵinj = c['\u0275\u0275defineInjector']({
-            factory: function (e) {
-              return new (e || Y)();
+            factory: function (t) {
+              return new (t || Y)();
             },
-            imports: [[r.c, o.a, te, ae.a, ne.a.forRoot({ apiKey: 'AIzaSyCPhOFre2UhYgZPRNw_qD8CaGQ36pUqaQA' })]],
+            imports: [[r.c, o.a, et, at.a, nt.a.forRoot({ apiKey: 'AIzaSyCPhOFre2UhYgZPRNw_qD8CaGQ36pUqaQA' })]],
           })),
           Y);
     },

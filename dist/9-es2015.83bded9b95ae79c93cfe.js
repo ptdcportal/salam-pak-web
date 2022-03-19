@@ -944,11 +944,9 @@
                     isChild: this.bookingForm.get('noOfChildren').value > 0,
                   });
                   (e = { passengersDetail: e }),
-                    console.log(e),
                     this.eventService.createEventBooking(this.eventId, e).subscribe(
                       (e) => {
-                        console.log(e),
-                          this.ngxSmartModalService.getModal('bookingModal').close(),
+                        this.ngxSmartModalService.getModal('bookingModal').close(),
                           this.toastr.success('booking created successfully!');
                       },
                       (e) => {

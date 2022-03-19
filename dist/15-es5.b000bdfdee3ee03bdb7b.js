@@ -225,7 +225,7 @@ function _createClass(t, e, n) {
                   value: function () {
                     var t = this;
                     this.eventService.getUserPlan(this.userId).subscribe(function (e) {
-                      console.log(e), (t.userPlans = e);
+                      t.userPlans = e;
                     });
                   },
                 },
@@ -234,7 +234,7 @@ function _createClass(t, e, n) {
                   value: function (t) {
                     var e = this;
                     this.eventService.deleteAPlan(t).subscribe(function (t) {
-                      e.toastr.success('Plan has been removed'), e.fetchUserPlans(), console.log(t);
+                      e.toastr.success('Plan has been removed'), e.fetchUserPlans();
                     });
                   },
                 },

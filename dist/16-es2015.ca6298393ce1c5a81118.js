@@ -28,7 +28,7 @@
         E = function (t, e) {
           return ['/what-to-do/activity', t, 'location', e];
         };
-      function _(t, e) {
+      function b(t, e) {
         if (
           (1 & t &&
             (h['\u0275\u0275elementStart'](0, 'div', 41),
@@ -82,7 +82,7 @@
             h['\u0275\u0275textInterpolate1']('\n                ', t.description, '\n              ');
         }
       }
-      function b(t, e) {
+      function _(t, e) {
         if (1 & t) {
           const t = h['\u0275\u0275getCurrentView']();
           h['\u0275\u0275elementStart'](0, 'div'),
@@ -202,7 +202,7 @@
           }
           getFilters() {
             this.shellService.currentMessage.subscribe((t) => {
-              (this.categories = t.activities), console.log('this.categories', this.categories);
+              this.categories = t.activities;
             });
           }
           ngOnInit() {
@@ -395,7 +395,7 @@
                 h['\u0275\u0275text'](55, '\n      '),
                 h['\u0275\u0275elementStart'](56, 'div', 14),
                 h['\u0275\u0275text'](57, '\n        '),
-                h['\u0275\u0275template'](58, _, 22, 9, 'div', 15),
+                h['\u0275\u0275template'](58, b, 22, 9, 'div', 15),
                 h['\u0275\u0275pipe'](59, 'paginate'),
                 h['\u0275\u0275text'](60, '\n        '),
                 h['\u0275\u0275text'](61, '\n      '),
@@ -412,7 +412,7 @@
                 h['\u0275\u0275text'](69, '\n      '),
                 h['\u0275\u0275elementStart'](70, 'div', 16),
                 h['\u0275\u0275text'](71, '\n        '),
-                h['\u0275\u0275template'](72, b, 4, 0, 'div', 17),
+                h['\u0275\u0275template'](72, _, 4, 0, 'div', 17),
                 h['\u0275\u0275text'](73, '\n      '),
                 h['\u0275\u0275elementEnd'](),
                 h['\u0275\u0275text'](74, '\n    '),
@@ -583,7 +583,7 @@
             ],
             pipes: [f.b],
             styles: [
-              '.bg-img[_ngcontent-%COMP%]{margin-top:-120px}.bg-img[_ngcontent-%COMP%], .bg-img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{-o-object-fit:cover;object-fit:cover}.bg-img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{min-height:200px}.bg-img[_ngcontent-%COMP%]   .header-image[_ngcontent-%COMP%]{width:100%;height:500px;-o-object-fit:cover;object-fit:cover}.slide__content[_ngcontent-%COMP%]{position:absolute;top:-200px;z-index:1;text-align:left}.post__img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{height:270px}.category-btn[_ngcontent-%COMP%]{display:inline-block;margin:3px}.post__content[_ngcontent-%COMP%]{background-color:transparent}.blog-container[_ngcontent-%COMP%]{display:flex;justify-content:space-evenly}.blog-container[_ngcontent-%COMP%]   .post-item[_ngcontent-%COMP%]{border:1px solid #e6dbdb;border-radius:18px;max-width:32%;box-shadow:0 3px 10px rgba(0,0,0,.2)}',
+              '.bg-img[_ngcontent-%COMP%]{background-color:#000!important;margin-top:-120px}.bg-img[_ngcontent-%COMP%], .bg-img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{-o-object-fit:cover;object-fit:cover}.bg-img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{min-height:200px}.bg-img[_ngcontent-%COMP%]   .header-image[_ngcontent-%COMP%]{width:100%;height:500px;-o-object-fit:cover;object-fit:cover;opacity:.7!important}.slide__content[_ngcontent-%COMP%]{position:absolute;top:-200px;z-index:1;text-align:left}.post__img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{height:270px}.category-btn[_ngcontent-%COMP%]{display:inline-block;margin:3px}.post__content[_ngcontent-%COMP%]{background-color:transparent}.blog-container[_ngcontent-%COMP%]{display:flex;justify-content:space-evenly}.blog-container[_ngcontent-%COMP%]   .post-item[_ngcontent-%COMP%]{border:1px solid #e6dbdb;border-radius:18px;max-width:32%;box-shadow:0 3px 10px rgba(0,0,0,.2)}',
             ],
           })),
           t

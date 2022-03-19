@@ -346,26 +346,26 @@
             O =
               'checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped',
             q = '[\\x20\\t\\r\\n\\f]',
-            F = '(?:\\\\[\\da-fA-F]{1,6}' + q + '?|\\\\[^\\r\\n\\f]|[\\w-]|[^\0-\\x7f])+',
-            H =
+            H = '(?:\\\\[\\da-fA-F]{1,6}' + q + '?|\\\\[^\\r\\n\\f]|[\\w-]|[^\0-\\x7f])+',
+            F =
               '\\[' +
               q +
               '*(' +
-              F +
+              H +
               ')(?:' +
               q +
               '*([*^$|!~]?=)' +
               q +
               '*(?:\'((?:\\\\.|[^\\\\\'])*)\'|"((?:\\\\.|[^\\\\"])*)"|(' +
-              F +
+              H +
               '))|)' +
               q +
               '*\\]',
             R =
               ':(' +
-              F +
-              ')(?:\\(((\'((?:\\\\.|[^\\\\\'])*)\'|"((?:\\\\.|[^\\\\"])*)")|((?:\\\\.|[^\\\\()[\\]]|' +
               H +
+              ')(?:\\(((\'((?:\\\\.|[^\\\\\'])*)\'|"((?:\\\\.|[^\\\\"])*)")|((?:\\\\.|[^\\\\()[\\]]|' +
+              F +
               ')*)|.*)\\)|)',
             W = new RegExp(q + '+', 'g'),
             B = new RegExp('^' + q + '+|((?:^|[^\\\\])(?:\\\\.)*)' + q + '+$', 'g'),
@@ -373,12 +373,12 @@
             $ = new RegExp('^' + q + '*([>+~]|' + q + ')' + q + '*'),
             U = new RegExp(q + '|>'),
             V = new RegExp(R),
-            X = new RegExp('^' + F + '$'),
+            X = new RegExp('^' + H + '$'),
             Y = {
-              ID: new RegExp('^#(' + F + ')'),
-              CLASS: new RegExp('^\\.(' + F + ')'),
-              TAG: new RegExp('^(' + F + '|[*])'),
-              ATTR: new RegExp('^' + H),
+              ID: new RegExp('^#(' + H + ')'),
+              CLASS: new RegExp('^\\.(' + H + ')'),
+              TAG: new RegExp('^(' + H + '|[*])'),
+              ATTR: new RegExp('^' + F),
               PSEUDO: new RegExp('^' + R),
               CHILD: new RegExp(
                 '^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\(' +
@@ -1597,10 +1597,10 @@
             }
           );
         var q = /[^\x20\t\r\n\f]+/g;
-        function F(e) {
+        function H(e) {
           return e;
         }
-        function H(e) {
+        function F(e) {
           throw e;
         }
         function R(e, t, n, r) {
@@ -1738,9 +1738,9 @@
                               if ((n = r.apply(s, l)) === t.promise()) throw new TypeError('Thenable self-resolution');
                               v((c = n && ('object' == typeof n || 'function' == typeof n) && n.then))
                                 ? i
-                                  ? c.call(n, a(o, t, F, i), a(o, t, H, i))
-                                  : (o++, c.call(n, a(o, t, F, i), a(o, t, H, i), a(o, t, F, t.notifyWith)))
-                                : (r !== F && ((s = void 0), (l = [n])), (i || t.resolveWith)(s, l));
+                                  ? c.call(n, a(o, t, H, i), a(o, t, F, i))
+                                  : (o++, c.call(n, a(o, t, H, i), a(o, t, F, i), a(o, t, H, t.notifyWith)))
+                                : (r !== H && ((s = void 0), (l = [n])), (i || t.resolveWith)(s, l));
                             }
                           },
                           u = i
@@ -1750,7 +1750,7 @@
                                   c();
                                 } catch (n) {
                                   C.Deferred.exceptionHook && C.Deferred.exceptionHook(n, u.stackTrace),
-                                    e + 1 >= o && (r !== H && ((s = void 0), (l = [n])), t.rejectWith(s, l));
+                                    e + 1 >= o && (r !== F && ((s = void 0), (l = [n])), t.rejectWith(s, l));
                                 }
                               };
                         e
@@ -1759,9 +1759,9 @@
                       };
                     }
                     return C.Deferred(function (n) {
-                      t[0][3].add(a(0, n, v(i) ? i : F, n.notifyWith)),
-                        t[1][3].add(a(0, n, v(e) ? e : F)),
-                        t[2][3].add(a(0, n, v(r) ? r : H));
+                      t[0][3].add(a(0, n, v(i) ? i : H, n.notifyWith)),
+                        t[1][3].add(a(0, n, v(e) ? e : H)),
+                        t[2][3].add(a(0, n, v(r) ? r : F));
                     }).promise();
                   },
                   promise: function (e) {
@@ -2669,13 +2669,13 @@
             J.hasData(e) && ((o = J.access(e)), (a = C.extend({}, o)), J.set(t, a));
           }
         }
-        function Fe(e, t) {
+        function He(e, t) {
           var n = t.nodeName.toLowerCase();
           'input' === n && me.test(e.type)
             ? (t.checked = e.checked)
             : ('input' !== n && 'textarea' !== n) || (t.defaultValue = e.defaultValue);
         }
-        function He(e, t, n, r) {
+        function Fe(e, t, n, r) {
           t = l(t);
           var i,
             o,
@@ -2691,7 +2691,7 @@
           if (m || (p > 1 && 'string' == typeof h && !g.checkClone && je.test(h)))
             return e.each(function (i) {
               var o = e.eq(i);
-              m && (t[0] = h.call(this, i, o.html())), He(o, t, n, r);
+              m && (t[0] = h.call(this, i, o.html())), Fe(o, t, n, r);
             });
           if (
             p &&
@@ -2728,7 +2728,7 @@
               s = e.cloneNode(!0),
               l = ae(e);
             if (!(g.noCloneChecked || (1 !== e.nodeType && 11 !== e.nodeType) || C.isXMLDoc(e)))
-              for (a = ye(s), r = 0, i = (o = ye(e)).length; r < i; r++) Fe(o[r], a[r]);
+              for (a = ye(s), r = 0, i = (o = ye(e)).length; r < i; r++) He(o[r], a[r]);
             if (t)
               if (n) for (o = o || ye(e), a = a || ye(s), r = 0, i = o.length; r < i; r++) qe(o[r], a[r]);
               else qe(e, s);
@@ -2768,12 +2768,12 @@
               );
             },
             append: function () {
-              return He(this, arguments, function (e) {
+              return Fe(this, arguments, function (e) {
                 (1 !== this.nodeType && 11 !== this.nodeType && 9 !== this.nodeType) || Le(this, e).appendChild(e);
               });
             },
             prepend: function () {
-              return He(this, arguments, function (e) {
+              return Fe(this, arguments, function (e) {
                 if (1 === this.nodeType || 11 === this.nodeType || 9 === this.nodeType) {
                   var t = Le(this, e);
                   t.insertBefore(e, t.firstChild);
@@ -2781,12 +2781,12 @@
               });
             },
             before: function () {
-              return He(this, arguments, function (e) {
+              return Fe(this, arguments, function (e) {
                 this.parentNode && this.parentNode.insertBefore(e, this);
               });
             },
             after: function () {
-              return He(this, arguments, function (e) {
+              return Fe(this, arguments, function (e) {
                 this.parentNode && this.parentNode.insertBefore(e, this.nextSibling);
               });
             },
@@ -2829,7 +2829,7 @@
             },
             replaceWith: function () {
               var e = [];
-              return He(
+              return Fe(
                 this,
                 arguments,
                 function (t) {
@@ -4039,8 +4039,8 @@
           Nt = /^(.*?):[ \t]*([^\r\n]*)$/gm,
           Ot = /^(?:GET|HEAD)$/,
           qt = /^\/\//,
-          Ft = {},
           Ht = {},
+          Ft = {},
           Rt = '*/'.concat('*'),
           Wt = y.createElement('a');
         function Bt(e) {
@@ -4056,7 +4056,7 @@
         }
         function zt(e, t, n, r) {
           var i = {},
-            o = e === Ht;
+            o = e === Ft;
           function a(s) {
             var l;
             return (
@@ -4105,8 +4105,8 @@
             ajaxSetup: function (e, t) {
               return t ? $t($t(e, C.ajaxSettings), t) : $t(C.ajaxSettings, e);
             },
-            ajaxPrefilter: Bt(Ft),
-            ajaxTransport: Bt(Ht),
+            ajaxPrefilter: Bt(Ht),
+            ajaxTransport: Bt(Ft),
             ajax: function (e, t) {
               'object' == typeof e && ((t = e), (e = void 0));
               var r,
@@ -4179,7 +4179,7 @@
               }
               if (
                 (f.data && f.processData && 'string' != typeof f.data && (f.data = C.param(f.data, f.traditional)),
-                zt(Ft, f, t, E),
+                zt(Ht, f, t, E),
                 c)
               )
                 return E;
@@ -4212,7 +4212,7 @@
               f.headers))
                 E.setRequestHeader(d, f.headers[d]);
               if (f.beforeSend && (!1 === f.beforeSend.call(h, E, f) || c)) return E.abort();
-              if (((S = 'abort'), v.add(f.complete), E.done(f.success), E.fail(f.error), (r = zt(Ht, f, t, E)))) {
+              if (((S = 'abort'), v.add(f.complete), E.done(f.success), E.fail(f.error), (r = zt(Ft, f, t, E)))) {
                 if (((E.readyState = 1), u && m.trigger('ajaxSend', [E, f]), c)) return E;
                 f.async &&
                   f.timeout > 0 &&
@@ -4840,7 +4840,6 @@
           ngOnInit() {
             this.ngxSmartModalService.removeModal('carouselModal'),
               this.ngxSmartModalService.removeModal('feedbackModal'),
-              console.log('crate plan modal stack: ', this.ngxSmartModalService.getModalStack()),
               this.createPlanForm(),
               this.planForm.valueChanges.subscribe((e) => {
                 if (e.startDate && e.endDate) {
@@ -4870,7 +4869,6 @@
               .createUserPlan(this.userId, Object.assign(Object.assign({}, this.planForm.value), this.planData))
               .subscribe((e) => {
                 this.ngxSmartModalService.getModal('createPlanModal').close(),
-                  console.log(e),
                   this.toastr.success('Plan created successfully!');
               });
           }
@@ -5089,7 +5087,7 @@
     SzZM: function (e, t, n) {
       'use strict';
       n.d(t, 'a', function () {
-        return G;
+        return X;
       });
       var r = n('fTLw'),
         i = n('mDE9'),
@@ -5116,11 +5114,11 @@
       function k(e, t) {
         if (1 & e) {
           const e = h['\u0275\u0275getCurrentView']();
-          h['\u0275\u0275elementStart'](0, 'a', 50),
+          h['\u0275\u0275elementStart'](0, 'a', 45),
             h['\u0275\u0275listener']('click', function () {
               return h['\u0275\u0275restoreView'](e), h['\u0275\u0275nextContext']().addToPlan();
             }),
-            h['\u0275\u0275element'](1, 'i', 51),
+            h['\u0275\u0275element'](1, 'i', 46),
             h['\u0275\u0275text'](2),
             h['\u0275\u0275elementEnd']();
         }
@@ -5132,11 +5130,11 @@
       function T(e, t) {
         if (1 & e) {
           const e = h['\u0275\u0275getCurrentView']();
-          h['\u0275\u0275elementStart'](0, 'a', 52),
+          h['\u0275\u0275elementStart'](0, 'a', 47),
             h['\u0275\u0275listener']('click', function () {
               return h['\u0275\u0275restoreView'](e), h['\u0275\u0275nextContext']().removeFromPlan();
             }),
-            h['\u0275\u0275element'](1, 'i', 53),
+            h['\u0275\u0275element'](1, 'i', 48),
             h['\u0275\u0275text'](2, 'remove from plan'),
             h['\u0275\u0275elementEnd']();
         }
@@ -5144,11 +5142,11 @@
       function _(e, t) {
         if (1 & e) {
           const e = h['\u0275\u0275getCurrentView']();
-          h['\u0275\u0275elementStart'](0, 'a', 54),
+          h['\u0275\u0275elementStart'](0, 'a', 49),
             h['\u0275\u0275listener']('click', function () {
               return h['\u0275\u0275restoreView'](e), h['\u0275\u0275nextContext']().addToWishlist();
             }),
-            h['\u0275\u0275element'](1, 'i', 55),
+            h['\u0275\u0275element'](1, 'i', 50),
             h['\u0275\u0275text'](2, 'add to wishlist'),
             h['\u0275\u0275elementEnd']();
         }
@@ -5156,11 +5154,11 @@
       function I(e, t) {
         if (1 & e) {
           const e = h['\u0275\u0275getCurrentView']();
-          h['\u0275\u0275elementStart'](0, 'a', 56),
+          h['\u0275\u0275elementStart'](0, 'a', 51),
             h['\u0275\u0275listener']('click', function () {
               return h['\u0275\u0275restoreView'](e), h['\u0275\u0275nextContext']().removeFromWishlist();
             }),
-            h['\u0275\u0275element'](1, 'i', 55),
+            h['\u0275\u0275element'](1, 'i', 50),
             h['\u0275\u0275text'](2, 'remove from wishlist'),
             h['\u0275\u0275elementEnd']();
         }
@@ -5168,7 +5166,7 @@
       function D(e, t) {
         if (
           (1 & e &&
-            (h['\u0275\u0275elementStart'](0, 'a', 57),
+            (h['\u0275\u0275elementStart'](0, 'a', 52),
             h['\u0275\u0275text'](1, 'WEATHER'),
             h['\u0275\u0275elementEnd']()),
           2 & e)
@@ -5180,22 +5178,22 @@
       function A(e, t) {
         if (1 & e) {
           const e = h['\u0275\u0275getCurrentView']();
-          h['\u0275\u0275elementStart'](0, 'div', 58),
+          h['\u0275\u0275elementStart'](0, 'div', 53),
             h['\u0275\u0275text'](1, '\n          '),
-            h['\u0275\u0275elementStart'](2, 'div', 59),
+            h['\u0275\u0275elementStart'](2, 'div', 54),
             h['\u0275\u0275text'](3, '\n            '),
-            h['\u0275\u0275elementStart'](4, 'a', 60),
+            h['\u0275\u0275elementStart'](4, 'a', 55),
             h['\u0275\u0275text'](5, '\n              '),
-            h['\u0275\u0275elementStart'](6, 'div', 61),
+            h['\u0275\u0275elementStart'](6, 'div', 56),
             h['\u0275\u0275listener']('click', function () {
               return h['\u0275\u0275restoreView'](e), h['\u0275\u0275nextContext']().showCarousel(0);
             }),
             h['\u0275\u0275text'](7, '\n                '),
-            h['\u0275\u0275element'](8, 'img', 62),
+            h['\u0275\u0275element'](8, 'img', 57),
             h['\u0275\u0275text'](9, '\n              '),
             h['\u0275\u0275elementEnd'](),
             h['\u0275\u0275text'](10, '\n              '),
-            h['\u0275\u0275element'](11, 'div', 63),
+            h['\u0275\u0275element'](11, 'div', 58),
             h['\u0275\u0275text'](12, '\n            '),
             h['\u0275\u0275elementEnd'](),
             h['\u0275\u0275text'](13, '\n          '),
@@ -5212,22 +5210,22 @@
       function M(e, t) {
         if (1 & e) {
           const e = h['\u0275\u0275getCurrentView']();
-          h['\u0275\u0275elementStart'](0, 'div', 64),
+          h['\u0275\u0275elementStart'](0, 'div', 59),
             h['\u0275\u0275text'](1, '\n          '),
-            h['\u0275\u0275elementStart'](2, 'div', 59),
+            h['\u0275\u0275elementStart'](2, 'div', 54),
             h['\u0275\u0275text'](3, '\n            '),
-            h['\u0275\u0275elementStart'](4, 'a', 60),
+            h['\u0275\u0275elementStart'](4, 'a', 55),
             h['\u0275\u0275text'](5, '\n              '),
-            h['\u0275\u0275elementStart'](6, 'div', 65),
+            h['\u0275\u0275elementStart'](6, 'div', 60),
             h['\u0275\u0275listener']('click', function () {
               return h['\u0275\u0275restoreView'](e), h['\u0275\u0275nextContext']().showCarousel(1);
             }),
             h['\u0275\u0275text'](7, '\n                '),
-            h['\u0275\u0275element'](8, 'img', 62),
+            h['\u0275\u0275element'](8, 'img', 57),
             h['\u0275\u0275text'](9, '\n              '),
             h['\u0275\u0275elementEnd'](),
             h['\u0275\u0275text'](10, '\n              '),
-            h['\u0275\u0275element'](11, 'div', 63),
+            h['\u0275\u0275element'](11, 'div', 58),
             h['\u0275\u0275text'](12, '\n            '),
             h['\u0275\u0275elementEnd'](),
             h['\u0275\u0275text'](13, '\n          '),
@@ -5244,22 +5242,22 @@
       function j(e, t) {
         if (1 & e) {
           const e = h['\u0275\u0275getCurrentView']();
-          h['\u0275\u0275elementStart'](0, 'div', 66),
+          h['\u0275\u0275elementStart'](0, 'div', 61),
             h['\u0275\u0275text'](1, '\n          '),
-            h['\u0275\u0275elementStart'](2, 'div', 59),
+            h['\u0275\u0275elementStart'](2, 'div', 54),
             h['\u0275\u0275text'](3, '\n            '),
-            h['\u0275\u0275elementStart'](4, 'a', 60),
+            h['\u0275\u0275elementStart'](4, 'a', 55),
             h['\u0275\u0275text'](5, '\n              '),
-            h['\u0275\u0275elementStart'](6, 'div', 67),
+            h['\u0275\u0275elementStart'](6, 'div', 62),
             h['\u0275\u0275listener']('click', function () {
               return h['\u0275\u0275restoreView'](e), h['\u0275\u0275nextContext']().showCarousel(2);
             }),
             h['\u0275\u0275text'](7, '\n                '),
-            h['\u0275\u0275element'](8, 'img', 62),
+            h['\u0275\u0275element'](8, 'img', 57),
             h['\u0275\u0275text'](9, '\n              '),
             h['\u0275\u0275elementEnd'](),
             h['\u0275\u0275text'](10, '\n              '),
-            h['\u0275\u0275element'](11, 'div', 63),
+            h['\u0275\u0275element'](11, 'div', 58),
             h['\u0275\u0275text'](12, '\n            '),
             h['\u0275\u0275elementEnd'](),
             h['\u0275\u0275text'](13, '\n          '),
@@ -5280,22 +5278,22 @@
       function P(e, t) {
         if (1 & e) {
           const e = h['\u0275\u0275getCurrentView']();
-          h['\u0275\u0275elementStart'](0, 'div', 66),
+          h['\u0275\u0275elementStart'](0, 'div', 61),
             h['\u0275\u0275text'](1, '\n          '),
-            h['\u0275\u0275elementStart'](2, 'div', 59),
+            h['\u0275\u0275elementStart'](2, 'div', 54),
             h['\u0275\u0275text'](3, '\n            '),
-            h['\u0275\u0275elementStart'](4, 'a', 60),
+            h['\u0275\u0275elementStart'](4, 'a', 55),
             h['\u0275\u0275text'](5, '\n              '),
-            h['\u0275\u0275elementStart'](6, 'div', 68),
+            h['\u0275\u0275elementStart'](6, 'div', 63),
             h['\u0275\u0275listener']('click', function () {
               return h['\u0275\u0275restoreView'](e), h['\u0275\u0275nextContext']().showCarousel(3);
             }),
             h['\u0275\u0275text'](7, '\n                '),
-            h['\u0275\u0275element'](8, 'img', 62),
+            h['\u0275\u0275element'](8, 'img', 57),
             h['\u0275\u0275text'](9, '\n              '),
             h['\u0275\u0275elementEnd'](),
             h['\u0275\u0275text'](10, '\n              '),
-            h['\u0275\u0275element'](11, 'div', 63),
+            h['\u0275\u0275element'](11, 'div', 58),
             h['\u0275\u0275text'](12, '\n            '),
             h['\u0275\u0275elementEnd'](),
             h['\u0275\u0275text'](13, '\n          '),
@@ -5316,22 +5314,22 @@
       function L(e, t) {
         if (1 & e) {
           const e = h['\u0275\u0275getCurrentView']();
-          h['\u0275\u0275elementStart'](0, 'div', 66),
+          h['\u0275\u0275elementStart'](0, 'div', 61),
             h['\u0275\u0275text'](1, '\n          '),
-            h['\u0275\u0275elementStart'](2, 'div', 59),
+            h['\u0275\u0275elementStart'](2, 'div', 54),
             h['\u0275\u0275text'](3, '\n            '),
-            h['\u0275\u0275elementStart'](4, 'a', 60),
+            h['\u0275\u0275elementStart'](4, 'a', 55),
             h['\u0275\u0275text'](5, '\n              '),
-            h['\u0275\u0275elementStart'](6, 'div', 69),
+            h['\u0275\u0275elementStart'](6, 'div', 64),
             h['\u0275\u0275listener']('click', function () {
               return h['\u0275\u0275restoreView'](e), h['\u0275\u0275nextContext']().showCarousel(4);
             }),
             h['\u0275\u0275text'](7, '\n                '),
-            h['\u0275\u0275element'](8, 'img', 62),
+            h['\u0275\u0275element'](8, 'img', 57),
             h['\u0275\u0275text'](9, '\n              '),
             h['\u0275\u0275elementEnd'](),
             h['\u0275\u0275text'](10, '\n              '),
-            h['\u0275\u0275element'](11, 'div', 63),
+            h['\u0275\u0275element'](11, 'div', 58),
             h['\u0275\u0275text'](12, '\n            '),
             h['\u0275\u0275elementEnd'](),
             h['\u0275\u0275text'](13, '\n          '),
@@ -5352,22 +5350,22 @@
       function N(e, t) {
         if (1 & e) {
           const e = h['\u0275\u0275getCurrentView']();
-          h['\u0275\u0275elementStart'](0, 'div', 66),
+          h['\u0275\u0275elementStart'](0, 'div', 61),
             h['\u0275\u0275text'](1, '\n          '),
-            h['\u0275\u0275elementStart'](2, 'div', 59),
+            h['\u0275\u0275elementStart'](2, 'div', 54),
             h['\u0275\u0275text'](3, '\n            '),
-            h['\u0275\u0275elementStart'](4, 'a', 60),
+            h['\u0275\u0275elementStart'](4, 'a', 55),
             h['\u0275\u0275text'](5, '\n              '),
-            h['\u0275\u0275elementStart'](6, 'div', 70),
+            h['\u0275\u0275elementStart'](6, 'div', 65),
             h['\u0275\u0275listener']('click', function () {
               return h['\u0275\u0275restoreView'](e), h['\u0275\u0275nextContext']().showCarousel(5);
             }),
             h['\u0275\u0275text'](7, '\n                '),
-            h['\u0275\u0275element'](8, 'img', 71),
+            h['\u0275\u0275element'](8, 'img', 66),
             h['\u0275\u0275text'](9, '\n              '),
             h['\u0275\u0275elementEnd'](),
             h['\u0275\u0275text'](10, '\n              '),
-            h['\u0275\u0275element'](11, 'div', 63),
+            h['\u0275\u0275element'](11, 'div', 58),
             h['\u0275\u0275text'](12, '\n            '),
             h['\u0275\u0275elementEnd'](),
             h['\u0275\u0275text'](13, '\n          '),
@@ -5376,72 +5374,30 @@
             h['\u0275\u0275elementEnd']();
         }
       }
-      const O = function (e) {
-        return { displayBold: e };
-      };
-      function q(e, t) {
-        if (1 & e) {
-          const e = h['\u0275\u0275getCurrentView']();
-          h['\u0275\u0275elementStart'](0, 'ul', 72),
-            h['\u0275\u0275text'](1, '\n                  '),
-            h['\u0275\u0275elementStart'](2, 'li', 73),
-            h['\u0275\u0275listener']('click', function () {
-              h['\u0275\u0275restoreView'](e);
-              const n = t.$implicit;
-              return h['\u0275\u0275nextContext']().navigateOnClick(n);
-            }),
-            h['\u0275\u0275text'](3, '\n                    '),
-            h['\u0275\u0275elementStart'](4, 'a'),
-            h['\u0275\u0275text'](5, '\n                      '),
-            h['\u0275\u0275element'](6, 'img', 74),
-            h['\u0275\u0275text'](7),
-            h['\u0275\u0275elementEnd'](),
-            h['\u0275\u0275text'](8, '\n                  '),
-            h['\u0275\u0275elementEnd'](),
-            h['\u0275\u0275text'](9, '\n                '),
-            h['\u0275\u0275elementEnd']();
-        }
-        if (2 & e) {
-          const e = t.$implicit,
-            n = h['\u0275\u0275nextContext']();
-          h['\u0275\u0275advance'](2),
-            h['\u0275\u0275property']('ngClass', h['\u0275\u0275pureFunction1'](3, O, n.selectedSur == e.name)),
-            h['\u0275\u0275advance'](4),
-            h['\u0275\u0275propertyInterpolate1'](
-              'src',
-              '../../../assets/images/icons/',
-              e.iconName,
-              '',
-              h['\u0275\u0275sanitizeUrl']
-            ),
-            h['\u0275\u0275advance'](1),
-            h['\u0275\u0275textInterpolate1']('', e.name, '\n                    ');
-        }
-      }
-      function F(e, t) {
+      function O(e, t) {
         if (
           (1 & e &&
-            (h['\u0275\u0275elementStart'](0, 'div', 75),
+            (h['\u0275\u0275elementStart'](0, 'div', 31),
             h['\u0275\u0275text'](1, '\n          '),
-            h['\u0275\u0275elementStart'](2, 'div', 76),
+            h['\u0275\u0275elementStart'](2, 'div', 67),
             h['\u0275\u0275text'](3, '\n            '),
             h['\u0275\u0275text'](4, '\n            '),
             h['\u0275\u0275text'](5, '\n            '),
-            h['\u0275\u0275elementStart'](6, 'agm-map', 77),
+            h['\u0275\u0275elementStart'](6, 'agm-map', 68),
             h['\u0275\u0275text'](7, '\n              '),
             h['\u0275\u0275text'](8, '\n\n              '),
             h['\u0275\u0275text'](9, '\n              '),
-            h['\u0275\u0275elementStart'](10, 'agm-marker', 78),
+            h['\u0275\u0275elementStart'](10, 'agm-marker', 69),
             h['\u0275\u0275text'](11, '\n                '),
-            h['\u0275\u0275elementStart'](12, 'agm-info-window', 79),
+            h['\u0275\u0275elementStart'](12, 'agm-info-window', 70),
             h['\u0275\u0275text'](13, '\n                  '),
             h['\u0275\u0275elementStart'](14, 'a'),
             h['\u0275\u0275text'](15, '\n                    '),
             h['\u0275\u0275elementStart'](16, 'div'),
             h['\u0275\u0275text'](17, '\n                      '),
-            h['\u0275\u0275element'](18, 'img', 80),
+            h['\u0275\u0275element'](18, 'img', 71),
             h['\u0275\u0275text'](19, '\n                      '),
-            h['\u0275\u0275elementStart'](20, 'b', 81),
+            h['\u0275\u0275elementStart'](20, 'b', 72),
             h['\u0275\u0275text'](21),
             h['\u0275\u0275elementEnd'](),
             h['\u0275\u0275text'](22, '\n                    '),
@@ -5489,25 +5445,25 @@
             h['\u0275\u0275textInterpolate'](null == e.infoWondowData ? null : e.infoWondowData.alias);
         }
       }
-      const H = function () {
+      const q = function () {
           return { width: 25, height: 25 };
         },
-        R = function (e, t) {
+        H = function (e, t) {
           return { url: e, scaledSize: t };
         };
-      function W(e, t) {
+      function F(e, t) {
         if (
           (1 & e &&
-            (h['\u0275\u0275elementStart'](0, 'agm-marker', 83),
+            (h['\u0275\u0275elementStart'](0, 'agm-marker', 75),
             h['\u0275\u0275text'](1, '\n                '),
-            h['\u0275\u0275elementStart'](2, 'agm-info-window', 79),
+            h['\u0275\u0275elementStart'](2, 'agm-info-window', 70),
             h['\u0275\u0275text'](3, '\n                  '),
             h['\u0275\u0275elementStart'](4, 'a'),
             h['\u0275\u0275text'](5, '\n                    '),
             h['\u0275\u0275elementStart'](6, 'div'),
             h['\u0275\u0275text'](7, '\n                      '),
-            h['\u0275\u0275elementStart'](8, 'a', 84),
-            h['\u0275\u0275elementStart'](9, 'b', 81),
+            h['\u0275\u0275elementStart'](8, 'a', 76),
+            h['\u0275\u0275elementStart'](9, 'b', 72),
             h['\u0275\u0275text'](10),
             h['\u0275\u0275elementEnd'](),
             h['\u0275\u0275elementEnd'](),
@@ -5526,7 +5482,7 @@
           h['\u0275\u0275property']('latitude', null == e || null == e.location ? null : e.location.coordinates[1])(
             'longitude',
             null == e || null == e.location ? null : e.location.coordinates[0]
-          )('iconUrl', h['\u0275\u0275pureFunction2'](7, R, e.icon, h['\u0275\u0275pureFunction0'](6, H))),
+          )('iconUrl', h['\u0275\u0275pureFunction2'](7, H, e.icon, h['\u0275\u0275pureFunction0'](6, q))),
             h['\u0275\u0275advance'](2),
             h['\u0275\u0275property']('disableAutoPan', !0),
             h['\u0275\u0275advance'](6),
@@ -5535,18 +5491,18 @@
             h['\u0275\u0275textInterpolate'](null == e ? null : e.name);
         }
       }
-      function B(e, t) {
+      function R(e, t) {
         if (
           (1 & e &&
-            (h['\u0275\u0275elementStart'](0, 'div', 75),
+            (h['\u0275\u0275elementStart'](0, 'div', 73),
             h['\u0275\u0275text'](1, '\n          '),
-            h['\u0275\u0275elementStart'](2, 'div', 76),
+            h['\u0275\u0275elementStart'](2, 'div', 67),
             h['\u0275\u0275text'](3, '\n            '),
             h['\u0275\u0275text'](4, '\n            '),
             h['\u0275\u0275text'](5, '\n            '),
-            h['\u0275\u0275elementStart'](6, 'agm-map', 77),
+            h['\u0275\u0275elementStart'](6, 'agm-map', 68),
             h['\u0275\u0275text'](7, '\n              '),
-            h['\u0275\u0275template'](8, W, 15, 10, 'agm-marker', 82),
+            h['\u0275\u0275template'](8, F, 15, 10, 'agm-marker', 74),
             h['\u0275\u0275text'](9, '\n\n              '),
             h['\u0275\u0275text'](10, '\n            '),
             h['\u0275\u0275elementEnd'](),
@@ -5573,33 +5529,33 @@
             h['\u0275\u0275property']('ngForOf', e.surroundingMakers);
         }
       }
-      const z = function (e) {
+      const W = function (e) {
         return ['/where-to-go/category/cities/location', e];
       };
-      function $(e, t) {
+      function B(e, t) {
         if (
           (1 & e &&
-            (h['\u0275\u0275elementStart'](0, 'div', 85),
+            (h['\u0275\u0275elementStart'](0, 'div', 77),
             h['\u0275\u0275text'](1, '\n            '),
-            h['\u0275\u0275elementStart'](2, 'a', 86),
+            h['\u0275\u0275elementStart'](2, 'a', 78),
             h['\u0275\u0275text'](3, '\n              '),
-            h['\u0275\u0275elementStart'](4, 'div', 87),
+            h['\u0275\u0275elementStart'](4, 'div', 79),
             h['\u0275\u0275text'](5, '\n                '),
-            h['\u0275\u0275element'](6, 'img', 88),
+            h['\u0275\u0275element'](6, 'img', 80),
             h['\u0275\u0275text'](7, '\n              '),
             h['\u0275\u0275elementEnd'](),
             h['\u0275\u0275text'](8, '\n            '),
             h['\u0275\u0275elementEnd'](),
             h['\u0275\u0275text'](9, '\n            '),
-            h['\u0275\u0275elementStart'](10, 'a', 86),
+            h['\u0275\u0275elementStart'](10, 'a', 78),
             h['\u0275\u0275text'](11, '\n              '),
-            h['\u0275\u0275elementStart'](12, 'div', 89),
+            h['\u0275\u0275elementStart'](12, 'div', 81),
             h['\u0275\u0275text'](13, '\n                '),
-            h['\u0275\u0275elementStart'](14, 'h6', 90),
+            h['\u0275\u0275elementStart'](14, 'h6', 82),
             h['\u0275\u0275text'](15),
             h['\u0275\u0275elementEnd'](),
             h['\u0275\u0275text'](16, '\n                '),
-            h['\u0275\u0275elementStart'](17, 'h4', 91),
+            h['\u0275\u0275elementStart'](17, 'h4', 83),
             h['\u0275\u0275text'](18, '\n                  '),
             h['\u0275\u0275text'](19, '\n                '),
             h['\u0275\u0275elementEnd'](),
@@ -5616,21 +5572,21 @@
         ) {
           const e = t.$implicit;
           h['\u0275\u0275advance'](2),
-            h['\u0275\u0275property']('routerLink', h['\u0275\u0275pureFunction1'](4, z, e.slug)),
+            h['\u0275\u0275property']('routerLink', h['\u0275\u0275pureFunction1'](4, W, e.slug)),
             h['\u0275\u0275advance'](4),
             h['\u0275\u0275property']('src', e.thumbnail, h['\u0275\u0275sanitizeUrl']),
             h['\u0275\u0275advance'](4),
-            h['\u0275\u0275property']('routerLink', h['\u0275\u0275pureFunction1'](6, z, e.slug)),
+            h['\u0275\u0275property']('routerLink', h['\u0275\u0275pureFunction1'](6, W, e.slug)),
             h['\u0275\u0275advance'](5),
             h['\u0275\u0275textInterpolate'](e.alias);
         }
       }
-      function U(e, t) {
+      function z(e, t) {
         if (
           (1 & e &&
             (h['\u0275\u0275elementStart'](0, 'slide'),
             h['\u0275\u0275text'](1, '\n        '),
-            h['\u0275\u0275element'](2, 'img', 95),
+            h['\u0275\u0275element'](2, 'img', 87),
             h['\u0275\u0275text'](3, '\n      '),
             h['\u0275\u0275elementEnd']()),
           2 & e)
@@ -5639,14 +5595,14 @@
           h['\u0275\u0275advance'](2), h['\u0275\u0275propertyInterpolate']('src', e, h['\u0275\u0275sanitizeUrl']);
         }
       }
-      function V(e, t) {
+      function $(e, t) {
         if (
           (1 & e &&
-            (h['\u0275\u0275elementStart'](0, 'div', 92),
+            (h['\u0275\u0275elementStart'](0, 'div', 84),
             h['\u0275\u0275text'](1, '\n    '),
-            h['\u0275\u0275elementStart'](2, 'carousel', 93),
+            h['\u0275\u0275elementStart'](2, 'carousel', 85),
             h['\u0275\u0275text'](3, '\n      '),
-            h['\u0275\u0275template'](4, U, 4, 1, 'slide', 94),
+            h['\u0275\u0275template'](4, z, 4, 1, 'slide', 86),
             h['\u0275\u0275text'](5, '\n      '),
             h['\u0275\u0275text'](6, '\n    '),
             h['\u0275\u0275elementEnd'](),
@@ -5662,16 +5618,16 @@
             h['\u0275\u0275property']('ngForOf', e.localImageArray);
         }
       }
-      const X = function () {
+      const U = function () {
           return ['facebook', 'twitter', 'linkedin'];
         },
-        Y = [
+        V = [
           { breakpoint: 1920, settings: { slidesToShow: 4, infinite: !0 } },
           { breakpoint: 1200, settings: { slidesToShow: 3, infinite: !0 } },
           { breakpoint: 768, settings: { slidesToShow: 2, infinite: !0 } },
           { breakpoint: 600, settings: { slidesToShow: 1.5, infinite: !0 } },
         ];
-      let G = (() => {
+      let X = (() => {
         class e {
           constructor(e, t, n, r, i, o, a, s, l, c) {
             (this.eventService = e),
@@ -5690,7 +5646,7 @@
               (this.userPlans = []),
               (this.categories = []),
               (this.activities = []),
-              (this.slideConfig = { slidesToShow: 4, slidesToScroll: 4, arrows: !0, responsive: Y }),
+              (this.slideConfig = { slidesToShow: 4, slidesToScroll: 4, arrows: !0, responsive: V }),
               (this.wishlistLocs = []),
               (this.isAddtoPlanClicked = !1),
               (this.imageSliderConfig = { slidesToShow: 1, slidesToScroll: 1, arrows: !0 }),
@@ -5935,8 +5891,8 @@
               1 & e && h['\u0275\u0275viewQuery'](E, !0),
                 2 & e && h['\u0275\u0275queryRefresh']((n = h['\u0275\u0275loadQuery']())) && (t.slickModal = n.first);
             },
-            decls: 231,
-            vars: 33,
+            decls: 211,
+            vars: 31,
             consts: [
               ['id', 'page-title', 1, 'page-title-layout4', 'text-center', 'bg-overlay', 'bg-parallax', 'slider'],
               [1, 'bg-img'],
@@ -6005,11 +5961,10 @@
                 4,
                 'ngIf',
               ],
-              ['id', 'services', 1, 'services', 'pb-90'],
+              ['id', 'services', 1, 'services'],
               [1, 'row', 'heading', 'heading-2', 'mb-40'],
-              [1, 'col-sm-12', 'col-md-12', 'col-lg-6'],
+              [1, 'col-sm-12', 'col-md-8', 'col-lg-8', 'mx-auto', 'text-center'],
               [1, 'heading__desc'],
-              ['onerror', "this.onerror=null;this.src='assets/images/backgrounds/what-to-do.png';", 3, 'src'],
               [1, 'container-fluid', 'seasons'],
               [1, 'col-md-8'],
               [1, 'heading__subtitle'],
@@ -6022,11 +5977,7 @@
               ['class', 'masonry-item col-md-4 col-sm-6 col-xs-12 web pt-30', 4, 'ngIf'],
               ['id', 'placeCarousel', 1, 'place-carousel'],
               [1, 'col-sm-12', 'col-md-12', 'col-lg-12'],
-              [1, 'col-sm-12', 'col-md-3', 'col-lg-3', 'whattodo-sidebar', 'p-0'],
-              [1, 'whattodo-sidebar', 'mb-30'],
-              [1, 'whattodo-widget', 'whattodo-widget-categories'],
-              [1, 'widget-content'],
-              ['class', 'list-unstyled whattodo-menu', 4, 'ngFor', 'ngForOf'],
+              ['class', 'col-sm-12 col-md-12 col-lg-12', 4, 'ngIf'],
               ['class', 'col-sm-12 col-md-9 col-lg-9 pl-80', 4, 'ngIf'],
               [1, 'px-5'],
               [1, 'carousel', 3, 'config'],
@@ -6212,16 +6163,13 @@
                 'click',
               ],
               ['src', 'location?.photos[5]', 'alt', '', 1, 'gallery-img'],
-              [1, 'list-unstyled', 'whattodo-menu'],
-              [2, 'cursor', 'pointer', 3, 'ngClass', 'click'],
-              ['onerror', "this.onerror=null;this.src='assets/images/icons/hotel.svg';", 3, 'src'],
-              [1, 'col-sm-12', 'col-md-9', 'col-lg-9', 'pl-80'],
               ['id', 'whattodo-map'],
               [3, 'zoom', 'latitude', 'longitude'],
               [3, 'latitude', 'longitude'],
               [3, 'disableAutoPan'],
               [1, 'info-img', 3, 'src'],
               [1, 'mx-3', 'd-inline', 'info-desc'],
+              [1, 'col-sm-12', 'col-md-9', 'col-lg-9', 'pl-80'],
               [3, 'latitude', 'longitude', 'iconUrl', 4, 'ngFor', 'ngForOf'],
               [3, 'latitude', 'longitude', 'iconUrl'],
               ['target', '_blank', 3, 'href'],
@@ -6328,208 +6276,183 @@
                 h['\u0275\u0275elementEnd'](),
                 h['\u0275\u0275text'](67, '\n      '),
                 h['\u0275\u0275text'](68, '\n      '),
-                h['\u0275\u0275elementStart'](69, 'div', 18),
-                h['\u0275\u0275text'](70, '\n        '),
-                h['\u0275\u0275element'](71, 'img', 20),
-                h['\u0275\u0275text'](72, '\n      '),
+                h['\u0275\u0275text'](69, '\n      '),
+                h['\u0275\u0275text'](70, '\n    '),
                 h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](73, '\n      '),
-                h['\u0275\u0275text'](74, '\n    '),
+                h['\u0275\u0275text'](71, '\n    '),
+                h['\u0275\u0275text'](72, '\n  '),
                 h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](75, '\n    '),
-                h['\u0275\u0275text'](76, '\n  '),
+                h['\u0275\u0275text'](73, '\n'),
                 h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](77, '\n'),
+                h['\u0275\u0275text'](74, '\n'),
+                h['\u0275\u0275text'](75, '\n\n'),
+                h['\u0275\u0275text'](76, '\n'),
+                h['\u0275\u0275elementStart'](77, 'div', 20),
+                h['\u0275\u0275text'](78, '\n  '),
+                h['\u0275\u0275elementStart'](79, 'div', 3),
+                h['\u0275\u0275text'](80, '\n    '),
+                h['\u0275\u0275elementStart'](81, 'div', 4),
+                h['\u0275\u0275text'](82, '\n      '),
+                h['\u0275\u0275elementStart'](83, 'div', 21),
+                h['\u0275\u0275text'](84, '\n        '),
+                h['\u0275\u0275elementStart'](85, 'span', 22),
+                h['\u0275\u0275text'](86),
                 h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](78, '\n'),
-                h['\u0275\u0275text'](79, '\n\n'),
-                h['\u0275\u0275text'](80, '\n'),
-                h['\u0275\u0275elementStart'](81, 'div', 21),
-                h['\u0275\u0275text'](82, '\n  '),
-                h['\u0275\u0275elementStart'](83, 'div', 3),
-                h['\u0275\u0275text'](84, '\n    '),
-                h['\u0275\u0275elementStart'](85, 'div', 4),
-                h['\u0275\u0275text'](86, '\n      '),
-                h['\u0275\u0275elementStart'](87, 'div', 22),
-                h['\u0275\u0275text'](88, '\n        '),
-                h['\u0275\u0275elementStart'](89, 'span', 23),
-                h['\u0275\u0275text'](90),
+                h['\u0275\u0275text'](87, '\n        '),
+                h['\u0275\u0275elementStart'](88, 'h2', 23),
+                h['\u0275\u0275text'](89, 'Images'),
                 h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](91, '\n        '),
-                h['\u0275\u0275elementStart'](92, 'h2', 24),
-                h['\u0275\u0275text'](93, 'Images'),
+                h['\u0275\u0275text'](90, '\n      '),
                 h['\u0275\u0275elementEnd'](),
+                h['\u0275\u0275text'](91, '\n      '),
+                h['\u0275\u0275elementStart'](92, 'div', 24),
+                h['\u0275\u0275text'](93, '\n        '),
                 h['\u0275\u0275text'](94, '\n      '),
                 h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](95, '\n      '),
-                h['\u0275\u0275elementStart'](96, 'div', 25),
-                h['\u0275\u0275text'](97, '\n        '),
+                h['\u0275\u0275text'](95, '\n    '),
+                h['\u0275\u0275elementEnd'](),
+                h['\u0275\u0275text'](96, '\n    '),
+                h['\u0275\u0275elementStart'](97, 'div', 25),
                 h['\u0275\u0275text'](98, '\n      '),
-                h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](99, '\n    '),
-                h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](100, '\n    '),
-                h['\u0275\u0275elementStart'](101, 'div', 26),
-                h['\u0275\u0275text'](102, '\n      '),
-                h['\u0275\u0275elementStart'](103, 'div', 27),
+                h['\u0275\u0275elementStart'](99, 'div', 26),
+                h['\u0275\u0275text'](100, '\n        '),
+                h['\u0275\u0275template'](101, A, 15, 1, 'div', 27),
+                h['\u0275\u0275text'](102, '\n        '),
+                h['\u0275\u0275template'](103, M, 15, 1, 'div', 28),
                 h['\u0275\u0275text'](104, '\n        '),
-                h['\u0275\u0275template'](105, A, 15, 1, 'div', 28),
+                h['\u0275\u0275template'](105, j, 15, 1, 'div', 29),
                 h['\u0275\u0275text'](106, '\n        '),
-                h['\u0275\u0275template'](107, M, 15, 1, 'div', 29),
+                h['\u0275\u0275template'](107, P, 15, 1, 'div', 29),
                 h['\u0275\u0275text'](108, '\n        '),
-                h['\u0275\u0275template'](109, j, 15, 1, 'div', 30),
+                h['\u0275\u0275template'](109, L, 15, 1, 'div', 29),
                 h['\u0275\u0275text'](110, '\n        '),
-                h['\u0275\u0275template'](111, P, 15, 1, 'div', 30),
-                h['\u0275\u0275text'](112, '\n        '),
-                h['\u0275\u0275template'](113, L, 15, 1, 'div', 30),
-                h['\u0275\u0275text'](114, '\n        '),
-                h['\u0275\u0275template'](115, N, 15, 0, 'div', 30),
-                h['\u0275\u0275text'](116, '\n      '),
+                h['\u0275\u0275template'](111, N, 15, 0, 'div', 29),
+                h['\u0275\u0275text'](112, '\n      '),
                 h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](117, '\n      '),
-                h['\u0275\u0275text'](118, '\n    '),
+                h['\u0275\u0275text'](113, '\n      '),
+                h['\u0275\u0275text'](114, '\n    '),
                 h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](119, '\n  '),
+                h['\u0275\u0275text'](115, '\n  '),
                 h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](120, '\n'),
+                h['\u0275\u0275text'](116, '\n'),
                 h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](121, '\n\n'),
-                h['\u0275\u0275text'](122, '\n'),
-                h['\u0275\u0275elementStart'](123, 'section', 31),
-                h['\u0275\u0275text'](124, '\n  '),
-                h['\u0275\u0275elementStart'](125, 'div', 3),
-                h['\u0275\u0275text'](126, '\n    '),
-                h['\u0275\u0275elementStart'](127, 'div', 4),
-                h['\u0275\u0275text'](128, '\n      '),
-                h['\u0275\u0275elementStart'](129, 'div', 22),
-                h['\u0275\u0275text'](130, '\n        '),
-                h['\u0275\u0275elementStart'](131, 'span', 23),
-                h['\u0275\u0275text'](132),
+                h['\u0275\u0275text'](117, '\n\n'),
+                h['\u0275\u0275text'](118, '\n'),
+                h['\u0275\u0275elementStart'](119, 'section', 30),
+                h['\u0275\u0275text'](120, '\n  '),
+                h['\u0275\u0275elementStart'](121, 'div', 3),
+                h['\u0275\u0275text'](122, '\n    '),
+                h['\u0275\u0275elementStart'](123, 'div', 4),
+                h['\u0275\u0275text'](124, '\n      '),
+                h['\u0275\u0275elementStart'](125, 'div', 21),
+                h['\u0275\u0275text'](126, '\n        '),
+                h['\u0275\u0275elementStart'](127, 'span', 22),
+                h['\u0275\u0275text'](128),
                 h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](133, '\n        '),
-                h['\u0275\u0275elementStart'](134, 'h2', 24),
-                h['\u0275\u0275text'](135, 'Discover the surroundings'),
+                h['\u0275\u0275text'](129, '\n        '),
+                h['\u0275\u0275elementStart'](130, 'h2', 23),
+                h['\u0275\u0275text'](131, 'Discover the surroundings'),
                 h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](136, '\n      '),
+                h['\u0275\u0275text'](132, '\n      '),
                 h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](137, '\n    '),
+                h['\u0275\u0275text'](133, '\n    '),
                 h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](138, '\n    '),
-                h['\u0275\u0275text'](139, '\n    '),
-                h['\u0275\u0275elementStart'](140, 'div', 4),
-                h['\u0275\u0275text'](141, '\n      '),
-                h['\u0275\u0275elementStart'](142, 'div', 32),
+                h['\u0275\u0275text'](134, '\n    '),
+                h['\u0275\u0275text'](135, '\n    '),
+                h['\u0275\u0275elementStart'](136, 'div', 4),
+                h['\u0275\u0275text'](137, '\n      '),
+                h['\u0275\u0275elementStart'](138, 'div', 31),
+                h['\u0275\u0275text'](139, '\n        '),
+                h['\u0275\u0275text'](140, '\n        '),
+                h['\u0275\u0275text'](141, '\n        '),
+                h['\u0275\u0275template'](142, O, 30, 8, 'div', 32),
                 h['\u0275\u0275text'](143, '\n        '),
-                h['\u0275\u0275elementStart'](144, 'div', 33),
-                h['\u0275\u0275text'](145, '\n          '),
-                h['\u0275\u0275elementStart'](146, 'aside', 34),
-                h['\u0275\u0275text'](147, '\n            '),
-                h['\u0275\u0275elementStart'](148, 'div', 35),
-                h['\u0275\u0275text'](149, '\n              '),
-                h['\u0275\u0275elementStart'](150, 'div', 36),
-                h['\u0275\u0275text'](151, '\n                '),
-                h['\u0275\u0275template'](152, q, 10, 5, 'ul', 37),
-                h['\u0275\u0275text'](153, '\n              '),
+                h['\u0275\u0275template'](144, R, 13, 4, 'div', 33),
+                h['\u0275\u0275text'](145, '\n      '),
                 h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](154, '\n              '),
-                h['\u0275\u0275text'](155, '\n            '),
+                h['\u0275\u0275text'](146, '\n\n      '),
+                h['\u0275\u0275text'](147, '\n    '),
                 h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](156, '\n            '),
-                h['\u0275\u0275text'](157, '\n          '),
+                h['\u0275\u0275text'](148, '\n    '),
+                h['\u0275\u0275text'](149, '\n  '),
                 h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](158, '\n          '),
-                h['\u0275\u0275text'](159, '\n        '),
+                h['\u0275\u0275text'](150, '\n  '),
+                h['\u0275\u0275text'](151, '\n'),
                 h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](160, '\n        '),
-                h['\u0275\u0275text'](161, '\n        '),
-                h['\u0275\u0275template'](162, F, 30, 8, 'div', 38),
-                h['\u0275\u0275text'](163, '\n        '),
-                h['\u0275\u0275template'](164, B, 13, 4, 'div', 38),
-                h['\u0275\u0275text'](165, '\n      '),
+                h['\u0275\u0275text'](152, '\n'),
+                h['\u0275\u0275text'](153, '\n\n'),
+                h['\u0275\u0275text'](154, '\n\n'),
+                h['\u0275\u0275text'](155, '\n'),
+                h['\u0275\u0275elementStart'](156, 'section', 30),
+                h['\u0275\u0275text'](157, '\n  '),
+                h['\u0275\u0275elementStart'](158, 'div', 34),
+                h['\u0275\u0275text'](159, '\n    '),
+                h['\u0275\u0275text'](160, '\n    '),
+                h['\u0275\u0275elementStart'](161, 'div', 4),
+                h['\u0275\u0275text'](162, '\n      '),
+                h['\u0275\u0275elementStart'](163, 'h2', 23),
+                h['\u0275\u0275text'](164),
                 h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](166, '\n\n      '),
+                h['\u0275\u0275text'](165, '\n    '),
+                h['\u0275\u0275elementEnd'](),
+                h['\u0275\u0275text'](166, '\n    '),
                 h['\u0275\u0275text'](167, '\n    '),
+                h['\u0275\u0275elementStart'](168, 'div', 4),
+                h['\u0275\u0275text'](169, '\n      '),
+                h['\u0275\u0275elementStart'](170, 'div', 31),
+                h['\u0275\u0275text'](171, '\n        '),
+                h['\u0275\u0275elementStart'](172, 'ngx-slick-carousel', 35, 36),
+                h['\u0275\u0275text'](174, '\n          '),
+                h['\u0275\u0275template'](175, B, 26, 8, 'div', 37),
+                h['\u0275\u0275text'](176, '\n        '),
                 h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](168, '\n    '),
-                h['\u0275\u0275text'](169, '\n  '),
+                h['\u0275\u0275text'](177, '\n        '),
+                h['\u0275\u0275text'](178, '\n      '),
                 h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](170, '\n  '),
-                h['\u0275\u0275text'](171, '\n'),
-                h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](172, '\n'),
-                h['\u0275\u0275text'](173, '\n\n'),
-                h['\u0275\u0275text'](174, '\n\n'),
-                h['\u0275\u0275text'](175, '\n'),
-                h['\u0275\u0275elementStart'](176, 'section', 31),
-                h['\u0275\u0275text'](177, '\n  '),
-                h['\u0275\u0275elementStart'](178, 'div', 39),
-                h['\u0275\u0275text'](179, '\n    '),
+                h['\u0275\u0275text'](179, '\n      '),
                 h['\u0275\u0275text'](180, '\n    '),
-                h['\u0275\u0275elementStart'](181, 'div', 4),
-                h['\u0275\u0275text'](182, '\n      '),
-                h['\u0275\u0275elementStart'](183, 'h2', 24),
-                h['\u0275\u0275text'](184),
                 h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](185, '\n    '),
+                h['\u0275\u0275text'](181, '\n    '),
+                h['\u0275\u0275text'](182, '\n  '),
                 h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](186, '\n    '),
-                h['\u0275\u0275text'](187, '\n    '),
-                h['\u0275\u0275elementStart'](188, 'div', 4),
-                h['\u0275\u0275text'](189, '\n      '),
-                h['\u0275\u0275elementStart'](190, 'div', 32),
-                h['\u0275\u0275text'](191, '\n        '),
-                h['\u0275\u0275elementStart'](192, 'ngx-slick-carousel', 40, 41),
-                h['\u0275\u0275text'](194, '\n          '),
-                h['\u0275\u0275template'](195, $, 26, 8, 'div', 42),
-                h['\u0275\u0275text'](196, '\n        '),
+                h['\u0275\u0275text'](183, '\n  '),
+                h['\u0275\u0275text'](184, '\n'),
                 h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](197, '\n        '),
+                h['\u0275\u0275text'](185, '\n'),
+                h['\u0275\u0275text'](186, '\n\n'),
+                h['\u0275\u0275element'](187, 'app-vendor-section'),
+                h['\u0275\u0275text'](188, '\n\n'),
+                h['\u0275\u0275elementStart'](189, 'ngx-smart-modal', 38, 39),
+                h['\u0275\u0275text'](191, '\n  '),
+                h['\u0275\u0275elementStart'](192, 'div', 4),
+                h['\u0275\u0275text'](193, '\n    '),
+                h['\u0275\u0275elementStart'](194, 'div', 40),
+                h['\u0275\u0275text'](195, '\n      '),
+                h['\u0275\u0275elementStart'](196, 'h1'),
+                h['\u0275\u0275element'](197, 'i', 41),
+                h['\u0275\u0275elementEnd'](),
                 h['\u0275\u0275text'](198, '\n      '),
-                h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](199, '\n      '),
-                h['\u0275\u0275text'](200, '\n    '),
+                h['\u0275\u0275elementStart'](199, 'h5'),
+                h['\u0275\u0275text'](200, 'Your review has been submitted and is pending approval'),
                 h['\u0275\u0275elementEnd'](),
                 h['\u0275\u0275text'](201, '\n    '),
+                h['\u0275\u0275elementEnd'](),
                 h['\u0275\u0275text'](202, '\n  '),
                 h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](203, '\n  '),
-                h['\u0275\u0275text'](204, '\n'),
+                h['\u0275\u0275text'](203, '\n'),
                 h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](205, '\n'),
-                h['\u0275\u0275text'](206, '\n\n'),
-                h['\u0275\u0275element'](207, 'app-vendor-section'),
-                h['\u0275\u0275text'](208, '\n\n'),
-                h['\u0275\u0275elementStart'](209, 'ngx-smart-modal', 43, 44),
-                h['\u0275\u0275text'](211, '\n  '),
-                h['\u0275\u0275elementStart'](212, 'div', 4),
-                h['\u0275\u0275text'](213, '\n    '),
-                h['\u0275\u0275elementStart'](214, 'div', 45),
-                h['\u0275\u0275text'](215, '\n      '),
-                h['\u0275\u0275elementStart'](216, 'h1'),
-                h['\u0275\u0275element'](217, 'i', 46),
-                h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](218, '\n      '),
-                h['\u0275\u0275elementStart'](219, 'h5'),
-                h['\u0275\u0275text'](220, 'Your review has been submitted and is pending approval'),
-                h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](221, '\n    '),
-                h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](222, '\n  '),
-                h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](223, '\n'),
-                h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](224, '\n\n'),
-                h['\u0275\u0275elementStart'](225, 'ngx-smart-modal', 47, 48),
+                h['\u0275\u0275text'](204, '\n\n'),
+                h['\u0275\u0275elementStart'](205, 'ngx-smart-modal', 42, 43),
                 h['\u0275\u0275listener']('onClose', function () {
                   return t.hideCarousel();
                 })('onDismiss', function () {
                   return t.hideCarousel();
                 }),
-                h['\u0275\u0275text'](227, '\n  '),
-                h['\u0275\u0275template'](228, V, 9, 2, 'div', 49),
-                h['\u0275\u0275text'](229, '\n'),
+                h['\u0275\u0275text'](207, '\n  '),
+                h['\u0275\u0275template'](208, $, 9, 2, 'div', 44),
+                h['\u0275\u0275text'](209, '\n'),
                 h['\u0275\u0275elementEnd'](),
-                h['\u0275\u0275text'](230, '\n')),
+                h['\u0275\u0275text'](210, '\n')),
                 2 & e &&
                   (h['\u0275\u0275advance'](5),
                   h['\u0275\u0275property'](
@@ -6542,7 +6465,7 @@
                   h['\u0275\u0275advance'](3),
                   h['\u0275\u0275textInterpolate1']('\n            ', t.location.description, '\n          '),
                   h['\u0275\u0275advance'](8),
-                  h['\u0275\u0275property']('theme', 'material-dark')('include', h['\u0275\u0275pureFunction0'](32, X))(
+                  h['\u0275\u0275property']('theme', 'material-dark')('include', h['\u0275\u0275pureFunction0'](30, U))(
                     'show',
                     9
                   )('size', 1)('url', t.redirectUrl)(
@@ -6561,9 +6484,7 @@
                   h['\u0275\u0275property']('ngIf', t.weatherApi),
                   h['\u0275\u0275advance'](13),
                   h['\u0275\u0275textInterpolate1']('\n          ', t.location.longDescription, '\n        '),
-                  h['\u0275\u0275advance'](6),
-                  h['\u0275\u0275propertyInterpolate']('src', t.location.photos[0], h['\u0275\u0275sanitizeUrl']),
-                  h['\u0275\u0275advance'](19),
+                  h['\u0275\u0275advance'](21),
                   h['\u0275\u0275textInterpolate'](t.location.slug),
                   h['\u0275\u0275advance'](15),
                   h['\u0275\u0275property']('ngIf', null == t.location ? null : t.location.photos[0]),
@@ -6579,9 +6500,7 @@
                   h['\u0275\u0275property']('ngIf', null == t.location ? null : t.location.photos[5]),
                   h['\u0275\u0275advance'](17),
                   h['\u0275\u0275textInterpolate'](t.location.slug),
-                  h['\u0275\u0275advance'](20),
-                  h['\u0275\u0275property']('ngForOf', t.surroundings),
-                  h['\u0275\u0275advance'](10),
+                  h['\u0275\u0275advance'](14),
                   h['\u0275\u0275property']('ngIf', !t.show),
                   h['\u0275\u0275advance'](2),
                   h['\u0275\u0275property']('ngIf', t.show),
@@ -6594,7 +6513,7 @@
                   h['\u0275\u0275advance'](33),
                   h['\u0275\u0275property']('ngIf', t.showImgs));
             },
-            directives: [y.a, v.n, v.m, b.a, w.a, a.a, v.l, S.c, S.d, S.b, b.c, m.f, C.a, C.c],
+            directives: [y.a, v.n, b.a, v.m, w.a, a.a, S.c, S.d, S.b, b.c, m.f, C.a, C.c],
             styles: [
               '.bg-img[_ngcontent-%COMP%]{margin-top:-120px;background-color:#000}.bg-img[_ngcontent-%COMP%]   .header-image[_ngcontent-%COMP%]{width:100%;height:500px;-o-object-fit:cover;object-fit:cover;opacity:.7!important}.slide__content[_ngcontent-%COMP%]{position:absolute;top:-340px;z-index:1;text-align:left}.places__img[_ngcontent-%COMP%]{height:230px}.place-carousel[_ngcontent-%COMP%]{padding-bottom:unset!important}@media (min-width:768px){ .nsm-body{position:absolute;left:-20%;margin-top:5%;margin-left:-140px;width:180%}}@media (max-width:767px){.imageViewer__container[_ngcontent-%COMP%]{margin-top:40%}.credentials__col[_ngcontent-%COMP%]{padding-left:30px;padding-right:30px}}.login__btn[_ngcontent-%COMP%]{background-color:#8cc63e!important;border-color:#8cc63e!important}  .nsm-dialog-btn-close{display:none!important}  .image__Slider .nsm-dialog{position:relative;opacity:1;visibility:visible;min-height:200px;width:100%;max-width:700px!important;pointer-events:none;outline:none;margin:20px auto 0}.info-img[_ngcontent-%COMP%]{width:25vh}.info-desc[_ngcontent-%COMP%]{font-size:14px}',
             ],
@@ -6768,8 +6687,7 @@
             (this.ngxSmartModalService = e), (this.eventService = t), (this.credentialsService = n), (this.toastr = r);
           }
           ngOnInit() {
-            (this.userPlans = this.ngxSmartModalService.create('planListingModal', e).getData()),
-              console.log(this.userPlans);
+            this.userPlans = this.ngxSmartModalService.create('planListingModal', e).getData();
           }
           selectedPlan(e) {
             (this.selectedPlanId = e._id),

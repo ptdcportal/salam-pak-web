@@ -23,8 +23,8 @@ function _createClass(e, t, n) {
           return X;
         });
       var l = n('ofXK'),
-        o = n('a6Df'),
-        i = n('tyNb'),
+        i = n('a6Df'),
+        o = n('tyNb'),
         r = n('pxUr'),
         a = n('oOf3'),
         s = n('pj/B'),
@@ -140,7 +140,7 @@ function _createClass(e, t, n) {
               e
             );
           })()).ɵfac = function (e) {
-            return new (e || h)(m['\u0275\u0275directiveInject'](i.a), m['\u0275\u0275directiveInject'](c.a));
+            return new (e || h)(m['\u0275\u0275directiveInject'](o.a), m['\u0275\u0275directiveInject'](c.a));
           }),
           (h.ɵcmp = m['\u0275\u0275defineComponent']({
             type: h,
@@ -508,9 +508,9 @@ function _createClass(e, t, n) {
         }
         if (2 & e) {
           var l = t.$implicit,
-            o = m['\u0275\u0275nextContext']();
+            i = m['\u0275\u0275nextContext']();
           m['\u0275\u0275advance'](2),
-            m['\u0275\u0275property']('ngClass', m['\u0275\u0275pureFunction1'](3, T, o.selectedSur == l.name)),
+            m['\u0275\u0275property']('ngClass', m['\u0275\u0275pureFunction1'](3, T, i.selectedSur == l.name)),
             m['\u0275\u0275advance'](4),
             m['\u0275\u0275propertyInterpolate1'](
               'src',
@@ -782,14 +782,14 @@ function _createClass(e, t, n) {
             path: 'detail/:id/:slug',
             component:
               ((G = (function () {
-                function e(t, n, l, o, i, r) {
+                function e(t, n, l, i, o, r) {
                   var a = this;
                   _classCallCheck(this, e),
                     (this.route = t),
                     (this.eventService = n),
                     (this.ngxSmartModalService = l),
-                    (this.credentialsService = o),
-                    (this.formBuilder = i),
+                    (this.credentialsService = i),
+                    (this.formBuilder = o),
                     (this.toastr = r),
                     (this.slideConfig = { slidesToShow: 4, slidesToScroll: 4, arrows: !0, responsive: Q }),
                     (this.locations = []),
@@ -805,7 +805,7 @@ function _createClass(e, t, n) {
                       return 'https://www.google.com/maps/place/?q=place_id:' + e.place_id;
                     }),
                     this.route.params.subscribe(function (e) {
-                      var t, n, l, o;
+                      var t, n, l, i;
                       (a.event = a.route.snapshot.data.event),
                         (a.surroundings = a.event.surroundings),
                         (a.eventId = a.event._id),
@@ -818,9 +818,9 @@ function _createClass(e, t, n) {
                               ? void 0
                               : n.coordinates[1],
                           lng:
-                            null === (o = null === (l = a.event) || void 0 === l ? void 0 : l.location) || void 0 === o
+                            null === (i = null === (l = a.event) || void 0 === l ? void 0 : l.location) || void 0 === i
                               ? void 0
-                              : o.coordinates[0],
+                              : i.coordinates[0],
                         }),
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                     });
@@ -994,7 +994,7 @@ function _createClass(e, t, n) {
                     {
                       key: 'createBookingForm',
                       value: function () {
-                        var e, t, n, l, o, i, r, a;
+                        var e, t, n, l, i, o, r, a;
                         this.bookingForm = this.formBuilder.group({
                           fullName: [
                             null === (t = null === (e = this.userData) || void 0 === e ? void 0 : e.profile) ||
@@ -1011,10 +1011,10 @@ function _createClass(e, t, n) {
                             u.Validators.required,
                           ],
                           mobile: [
-                            null === (i = null === (o = this.userData) || void 0 === o ? void 0 : o.profile) ||
-                            void 0 === i
+                            null === (o = null === (i = this.userData) || void 0 === i ? void 0 : i.profile) ||
+                            void 0 === o
                               ? void 0
-                              : i.mobile,
+                              : o.mobile,
                             u.Validators.required,
                           ],
                           idCard: [
@@ -1050,11 +1050,9 @@ function _createClass(e, t, n) {
                             isChild: this.bookingForm.get('noOfChildren').value > 0,
                           });
                         (t = { passengersDetail: t }),
-                          console.log(t),
                           this.eventService.createEventBooking(this.eventId, t).subscribe(
                             function (t) {
-                              console.log(t),
-                                e.ngxSmartModalService.getModal('bookingModal').close(),
+                              e.ngxSmartModalService.getModal('bookingModal').close(),
                                 e.toastr.success('booking created successfully!');
                             },
                             function (t) {
@@ -1070,7 +1068,7 @@ function _createClass(e, t, n) {
               })()),
               (G.ɵfac = function (e) {
                 return new (e || G)(
-                  m['\u0275\u0275directiveInject'](i.a),
+                  m['\u0275\u0275directiveInject'](o.a),
                   m['\u0275\u0275directiveInject'](c.a),
                   m['\u0275\u0275directiveInject'](_.c),
                   m['\u0275\u0275directiveInject'](k.c),
@@ -1793,7 +1791,7 @@ function _createClass(e, t, n) {
                   r.d,
                   r.b,
                   I.c,
-                  i.f,
+                  o.f,
                   l.o,
                 ],
                 pipes: [l.e],
@@ -1814,7 +1812,7 @@ function _createClass(e, t, n) {
               return new (e || J)();
             },
             providers: [],
-            imports: [[i.g.forChild($)], i.g],
+            imports: [[o.g.forChild($)], o.g],
           })),
           J),
         X =
@@ -1830,8 +1828,8 @@ function _createClass(e, t, n) {
                 l.c,
                 s.b.withConfig({ debug: !0 }),
                 d.a,
-                o.a,
-                i.g,
+                i.a,
+                o.g,
                 K,
                 a.a,
                 r.a.forRoot({ apiKey: 'AIzaSyCPhOFre2UhYgZPRNw_qD8CaGQ36pUqaQA' }),
@@ -1847,10 +1845,10 @@ function _createClass(e, t, n) {
     ucq3: function (e, t, n) {
       'use strict';
       n.d(t, 'a', function () {
-        return o;
+        return i;
       });
       var l = n('fXoL'),
-        o = (function () {
+        i = (function () {
           var e = (function () {
             function e() {
               _classCallCheck(this, e);

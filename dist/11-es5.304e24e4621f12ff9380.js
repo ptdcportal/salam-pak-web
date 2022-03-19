@@ -403,11 +403,9 @@ function _createClass(t, e, n) {
                         isChild: this.bookingForm.get('noOfChildren').value > 0,
                       });
                     (e = { passengersDetail: e }),
-                      console.log(e),
                       this.eventService.createTripBooking(this.tripId, e).subscribe(
                         function (e) {
-                          console.log(e),
-                            t.ngxSmartModalService.getModal('bookingModal').close(),
+                          t.ngxSmartModalService.getModal('bookingModal').close(),
                             t.toastr.success('booking created successfully!');
                         },
                         function (e) {

@@ -507,8 +507,7 @@ function _createClass(t, e, n) {
                       this.shellService.currentMessage.subscribe(function (e) {
                         t.filter = e;
                       }),
-                      this.getCurrencyInfo(),
-                      console.log(this.allEvents);
+                      this.getCurrencyInfo();
                   },
                 },
                 {
@@ -632,9 +631,7 @@ function _createClass(t, e, n) {
                 {
                   key: 'openCurrencyModal',
                   value: function (t) {
-                    (this.ammount = t),
-                      this.ngxSmartModalService.getModal('agoraCurrencyModal').open(),
-                      console.log(this.ammount);
+                    (this.ammount = t), this.ngxSmartModalService.getModal('agoraCurrencyModal').open();
                   },
                 },
                 {
@@ -1374,7 +1371,7 @@ function _createClass(t, e, n) {
                     ipn_url: ''.concat(q.a.serverUrl, '/ipn/').concat(n.bookingId),
                   };
                   n.eventService.placeBookMeOrder(t).subscribe(function (t) {
-                    console.log('payment Data:', t), n.onSuccess.emit(t);
+                    n.onSuccess.emit(t);
                   });
                 }),
                 this.getPaymentMethodData();
@@ -2264,8 +2261,8 @@ function _createClass(t, e, n) {
       var mt,
         pt =
           (((mt = (function () {
-            function t(e, n, o, a, i, r, l) {
-              var c = this;
+            function t(e, n, o, a, i, r, l, c) {
+              var s = this;
               _classCallCheck(this, t),
                 (this.route = e),
                 (this.eventService = n),
@@ -2274,6 +2271,7 @@ function _createClass(t, e, n) {
                 (this.toastr = i),
                 (this.ngxSmartModalService = r),
                 (this.domSanitizer = l),
+                (this.router = c),
                 (this.slideConfig = {
                   slidesToShow: 3,
                   slidesToScroll: 3,
@@ -2319,7 +2317,7 @@ function _createClass(t, e, n) {
                 (this.paymentSuccesFlag = !1),
                 (this.bookingId = null),
                 (this.showTabContent = function (t, e, n) {
-                  c.multiTab = n;
+                  s.multiTab = n;
                   for (var o = document.getElementsByClassName('packageDetail' + e), a = 0; a < o.length; a++)
                     o[a].classList.remove('active'), o[a].classList.add('hidden');
                   var i;
@@ -2330,7 +2328,7 @@ function _createClass(t, e, n) {
                   (i = document.getElementById('tab' + t + '-tab')) && i.classList.add('active');
                 }),
                 (this.selectedOptions = function (t) {
-                  c.selectedOption = t;
+                  s.selectedOption = t;
                 }),
                 (this.hotelBookingData = {
                   name: '',
@@ -2344,11 +2342,11 @@ function _createClass(t, e, n) {
                   roomId: '',
                   noOfRooms: 1,
                 });
-              var s = this.route.snapshot.queryParams.hotelSource.toLowerCase();
+              var d = this.route.snapshot.queryParams.hotelSource.toLowerCase();
               (this.data = {
                 refId: this.route.snapshot.queryParams.refId,
                 hotelRefId: this.route.snapshot.queryParams.hotelRefId,
-                hotelSource: 'local' === s ? 'local' : 'bookme',
+                hotelSource: 'local' === d ? 'local' : 'bookme',
                 hotelId: this.route.snapshot.queryParams.hotelId,
                 checkin_date: this.route.snapshot.queryParams.checkIn,
                 checkout_date: this.route.snapshot.queryParams.checkOut,
@@ -2358,10 +2356,9 @@ function _createClass(t, e, n) {
               }),
                 (this.data.hotelId || this.data.hotelRefId) &&
                   this.eventService.gethotelDetail(this.data).subscribe(function (t) {
-                    console.log(t),
-                      (c.hotelDetail = t.data && t.data.hotelDetails),
-                      (c.hotelMedia = t.data && t.data.media),
-                      c.loadScript();
+                    (s.hotelDetail = t.data && t.data.hotelDetails),
+                      (s.hotelMedia = t.data && t.data.media),
+                      s.loadScript();
                   });
             }
             return (
@@ -2467,8 +2464,8 @@ function _createClass(t, e, n) {
                             e.toastr.success('Your booking request has been received! you will be notify via email'),
                               (e.formFlag = !1),
                               (e.user = n),
-                              (e.paymentFlag = !0),
-                              (e.bookingId = t.data);
+                              (e.bookingId = t.data),
+                              e.router.navigate(['user/my-bookings']);
                           },
                           function (t) {
                             e.toastr.error('error while making booking request');
@@ -2485,7 +2482,7 @@ function _createClass(t, e, n) {
                 {
                   key: 'onPaymentMethodSuccess',
                   value: function (t) {
-                    (this.paymentFlag = !1), (this.paymentSuccesFlag = !0), console.log(t), (this.bookingResponse = t);
+                    (this.paymentFlag = !1), (this.paymentSuccesFlag = !0), (this.bookingResponse = t);
                   },
                 },
                 { key: 'changeTab', value: function (t) {} },
@@ -2512,7 +2509,8 @@ function _createClass(t, e, n) {
               u['\u0275\u0275directiveInject'](c.FormBuilder),
               u['\u0275\u0275directiveInject'](j.b),
               u['\u0275\u0275directiveInject'](g.c),
-              u['\u0275\u0275directiveInject'](A.DomSanitizer)
+              u['\u0275\u0275directiveInject'](A.DomSanitizer),
+              u['\u0275\u0275directiveInject'](a.d)
             );
           }),
           (mt.ɵcmp = u['\u0275\u0275defineComponent']({
@@ -3477,7 +3475,7 @@ function _createClass(t, e, n) {
         Nt = [],
         Rt =
           (((It = (function () {
-            function t(e, n, o, a, i, r, l, c, s) {
+            function t(e, n, o, a, i, r, l, c, s, g) {
               _classCallCheck(this, t),
                 (this.route = e),
                 (this.eventService = n),
@@ -3488,6 +3486,7 @@ function _createClass(t, e, n) {
                 (this.ngxSmartModalService = l),
                 (this.toastr = c),
                 (this.domSanitizer = s),
+                (this.router = g),
                 (this.isLoading = !0),
                 (this.p = 1),
                 (this.slideConfig = { slidesToShow: 4.5, slidesToScroll: 4, arrows: !0 }),
@@ -3690,10 +3689,7 @@ function _createClass(t, e, n) {
                 {
                   key: 'checkFemaleOccupied',
                   value: function (t) {
-                    return (
-                      console.log(t, this.femaleOccoupiedSeats, this.femaleOccoupiedSeats.includes(t + '')),
-                      !(!this.femaleOccoupiedSeats || !this.femaleOccoupiedSeats.includes(t + ''))
-                    );
+                    return !(!this.femaleOccoupiedSeats || !this.femaleOccoupiedSeats.includes(t + ''));
                   },
                 },
                 {
@@ -3723,32 +3719,31 @@ function _createClass(t, e, n) {
                 {
                   key: 'seatChange',
                   value: function (t, e) {
-                    console.log(t, e),
-                      t.target.classList.contains('seat') &&
-                      this.selectedSeats.length < 5 &&
-                      !t.target.classList.contains('occupied')
-                        ? t.target.classList.contains('selected')
-                          ? (t.target.classList.toggle('selected'),
-                            t.target.classList.toggle('occupied-female'),
-                            t.target.classList.toggle('occupied-female-seat'))
-                          : (t.target.classList.toggle('selected'),
-                            (t.target.classList.contains('occupied-female') ||
-                              t.target.classList.contains('occupied-female-seat')) &&
-                              (t.target.classList.toggle('occupied-female'),
-                              t.target.classList.toggle('occupied-female-seat'),
-                              t.target.classList.toggle('selected')),
-                            this.selectedSeats.length < 5 && this.updateSelectedCount(e))
-                        : (t.target.classList.contains('occupied') ||
-                            (!t.target.classList.contains('occupied-female') &&
-                              !t.target.classList.contains('occupied-female-seat')) ||
-                            (this.updateSelectedCount(e),
-                            t.target.classList.toggle('occupied-female'),
-                            t.target.classList.toggle('occupied-female-seat')),
-                          !t.target.classList.contains('occupied') &&
-                            t.target.classList.contains('selected') &&
-                            (t.target.classList.toggle('selected'),
-                            t.target.classList.toggle('occupied-female'),
-                            t.target.classList.toggle('occupied-female-seat'))),
+                    t.target.classList.contains('seat') &&
+                    this.selectedSeats.length < 5 &&
+                    !t.target.classList.contains('occupied')
+                      ? t.target.classList.contains('selected')
+                        ? (t.target.classList.toggle('selected'),
+                          t.target.classList.toggle('occupied-female'),
+                          t.target.classList.toggle('occupied-female-seat'))
+                        : (t.target.classList.toggle('selected'),
+                          (t.target.classList.contains('occupied-female') ||
+                            t.target.classList.contains('occupied-female-seat')) &&
+                            (t.target.classList.toggle('occupied-female'),
+                            t.target.classList.toggle('occupied-female-seat'),
+                            t.target.classList.toggle('selected')),
+                          this.selectedSeats.length < 5 && this.updateSelectedCount(e))
+                      : (t.target.classList.contains('occupied') ||
+                          (!t.target.classList.contains('occupied-female') &&
+                            !t.target.classList.contains('occupied-female-seat')) ||
+                          (this.updateSelectedCount(e),
+                          t.target.classList.toggle('occupied-female'),
+                          t.target.classList.toggle('occupied-female-seat')),
+                        !t.target.classList.contains('occupied') &&
+                          t.target.classList.contains('selected') &&
+                          (t.target.classList.toggle('selected'),
+                          t.target.classList.toggle('occupied-female'),
+                          t.target.classList.toggle('occupied-female-seat'))),
                       this.selectedSeats.length < 7 &&
                         (t.target.classList.contains('occupied-female') ||
                         t.target.classList.contains('occupied-female-seat')
@@ -3858,8 +3853,8 @@ function _createClass(t, e, n) {
                             e.toastr.success('Your booking request has been received! you will be notify via email'),
                               (e.formFlag = !1),
                               (e.user = n),
-                              (e.paymentFlag = !0),
-                              (e.bookingId = t.data);
+                              (e.bookingId = t.data),
+                              e.router.navigate(['user/my-bookings']);
                           },
                           function (t) {
                             e.toastr.error('error while making booking request');
@@ -3876,7 +3871,7 @@ function _createClass(t, e, n) {
                 {
                   key: 'onPaymentMethodSuccess',
                   value: function (t) {
-                    (this.paymentFlag = !1), (this.paymentSuccesFlag = !0), console.log(t), (this.bookingResponse = t);
+                    (this.paymentFlag = !1), (this.paymentSuccesFlag = !0), (this.bookingResponse = t);
                   },
                 },
               ]),
@@ -3892,7 +3887,8 @@ function _createClass(t, e, n) {
               u['\u0275\u0275directiveInject'](s.a),
               u['\u0275\u0275directiveInject'](g.c),
               u['\u0275\u0275directiveInject'](j.b),
-              u['\u0275\u0275directiveInject'](A.DomSanitizer)
+              u['\u0275\u0275directiveInject'](A.DomSanitizer),
+              u['\u0275\u0275directiveInject'](a.d)
             );
           }),
           (It.ɵcmp = u['\u0275\u0275defineComponent']({
@@ -5307,7 +5303,7 @@ function _createClass(t, e, n) {
         re = [],
         le =
           (((te = (function () {
-            function t(e, n, o, a, i, r, l, c, s) {
+            function t(e, n, o, a, i, r, l, c, s, g) {
               _classCallCheck(this, t),
                 (this.route = e),
                 (this.eventService = n),
@@ -5318,6 +5314,7 @@ function _createClass(t, e, n) {
                 (this.ngxSmartModalService = l),
                 (this.toastr = c),
                 (this.domSanitizer = s),
+                (this.router = g),
                 (this.isLoading = !0),
                 (this.p = 1),
                 (this.slideConfig = { slidesToShow: 4.5, slidesToScroll: 4, arrows: !0 }),
@@ -5546,8 +5543,7 @@ function _createClass(t, e, n) {
                       (this.flightItem = t),
                       (this.bookingId = null),
                       (this.bookingResponse = null),
-                      this.ngxSmartModalService.getModal('flightModalPopup').open(),
-                      console.log(this.ammount);
+                      this.ngxSmartModalService.getModal('flightModalPopup').open();
                   },
                 },
                 {
@@ -5606,8 +5602,8 @@ function _createClass(t, e, n) {
                             e.toastr.success('Your booking request has been received! you will be notify via email'),
                               (e.formFlag = !1),
                               (e.user = n),
-                              (e.paymentFlag = !0),
-                              (e.bookingId = t.data);
+                              (e.bookingId = t.data),
+                              e.router.navigate(['user/my-bookings']);
                           },
                           function (t) {
                             e.toastr.error('error while making booking request');
@@ -5624,7 +5620,7 @@ function _createClass(t, e, n) {
                 {
                   key: 'onPaymentMethodSuccess',
                   value: function (t) {
-                    (this.paymentFlag = !1), (this.paymentSuccesFlag = !0), console.log(t), (this.bookingResponse = t);
+                    (this.paymentFlag = !1), (this.paymentSuccesFlag = !0), (this.bookingResponse = t);
                   },
                 },
               ]),
@@ -5640,7 +5636,8 @@ function _createClass(t, e, n) {
               u['\u0275\u0275directiveInject'](s.a),
               u['\u0275\u0275directiveInject'](g.c),
               u['\u0275\u0275directiveInject'](j.b),
-              u['\u0275\u0275directiveInject'](A.DomSanitizer)
+              u['\u0275\u0275directiveInject'](A.DomSanitizer),
+              u['\u0275\u0275directiveInject'](a.d)
             );
           }),
           (te.ɵcmp = u['\u0275\u0275defineComponent']({

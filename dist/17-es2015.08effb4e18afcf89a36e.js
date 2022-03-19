@@ -30,10 +30,10 @@
           t
         );
       })();
-      var d = n('NO7T'),
-        m = n('3Pt+'),
+      var m = n('NO7T'),
+        d = n('3Pt+'),
         x = n('oOf3');
-      function g(t, e) {
+      function p(t, e) {
         if (
           (1 & t &&
             (s['\u0275\u0275elementStart'](0, 'div', 31),
@@ -80,7 +80,7 @@
             s['\u0275\u0275textInterpolate'](t.alias);
         }
       }
-      function p(t, e) {
+      function g(t, e) {
         if (1 & t) {
           const t = s['\u0275\u0275getCurrentView']();
           s['\u0275\u0275elementStart'](0, 'div'),
@@ -266,7 +266,7 @@
                 s['\u0275\u0275text'](55, '\n      '),
                 s['\u0275\u0275elementStart'](56, 'div', 15),
                 s['\u0275\u0275text'](57, '\n        '),
-                s['\u0275\u0275template'](58, g, 19, 4, 'div', 16),
+                s['\u0275\u0275template'](58, p, 19, 4, 'div', 16),
                 s['\u0275\u0275pipe'](59, 'paginate'),
                 s['\u0275\u0275text'](60, '\n        '),
                 s['\u0275\u0275text'](61, '\n      '),
@@ -283,7 +283,7 @@
                 s['\u0275\u0275text'](69, '\n      '),
                 s['\u0275\u0275elementStart'](70, 'div', 17),
                 s['\u0275\u0275text'](71, '\n        '),
-                s['\u0275\u0275template'](72, p, 4, 0, 'div', 18),
+                s['\u0275\u0275template'](72, g, 4, 0, 'div', 18),
                 s['\u0275\u0275text'](73, '\n      '),
                 s['\u0275\u0275elementEnd'](),
                 s['\u0275\u0275text'](74, '\n    '),
@@ -376,7 +376,7 @@
                   s['\u0275\u0275advance'](18),
                   s['\u0275\u0275textInterpolate1']('Browse ', e.data.name, ''));
             },
-            directives: [r.m, r.n, m['\u0275angular_packages_forms_forms_y'], m.NgControlStatusGroup, m.NgForm, x.c],
+            directives: [r.m, r.n, d['\u0275angular_packages_forms_forms_y'], d.NgControlStatusGroup, d.NgForm, x.c],
             pipes: [x.b],
             styles: [
               '.bg-img[_ngcontent-%COMP%]{margin-top:-120px}.bg-img[_ngcontent-%COMP%], .bg-img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{-o-object-fit:cover;object-fit:cover}.bg-img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{min-height:200px}.bg-img[_ngcontent-%COMP%]   .header-image[_ngcontent-%COMP%]{width:100%;height:500px;-o-object-fit:cover;object-fit:cover}.slide__content[_ngcontent-%COMP%]{position:absolute;top:-200px;z-index:1;text-align:left}.post__img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{height:270px}.category-btn[_ngcontent-%COMP%]{display:inline-block;margin:3px}.post__content[_ngcontent-%COMP%]{background-color:transparent}',
@@ -452,7 +452,7 @@
             s['\u0275\u0275elementEnd']();
         }
       }
-      function O(t, e) {
+      function k(t, e) {
         if (
           (1 & t &&
             (s['\u0275\u0275elementStart'](0, 'div', 48),
@@ -491,7 +491,7 @@
             s['\u0275\u0275textInterpolate'](t.alias);
         }
       }
-      function k(t, e) {
+      function O(t, e) {
         if (
           (1 & t &&
             (s['\u0275\u0275elementStart'](0, 'a', 54), s['\u0275\u0275text'](1), s['\u0275\u0275elementEnd']()),
@@ -514,7 +514,7 @@
           (1 & t &&
             (s['\u0275\u0275elementStart'](0, 'span', 52),
             s['\u0275\u0275text'](1, '\n              '),
-            s['\u0275\u0275template'](2, k, 2, 2, 'a', 53),
+            s['\u0275\u0275template'](2, O, 2, 2, 'a', 53),
             s['\u0275\u0275text'](3, '\n            '),
             s['\u0275\u0275elementEnd']()),
           2 & t)
@@ -821,7 +821,7 @@
                   s['\u0275\u0275elementStart'](110, 'ngx-slick-carousel', 25, 26),
                   s['\u0275\u0275text'](112, '\n          '),
                   s['\u0275\u0275text'](113, '\n          '),
-                  s['\u0275\u0275template'](114, O, 19, 6, 'div', 27),
+                  s['\u0275\u0275template'](114, k, 19, 6, 'div', 27),
                   s['\u0275\u0275text'](115, '\n        '),
                   s['\u0275\u0275elementEnd'](),
                   s['\u0275\u0275text'](116, '\n        '),
@@ -942,15 +942,15 @@
                 r.n,
                 a.f,
                 _.a,
-                m['\u0275angular_packages_forms_forms_y'],
-                m.NgControlStatusGroup,
-                m.NgForm,
+                d['\u0275angular_packages_forms_forms_y'],
+                d.NgControlStatusGroup,
+                d.NgForm,
                 x.c,
                 _.c,
               ],
               pipes: [x.b],
               styles: [
-                '.bg-img[_ngcontent-%COMP%]{-o-object-fit:cover;object-fit:cover;margin-top:-120px}.bg-img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{min-height:400px;-o-object-fit:none;object-fit:none}.bg-img[_ngcontent-%COMP%]   .header-image[_ngcontent-%COMP%]{width:100%;height:500px;-o-object-fit:cover;object-fit:cover}.slide__content[_ngcontent-%COMP%]{position:absolute;top:-220px;z-index:1;text-align:left}.category-btn[_ngcontent-%COMP%]{display:inline-block;margin:3px}.post__content[_ngcontent-%COMP%]{background-color:transparent}.post__img[_ngcontent-%COMP%]{height:230px!important}.post__img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{height:100%;-o-object-fit:cover;object-fit:cover;width:100%;-o-object-position:center center;object-position:center center}.places__img[_ngcontent-%COMP%]{height:200px!important}.places__img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{height:100%;-o-object-fit:cover;object-fit:cover;width:100%;-o-object-position:center center;object-position:center center}.blog-container[_ngcontent-%COMP%]{display:flex;justify-content:space-evenly}.blog-container[_ngcontent-%COMP%]   .post-item[_ngcontent-%COMP%]{border:1px solid #e6dbdb;border-radius:18px;max-width:32%;box-shadow:0 3px 10px rgba(0,0,0,.2)}',
+                '.bg-img[_ngcontent-%COMP%]{background-color:#000!important;-o-object-fit:cover;object-fit:cover;margin-top:-120px}.bg-img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{min-height:400px;-o-object-fit:none;object-fit:none;opacity:.7!important}.bg-img[_ngcontent-%COMP%]   .header-image[_ngcontent-%COMP%]{width:100%;height:500px;-o-object-fit:cover;object-fit:cover}.slide__content[_ngcontent-%COMP%]{position:absolute;top:-220px;z-index:1;text-align:left}.category-btn[_ngcontent-%COMP%]{display:inline-block;margin:3px}.post__content[_ngcontent-%COMP%]{background-color:transparent}.post__img[_ngcontent-%COMP%]{height:230px!important}.post__img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{height:100%;-o-object-fit:cover;object-fit:cover;width:100%;-o-object-position:center center;object-position:center center}.places__img[_ngcontent-%COMP%]{height:200px!important}.places__img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{height:100%;-o-object-fit:cover;object-fit:cover;width:100%;-o-object-position:center center;object-position:center center}.blog-container[_ngcontent-%COMP%]{display:flex;justify-content:space-evenly}.blog-container[_ngcontent-%COMP%]   .post-item[_ngcontent-%COMP%]{border:1px solid #e6dbdb;border-radius:18px;max-width:32%;box-shadow:0 3px 10px rgba(0,0,0,.2)}',
               ],
             })),
             t
@@ -1464,15 +1464,15 @@
               r.m,
               a.f,
               _.a,
-              m['\u0275angular_packages_forms_forms_y'],
-              m.NgControlStatusGroup,
-              m.NgForm,
+              d['\u0275angular_packages_forms_forms_y'],
+              d.NgControlStatusGroup,
+              d.NgForm,
               _.c,
               r.o,
             ],
             pipes: [r.v],
             styles: [
-              '.bg-img[_ngcontent-%COMP%]{margin-top:-120px}.bg-img[_ngcontent-%COMP%]   .header-image[_ngcontent-%COMP%]{width:100%;height:500px;-o-object-fit:cover;object-fit:cover}.slide__content[_ngcontent-%COMP%]{position:absolute;top:-175px;z-index:1;text-align:left}.post__content[_ngcontent-%COMP%]{background-color:transparent}.post__img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{height:270px}.places__img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{height:230px}.post-item[_ngcontent-%COMP%]{display:inline-block}',
+              '.bg-img[_ngcontent-%COMP%]{background-color:#000!important;margin-top:-120px}.bg-img[_ngcontent-%COMP%]   .header-image[_ngcontent-%COMP%]{width:100%;height:500px;-o-object-fit:cover;object-fit:cover;opacity:.7!important}.slide__content[_ngcontent-%COMP%]{position:absolute;top:-175px;z-index:1;text-align:left}.post__content[_ngcontent-%COMP%]{background-color:transparent}.post__img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{height:270px}.places__img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{height:230px}.post-item[_ngcontent-%COMP%]{display:inline-block}',
             ],
           })),
           t
@@ -1699,8 +1699,8 @@
         },
         { path: 'category/:slug', component: j, resolve: { category: c } },
         { path: 'category/:slug/listing', component: u, resolve: { category: c } },
-        { path: 'location/:slug/listing', component: u, resolve: { location: d.a } },
-        { path: 'category/:category/location/:slug', component: i.a, resolve: { location: d.a } },
+        { path: 'location/:slug/listing', component: u, resolve: { location: m.a } },
+        { path: 'category/:category/location/:slug', component: i.a, resolve: { location: m.a } },
         { path: 'locations/:slug', component: A, resolve: { trip: T } },
       ];
       let D = (() => {

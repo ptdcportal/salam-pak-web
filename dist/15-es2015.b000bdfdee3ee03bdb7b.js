@@ -192,12 +192,12 @@
           }
           fetchUserPlans() {
             this.eventService.getUserPlan(this.userId).subscribe((t) => {
-              console.log(t), (this.userPlans = t);
+              this.userPlans = t;
             });
           }
           deleteAPlan(t) {
             this.eventService.deleteAPlan(t).subscribe((t) => {
-              this.toastr.success('Plan has been removed'), this.fetchUserPlans(), console.log(t);
+              this.toastr.success('Plan has been removed'), this.fetchUserPlans();
             });
           }
         }

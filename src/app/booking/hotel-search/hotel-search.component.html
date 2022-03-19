@@ -185,12 +185,12 @@
               >
             </li>
             <li class="col-md-2 p-0">
-              <a id="hoteltab3-tab" (click)="hotelFilterTab('price', 4)" [ngClass]="{ ' active': tab === 4 }"
+              <a id="hoteltab3-tab" (click)="hotelFilterTab('-price', 4)" [ngClass]="{ ' active': tab === 4 }"
                 >Price (highest)</a
               >
             </li>
             <li class="col-md-2 p-0">
-              <a id="hoteltab3-tab" (click)="hotelFilterTab('-price', 5)" [ngClass]="{ ' active': tab === 5 }"
+              <a id="hoteltab3-tab" (click)="hotelFilterTab('price', 5)" [ngClass]="{ ' active': tab === 5 }"
                 >Price (lowest)</a
               >
             </li>
@@ -305,7 +305,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12 text-center">
-              <div *ngIf="total > 10">
+              <div *ngIf="allEvents.length">
                 <pagination-controls
                   class="my-pagination"
                   (pageChange)="skip = $event"

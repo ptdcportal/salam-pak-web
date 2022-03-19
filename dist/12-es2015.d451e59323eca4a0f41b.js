@@ -2959,8 +2959,7 @@
                 this.shellService.currentMessage.subscribe((e) => {
                   this.filter = e;
                 }),
-                this.getCurrencyInfo(),
-                console.log(this.allEvents);
+                this.getCurrencyInfo();
             }
             getHotels(e, t = 0, n = 0, o) {
               this.eventService.getAccomodationEvents(e, t, n, o).subscribe((e) => {
@@ -3085,9 +3084,7 @@
               this.getHotels(this.slug, this.pageSize, this.skip, e);
             }
             openCurrencyModal(e) {
-              (this.ammount = e),
-                this.ngxSmartModalService.getModal('agoraCurrencyModal').open(),
-                console.log(this.ammount);
+              (this.ammount = e), this.ngxSmartModalService.getModal('agoraCurrencyModal').open();
             }
             setCountry(e) {
               var t = this.currencyData.filter((t) => t.name.currencyName == e.target.value);

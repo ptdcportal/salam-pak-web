@@ -3104,8 +3104,7 @@ function _createClass(e, t, n) {
                       this.shellService.currentMessage.subscribe(function (t) {
                         e.filter = t;
                       }),
-                      this.getCurrencyInfo(),
-                      console.log(this.allEvents);
+                      this.getCurrencyInfo();
                   },
                 },
                 {
@@ -3302,9 +3301,7 @@ function _createClass(e, t, n) {
                 {
                   key: 'openCurrencyModal',
                   value: function (e) {
-                    (this.ammount = e),
-                      this.ngxSmartModalService.getModal('agoraCurrencyModal').open(),
-                      console.log(this.ammount);
+                    (this.ammount = e), this.ngxSmartModalService.getModal('agoraCurrencyModal').open();
                   },
                 },
                 {

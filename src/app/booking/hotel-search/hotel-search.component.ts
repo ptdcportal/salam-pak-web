@@ -102,6 +102,7 @@ export class HotelSearchComponent implements OnInit {
 
   getHotels(data: any, pageSize = 0, skip = 0, filter: any) {
     this.isLoading = true;
+    this.allEvents.length = 0;
     this.eventService.gethotels(data, pageSize, skip, filter).subscribe((data: any) => {
       this.isLoading = false;
       this.allEvents = data.data && data.data.Hotels;

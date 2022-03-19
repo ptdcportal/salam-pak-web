@@ -5,11 +5,11 @@
       'use strict';
       n.r(e),
         n.d(e, 'MapModule', function () {
-          return S;
+          return I;
         });
-      var o = n('ofXK'),
+      var a = n('ofXK'),
         i = n('tyNb'),
-        a = n('fTLw'),
+        o = n('fTLw'),
         l = n('fXoL');
       let r = (() => {
         class t {
@@ -22,18 +22,18 @@
         }
         return (
           (t.ɵfac = function (e) {
-            return new (e || t)(l['\u0275\u0275inject'](a.a));
+            return new (e || t)(l['\u0275\u0275inject'](o.a));
           }),
           (t.ɵprov = l['\u0275\u0275defineInjectable']({ token: t, factory: t.ɵfac, providedIn: 'root' })),
           t
         );
       })();
-      var c = n('PSy5'),
-        s = n('pxUr');
+      var s = n('PSy5'),
+        c = n('pxUr');
       const d = function (t) {
         return { displayBold: t };
       };
-      function u(t, e) {
+      function m(t, e) {
         if (1 & t) {
           const t = l['\u0275\u0275getCurrentView']();
           l['\u0275\u0275elementStart'](0, 'ul', 20),
@@ -62,7 +62,7 @@
             l['\u0275\u0275textInterpolate'](t.name);
         }
       }
-      function m(t, e) {
+      function u(t, e) {
         if (1 & t) {
           const t = l['\u0275\u0275getCurrentView']();
           l['\u0275\u0275elementStart'](0, 'ul', 20),
@@ -111,7 +111,7 @@
             l['\u0275\u0275text'](11, '\n            '),
             l['\u0275\u0275elementStart'](12, 'div', 9),
             l['\u0275\u0275text'](13, '\n              '),
-            l['\u0275\u0275template'](14, m, 9, 4, 'ul', 10),
+            l['\u0275\u0275template'](14, u, 9, 4, 'ul', 10),
             l['\u0275\u0275text'](15, '\n            '),
             l['\u0275\u0275elementEnd'](),
             l['\u0275\u0275text'](16, '\n            '),
@@ -128,10 +128,10 @@
       const g = function () {
           return { width: 25, height: 25 };
         },
-        h = function (t, e) {
+        x = function (t, e) {
           return { url: t, scaledSize: e };
         };
-      function x(t, e) {
+      function h(t, e) {
         if (
           (1 & t &&
             (l['\u0275\u0275elementStart'](0, 'agm-marker', 27),
@@ -143,16 +143,16 @@
           l['\u0275\u0275property']('latitude', null == t || null == t.location ? null : t.location.coordinates[1])(
             'longitude',
             null == t || null == t.location ? null : t.location.coordinates[0]
-          )('iconUrl', l['\u0275\u0275pureFunction2'](4, h, t.icon, l['\u0275\u0275pureFunction0'](3, g)));
+          )('iconUrl', l['\u0275\u0275pureFunction2'](4, x, t.icon, l['\u0275\u0275pureFunction0'](3, g)));
         }
       }
       let f = (() => {
         class t {
-          constructor(t, e, n, o, i) {
+          constructor(t, e, n, a, i) {
             (this.shellService = t),
               (this.route = e),
               (this.router = n),
-              (this.location = o),
+              (this.location = a),
               (this.eventService = i),
               (this.markers = []),
               (this.zoom = 0),
@@ -188,23 +188,23 @@
                 (this.infoWondowData.redirectLink = 'where-to-go/category/federal/location/islamabad'));
           }
           getGeoLoc(t) {
-            var e, n, o, i;
+            var e, n, a, i;
             if (this.selectedLoc && this.locations) {
-              var a = this.locations.filter((e) => e.slug == t);
+              var o = this.locations.filter((e) => e.slug == t);
               (this.center = {
                 lat:
-                  null === (n = null === (e = a[0]) || void 0 === e ? void 0 : e.location) || void 0 === n
+                  null === (n = null === (e = o[0]) || void 0 === e ? void 0 : e.location) || void 0 === n
                     ? void 0
                     : n.coordinates[1],
                 lng:
-                  null === (i = null === (o = a[0]) || void 0 === o ? void 0 : o.location) || void 0 === i
+                  null === (i = null === (a = o[0]) || void 0 === a ? void 0 : a.location) || void 0 === i
                     ? void 0
                     : i.coordinates[0],
               }),
-                (this.surroundings = this.sortSurroundings(a[0].surroundings)),
-                (this.infoWondowData.photo = a[0].thumbnail),
-                (this.infoWondowData.alias = a[0].alias),
-                (this.infoWondowData.redirectLink = `where-to-go/category/${a[0].parentProvince}/${a[0].type}/${a[0].name}`);
+                (this.surroundings = this.sortSurroundings(o[0].surroundings)),
+                (this.infoWondowData.photo = o[0].thumbnail),
+                (this.infoWondowData.alias = o[0].alias),
+                (this.infoWondowData.redirectLink = `where-to-go/category/${o[0].parentProvince}/${o[0].type}/${o[0].name}`);
             }
           }
           navigateOnClick(t) {
@@ -216,19 +216,19 @@
           sortSurroundings(t) {
             return t.sort((t, e) => {
               let n = t.name.toLowerCase(),
-                o = e.name.toLowerCase();
-              return n < o ? -1 : n > o ? 1 : 0;
+                a = e.name.toLowerCase();
+              return n < a ? -1 : n > a ? 1 : 0;
             });
           }
         }
         return (
           (t.ɵfac = function (e) {
             return new (e || t)(
-              l['\u0275\u0275directiveInject'](c.a),
+              l['\u0275\u0275directiveInject'](s.a),
               l['\u0275\u0275directiveInject'](i.a),
               l['\u0275\u0275directiveInject'](i.d),
-              l['\u0275\u0275directiveInject'](o.j),
-              l['\u0275\u0275directiveInject'](a.a)
+              l['\u0275\u0275directiveInject'](a.j),
+              l['\u0275\u0275directiveInject'](o.a)
             );
           }),
           (t.ɵcmp = l['\u0275\u0275defineComponent']({
@@ -293,7 +293,7 @@
                 l['\u0275\u0275text'](20, '\n            '),
                 l['\u0275\u0275elementStart'](21, 'div', 9),
                 l['\u0275\u0275text'](22, '\n              '),
-                l['\u0275\u0275template'](23, u, 8, 4, 'ul', 10),
+                l['\u0275\u0275template'](23, m, 8, 4, 'ul', 10),
                 l['\u0275\u0275text'](24, '\n            '),
                 l['\u0275\u0275elementEnd'](),
                 l['\u0275\u0275text'](25, '\n            '),
@@ -338,7 +338,7 @@
                 l['\u0275\u0275text'](56, '\n        '),
                 l['\u0275\u0275elementEnd'](),
                 l['\u0275\u0275text'](57, '\n\n        '),
-                l['\u0275\u0275template'](58, x, 2, 7, 'agm-marker', 19),
+                l['\u0275\u0275template'](58, h, 2, 7, 'agm-marker', 19),
                 l['\u0275\u0275text'](59, '\n      '),
                 l['\u0275\u0275elementEnd'](),
                 l['\u0275\u0275text'](60, '\n    '),
@@ -384,19 +384,273 @@
                   l['\u0275\u0275advance'](6),
                   l['\u0275\u0275property']('ngForOf', e.surroundingMakers));
             },
-            directives: [o.m, o.n, s.c, s.d, s.b, o.l],
+            directives: [a.m, a.n, c.c, c.d, c.b, a.l],
             styles: ['.info-img[_ngcontent-%COMP%]{width:25vh}.info-desc[_ngcontent-%COMP%]{font-size:14px}'],
           })),
           t
         );
       })();
-      const v = [
+      const v = function (t) {
+        return { ' active': t };
+      };
+      function b(t, e) {
+        if (
+          (1 & t &&
+            (l['\u0275\u0275elementStart'](0, 'div', 19),
+            l['\u0275\u0275text'](1, '\n          '),
+            l['\u0275\u0275elementStart'](2, 'iframe', 20),
+            l['\u0275\u0275text'](3, ' '),
+            l['\u0275\u0275elementEnd'](),
+            l['\u0275\u0275text'](4, '\n        '),
+            l['\u0275\u0275elementEnd']()),
+          2 & t)
+        ) {
+          const t = l['\u0275\u0275nextContext']();
+          l['\u0275\u0275property']('ngClass', l['\u0275\u0275pureFunction1'](1, v, 1 === t.tab));
+        }
+      }
+      const S = function (t) {
+        return { active: t };
+      };
+      function C(t, e) {
+        if (
+          (1 & t &&
+            (l['\u0275\u0275elementStart'](0, 'div', 21),
+            l['\u0275\u0275text'](1, '\n          '),
+            l['\u0275\u0275elementStart'](2, 'iframe', 22),
+            l['\u0275\u0275text'](3, ' '),
+            l['\u0275\u0275elementEnd'](),
+            l['\u0275\u0275text'](4, '\n        '),
+            l['\u0275\u0275elementEnd']()),
+          2 & t)
+        ) {
+          const t = l['\u0275\u0275nextContext']();
+          l['\u0275\u0275property']('ngClass', l['\u0275\u0275pureFunction1'](1, S, 2 === t.tab));
+        }
+      }
+      function y(t, e) {
+        if (
+          (1 & t &&
+            (l['\u0275\u0275elementStart'](0, 'div', 23),
+            l['\u0275\u0275text'](1, '\n          '),
+            l['\u0275\u0275elementStart'](2, 'iframe', 24),
+            l['\u0275\u0275text'](3, ' '),
+            l['\u0275\u0275elementEnd'](),
+            l['\u0275\u0275text'](4, '\n        '),
+            l['\u0275\u0275elementEnd']()),
+          2 & t)
+        ) {
+          const t = l['\u0275\u0275nextContext']();
+          l['\u0275\u0275property']('ngClass', l['\u0275\u0275pureFunction1'](1, S, 3 === t.tab));
+        }
+      }
+      function E(t, e) {
+        if (
+          (1 & t &&
+            (l['\u0275\u0275elementStart'](0, 'div', 25),
+            l['\u0275\u0275text'](1, '\n          '),
+            l['\u0275\u0275elementStart'](2, 'iframe', 26),
+            l['\u0275\u0275text'](3, ' '),
+            l['\u0275\u0275elementEnd'](),
+            l['\u0275\u0275text'](4, '\n        '),
+            l['\u0275\u0275elementEnd']()),
+          2 & t)
+        ) {
+          const t = l['\u0275\u0275nextContext']();
+          l['\u0275\u0275property']('ngClass', l['\u0275\u0275pureFunction1'](1, S, 4 === t.tab));
+        }
+      }
+      const w = [
         { path: '', component: f },
         { path: 'cities/:slug', component: f, resolve: { slug: r } },
         { path: 'what-to-do/:slug', component: f, resolve: { slug: r } },
         { path: 'where-to-go/:slug', component: f, resolve: { slug: r } },
+        {
+          path: '3d-map',
+          component: (() => {
+            class t {
+              constructor() {
+                this.tab = 1;
+              }
+              ngOnInit() {}
+            }
+            return (
+              (t.ɵfac = function (e) {
+                return new (e || t)();
+              }),
+              (t.ɵcmp = l['\u0275\u0275defineComponent']({
+                type: t,
+                selectors: [['app-three-d-map']],
+                decls: 68,
+                vars: 20,
+                consts: [
+                  ['id', 'bookingSectionTab', 2, 'padding-top', '80px'],
+                  ['id', 'bookingtabs', 1, 'booking-home', 'p-0'],
+                  [1, 'container'],
+                  [1, 'col-md-12'],
+                  ['id', 'booking-tabs'],
+                  [1, 'col-md-12', 'p-0'],
+                  [1, 'col-md-2', 'p-0', 'pointer'],
+                  ['id', 'tab1-tab', 'rel', '#tab1', 3, 'translate', 'ngClass', 'click'],
+                  ['src', ''],
+                  ['id', 'tab2-tab', 'rel', '#tab2', 3, 'translate', 'ngClass', 'click'],
+                  ['id', 'tab3-tab', 'rel', '#tab3', 3, 'translate', 'ngClass', 'click'],
+                  ['id', 'tab4-tab', 'rel', '#tab4', 3, 'translate', 'ngClass', 'click'],
+                  [1, 'yellow-bar'],
+                  [1, 'col-12', 'col-md-12'],
+                  [1, 'tab-content'],
+                  ['id', 'tab1', 3, 'ngClass', 4, 'ngIf'],
+                  ['id', 'tab2', 3, 'ngClass', 4, 'ngIf'],
+                  ['id', 'tab3', 3, 'ngClass', 4, 'ngIf'],
+                  ['id', 'tab4', 3, 'ngClass', 4, 'ngIf'],
+                  ['id', 'tab1', 3, 'ngClass'],
+                  ['src', 'https://interactivegrp.com/salam/islamabad', 'title', 'Islamabad 3d map'],
+                  ['id', 'tab2', 3, 'ngClass'],
+                  ['src', ' https://interactivegrp.com/salam/pakistan', 'title', 'pakistan 3d map'],
+                  ['id', 'tab3', 3, 'ngClass'],
+                  ['src', 'https://interactivegrp.com/salam/gandhara', 'title', 'gandhara 3d map'],
+                  ['id', 'tab4', 3, 'ngClass'],
+                  ['src', 'https://interactivegrp.com/salam/gurudwara', 'title', 'gurudwara 3d map'],
+                ],
+                template: function (t, e) {
+                  1 & t &&
+                    (l['\u0275\u0275text'](0, '\n'),
+                    l['\u0275\u0275element'](1, 'div', 0),
+                    l['\u0275\u0275text'](2, '\n'),
+                    l['\u0275\u0275elementStart'](3, 'section', 1),
+                    l['\u0275\u0275text'](4, '\n  '),
+                    l['\u0275\u0275text'](5, '\n  '),
+                    l['\u0275\u0275elementStart'](6, 'div', 2),
+                    l['\u0275\u0275text'](7, '\n    '),
+                    l['\u0275\u0275elementStart'](8, 'div', 3),
+                    l['\u0275\u0275text'](9, '\n      '),
+                    l['\u0275\u0275text'](10, '\n    '),
+                    l['\u0275\u0275elementEnd'](),
+                    l['\u0275\u0275text'](11, '\n    '),
+                    l['\u0275\u0275elementStart'](12, 'header'),
+                    l['\u0275\u0275text'](13, '\n      '),
+                    l['\u0275\u0275elementStart'](14, 'div', 4),
+                    l['\u0275\u0275text'](15, '\n        '),
+                    l['\u0275\u0275elementStart'](16, 'ul', 5),
+                    l['\u0275\u0275text'](17, '\n          '),
+                    l['\u0275\u0275elementStart'](18, 'li', 6),
+                    l['\u0275\u0275text'](19, '\n            '),
+                    l['\u0275\u0275elementStart'](20, 'a', 7),
+                    l['\u0275\u0275listener']('click', function () {
+                      return (e.tab = 1);
+                    }),
+                    l['\u0275\u0275element'](21, 'img', 8),
+                    l['\u0275\u0275text'](22, 'islamabad'),
+                    l['\u0275\u0275elementEnd'](),
+                    l['\u0275\u0275text'](23, '\n          '),
+                    l['\u0275\u0275elementEnd'](),
+                    l['\u0275\u0275text'](24, '\n          '),
+                    l['\u0275\u0275elementStart'](25, 'li', 6),
+                    l['\u0275\u0275text'](26, '\n            '),
+                    l['\u0275\u0275elementStart'](27, 'a', 9),
+                    l['\u0275\u0275listener']('click', function () {
+                      return (e.tab = 2);
+                    }),
+                    l['\u0275\u0275element'](28, 'img', 8),
+                    l['\u0275\u0275text'](29, 'Pakistan'),
+                    l['\u0275\u0275elementEnd'](),
+                    l['\u0275\u0275text'](30, '\n          '),
+                    l['\u0275\u0275elementEnd'](),
+                    l['\u0275\u0275text'](31, '\n          '),
+                    l['\u0275\u0275elementStart'](32, 'li', 6),
+                    l['\u0275\u0275text'](33, '\n            '),
+                    l['\u0275\u0275elementStart'](34, 'a', 10),
+                    l['\u0275\u0275listener']('click', function () {
+                      return (e.tab = 3);
+                    }),
+                    l['\u0275\u0275element'](35, 'img', 8),
+                    l['\u0275\u0275text'](36, 'Gandhara'),
+                    l['\u0275\u0275elementEnd'](),
+                    l['\u0275\u0275text'](37, '\n          '),
+                    l['\u0275\u0275elementEnd'](),
+                    l['\u0275\u0275text'](38, '\n          '),
+                    l['\u0275\u0275elementStart'](39, 'li', 6),
+                    l['\u0275\u0275text'](40, '\n            '),
+                    l['\u0275\u0275elementStart'](41, 'a', 11),
+                    l['\u0275\u0275listener']('click', function () {
+                      return (e.tab = 4);
+                    }),
+                    l['\u0275\u0275element'](42, 'img', 8),
+                    l['\u0275\u0275text'](43, 'Gurdwara'),
+                    l['\u0275\u0275elementEnd'](),
+                    l['\u0275\u0275text'](44, '\n          '),
+                    l['\u0275\u0275elementEnd'](),
+                    l['\u0275\u0275text'](45, '\n        '),
+                    l['\u0275\u0275elementEnd'](),
+                    l['\u0275\u0275text'](46, '\n        '),
+                    l['\u0275\u0275element'](47, 'span', 12),
+                    l['\u0275\u0275text'](48, '\n      '),
+                    l['\u0275\u0275elementEnd'](),
+                    l['\u0275\u0275text'](49, '\n    '),
+                    l['\u0275\u0275elementEnd'](),
+                    l['\u0275\u0275text'](50, '\n    '),
+                    l['\u0275\u0275elementStart'](51, 'div', 13),
+                    l['\u0275\u0275text'](52, '\n      '),
+                    l['\u0275\u0275elementStart'](53, 'div', 14),
+                    l['\u0275\u0275text'](54, '\n        '),
+                    l['\u0275\u0275template'](55, b, 5, 3, 'div', 15),
+                    l['\u0275\u0275text'](56, '\n\n        '),
+                    l['\u0275\u0275template'](57, C, 5, 3, 'div', 16),
+                    l['\u0275\u0275text'](58, '\n\n        '),
+                    l['\u0275\u0275template'](59, y, 5, 3, 'div', 17),
+                    l['\u0275\u0275text'](60, '\n\n        '),
+                    l['\u0275\u0275template'](61, E, 5, 3, 'div', 18),
+                    l['\u0275\u0275text'](62, '\n      '),
+                    l['\u0275\u0275elementEnd'](),
+                    l['\u0275\u0275text'](63, '\n    '),
+                    l['\u0275\u0275elementEnd'](),
+                    l['\u0275\u0275text'](64, '\n  '),
+                    l['\u0275\u0275elementEnd'](),
+                    l['\u0275\u0275text'](65, '\n'),
+                    l['\u0275\u0275elementEnd'](),
+                    l['\u0275\u0275text'](66, '\n'),
+                    l['\u0275\u0275text'](67, '\n')),
+                    2 & t &&
+                      (l['\u0275\u0275advance'](20),
+                      l['\u0275\u0275property']('translate', 'BOOKINGOPTION1')(
+                        'ngClass',
+                        l['\u0275\u0275pureFunction1'](12, v, 1 === e.tab)
+                      ),
+                      l['\u0275\u0275advance'](7),
+                      l['\u0275\u0275property']('translate', 'BOOKINGOPTION2')(
+                        'ngClass',
+                        l['\u0275\u0275pureFunction1'](14, v, 2 === e.tab)
+                      ),
+                      l['\u0275\u0275advance'](7),
+                      l['\u0275\u0275property']('translate', 'BOOKINGOPTION5')(
+                        'ngClass',
+                        l['\u0275\u0275pureFunction1'](16, v, 3 === e.tab)
+                      ),
+                      l['\u0275\u0275advance'](7),
+                      l['\u0275\u0275property']('translate', 'BOOKINGOPTION3')(
+                        'ngClass',
+                        l['\u0275\u0275pureFunction1'](18, v, 4 === e.tab)
+                      ),
+                      l['\u0275\u0275advance'](14),
+                      l['\u0275\u0275property']('ngIf', 1 === e.tab),
+                      l['\u0275\u0275advance'](2),
+                      l['\u0275\u0275property']('ngIf', 2 === e.tab),
+                      l['\u0275\u0275advance'](2),
+                      l['\u0275\u0275property']('ngIf', 3 === e.tab),
+                      l['\u0275\u0275advance'](2),
+                      l['\u0275\u0275property']('ngIf', 4 === e.tab));
+                },
+                directives: [a.l, a.n],
+                styles: [
+                  '.booking-home[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]{justify-content:space-evenly!important}iframe[_ngcontent-%COMP%]{width:100%!important;height:600px}@media screen and (max-width:767px){iframe[_ngcontent-%COMP%]{height:300px}}',
+                ],
+              })),
+              t
+            );
+          })(),
+        },
       ];
-      let w = (() => {
+      let k = (() => {
           class t {}
           return (
             (t.ɵmod = l['\u0275\u0275defineNgModule']({ type: t })),
@@ -404,12 +658,12 @@
               factory: function (e) {
                 return new (e || t)();
               },
-              imports: [[i.g.forChild(v)], i.g],
+              imports: [[i.g.forChild(w)], i.g],
             })),
             t
           );
         })(),
-        S = (() => {
+        I = (() => {
           class t {}
           return (
             (t.ɵmod = l['\u0275\u0275defineNgModule']({ type: t })),
@@ -417,7 +671,7 @@
               factory: function (e) {
                 return new (e || t)();
               },
-              imports: [[o.c, w, s.a.forRoot({ apiKey: 'AIzaSyCPhOFre2UhYgZPRNw_qD8CaGQ36pUqaQA' })]],
+              imports: [[a.c, k, c.a.forRoot({ apiKey: 'AIzaSyCPhOFre2UhYgZPRNw_qD8CaGQ36pUqaQA' })]],
             })),
             t
           );

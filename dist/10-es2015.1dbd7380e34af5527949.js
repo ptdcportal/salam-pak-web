@@ -4,22 +4,22 @@
     MElh: function (e, t, n) {
       'use strict';
       n.d(t, 'a', function () {
-        return d;
+        return s;
       });
-      var l = n('3Pt+'),
-        r = n('bqtT'),
+      var r = n('3Pt+'),
+        l = n('bqtT'),
         a = n('wd/R'),
         i = n('fTLw'),
         o = n('fXoL'),
         m = n('5eHb'),
-        s = n('sYmb');
-      let d = (() => {
+        d = n('sYmb');
+      let s = (() => {
         class e {
-          constructor(e, t, n, l) {
+          constructor(e, t, n, r) {
             (this.formBuilder = e),
               (this.ngxSmartModalService = t),
               (this.eventService = n),
-              (this.toastr = l),
+              (this.toastr = r),
               (this.userId = localStorage.getItem('userId')),
               (this.minDateForCheckIn = a(new Date()).format('YYYY-MM-DD')),
               (this.minDateForCheckOut = a(new Date()).format('YYYY-MM-DD')),
@@ -28,7 +28,6 @@
           ngOnInit() {
             this.ngxSmartModalService.removeModal('carouselModal'),
               this.ngxSmartModalService.removeModal('feedbackModal'),
-              console.log('crate plan modal stack: ', this.ngxSmartModalService.getModalStack()),
               this.createPlanForm(),
               this.planForm.valueChanges.subscribe((e) => {
                 if (e.startDate && e.endDate) {
@@ -47,9 +46,9 @@
           }
           createPlanForm() {
             this.planForm = this.formBuilder.group({
-              name: ['', l.Validators.required],
-              startDate: [new Date(), l.Validators.required],
-              endDate: ['', l.Validators.required],
+              name: ['', r.Validators.required],
+              startDate: [new Date(), r.Validators.required],
+              endDate: ['', r.Validators.required],
               duration: [''],
             });
           }
@@ -58,7 +57,6 @@
               .createUserPlan(this.userId, Object.assign(Object.assign({}, this.planForm.value), this.planData))
               .subscribe((e) => {
                 this.ngxSmartModalService.getModal('createPlanModal').close(),
-                  console.log(e),
                   this.toastr.success('Plan created successfully!');
               });
           }
@@ -66,8 +64,8 @@
         return (
           (e.ɵfac = function (t) {
             return new (t || e)(
-              o['\u0275\u0275directiveInject'](l.FormBuilder),
-              o['\u0275\u0275directiveInject'](r.c),
+              o['\u0275\u0275directiveInject'](r.FormBuilder),
+              o['\u0275\u0275directiveInject'](l.c),
               o['\u0275\u0275directiveInject'](i.a),
               o['\u0275\u0275directiveInject'](m.b)
             );
@@ -234,12 +232,12 @@
                   o['\u0275\u0275property']('disabled', t.planForm.invalid));
             },
             directives: [
-              l.NgControlStatusGroup,
-              l.FormGroupDirective,
-              l.DefaultValueAccessor,
-              l.NgControlStatus,
-              l.FormControlName,
-              s.a,
+              r.NgControlStatusGroup,
+              r.FormGroupDirective,
+              r.DefaultValueAccessor,
+              r.NgControlStatus,
+              r.FormControlName,
+              d.a,
             ],
             styles: [
               '.visa-availabilty__popup[_ngcontent-%COMP%]{border-radius:5px;border:2px solid #8cc63e}@media (min-width:992px){.visa-availabilty__popup[_ngcontent-%COMP%]{margin:auto}}.popup__heading[_ngcontent-%COMP%]{color:#8cc63e}.create-plan__checkIn[_ngcontent-%COMP%]{height:30px!important;font-size:12px!important;padding:0 0 0 2px!important}.plan__name[_ngcontent-%COMP%]{height:35px!important;padding:0 0 0 10px!important}.submit__button[_ngcontent-%COMP%]{line-height:unset!important;height:35px!important}',
@@ -254,14 +252,14 @@
       n.d(t, 'a', function () {
         return g;
       });
-      var l = n('MElh'),
-        r = n('bqtT'),
+      var r = n('MElh'),
+        l = n('bqtT'),
         a = n('fTLw'),
         i = n('i6m5'),
         o = n('fXoL'),
         m = n('5eHb'),
-        s = n('ofXK');
-      function d(e, t) {
+        d = n('ofXK');
+      function s(e, t) {
         if (
           (1 & e &&
             (o['\u0275\u0275elementStart'](0, 'span', 16), o['\u0275\u0275text'](1), o['\u0275\u0275elementEnd']()),
@@ -269,13 +267,13 @@
         ) {
           const e = t.$implicit,
             n = t.index,
-            l = o['\u0275\u0275nextContext']().$implicit;
+            r = o['\u0275\u0275nextContext']().$implicit;
           o['\u0275\u0275advance'](1),
             o['\u0275\u0275textInterpolate2'](
               '\n              ',
               e.name,
               ' ',
-              n < l.locations.length - 1 ? ',' : '',
+              n < r.locations.length - 1 ? ',' : '',
               ''
             );
         }
@@ -321,7 +319,7 @@
             o['\u0275\u0275text'](5),
             o['\u0275\u0275elementEnd'](),
             o['\u0275\u0275text'](6, '\n            '),
-            o['\u0275\u0275template'](7, d, 2, 2, 'span', 10),
+            o['\u0275\u0275template'](7, s, 2, 2, 'span', 10),
             o['\u0275\u0275text'](8, '\n            '),
             o['\u0275\u0275elementStart'](9, 'div', 11),
             o['\u0275\u0275text'](10, '\n              '),
@@ -410,12 +408,11 @@
       }
       let g = (() => {
         class e {
-          constructor(e, t, n, l) {
-            (this.ngxSmartModalService = e), (this.eventService = t), (this.credentialsService = n), (this.toastr = l);
+          constructor(e, t, n, r) {
+            (this.ngxSmartModalService = e), (this.eventService = t), (this.credentialsService = n), (this.toastr = r);
           }
           ngOnInit() {
-            (this.userPlans = this.ngxSmartModalService.create('planListingModal', e).getData()),
-              console.log(this.userPlans);
+            this.userPlans = this.ngxSmartModalService.create('planListingModal', e).getData();
           }
           selectedPlan(e) {
             (this.selectedPlanId = e._id),
@@ -423,7 +420,7 @@
           }
           openCreatePlanModal() {
             this.ngxSmartModalService
-              .create('createPlanModal', l.a, { customClass: 'snowClass' })
+              .create('createPlanModal', r.a, { customClass: 'snowClass' })
               .setData({ locations: this.userPlans.locations })
               .open();
           }
@@ -437,7 +434,7 @@
         return (
           (e.ɵfac = function (t) {
             return new (t || e)(
-              o['\u0275\u0275directiveInject'](r.c),
+              o['\u0275\u0275directiveInject'](l.c),
               o['\u0275\u0275directiveInject'](a.a),
               o['\u0275\u0275directiveInject'](i.c),
               o['\u0275\u0275directiveInject'](m.b)
@@ -514,8 +511,8 @@
                 o['\u0275\u0275text'](21, '\n')),
                 2 & e && (o['\u0275\u0275advance'](11), o['\u0275\u0275property']('ngForOf', t.userPlans));
             },
-            directives: [s.m, s.l, s.n],
-            pipes: [s.e],
+            directives: [d.m, d.l, d.n],
+            pipes: [d.e],
             styles: [
               '.visa-availabilty__popup[_ngcontent-%COMP%]{border-radius:10px;border:2px solid #8cc63e}.popup__heading[_ngcontent-%COMP%]{color:#8cc63e}.plans__container[_ngcontent-%COMP%]{width:100%;display:flex;overflow-x:scroll}[_ngcontent-%COMP%]::-webkit-scrollbar{width:12px!important;height:5px!important}.plan__box[_ngcontent-%COMP%]{border:1px solid #8cc63e;padding:20px;border-radius:10px}.plan__desc[_ngcontent-%COMP%]{font-size:14px!important;line-height:1.2;font-family:-webkit-pictograph!important}.plan__desc[_ngcontent-%COMP%]   [_ngcontent-%COMP%]:after{border-left:1px solid}.plan__properties[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]{font-family:inherit!important;line-height:1.2;font-size:12px!important}.plan__properties[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:nth-child(2){font-weight:bolder!important}.submit__button[_ngcontent-%COMP%]{padding:8px;color:#fff;width:30%;font-size:12px!important}.active[_ngcontent-%COMP%], .submit__button[_ngcontent-%COMP%]{background-color:#8cc63e!important}.active[_ngcontent-%COMP%]{color:#fff!important}.disabled[_ngcontent-%COMP%]{pointer-events:none;cursor:not-allowed}  .nsm-dialog{max-width:520px!important}',
             ],
@@ -530,16 +527,16 @@
         n.d(t, 'UsersModule', function () {
           return J;
         });
-      var l = n('ofXK'),
-        r = n('tyNb'),
+      var r = n('ofXK'),
+        l = n('tyNb'),
         a = n('3Pt+'),
         i = n('qfBg'),
         o = n('fXoL'),
         m = n('5eHb');
-      const s = function () {
+      const d = function () {
           return ['/user/profile'];
         },
-        d = function () {
+        s = function () {
           return ['/user/my-bookings'];
         },
         c = function () {
@@ -639,9 +636,9 @@
                   o['\u0275\u0275text'](44, '\n')),
                   2 & e &&
                     (o['\u0275\u0275advance'](4),
-                    o['\u0275\u0275property']('routerLink', o['\u0275\u0275pureFunction0'](6, s)),
+                    o['\u0275\u0275property']('routerLink', o['\u0275\u0275pureFunction0'](6, d)),
                     o['\u0275\u0275advance'](7),
-                    o['\u0275\u0275property']('routerLink', o['\u0275\u0275pureFunction0'](7, d)),
+                    o['\u0275\u0275property']('routerLink', o['\u0275\u0275pureFunction0'](7, s)),
                     o['\u0275\u0275advance'](7),
                     o['\u0275\u0275property']('routerLink', o['\u0275\u0275pureFunction0'](8, c)),
                     o['\u0275\u0275advance'](7),
@@ -651,7 +648,7 @@
                     o['\u0275\u0275advance'](7),
                     o['\u0275\u0275property']('routerLink', o['\u0275\u0275pureFunction0'](11, u)));
               },
-              directives: [r.f],
+              directives: [l.f],
               styles: [''],
             })),
             e
@@ -672,7 +669,7 @@
                   this.toastr.success('Success', 'Your password has been changed!');
                 },
                 (e) => {
-                  console.log('Error changing password: ', e), this.toastr.error('Passwords Do not match', 'Error');
+                  this.toastr.error('Passwords Do not match', 'Error');
                 }
               );
             }
@@ -1179,8 +1176,8 @@
                 o['\u0275\u0275text'](83, '\n')),
                 2 & e && (o['\u0275\u0275advance'](71), o['\u0275\u0275property']('ngForOf', t.myBookings));
             },
-            directives: [g, l.m],
-            pipes: [l.e, l.f],
+            directives: [g, r.m],
+            pipes: [r.e, r.f],
             styles: [''],
           })),
           e
@@ -1194,11 +1191,11 @@
       };
       let w = (() => {
         class e {
-          constructor(e, t, n, l) {
+          constructor(e, t, n, r) {
             (this.formBuilder = e),
               (this.userService = t),
               (this.toastr = n),
-              (this.authService = l),
+              (this.authService = r),
               (this.userData = []),
               (this.cnicMask = [
                 /\d/,
@@ -1232,8 +1229,7 @@
                 this.imgPath
                   ? document.getElementById('dp').setAttribute('style', 'background-image: url(' + this.imgPath + ')')
                   : document.getElementById('dp').setAttribute('style', 'background-image: url(' + E + ')');
-            }),
-              console.log(localStorage.getItem('userData'));
+            });
           }
           imgClick() {
             document.getElementById('upload-file').click();
@@ -1242,7 +1238,7 @@
           updateProfile() {
             this.userService.updateProfile(localStorage.getItem('userId'), this.userProfile.value).subscribe(
               (e) => {
-                console.log('updatedProfile', e), this.getUserImage(), this.toastr.success('Success', e.message);
+                this.getUserImage(), this.toastr.success('Success', e.message);
               },
               (e) => {
                 this.toastr.error('profile not updated', 'Error');
@@ -1250,7 +1246,7 @@
             );
           }
           setFeilds() {
-            var e, t, n, l, r, a, i, o, m, s, d, c;
+            var e, t, n, r, l, a, i, o, m, d, s, c;
             const x = new Date(this.userData.profile.dob),
               p = ('0' + x.getDate()).slice(-2),
               u = ('0' + (x.getMonth() + 1)).slice(-2),
@@ -1273,14 +1269,14 @@
               this.userProfile
                 .get('area')
                 .setValue(
-                  null === (l = null === (n = this.userData) || void 0 === n ? void 0 : n.address) || void 0 === l
+                  null === (r = null === (n = this.userData) || void 0 === n ? void 0 : n.address) || void 0 === r
                     ? void 0
-                    : l.area
+                    : r.area
                 ),
               this.userProfile
                 .get('city')
                 .setValue(
-                  null === (a = null === (r = this.userData) || void 0 === r ? void 0 : r.address) || void 0 === a
+                  null === (a = null === (l = this.userData) || void 0 === l ? void 0 : l.address) || void 0 === a
                     ? void 0
                     : a.city
                 ),
@@ -1294,14 +1290,14 @@
               this.userProfile
                 .get('zipCode')
                 .setValue(
-                  null === (s = null === (m = this.userData) || void 0 === m ? void 0 : m.address) || void 0 === s
+                  null === (d = null === (m = this.userData) || void 0 === m ? void 0 : m.address) || void 0 === d
                     ? void 0
-                    : s.zipCode
+                    : d.zipCode
                 ),
               this.userProfile
                 .get('country')
                 .setValue(
-                  null === (c = null === (d = this.userData) || void 0 === d ? void 0 : d.address) || void 0 === c
+                  null === (c = null === (s = this.userData) || void 0 === s ? void 0 : s.address) || void 0 === c
                     ? void 0
                     : c.country
                 );
@@ -1915,7 +1911,7 @@
         ) {
           const e = t.$implicit,
             n = t.index,
-            l = o['\u0275\u0275nextContext']();
+            r = o['\u0275\u0275nextContext']();
           o['\u0275\u0275advance'](3),
             o['\u0275\u0275textInterpolate'](n + 1),
             o['\u0275\u0275advance'](3),
@@ -1927,10 +1923,10 @@
             o['\u0275\u0275advance'](6),
             o['\u0275\u0275property'](
               'ngStyle',
-              o['\u0275\u0275pureFunction1'](9, P, l.getRatingStars((null == e ? null : e.rating) || 0))
+              o['\u0275\u0275pureFunction1'](9, P, r.getRatingStars((null == e ? null : e.rating) || 0))
             ),
             o['\u0275\u0275advance'](5),
-            o['\u0275\u0275property']('ngStyle', o['\u0275\u0275pureFunction1'](11, P, l.getRatingStars(5))),
+            o['\u0275\u0275property']('ngStyle', o['\u0275\u0275pureFunction1'](11, P, r.getRatingStars(5))),
             o['\u0275\u0275advance'](5),
             o['\u0275\u0275textInterpolate'](e.description);
         }
@@ -2100,8 +2096,8 @@
                 o['\u0275\u0275text'](85, '\n')),
                 2 & e && (o['\u0275\u0275advance'](73), o['\u0275\u0275property']('ngForOf', t.reviews));
             },
-            directives: [g, l.m, l.o],
-            pipes: [l.e],
+            directives: [g, r.m, r.o],
+            pipes: [r.e],
             styles: [''],
           })),
           e
@@ -2168,7 +2164,7 @@
         ) {
           const e = t.$implicit,
             n = t.index,
-            l = o['\u0275\u0275nextContext']();
+            r = o['\u0275\u0275nextContext']();
           o['\u0275\u0275property']('routerLink', o['\u0275\u0275pureFunction0'](11, F)),
             o['\u0275\u0275advance'](3),
             o['\u0275\u0275textInterpolate'](n + 1),
@@ -2181,10 +2177,10 @@
             o['\u0275\u0275advance'](6),
             o['\u0275\u0275property'](
               'ngStyle',
-              o['\u0275\u0275pureFunction1'](12, D, l.getRatingStars((null == e ? null : e.rating) || 0))
+              o['\u0275\u0275pureFunction1'](12, D, r.getRatingStars((null == e ? null : e.rating) || 0))
             ),
             o['\u0275\u0275advance'](5),
-            o['\u0275\u0275property']('ngStyle', o['\u0275\u0275pureFunction1'](14, D, l.getRatingStars(5))),
+            o['\u0275\u0275property']('ngStyle', o['\u0275\u0275pureFunction1'](14, D, r.getRatingStars(5))),
             o['\u0275\u0275advance'](5),
             o['\u0275\u0275textInterpolate2'](
               '',
@@ -2208,8 +2204,7 @@
               this.eventService.getUserPlan(localStorage.getItem('userId')).subscribe((e) => {
                 for (const t in e)
                   Object.prototype.hasOwnProperty.call(e, t) && e[t].length > 0 && this.plan.push(e[t]);
-              }),
-              console.log('this.plan', this.plan);
+              });
           }
           getRatingStars(e) {
             return (parseFloat(e) / 5) * 100 + '%';
@@ -2377,8 +2372,8 @@
                   o['\u0275\u0275advance'](32),
                   o['\u0275\u0275property']('ngForOf', t.plan[0]));
             },
-            directives: [g, l.n, l.m, r.e, l.o],
-            pipes: [l.e],
+            directives: [g, r.n, r.m, l.e, r.o],
+            pipes: [r.e],
             styles: [''],
           })),
           e
@@ -2744,7 +2739,7 @@
                       o['\u0275\u0275advance'](2),
                       o['\u0275\u0275property']('ngIf', !(null != t.locations && t.locations.length)));
                 },
-                directives: [g, l.m, l.n, l.o],
+                directives: [g, r.m, r.n, r.o],
                 styles: [''],
               })),
               e
@@ -2762,7 +2757,7 @@
             factory: function (t) {
               return new (t || e)();
             },
-            imports: [[r.g.forChild(G)], r.g],
+            imports: [[l.g.forChild(G)], l.g],
           })),
           e
         );
@@ -2776,7 +2771,7 @@
             factory: function (t) {
               return new (t || e)();
             },
-            imports: [[l.c, W.a, Y, a.FormsModule, a.ReactiveFormsModule]],
+            imports: [[r.c, W.a, Y, a.FormsModule, a.ReactiveFormsModule]],
           })),
           e
         );

@@ -51,7 +51,7 @@
 
 .blog-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   .post-item {
     border: 1px solid #e6dbdb;
     border-radius: 18px;

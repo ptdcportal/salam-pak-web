@@ -65,7 +65,7 @@
           h['\u0275\u0275advance'](2), h['\u0275\u0275propertyInterpolate']('src', t, h['\u0275\u0275sanitizeUrl']);
         }
       }
-      function O(t, e) {
+      function P(t, e) {
         if (
           (1 & t &&
             (h['\u0275\u0275elementStart'](0, 'span', 91), h['\u0275\u0275text'](1), h['\u0275\u0275elementEnd']()),
@@ -84,12 +84,12 @@
             );
         }
       }
-      function P(t, e) {
+      function O(t, e) {
         if (
           (1 & t &&
             (h['\u0275\u0275elementStart'](0, 'div', 89),
             h['\u0275\u0275text'](1, '\n                  '),
-            h['\u0275\u0275template'](2, O, 2, 2, 'span', 90),
+            h['\u0275\u0275template'](2, P, 2, 2, 'span', 90),
             h['\u0275\u0275text'](3, '\n                  '),
             h['\u0275\u0275text'](4, '\n                '),
             h['\u0275\u0275elementEnd']()),
@@ -197,7 +197,7 @@
             h['\u0275\u0275text'](63),
             h['\u0275\u0275elementEnd'](),
             h['\u0275\u0275text'](64, '\n\n                '),
-            h['\u0275\u0275template'](65, P, 5, 1, 'div', 78),
+            h['\u0275\u0275template'](65, O, 5, 1, 'div', 78),
             h['\u0275\u0275text'](66, '\n                '),
             h['\u0275\u0275template'](67, M, 2, 1, 'p', 79),
             h['\u0275\u0275text'](68, '\n                '),
@@ -440,8 +440,7 @@
                 this.shellService.currentMessage.subscribe((t) => {
                   this.filter = t;
                 }),
-                this.getCurrencyInfo(),
-                console.log(this.allEvents);
+                this.getCurrencyInfo();
             }
             getHotels(t, e = 0, n = 0, o) {
               (this.isLoading = !0),
@@ -524,9 +523,7 @@
               (this.tab = e), this.getHotels(this.data, this.pageSize, this.skip, t);
             }
             openCurrencyModal(t) {
-              (this.ammount = t),
-                this.ngxSmartModalService.getModal('agoraCurrencyModal').open(),
-                console.log(this.ammount);
+              (this.ammount = t), this.ngxSmartModalService.getModal('agoraCurrencyModal').open();
             }
             setCountry(t) {
               var e = this.currencyData.filter((e) => e.name.currencyName == t.target.value);
@@ -1255,7 +1252,7 @@
                   ipn_url: `${V.a.serverUrl}/ipn/${this.bookingId}`,
                 };
                 this.eventService.placeBookMeOrder(t).subscribe((t) => {
-                  console.log('payment Data:', t), this.onSuccess.emit(t);
+                  this.onSuccess.emit(t);
                 });
               }),
               this.getPaymentMethodData();
@@ -2133,7 +2130,7 @@
       }
       let ct = (() => {
         class t {
-          constructor(t, e, n, o, a, i, r) {
+          constructor(t, e, n, o, a, i, r, l) {
             (this.route = t),
               (this.eventService = e),
               (this.shellService = n),
@@ -2141,6 +2138,7 @@
               (this.toastr = a),
               (this.ngxSmartModalService = i),
               (this.domSanitizer = r),
+              (this.router = l),
               (this.slideConfig = {
                 slidesToShow: 3,
                 slidesToScroll: 3,
@@ -2211,11 +2209,11 @@
                 roomId: '',
                 noOfRooms: 1,
               });
-            let l = this.route.snapshot.queryParams.hotelSource.toLowerCase();
+            let s = this.route.snapshot.queryParams.hotelSource.toLowerCase();
             (this.data = {
               refId: this.route.snapshot.queryParams.refId,
               hotelRefId: this.route.snapshot.queryParams.hotelRefId,
-              hotelSource: 'local' === l ? 'local' : 'bookme',
+              hotelSource: 'local' === s ? 'local' : 'bookme',
               hotelId: this.route.snapshot.queryParams.hotelId,
               checkin_date: this.route.snapshot.queryParams.checkIn,
               checkout_date: this.route.snapshot.queryParams.checkOut,
@@ -2225,8 +2223,7 @@
             }),
               (this.data.hotelId || this.data.hotelRefId) &&
                 this.eventService.gethotelDetail(this.data).subscribe((t) => {
-                  console.log(t),
-                    (this.hotelDetail = t.data && t.data.hotelDetails),
+                  (this.hotelDetail = t.data && t.data.hotelDetails),
                     (this.hotelMedia = t.data && t.data.media),
                     this.loadScript();
                 });
@@ -2309,8 +2306,8 @@
                     this.toastr.success('Your booking request has been received! you will be notify via email'),
                       (this.formFlag = !1),
                       (this.user = e),
-                      (this.paymentFlag = !0),
-                      (this.bookingId = t.data);
+                      (this.bookingId = t.data),
+                      this.router.navigate(['user/my-bookings']);
                   },
                   (t) => {
                     this.toastr.error('error while making booking request');
@@ -2321,7 +2318,7 @@
             return this.domSanitizer.bypassSecurityTrustResourceUrl(t);
           }
           onPaymentMethodSuccess(t) {
-            (this.paymentFlag = !1), (this.paymentSuccesFlag = !0), console.log(t), (this.bookingResponse = t);
+            (this.paymentFlag = !1), (this.paymentSuccesFlag = !0), (this.bookingResponse = t);
           }
           changeTab(t) {}
           loadScript() {
@@ -2343,7 +2340,8 @@
               h['\u0275\u0275directiveInject'](s.FormBuilder),
               h['\u0275\u0275directiveInject'](L.b),
               h['\u0275\u0275directiveInject'](g.c),
-              h['\u0275\u0275directiveInject'](j.DomSanitizer)
+              h['\u0275\u0275directiveInject'](j.DomSanitizer),
+              h['\u0275\u0275directiveInject'](a.d)
             );
           }),
           (t.ɵcmp = h['\u0275\u0275defineComponent']({
@@ -3189,7 +3187,7 @@
             h['\u0275\u0275property']('bookingId', t.bookingId)('user', t.user)('amount', t.totalAmount);
         }
       }
-      function Ot(t, e) {
+      function Pt(t, e) {
         if (
           (1 & t &&
             (h['\u0275\u0275elementStart'](0, 'div'),
@@ -3210,7 +3208,7 @@
             );
         }
       }
-      function Pt(t, e) {
+      function Ot(t, e) {
         if (
           (1 & t &&
             (h['\u0275\u0275elementStart'](0, 'div'),
@@ -3284,9 +3282,9 @@
             h['\u0275\u0275text'](1, '\n          '),
             h['\u0275\u0275elementStart'](2, 'div', 110),
             h['\u0275\u0275text'](3, '\n            '),
-            h['\u0275\u0275template'](4, Ot, 5, 1, 'div', 38),
+            h['\u0275\u0275template'](4, Pt, 5, 1, 'div', 38),
             h['\u0275\u0275text'](5, '\n            '),
-            h['\u0275\u0275template'](6, Pt, 38, 4, 'div', 38),
+            h['\u0275\u0275template'](6, Ot, 38, 4, 'div', 38),
             h['\u0275\u0275text'](7, '\n          '),
             h['\u0275\u0275elementEnd'](),
             h['\u0275\u0275text'](8, '\n        '),
@@ -3309,7 +3307,7 @@
       let wt = [],
         It = (() => {
           class t {
-            constructor(t, e, n, o, a, i, r, l, s) {
+            constructor(t, e, n, o, a, i, r, l, s, c) {
               (this.route = t),
                 (this.eventService = e),
                 (this.credentialsService = n),
@@ -3319,6 +3317,7 @@
                 (this.ngxSmartModalService = r),
                 (this.toastr = l),
                 (this.domSanitizer = s),
+                (this.router = c),
                 (this.isLoading = !0),
                 (this.p = 1),
                 (this.slideConfig = { slidesToShow: 4.5, slidesToScroll: 4, arrows: !0 }),
@@ -3474,10 +3473,7 @@
               return !(!this.maleOccoupiedSeats || !this.maleOccoupiedSeats.includes(t + ''));
             }
             checkFemaleOccupied(t) {
-              return (
-                console.log(t, this.femaleOccoupiedSeats, this.femaleOccoupiedSeats.includes(t + '')),
-                !(!this.femaleOccoupiedSeats || !this.femaleOccoupiedSeats.includes(t + ''))
-              );
+              return !(!this.femaleOccoupiedSeats || !this.femaleOccoupiedSeats.includes(t + ''));
             }
             openBusModal(t) {
               (this.user = null),
@@ -3500,32 +3496,31 @@
               this.totalSeats = new Array(parseInt(e + ''));
             }
             seatChange(t, e) {
-              console.log(t, e),
-                t.target.classList.contains('seat') &&
-                this.selectedSeats.length < 5 &&
-                !t.target.classList.contains('occupied')
-                  ? t.target.classList.contains('selected')
-                    ? (t.target.classList.toggle('selected'),
-                      t.target.classList.toggle('occupied-female'),
-                      t.target.classList.toggle('occupied-female-seat'))
-                    : (t.target.classList.toggle('selected'),
-                      (t.target.classList.contains('occupied-female') ||
-                        t.target.classList.contains('occupied-female-seat')) &&
-                        (t.target.classList.toggle('occupied-female'),
-                        t.target.classList.toggle('occupied-female-seat'),
-                        t.target.classList.toggle('selected')),
-                      this.selectedSeats.length < 5 && this.updateSelectedCount(e))
-                  : (t.target.classList.contains('occupied') ||
-                      (!t.target.classList.contains('occupied-female') &&
-                        !t.target.classList.contains('occupied-female-seat')) ||
-                      (this.updateSelectedCount(e),
-                      t.target.classList.toggle('occupied-female'),
-                      t.target.classList.toggle('occupied-female-seat')),
-                    !t.target.classList.contains('occupied') &&
-                      t.target.classList.contains('selected') &&
-                      (t.target.classList.toggle('selected'),
-                      t.target.classList.toggle('occupied-female'),
-                      t.target.classList.toggle('occupied-female-seat'))),
+              t.target.classList.contains('seat') &&
+              this.selectedSeats.length < 5 &&
+              !t.target.classList.contains('occupied')
+                ? t.target.classList.contains('selected')
+                  ? (t.target.classList.toggle('selected'),
+                    t.target.classList.toggle('occupied-female'),
+                    t.target.classList.toggle('occupied-female-seat'))
+                  : (t.target.classList.toggle('selected'),
+                    (t.target.classList.contains('occupied-female') ||
+                      t.target.classList.contains('occupied-female-seat')) &&
+                      (t.target.classList.toggle('occupied-female'),
+                      t.target.classList.toggle('occupied-female-seat'),
+                      t.target.classList.toggle('selected')),
+                    this.selectedSeats.length < 5 && this.updateSelectedCount(e))
+                : (t.target.classList.contains('occupied') ||
+                    (!t.target.classList.contains('occupied-female') &&
+                      !t.target.classList.contains('occupied-female-seat')) ||
+                    (this.updateSelectedCount(e),
+                    t.target.classList.toggle('occupied-female'),
+                    t.target.classList.toggle('occupied-female-seat')),
+                  !t.target.classList.contains('occupied') &&
+                    t.target.classList.contains('selected') &&
+                    (t.target.classList.toggle('selected'),
+                    t.target.classList.toggle('occupied-female'),
+                    t.target.classList.toggle('occupied-female-seat'))),
                 this.selectedSeats.length < 7 &&
                   (t.target.classList.contains('occupied-female') || t.target.classList.contains('occupied-female-seat')
                     ? (this.selectedSeats.length < 7 && this.updateSeatType(e, 'f'),
@@ -3606,8 +3601,8 @@
                       this.toastr.success('Your booking request has been received! you will be notify via email'),
                         (this.formFlag = !1),
                         (this.user = e),
-                        (this.paymentFlag = !0),
-                        (this.bookingId = t.data);
+                        (this.bookingId = t.data),
+                        this.router.navigate(['user/my-bookings']);
                     },
                     (t) => {
                       this.toastr.error('error while making booking request');
@@ -3618,7 +3613,7 @@
               return this.domSanitizer.bypassSecurityTrustResourceUrl(t);
             }
             onPaymentMethodSuccess(t) {
-              (this.paymentFlag = !1), (this.paymentSuccesFlag = !0), console.log(t), (this.bookingResponse = t);
+              (this.paymentFlag = !1), (this.paymentSuccesFlag = !0), (this.bookingResponse = t);
             }
           }
           return (
@@ -3632,7 +3627,8 @@
                 h['\u0275\u0275directiveInject'](c.a),
                 h['\u0275\u0275directiveInject'](g.c),
                 h['\u0275\u0275directiveInject'](L.b),
-                h['\u0275\u0275directiveInject'](j.DomSanitizer)
+                h['\u0275\u0275directiveInject'](j.DomSanitizer),
+                h['\u0275\u0275directiveInject'](a.d)
               );
             }),
             (t.ɵcmp = h['\u0275\u0275defineComponent']({
@@ -5052,7 +5048,7 @@
       let Xt = [],
         Zt = (() => {
           class t {
-            constructor(t, e, n, o, a, i, r, l, s) {
+            constructor(t, e, n, o, a, i, r, l, s, c) {
               (this.route = t),
                 (this.eventService = e),
                 (this.credentialsService = n),
@@ -5062,6 +5058,7 @@
                 (this.ngxSmartModalService = r),
                 (this.toastr = l),
                 (this.domSanitizer = s),
+                (this.router = c),
                 (this.isLoading = !0),
                 (this.p = 1),
                 (this.slideConfig = { slidesToShow: 4.5, slidesToScroll: 4, arrows: !0 }),
@@ -5238,8 +5235,7 @@
                 (this.flightItem = t),
                 (this.bookingId = null),
                 (this.bookingResponse = null),
-                this.ngxSmartModalService.getModal('flightModalPopup').open(),
-                console.log(this.ammount);
+                this.ngxSmartModalService.getModal('flightModalPopup').open();
             }
             setCountry(t) {
               var e = this.currencyData.filter((e) => e.name.currencyName == t.target.value);
@@ -5283,8 +5279,8 @@
                       this.toastr.success('Your booking request has been received! you will be notify via email'),
                         (this.formFlag = !1),
                         (this.user = e),
-                        (this.paymentFlag = !0),
-                        (this.bookingId = t.data);
+                        (this.bookingId = t.data),
+                        this.router.navigate(['user/my-bookings']);
                     },
                     (t) => {
                       this.toastr.error('error while making booking request');
@@ -5295,7 +5291,7 @@
               return this.domSanitizer.bypassSecurityTrustResourceUrl(t);
             }
             onPaymentMethodSuccess(t) {
-              (this.paymentFlag = !1), (this.paymentSuccesFlag = !0), console.log(t), (this.bookingResponse = t);
+              (this.paymentFlag = !1), (this.paymentSuccesFlag = !0), (this.bookingResponse = t);
             }
           }
           return (
@@ -5309,7 +5305,8 @@
                 h['\u0275\u0275directiveInject'](c.a),
                 h['\u0275\u0275directiveInject'](g.c),
                 h['\u0275\u0275directiveInject'](L.b),
-                h['\u0275\u0275directiveInject'](j.DomSanitizer)
+                h['\u0275\u0275directiveInject'](j.DomSanitizer),
+                h['\u0275\u0275directiveInject'](a.d)
               );
             }),
             (t.ɵcmp = h['\u0275\u0275defineComponent']({

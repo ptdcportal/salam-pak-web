@@ -3,11 +3,11 @@ function _classCallCheck(e, t) {
 }
 function _defineProperties(e, t) {
   for (var n = 0; n < t.length; n++) {
-    var l = t[n];
-    (l.enumerable = l.enumerable || !1),
-      (l.configurable = !0),
-      'value' in l && (l.writable = !0),
-      Object.defineProperty(e, l.key, l);
+    var a = t[n];
+    (a.enumerable = a.enumerable || !1),
+      (a.configurable = !0),
+      'value' in a && (a.writable = !0),
+      Object.defineProperty(e, a.key, a);
   }
 }
 function _createClass(e, t, n) {
@@ -21,8 +21,8 @@ function _createClass(e, t, n) {
       n.d(t, 'a', function () {
         return s;
       });
-      var l = n('3Pt+'),
-        a = n('bqtT'),
+      var a = n('3Pt+'),
+        l = n('bqtT'),
         r = n('wd/R'),
         i = n('fTLw'),
         o = n('fXoL'),
@@ -30,12 +30,12 @@ function _createClass(e, t, n) {
         d = n('sYmb'),
         s = (function () {
           var e = (function () {
-            function e(t, n, l, a) {
+            function e(t, n, a, l) {
               _classCallCheck(this, e),
                 (this.formBuilder = t),
                 (this.ngxSmartModalService = n),
-                (this.eventService = l),
-                (this.toastr = a),
+                (this.eventService = a),
+                (this.toastr = l),
                 (this.userId = localStorage.getItem('userId')),
                 (this.minDateForCheckIn = r(new Date()).format('YYYY-MM-DD')),
                 (this.minDateForCheckOut = r(new Date()).format('YYYY-MM-DD')),
@@ -49,13 +49,12 @@ function _createClass(e, t, n) {
                     var e = this;
                     this.ngxSmartModalService.removeModal('carouselModal'),
                       this.ngxSmartModalService.removeModal('feedbackModal'),
-                      console.log('crate plan modal stack: ', this.ngxSmartModalService.getModalStack()),
                       this.createPlanForm(),
                       this.planForm.valueChanges.subscribe(function (t) {
                         if (t.startDate && t.endDate) {
                           var n = r(new Date(t.startDate)),
-                            l = r(new Date(t.endDate)).diff(n, 'days');
-                          e.planForm.get('duration').setValue(l);
+                            a = r(new Date(t.endDate)).diff(n, 'days');
+                          e.planForm.get('duration').setValue(a);
                         }
                       }),
                       this.planForm.valueChanges.subscribe(function (t) {
@@ -74,9 +73,9 @@ function _createClass(e, t, n) {
                   key: 'createPlanForm',
                   value: function () {
                     this.planForm = this.formBuilder.group({
-                      name: ['', l.Validators.required],
-                      startDate: [new Date(), l.Validators.required],
-                      endDate: ['', l.Validators.required],
+                      name: ['', a.Validators.required],
+                      startDate: [new Date(), a.Validators.required],
+                      endDate: ['', a.Validators.required],
                       duration: [''],
                     });
                   },
@@ -89,7 +88,6 @@ function _createClass(e, t, n) {
                       .createUserPlan(this.userId, Object.assign(Object.assign({}, this.planForm.value), this.planData))
                       .subscribe(function (t) {
                         e.ngxSmartModalService.getModal('createPlanModal').close(),
-                          console.log(t),
                           e.toastr.success('Plan created successfully!');
                       });
                   },
@@ -101,8 +99,8 @@ function _createClass(e, t, n) {
           return (
             (e.ɵfac = function (t) {
               return new (t || e)(
-                o['\u0275\u0275directiveInject'](l.FormBuilder),
-                o['\u0275\u0275directiveInject'](a.c),
+                o['\u0275\u0275directiveInject'](a.FormBuilder),
+                o['\u0275\u0275directiveInject'](l.c),
                 o['\u0275\u0275directiveInject'](i.a),
                 o['\u0275\u0275directiveInject'](m.b)
               );
@@ -269,11 +267,11 @@ function _createClass(e, t, n) {
                     o['\u0275\u0275property']('disabled', t.planForm.invalid));
               },
               directives: [
-                l.NgControlStatusGroup,
-                l.FormGroupDirective,
-                l.DefaultValueAccessor,
-                l.NgControlStatus,
-                l.FormControlName,
+                a.NgControlStatusGroup,
+                a.FormGroupDirective,
+                a.DefaultValueAccessor,
+                a.NgControlStatus,
+                a.FormControlName,
                 d.a,
               ],
               styles: [
@@ -289,8 +287,8 @@ function _createClass(e, t, n) {
       n.d(t, 'a', function () {
         return v;
       });
-      var l = n('MElh'),
-        a = n('bqtT'),
+      var a = n('MElh'),
+        l = n('bqtT'),
         r = n('fTLw'),
         i = n('i6m5'),
         o = n('fXoL'),
@@ -303,14 +301,14 @@ function _createClass(e, t, n) {
           2 & e)
         ) {
           var n = t.$implicit,
-            l = t.index,
-            a = o['\u0275\u0275nextContext']().$implicit;
+            a = t.index,
+            l = o['\u0275\u0275nextContext']().$implicit;
           o['\u0275\u0275advance'](1),
             o['\u0275\u0275textInterpolate2'](
               '\n              ',
               n.name,
               ' ',
-              l < a.locations.length - 1 ? ',' : '',
+              a < l.locations.length - 1 ? ',' : '',
               ''
             );
         }
@@ -415,50 +413,49 @@ function _createClass(e, t, n) {
             o['\u0275\u0275elementEnd']();
         }
         if (2 & e) {
-          var l = t.$implicit,
-            a = o['\u0275\u0275nextContext']();
+          var a = t.$implicit,
+            l = o['\u0275\u0275nextContext']();
           o['\u0275\u0275advance'](2),
-            o['\u0275\u0275property']('ngClass', o['\u0275\u0275pureFunction1'](8, u, a.selectedPlanId === l._id)),
+            o['\u0275\u0275property']('ngClass', o['\u0275\u0275pureFunction1'](8, u, l.selectedPlanId === a._id)),
             o['\u0275\u0275advance'](3),
-            o['\u0275\u0275textInterpolate'](l.name),
+            o['\u0275\u0275textInterpolate'](a.name),
             o['\u0275\u0275advance'](2),
-            o['\u0275\u0275property']('ngForOf', l.locations),
+            o['\u0275\u0275property']('ngForOf', a.locations),
             o['\u0275\u0275advance'](12),
-            o['\u0275\u0275textInterpolate1']('', l.duration, ' days'),
+            o['\u0275\u0275textInterpolate1']('', a.duration, ' days'),
             o['\u0275\u0275advance'](12),
             o['\u0275\u0275textInterpolate2'](
               '\n                    ',
-              null != l.locations[0] && l.locations[0].length
-                ? null == l.locations[0]
+              null != a.locations[0] && a.locations[0].length
+                ? null == a.locations[0]
                   ? null
-                  : l.locations[0].alias.slice(0, 8)
+                  : a.locations[0].alias.slice(0, 8)
                 : 'unavailable',
               '\n                    ',
-              (null == l.locations[0] ? null : l.locations[0].alias.length) > 8 ? '...' : '',
+              (null == a.locations[0] ? null : a.locations[0].alias.length) > 8 ? '...' : '',
               '\n                  '
             ),
             o['\u0275\u0275advance'](11),
-            o['\u0275\u0275property']('ngIf', l.locations.length),
+            o['\u0275\u0275property']('ngIf', a.locations.length),
             o['\u0275\u0275advance'](2),
-            o['\u0275\u0275property']('ngIf', !l.locations.length);
+            o['\u0275\u0275property']('ngIf', !a.locations.length);
         }
       }
       var v = (function () {
         var e = (function () {
-          function e(t, n, l, a) {
+          function e(t, n, a, l) {
             _classCallCheck(this, e),
               (this.ngxSmartModalService = t),
               (this.eventService = n),
-              (this.credentialsService = l),
-              (this.toastr = a);
+              (this.credentialsService = a),
+              (this.toastr = l);
           }
           return (
             _createClass(e, [
               {
                 key: 'ngOnInit',
                 value: function () {
-                  (this.userPlans = this.ngxSmartModalService.create('planListingModal', e).getData()),
-                    console.log(this.userPlans);
+                  this.userPlans = this.ngxSmartModalService.create('planListingModal', e).getData();
                 },
               },
               {
@@ -472,7 +469,7 @@ function _createClass(e, t, n) {
                 key: 'openCreatePlanModal',
                 value: function () {
                   this.ngxSmartModalService
-                    .create('createPlanModal', l.a, { customClass: 'snowClass' })
+                    .create('createPlanModal', a.a, { customClass: 'snowClass' })
                     .setData({ locations: this.userPlans.locations })
                     .open();
                 },
@@ -494,7 +491,7 @@ function _createClass(e, t, n) {
         return (
           (e.ɵfac = function (t) {
             return new (t || e)(
-              o['\u0275\u0275directiveInject'](a.c),
+              o['\u0275\u0275directiveInject'](l.c),
               o['\u0275\u0275directiveInject'](r.a),
               o['\u0275\u0275directiveInject'](i.c),
               o['\u0275\u0275directiveInject'](m.b)
@@ -585,10 +582,10 @@ function _createClass(e, t, n) {
       'use strict';
       n.r(t),
         n.d(t, 'UsersModule', function () {
-          return le;
+          return ae;
         });
-      var l,
-        a,
+      var a,
+        l,
         r = n('ofXK'),
         i = n('tyNb'),
         o = n('3Pt+'),
@@ -610,20 +607,20 @@ function _createClass(e, t, n) {
         v = function () {
           return ['/user/reviews'];
         },
-        g = function () {
+        f = function () {
           return ['/user/change-password'];
         },
-        f =
-          (((a = (function () {
+        g =
+          (((l = (function () {
             function e() {
               _classCallCheck(this, e);
             }
             return _createClass(e, [{ key: 'ngOnInit', value: function () {} }]), e;
           })()).ɵfac = function (e) {
-            return new (e || a)();
+            return new (e || l)();
           }),
-          (a.ɵcmp = d['\u0275\u0275defineComponent']({
-            type: a,
+          (l.ɵcmp = d['\u0275\u0275defineComponent']({
+            type: l,
             selectors: [['app-user-sidebar']],
             decls: 45,
             vars: 12,
@@ -708,19 +705,19 @@ function _createClass(e, t, n) {
                   d['\u0275\u0275advance'](7),
                   d['\u0275\u0275property']('routerLink', d['\u0275\u0275pureFunction0'](10, v)),
                   d['\u0275\u0275advance'](7),
-                  d['\u0275\u0275property']('routerLink', d['\u0275\u0275pureFunction0'](11, g)));
+                  d['\u0275\u0275property']('routerLink', d['\u0275\u0275pureFunction0'](11, f)));
             },
             directives: [i.f],
             styles: [''],
           })),
-          a),
+          l),
         h =
-          (((l = (function () {
-            function e(t, n, l) {
+          (((a = (function () {
+            function e(t, n, a) {
               _classCallCheck(this, e),
                 (this.formBuilder = t),
                 (this.userService = n),
-                (this.toastr = l),
+                (this.toastr = a),
                 this.initializeForm();
             }
             return (
@@ -737,8 +734,7 @@ function _createClass(e, t, n) {
                           e.toastr.success('Success', 'Your password has been changed!');
                         },
                         function (t) {
-                          console.log('Error changing password: ', t),
-                            e.toastr.error('Passwords Do not match', 'Error');
+                          e.toastr.error('Passwords Do not match', 'Error');
                         }
                       );
                   },
@@ -775,14 +771,14 @@ function _createClass(e, t, n) {
               e
             );
           })()).ɵfac = function (e) {
-            return new (e || l)(
+            return new (e || a)(
               d['\u0275\u0275directiveInject'](o.FormBuilder),
               d['\u0275\u0275directiveInject'](m.a),
               d['\u0275\u0275directiveInject'](s.b)
             );
           }),
-          (l.ɵcmp = d['\u0275\u0275defineComponent']({
-            type: l,
+          (a.ɵcmp = d['\u0275\u0275defineComponent']({
+            type: a,
             selectors: [['app-change-password']],
             decls: 114,
             vars: 2,
@@ -980,7 +976,7 @@ function _createClass(e, t, n) {
                   d['\u0275\u0275property']('disabled', t.changePasswordForm.invalid && !t.doPasswordsMatch));
             },
             directives: [
-              f,
+              g,
               o['\u0275angular_packages_forms_forms_y'],
               o.NgControlStatusGroup,
               o.FormGroupDirective,
@@ -990,7 +986,7 @@ function _createClass(e, t, n) {
             ],
             styles: [''],
           })),
-          l);
+          a);
       function S(e, t) {
         if (
           (1 & e &&
@@ -1023,9 +1019,9 @@ function _createClass(e, t, n) {
           2 & e)
         ) {
           var n = t.$implicit,
-            l = t.index;
+            a = t.index;
           d['\u0275\u0275advance'](3),
-            d['\u0275\u0275textInterpolate'](l + 1),
+            d['\u0275\u0275textInterpolate'](a + 1),
             d['\u0275\u0275advance'](3),
             d['\u0275\u0275textInterpolate1'](
               '\n                  ',
@@ -1264,7 +1260,7 @@ function _createClass(e, t, n) {
                 d['\u0275\u0275text'](83, '\n')),
                 2 & e && (d['\u0275\u0275advance'](71), d['\u0275\u0275property']('ngForOf', t.myBookings));
             },
-            directives: [f, r.m],
+            directives: [g, r.m],
             pipes: [r.e, r.f],
             styles: [''],
           })),
@@ -1277,12 +1273,12 @@ function _createClass(e, t, n) {
         },
         C =
           (((b = (function () {
-            function e(t, n, l, a) {
+            function e(t, n, a, l) {
               _classCallCheck(this, e),
                 (this.formBuilder = t),
                 (this.userService = n),
-                (this.toastr = l),
-                (this.authService = a),
+                (this.toastr = a),
+                (this.authService = l),
                 (this.userData = []),
                 (this.cnicMask = [
                   /\d/,
@@ -1326,8 +1322,7 @@ function _createClass(e, t, n) {
                               .getElementById('dp')
                               .setAttribute('style', 'background-image: url(' + e.imgPath + ')')
                           : document.getElementById('dp').setAttribute('style', 'background-image: url(' + _ + ')');
-                    }),
-                      console.log(localStorage.getItem('userData'));
+                    });
                   },
                 },
                 {
@@ -1343,7 +1338,7 @@ function _createClass(e, t, n) {
                     var e = this;
                     this.userService.updateProfile(localStorage.getItem('userId'), this.userProfile.value).subscribe(
                       function (t) {
-                        console.log('updatedProfile', t), e.getUserImage(), e.toastr.success('Success', t.message);
+                        e.getUserImage(), e.toastr.success('Success', t.message);
                       },
                       function (t) {
                         e.toastr.error('profile not updated', 'Error');
@@ -1357,8 +1352,8 @@ function _createClass(e, t, n) {
                     var e,
                       t,
                       n,
-                      l,
                       a,
+                      l,
                       r,
                       i,
                       o,
@@ -1389,15 +1384,15 @@ function _createClass(e, t, n) {
                       this.userProfile
                         .get('area')
                         .setValue(
-                          null === (l = null === (n = this.userData) || void 0 === n ? void 0 : n.address) ||
-                            void 0 === l
+                          null === (a = null === (n = this.userData) || void 0 === n ? void 0 : n.address) ||
+                            void 0 === a
                             ? void 0
-                            : l.area
+                            : a.area
                         ),
                       this.userProfile
                         .get('city')
                         .setValue(
-                          null === (r = null === (a = this.userData) || void 0 === a ? void 0 : a.address) ||
+                          null === (r = null === (l = this.userData) || void 0 === l ? void 0 : l.address) ||
                             void 0 === r
                             ? void 0
                             : r.city
@@ -1979,7 +1974,7 @@ function _createClass(e, t, n) {
                   d['\u0275\u0275property']('disabled', !t.userProfile.valid));
             },
             directives: [
-              f,
+              g,
               o['\u0275angular_packages_forms_forms_y'],
               o.NgControlStatusGroup,
               o.FormGroupDirective,
@@ -2044,10 +2039,10 @@ function _createClass(e, t, n) {
           2 & e)
         ) {
           var n = t.$implicit,
-            l = t.index,
-            a = d['\u0275\u0275nextContext']();
+            a = t.index,
+            l = d['\u0275\u0275nextContext']();
           d['\u0275\u0275advance'](3),
-            d['\u0275\u0275textInterpolate'](l + 1),
+            d['\u0275\u0275textInterpolate'](a + 1),
             d['\u0275\u0275advance'](3),
             d['\u0275\u0275textInterpolate'](n.name),
             d['\u0275\u0275advance'](3),
@@ -2057,10 +2052,10 @@ function _createClass(e, t, n) {
             d['\u0275\u0275advance'](6),
             d['\u0275\u0275property'](
               'ngStyle',
-              d['\u0275\u0275pureFunction1'](9, I, a.getRatingStars((null == n ? null : n.rating) || 0))
+              d['\u0275\u0275pureFunction1'](9, I, l.getRatingStars((null == n ? null : n.rating) || 0))
             ),
             d['\u0275\u0275advance'](5),
-            d['\u0275\u0275property']('ngStyle', d['\u0275\u0275pureFunction1'](11, I, a.getRatingStars(5))),
+            d['\u0275\u0275property']('ngStyle', d['\u0275\u0275pureFunction1'](11, I, l.getRatingStars(5))),
             d['\u0275\u0275advance'](5),
             d['\u0275\u0275textInterpolate'](n.description);
         }
@@ -2244,7 +2239,7 @@ function _createClass(e, t, n) {
                 d['\u0275\u0275text'](85, '\n')),
                 2 & e && (d['\u0275\u0275advance'](73), d['\u0275\u0275property']('ngForOf', t.reviews));
             },
-            directives: [f, r.m, r.o],
+            directives: [g, r.m, r.o],
             pipes: [r.e],
             styles: [''],
           })),
@@ -2309,11 +2304,11 @@ function _createClass(e, t, n) {
           2 & e)
         ) {
           var n = t.$implicit,
-            l = t.index,
-            a = d['\u0275\u0275nextContext']();
+            a = t.index,
+            l = d['\u0275\u0275nextContext']();
           d['\u0275\u0275property']('routerLink', d['\u0275\u0275pureFunction0'](11, V)),
             d['\u0275\u0275advance'](3),
-            d['\u0275\u0275textInterpolate'](l + 1),
+            d['\u0275\u0275textInterpolate'](a + 1),
             d['\u0275\u0275advance'](3),
             d['\u0275\u0275textInterpolate'](n.name),
             d['\u0275\u0275advance'](3),
@@ -2323,10 +2318,10 @@ function _createClass(e, t, n) {
             d['\u0275\u0275advance'](6),
             d['\u0275\u0275property'](
               'ngStyle',
-              d['\u0275\u0275pureFunction1'](12, j, a.getRatingStars((null == n ? null : n.rating) || 0))
+              d['\u0275\u0275pureFunction1'](12, j, l.getRatingStars((null == n ? null : n.rating) || 0))
             ),
             d['\u0275\u0275advance'](5),
-            d['\u0275\u0275property']('ngStyle', d['\u0275\u0275pureFunction1'](14, j, a.getRatingStars(5))),
+            d['\u0275\u0275property']('ngStyle', d['\u0275\u0275pureFunction1'](14, j, l.getRatingStars(5))),
             d['\u0275\u0275advance'](5),
             d['\u0275\u0275textInterpolate2'](
               '',
@@ -2359,8 +2354,7 @@ function _createClass(e, t, n) {
                       this.eventService.getUserPlan(localStorage.getItem('userId')).subscribe(function (t) {
                         for (var n in t)
                           Object.prototype.hasOwnProperty.call(t, n) && t[n].length > 0 && e.plan.push(t[n]);
-                      }),
-                      console.log('this.plan', this.plan);
+                      });
                   },
                 },
                 {
@@ -2533,7 +2527,7 @@ function _createClass(e, t, n) {
                   d['\u0275\u0275advance'](32),
                   d['\u0275\u0275property']('ngForOf', t.plan[0]));
             },
-            directives: [f, r.n, r.m, i.e, r.o],
+            directives: [g, r.n, r.m, i.e, r.o],
             pipes: [r.e],
             styles: [''],
           })),
@@ -2655,37 +2649,37 @@ function _createClass(e, t, n) {
             d['\u0275\u0275elementEnd']();
         }
         if (2 & e) {
-          var l = t.$implicit,
-            a = d['\u0275\u0275nextContext']();
+          var a = t.$implicit,
+            l = d['\u0275\u0275nextContext']();
           d['\u0275\u0275advance'](4),
-            d['\u0275\u0275property']('ngIf', l.thumbnail),
+            d['\u0275\u0275property']('ngIf', a.thumbnail),
             d['\u0275\u0275advance'](2),
-            d['\u0275\u0275property']('ngIf', l.photo1),
+            d['\u0275\u0275property']('ngIf', a.photo1),
             d['\u0275\u0275advance'](2),
-            d['\u0275\u0275property']('ngIf', !l.photo1 && !l.thumbnail),
+            d['\u0275\u0275property']('ngIf', !a.photo1 && !a.thumbnail),
             d['\u0275\u0275advance'](5),
-            d['\u0275\u0275property']('ngIf', l.description),
+            d['\u0275\u0275property']('ngIf', a.description),
             d['\u0275\u0275advance'](4),
-            d['\u0275\u0275textInterpolate'](l.type),
+            d['\u0275\u0275textInterpolate'](a.type),
             d['\u0275\u0275advance'](4),
             d['\u0275\u0275property'](
               'ngStyle',
-              d['\u0275\u0275pureFunction1'](11, J, a.getRatingStars((null == l ? null : l.rating) || 0))
+              d['\u0275\u0275pureFunction1'](11, J, l.getRatingStars((null == a ? null : a.rating) || 0))
             ),
             d['\u0275\u0275advance'](5),
-            d['\u0275\u0275property']('ngStyle', d['\u0275\u0275pureFunction1'](13, J, a.getRatingStars(5))),
+            d['\u0275\u0275property']('ngStyle', d['\u0275\u0275pureFunction1'](13, J, l.getRatingStars(5))),
             d['\u0275\u0275advance'](4),
-            d['\u0275\u0275textInterpolate1'](' (', l.reviews ? l.reviews : 0, ') reviews'),
+            d['\u0275\u0275textInterpolate1'](' (', a.reviews ? a.reviews : 0, ') reviews'),
             d['\u0275\u0275advance'](3),
             d['\u0275\u0275textInterpolate2'](
               '\n              ',
-              null == l ? null : l.description.slice(0, 150),
+              null == a ? null : a.description.slice(0, 150),
               ' ',
-              l.description.length > 150 ? '...' : '',
+              a.description.length > 150 ? '...' : '',
               '\n            '
             ),
             d['\u0275\u0275advance'](5),
-            d['\u0275\u0275property']('ngIf', 'location' == l.type);
+            d['\u0275\u0275property']('ngIf', 'location' == a.type);
         }
       }
       function X(e, t) {
@@ -2927,7 +2921,7 @@ function _createClass(e, t, n) {
                       d['\u0275\u0275advance'](2),
                       d['\u0275\u0275property']('ngIf', !(null != t.locations && t.locations.length)));
                 },
-                directives: [f, r.m, r.n, r.o],
+                directives: [g, r.m, r.n, r.o],
                 styles: [''],
               })),
               K),
@@ -2947,7 +2941,7 @@ function _createClass(e, t, n) {
           })),
           Q),
         ne = n('a6Df'),
-        le =
+        ae =
           (((Z = function e() {
             _classCallCheck(this, e);
           }).ɵmod = d['\u0275\u0275defineNgModule']({ type: Z })),

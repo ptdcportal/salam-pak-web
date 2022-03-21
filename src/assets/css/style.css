@@ -1504,8 +1504,8 @@ h6 {
 .btn__primary:active,
 .btn__primary:focus,
 .btn__primary:hover {
-  background-color: transparent;
-  color: #8cc63e;
+  background-color: #629c15;
+  color: #fff;
 }
 
 .btn__primary.btn__hover2:active,

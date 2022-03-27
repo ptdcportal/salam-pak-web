@@ -17,7 +17,15 @@
           onerror="this.onerror=null;this.src='assets/images/home/1.png';"
           alt="slide img"
         /> -->
-        <video #homeslider width="100%" preload="true" autoplay muted loop>
+        <video
+          #homeslider
+          width="100%"
+          preload="true"
+          autoplay
+          onloadedmetadata="this.muted = true"
+          oncanplay="this.play()"
+          loop
+        >
           <source src="assets/videos/Homepage.mp4" type="video/mp4" />
         </video>
       </div>

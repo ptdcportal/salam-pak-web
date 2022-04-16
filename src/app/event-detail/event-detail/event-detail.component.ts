@@ -101,7 +101,6 @@ export class EventDetailComponent implements OnInit {
       this.userId = localStorage.getItem('userId');
       this.isLoggedIn = localStorage.getItem('userId');
       this.getLocations();
-      // debugger;
 
       this.center = {
         lat: this.event?.location?.coordinates[1],

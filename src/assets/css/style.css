@@ -78,7 +78,7 @@ p {
   margin: 0;
   padding: 0;
   font-family: Byom-Regular !important;
-  text-transform: capitalize;
+  text-transform: none;
 }
 *,
 :active,
@@ -1190,6 +1190,7 @@ h6 {
   font-size: 16px;
   line-height: 25px;
   margin-bottom: 0;
+  text-transform: none;
   /* margin-right: 20%; */
 }
 
@@ -2521,7 +2522,7 @@ form input[type='file'] {
 .navbar .nav__item .nav__item-link {
   font-size: 15px;
   font-weight: 300;
-  text-transform: capitalize;
+  text-transform: none;
   display: block;
   position: relative;
   color: #333333;
@@ -4614,7 +4615,7 @@ form input[type='file'] {
   color: #000;
   padding-right: 50px;
   margin-bottom: 35px;
-  text-transform: capitalize;
+  text-transform: none;
 }
 .slider .slide__desc {
   /* font-size: 18px; */
@@ -4623,7 +4624,7 @@ form input[type='file'] {
   color: #fff;
   padding-right: 50px;
   margin-bottom: 35px;
-  text-transform: capitalize;
+  text-transform: none;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

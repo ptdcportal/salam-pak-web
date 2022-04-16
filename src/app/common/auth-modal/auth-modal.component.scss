@@ -37,6 +37,16 @@
   max-width: unset !important;
 }
 
-// ::ng-deep .nsm-dialog {
-//   max-width: unset !important;
-// }
+.facebook:focus {
+  outline: none;
+  background-color: #102d6d;
+  color: #fff;
+  transition: all 0.3s ease, background-color 1ms;
+}
+
+.gmail:focus {
+  outline: none;
+  background-color: #ab1e0d;
+  color: #fff;
+  transition: all 0.3s ease, background-color 1ms;
+}

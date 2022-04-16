@@ -13,6 +13,9 @@
   top: -340px;
   z-index: 1;
   text-align: left;
+  p {
+    width: 50rem;
+  }
 }
 
 .places__img {
@@ -82,4 +85,8 @@
 
 .info-desc {
   font-size: 14px;
+}
+
+.heading__desc {
+  margin: 0 -10em;
 }

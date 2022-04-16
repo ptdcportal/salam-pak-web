@@ -269,7 +269,7 @@
               <agm-marker [latitude]="center?.lat" [longitude]="center?.lng"></agm-marker>
             </agm-map>      *ngIf="!surroundingMakers"      -->
             <agm-map
-              [zoom]="6"
+              [zoom]="12"
               [latitude]="surroundingMakers.location?.location.coordinates[1] || center?.lat"
               [longitude]="surroundingMakers.location?.location.coordinates[0] || center?.lng"
             >

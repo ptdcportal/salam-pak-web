@@ -5,9 +5,7 @@ import { NgxSmartModalService, NgxSmartModalComponent } from 'ngx-smart-modal';
 import { AuthenticationService, CredentialsService } from '@app/auth';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
-import { SocialAuthService } from 'angularx-social-login';
-import { FacebookLoginProvider, GoogleLoginProvider } from 'angularx-social-login';
-import { SocialUser } from 'angularx-social-login';
+import { SocialUser, SocialAuthService, FacebookLoginProvider, GoogleLoginProvider } from 'angularx-social-login';
 
 @Component({
   selector: 'app-auth-modal',
@@ -54,6 +52,10 @@ export class AuthModalComponent implements OnInit {
     this.ngxSmartModalService.get('authModal').onCloseFinished.subscribe((res: any) => {
       // console.log('res: ', res);
     });
+
+    this.authService.authState.subscribe((user: any) => {
+      this.setSession(user);
+    });
   }
 
   private createForm() {
@@ -89,8 +91,8 @@ export class AuthModalComponent implements OnInit {
     return {
       userId: res.id,
       email: res.email,
-      fName: res.profile.firstName,
-      token: res.token,
+      fName: res.profile.firstName || res.firstName,
+      token: res.token || res.authToken,
       userType: res.type,
       userGender: res.profile.gender,
       userData: JSON.stringify(res),

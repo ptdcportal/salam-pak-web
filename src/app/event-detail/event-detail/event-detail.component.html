@@ -33,7 +33,7 @@
           <h4 *ngIf="event.price > 0" class="slide__title mb-0 price">Rs.{{ event?.price }} / person</h4>
           <h4 *ngIf="event.price == 0" class="slide__title mb-0 price">Free event</h4>
 
-          <a class="btn btn__primary btn__hover2 mr-30" (click)="openBookingForm()"
+          <a class="btn btn__primary btn__hover2 mr-30" (click)="openContactNumberModal()"
             ><i class="fa fa-calendar"></i>Book now</a
           >
 
@@ -424,5 +424,16 @@
         </div>
       </div>
     </div>
+  </div>
+</ngx-smart-modal>
+
+<ngx-smart-modal #feedbackModal identifier="contactModal" escapable="true">
+  <div class="visa-availabilty__popup contact-popup p-5">
+    <p class="contact-main-text">You can book this event on below contact number:</p>
+    <hr />
+    <p class="contact-number__container">
+      <span class="mr-3"><i class="fa fa-phone" aria-hidden="true"></i></span>
+      {{ event.contact || 'Not available!' }}
+    </p>
   </div>
 </ngx-smart-modal>

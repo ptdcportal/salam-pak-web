@@ -50,7 +50,7 @@
             </share-buttons> -->
           </div>
 
-          <a class="btn btn__primary btn__hover2 mr-30" (click)="openBookingForm()"
+          <a class="btn btn__primary btn__hover2 mr-30" (click)="openContactNumberModal()"
             ><i class="fa fa-calendar"></i>Book now</a
           >
 
@@ -370,5 +370,16 @@
         </div>
       </div>
     </div>
+  </div>
+</ngx-smart-modal>
+
+<ngx-smart-modal #feedbackModal identifier="contactModal" escapable="true">
+  <div class="visa-availabilty__popup contact-popup p-5">
+    <p class="contact-main-text">You can book this trip on below contact number:</p>
+    <hr />
+    <p class="contact-number__container">
+      <span class="mr-3"><i class="fa fa-phone" aria-hidden="true"></i></span>
+      {{ trip.contact || 'Not available!' }}
+    </p>
   </div>
 </ngx-smart-modal>

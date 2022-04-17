@@ -337,4 +337,8 @@ export class EventDetailComponent implements OnInit {
   getHref = (item: any) => {
     return `https://www.google.com/maps/place/?q=place_id:${item.place_id}`;
   };
+
+  openContactNumberModal() {
+    this.ngxSmartModalService.open('contactModal');
+  }
 }

@@ -86,3 +86,24 @@
   line-height: unset !important;
   height: 35px !important;
 }
+
+.contact-popup {
+  margin-top: 20rem;
+
+  .contact-main-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .contact-number__container {
+    margin-top: 2rem;
+  }
+
+  .fa-phone {
+    border: 1px solid #8cc63e;
+    border-radius: 3rem;
+    padding: 0.5rem;
+    background-color: #8cc63e;
+    font-size: 1.5rem;
+  }
+}

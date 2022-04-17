@@ -204,6 +204,10 @@ export class TripDetailComponent implements OnInit {
     );
   }
 
+  openContactNumberModal() {
+    this.ngxSmartModalService.open('contactModal');
+  }
+
   // addToPlan() {
   //   if (this.userId) {
   //     this.eventService.addTripToPlan(this.tripId).subscribe((data: any) => {

@@ -16,6 +16,8 @@ export class TripsComponent implements OnInit {
   locations: any = [];
   province: any;
 
+  featured: any = [];
+
   slideConfig = {
     slidesToShow: 4.0, // 4.5
     slidesToScroll: 1,
@@ -90,6 +92,7 @@ export class TripsComponent implements OnInit {
   getFeaturedEvents() {
     this.eventService.getFetrauredEvents(this.trip.parentProvince).subscribe((data: any) => {
       this.locations = data.data;
+      this.extractFeaturedItems(this.locations);
     });
   }
 
@@ -107,5 +110,9 @@ export class TripsComponent implements OnInit {
     const size = (val / 5) * 100;
 
     return size + '%';
+  }
+
+  extractFeaturedItems(data: any) {
+    this.featured = data.filter((item: any) => item.isFeatured);
   }
 }

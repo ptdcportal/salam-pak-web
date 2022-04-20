@@ -65,6 +65,9 @@ export class CategoryComponent implements OnInit {
     responsive: responsiveSettings,
   };
   images = [defaultImage1, defaultImage2, defaultImage3, defaultImage4, defaultImage5, defaultImage6];
+
+  featured: any = [];
+
   constructor(
     private readonly route: ActivatedRoute,
     private readonly shellService: Shell,
@@ -85,14 +88,18 @@ export class CategoryComponent implements OnInit {
         })
       )
       .subscribe((locations: any) => {
-        this.locations = locations.slice(0, 6);
-        this.locations.filter((location: any) => {
-          if (!location.thumbnail) {
-            // location.thumbnail = defaultImage;
-          }
-        });
+        if (locations.length) {
+          this.locations = locations;
+          this.locations.filter((location: any) => {
+            if (!location.thumbnail) {
+              // location.thumbnail = defaultImage;
+            }
+          });
+          this.extractFeaturedItems(this.locations);
+        }
       });
   }
+
   getFilters() {
     // debugger
     this.shellService.currentMessage.subscribe((data: any) => {
@@ -126,5 +133,9 @@ export class CategoryComponent implements OnInit {
     script.async = true;
     script.defer = true;
     body.appendChild(script);
+  }
+
+  extractFeaturedItems(data: any) {
+    this.featured = data.filter((item: any) => item.isFeatured);
   }
 }

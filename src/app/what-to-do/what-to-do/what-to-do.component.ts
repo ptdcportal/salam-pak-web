@@ -20,7 +20,7 @@ export class WhatToDoComponent implements OnInit {
   images = [defaultImage1, defaultImage2, defaultImage3, defaultImage4, defaultImage5, defaultImage6];
   constructor(private readonly homeService: HomeService, private readonly router: Router) {}
   getActivities() {
-    let params = `isFeatured=true&pageSize=6`;
+    let params = `isFeatured=true&pageSize=0`;
     this.homeService
       .getActivities(params)
       .pipe(

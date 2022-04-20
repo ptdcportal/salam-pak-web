@@ -39,7 +39,7 @@
       </div>
     </div>
     <div class="masonry-wrapper masonry-style-2">
-      <div *ngFor="let location of locations | slice: 0:3" class="blog-container" data-column-width=".col-md-4">
+      <div *ngFor="let location of featured | slice: 0:3" class="blog-container" data-column-width=".col-md-4">
         <div class="col-md-4 post-item">
           <a [routerLink]="['/where-to-go/category', slug, 'location', location.slug]">
             <div class="post__img">
@@ -63,6 +63,8 @@
 
         <!-- /.post-item -->
       </div>
+
+      <h2 *ngIf="!featured.length" class="text-center text-muted">No featured locations found!</h2>
 
       <!-- .masonry-container end -->
     </div>

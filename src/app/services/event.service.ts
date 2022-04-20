@@ -13,7 +13,7 @@ const routes = {
   accomodations: (params: string) => `/accommodations/search?${params}`,
   plan: (userId: string) => `/plans/${userId}`,
   getCategoryLocations: (id: string) => `/location?parentCategories=["${id}"]&pageSize=0`,
-  getActivityLocations: (id: string) => `/location?parentActivities=["${id}"]`,
+  getActivityLocations: (id: string) => `/location?parentActivities=["${id}"]&pageSize=0`,
   getHomeFeaturedEvents: (durationTo: number) => `${environment.serverUrl}/trip/search?pageSize=0&status=published`,
   getTripDetail: (id: number) => `${environment.serverUrl}/trip/${id}`,
   getEventDetail: (id: number) => `${environment.serverUrl}/events/${id}`,

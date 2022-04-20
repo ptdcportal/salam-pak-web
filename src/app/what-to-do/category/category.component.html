@@ -46,7 +46,7 @@
     <div class="masonry-wrapper masonry-style-2">
       <div class="blog-container" data-column-width=".col-md-4">
         <div
-          *ngFor="let location of locations | paginate: { itemsPerPage: 3, currentPage: p }"
+          *ngFor="let location of featured | paginate: { itemsPerPage: 3, currentPage: p }"
           class="col-md-4 post-item p-4"
         >
           <!-- [routerLink]="['/what-to-do', category.url, 'location', location.slug]" -->
@@ -72,6 +72,9 @@
             <!-- /.post-content --></a
           >
         </div>
+        <div *ngIf="!featured.length" class="mt-5">
+          <h2 class="text-muted text-center">No featured "{{ category.name }}" found!</h2>
+        </div>
         <!-- /.post-item -->
       </div>
       <!-- .masonry-container end -->
@@ -80,7 +83,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center">
-        <div *ngIf="locations?.length > 3">
+        <div *ngIf="featured?.length > 3">
           <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
         </div>
       </div>

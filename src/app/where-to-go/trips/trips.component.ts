@@ -18,6 +18,9 @@ export class TripsComponent implements OnInit {
 
   featured: any = [];
 
+  p: number = 1;
+  q: number = 1;
+
   slideConfig = {
     slidesToShow: 4.0, // 4.5
     slidesToScroll: 1,

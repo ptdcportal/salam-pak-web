@@ -5429,7 +5429,7 @@ form input[type='file'] {
 .post-item .post__content {
   padding-top: 30px;
   background-color: #ffffff;
-  /* height: 150px; */
+  height: 150px;
 }
 
 .post-item .post__cat {

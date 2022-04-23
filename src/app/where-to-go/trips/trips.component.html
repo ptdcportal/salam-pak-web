@@ -39,7 +39,66 @@
       </div>
     </div>
     <div class="masonry-wrapper masonry-style-2">
-      <div *ngFor="let location of featured | slice: 0:3" class="blog-container" data-column-width=".col-md-4">
+      <div
+        *ngFor="let location of featured | paginate: { itemsPerPage: 12, currentPage: q }"
+        class="blog-container"
+        data-column-width=".col-md-4"
+      >
+        <div class="col-md-4 post-item">
+          <a [routerLink]="['/where-to-go/category', slug, 'location', location.slug]">
+            <div class="post__img">
+              <img
+                [src]="location.thumbnail || image"
+                alt="post img"
+                onerror="this.onerror=null;this.src='assets/images/wheretogo/cities.png';"
+              />
+            </div>
+
+            <!-- /.post-img -->
+
+            <div class="post__content">
+              <h4 class="post__title">{{ location.alias }}</h4>
+              <p class="post__desc">{{ location.description }}</p>
+            </div>
+
+            <!-- /.post-content -->
+          </a>
+        </div>
+
+        <!-- /.post-item -->
+      </div>
+      <!-- .masonry-container end -->
+    </div>
+  </div>
+
+  <div *ngIf="featured.length" class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div>
+          <pagination-controls class="my-pagination" (pageChange)="q = $event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h2 *ngIf="!featured.length" class="text-center text-muted">No featured locations found!</h2>
+</div>
+
+<div class="container-fluid seasons">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h2 class="heading__title">all {{ slug }} locations</h2>
+      </div>
+      <div class="col-md-4 show-all-btn">
+        <!-- <a href="#">show all<i class="icon-arrow-right"></i></a> -->
+      </div>
+    </div>
+    <div class="masonry-wrapper masonry-style-2">
+      <div
+        *ngFor="let location of locations | paginate: { itemsPerPage: 12, currentPage: p }"
+        class="blog-container"
+        data-column-width=".col-md-4"
+      >
         <div class="col-md-4 post-item">
           <a [routerLink]="['/where-to-go/category', slug, 'location', location.slug]">
             <div class="post__img">
@@ -64,17 +123,27 @@
         <!-- /.post-item -->
       </div>
 
-      <h2 *ngIf="!featured.length" class="text-center text-muted">No featured locations found!</h2>
-
       <!-- .masonry-container end -->
     </div>
   </div>
+
+  <div *ngIf="locations.length" class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div>
+          <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 *ngIf="!locations.length" class="text-center text-muted d-block">No locations found!</h2>
 </div>
 
 <!-- ======================
                  places Carousel
             ========================= -->
-<section id="placeCarousel" class="place-carousel">
+<section id="placeCarousel" class="place-carousel d-none">
   <div class="container">
     <div class="row">
       <div class="col col-md-8">

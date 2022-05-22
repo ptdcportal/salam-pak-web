@@ -47,6 +47,7 @@ export class CategoryWhereComponent implements OnInit, AfterViewInit, AfterConte
   @ViewChild('slickModal') slickModal: SlickCarouselComponent;
   category: any;
   p: number = 1;
+  q: number = 1;
   locations: any = [];
   categories: any = [];
   slideConfig = {

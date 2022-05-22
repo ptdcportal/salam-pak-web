@@ -111,7 +111,7 @@ button:focus,
   -ms-box-shadow: none;
   -o-box-shadow: none;
   box-shadow: none;
-  text-transform: capitalize;
+  text-transform: unset;
 }
 
 textarea {
@@ -4603,7 +4603,7 @@ form input[type='file'] {
   font-weight: 700;
   line-height: 3.5rem;
   color: #f0ec70;
-  margin-bottom: 10rem;
+  margin-bottom: 2.8rem;
 }
 .slide__content i {
   padding-right: 10px;

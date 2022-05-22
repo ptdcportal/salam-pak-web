@@ -53,6 +53,7 @@ export class CategoryComponent implements OnInit {
   @ViewChild('slickModal') slickModal: SlickCarouselComponent;
   defaultImg = defaultImage3;
   p: number = 1;
+  q: number = 1;
   category: any;
   categories: any = [];
   locations: any;

@@ -46,7 +46,7 @@
     <div class="masonry-wrapper masonry-style-2">
       <div class="blog-container" data-column-width=".col-md-4">
         <div
-          *ngFor="let location of featured | paginate: { itemsPerPage: 3, currentPage: p }"
+          *ngFor="let location of featured | paginate: { itemsPerPage: 12, currentPage: p }"
           class="col-md-4 post-item p-4"
         >
           <!-- [routerLink]="['/what-to-do', category.url, 'location', location.slug]" -->
@@ -83,7 +83,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center">
-        <div *ngIf="featured?.length > 3">
+        <div *ngIf="featured?.length > 12">
           <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
         </div>
       </div>
@@ -139,7 +139,7 @@
     </div>
   </div>
 
-  <div *ngIf="locations.length" class="container">
+  <div *ngIf="locations.length > 12" class="container">
     <div class="row">
       <div class="col-md-12 text-center">
         <div>

@@ -58,7 +58,9 @@
 
             <div class="post__content">
               <h4 class="post__title">{{ location.alias }}</h4>
-              <p class="post__desc">{{ location.description }}</p>
+              <p class="post__desc">
+                {{ location.description.substring(0, 120) }} {{ location.description.length > 120 ? '...' : '' }}
+              </p>
             </div>
 
             <!-- /.post-content -->
@@ -113,7 +115,9 @@
 
             <div class="post__content">
               <h4 class="post__title">{{ location.alias }}</h4>
-              <p class="post__desc">{{ location.description }}</p>
+              <p class="post__desc">
+                {{ location.description.substring(0, 120) }} {{ location.description.length > 120 ? '...' : '' }}
+              </p>
             </div>
 
             <!-- /.post-content -->
@@ -212,7 +216,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="col-sm-12 col-md-6 col-lg-6">
-          <h2 class="heading__title">Browse {{ trip.name }}</h2>
+          <h2 class="heading__title">Browse {{ slug }}</h2>
           <form class="browse-form">
             <input type="text" class="search__input" placeholder="Type Words Then Enter" />
             <button class="module__search-btn"><i class="fa fa-search"></i></button>

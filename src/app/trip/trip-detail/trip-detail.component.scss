@@ -143,3 +143,17 @@ ul.trip-timeline {
     font-size: 1.5rem;
   }
 }
+
+.breadcrumb {
+  padding-bottom: 1rem;
+  li {
+    color: #fff;
+  }
+  .breadcrumb-item::before {
+    color: #fff;
+  }
+}
+
+.contactModal-body {
+  margin-top: 2rem;
+}

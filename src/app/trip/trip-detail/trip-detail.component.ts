@@ -194,6 +194,7 @@ export class TripDetailComponent implements OnInit {
         // console.log(res);
         this.ngxSmartModalService.getModal('bookingModal').close();
         this.toastr.success('booking created successfully!');
+        this.ngxSmartModalService.open('contactModal');
       },
       (err) => {
         this.ngxSmartModalService.getModal('bookingModal').close();

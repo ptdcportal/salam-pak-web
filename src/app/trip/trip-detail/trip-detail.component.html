@@ -16,6 +16,16 @@
         <div class="slide__content">
           <h2 class="slide__title">{{ trip.title }}</h2>
 
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a>Home </a></li>
+              <li class="breadcrumb-item"><a>trip-detail </a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                {{ trip.slug }}
+              </li>
+            </ol>
+          </nav>
+
           <div class="info__list">
             <span>starting from {{ trip?.startLocation?.name }}</span>
             <!-- <span>ending at {{ event?.endTime | date: 'shortTime' }}, {{ event?.endDate | date }}</span> -->
@@ -23,7 +33,7 @@
             <!-- <span>{{ event?.provinceName }}</span> -->
           </div>
 
-          <p class="slide__desc mb-0">{{ trip.description.substr(0, 50) }} ...</p>
+          <!-- <p class="slide__desc mb-0">{{ trip.description.substr(0, 50) }} ...</p> -->
 
           <p class="my-4 price__tag">PKR {{ trip.price | number }} / person</p>
 
@@ -50,7 +60,7 @@
             </share-buttons> -->
           </div>
 
-          <a class="btn btn__primary btn__hover2 mr-30" (click)="openContactNumberModal()"
+          <a class="btn btn__primary btn__hover2 mr-30" (click)="openBookingForm()"
             ><i class="fa fa-calendar"></i>Book now</a
           >
 
@@ -244,7 +254,7 @@
         <div class="row mt-5">
           <!-- <div class="row"> -->
           <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
-            <label class="image-replace cd-email">full name</label>
+            <label class="image-replace cd-email">Full name *</label>
             <input
               class="full-width has-padding has-border form-control plan__name"
               type="text"
@@ -261,7 +271,7 @@
           </div>
 
           <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
-            <label class="image-replace cd-email">email</label>
+            <label class="image-replace cd-email">Email *</label>
             <input
               class="full-width has-padding has-border form-control plan__name"
               type="text"
@@ -278,7 +288,7 @@
           </div>
 
           <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
-            <label class="image-replace cd-email">phone no.</label>
+            <label class="image-replace cd-email">Phone no. *</label>
             <input
               class="full-width has-padding has-border form-control plan__name"
               type="text"
@@ -295,7 +305,7 @@
           </div>
 
           <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
-            <label class="image-replace cd-email">cnic</label>
+            <label class="image-replace cd-email">CNIC *</label>
             <input
               class="full-width has-padding has-border form-control plan__name"
               type="text"
@@ -375,11 +385,13 @@
 
 <ngx-smart-modal #feedbackModal identifier="contactModal" escapable="true">
   <div class="visa-availabilty__popup contact-popup p-5">
-    <p class="contact-main-text">You can book this trip on below contact number:</p>
-    <hr />
-    <p class="contact-number__container">
-      <span class="mr-3"><i class="fa fa-phone" aria-hidden="true"></i></span>
-      {{ trip.contact || 'Not available!' }}
-    </p>
+    <div class="contactModal-body">
+      <p class="contact-main-text">For further queries, please contact below provided phone number</p>
+      <hr />
+      <p class="contact-number__container">
+        <span class="mr-3"><i class="fa fa-phone" aria-hidden="true"></i></span>
+        {{ trip.contact || 'Not available!' }}
+      </p>
+    </div>
   </div>
 </ngx-smart-modal>

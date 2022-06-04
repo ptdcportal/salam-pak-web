@@ -65,7 +65,10 @@ export class TripsComponent implements OnInit {
     private readonly eventService: EventService,
     private readonly shellService: Shell
   ) {
-    this.getProvinces();
+    this.route.data.subscribe((res: any) => {
+      this.locations = res.trip;
+      this.extractFeaturedItems(this.locations);
+    });
   }
 
   ngOnInit(): void {
@@ -75,14 +78,13 @@ export class TripsComponent implements OnInit {
     });
     this.route.params.subscribe((data: any) => {
       this.trip = this.route.snapshot.data.trip[0];
-      // console.log(data);
       this.slug = data.slug;
-      this.getFeaturedEvents();
     });
   }
 
   getProvinces() {
     this.shellService.getProvinces().subscribe((data: any) => {
+      console.log(data);
       this.province = data.data.filter((res: any) => {
         if (res.slug === this.trip.parentProvince) {
           this.province = res;

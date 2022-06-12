@@ -139,6 +139,17 @@
             >
           </li>
 
+          <li class="nav__item">
+            <!-- [routerLink]="['/what-to-do']" -->
+            <a
+              [routerLink]="['/publications']"
+              [ngClass]="{ active: router.url.includes('publications') }"
+              class="dropdown-toggle nav__item-link"
+              [translate]="'HEADERITEM3'"
+              >Publications</a
+            >
+          </li>
+
           <!-- /.nav-item -->
           <!-- /.nav-item -->
           <li *ngIf="isLoggedIn" class="nav__item with-dropdown visible-xs">

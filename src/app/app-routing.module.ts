@@ -49,6 +49,11 @@ const routes: Routes = [
     loadChildren: () => import('./event-detail/event-detail.module').then((m) => m.EventDetailModule),
   },
 
+  {
+    path: 'publications',
+    loadChildren: () => import('./publications/publications.module').then((m) => m.PublicationsModule),
+  },
+
   { path: '**', component: HomeComponent, pathMatch: 'full' },
 
   // Fallback when no prior route is matched

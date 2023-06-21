@@ -8,7 +8,8 @@ import { filter, map, switchMap } from 'rxjs/operators';
 import { environment } from '@env/environment';
 import { Logger, untilDestroyed } from '@core';
 import { I18nService } from '@app/i18n';
-
+import { HttpClient } from '@angular/common/http';
+import axios from 'axios';
 const log = new Logger('App');
 
 @Component({
@@ -23,7 +24,8 @@ export class AppComponent implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute,
     private titleService: Title,
     private translateService: TranslateService,
-    private i18nService: I18nService
+    private i18nService: I18nService,
+    private http: HttpClient
   ) {
     // fetch(
     //   `https://api.openweathermap.org/data/2.5/weather?q=Islamabad&units=metric&appid=f1fbd5c5dfb2ea550ad1a7e39f7716ac`
@@ -39,9 +41,6 @@ export class AppComponent implements OnInit, OnDestroy {
     if (environment.production) {
       Logger.enableProductionMode();
     }
-
-    log.debug('init');
-
     // Setup translations
     this.i18nService.init(environment.defaultLanguage, environment.supportedLanguages);
 

@@ -23,17 +23,9 @@ export class WhatToDoComponent implements OnInit {
     let params = `isFeatured=true&pageSize=0`;
     this.homeService
       .getActivities(params)
-      .pipe(
-        finalize(() => {
-          this.isLoading = false;
-        })
-      )
-      .subscribe((activities: any) => {
+      .then((activities: any) => {
+        this.isLoading = false;
         this.activities = activities;
-        // console.log('**************" ', this.activities);
-        // this.activities.filter((activity: any, index: number) => {
-        //   // activity.thumbnail = this.images[index];
-        // });
       });
   }
   ngOnInit(): void {

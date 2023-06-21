@@ -83,9 +83,9 @@ export class TripsComponent implements OnInit {
   }
 
   getProvinces() {
-    this.shellService.getProvinces().subscribe((data: any) => {
-      console.log(data);
-      this.province = data.data.filter((res: any) => {
+    this.shellService.getProvinces().then((data: any) => {
+      console.log("trips", data);
+      this.province = data.filter((res: any) => {
         if (res.slug === this.trip.parentProvince) {
           this.province = res;
           this.provinceImage = this.province.thumbnail;
@@ -95,10 +95,16 @@ export class TripsComponent implements OnInit {
   }
 
   getFeaturedEvents() {
-    this.eventService.getFetrauredEvents(this.trip.parentProvince).subscribe((data: any) => {
-      this.locations = data.data;
+    this.eventService.getFetrauredEvents(this.trip.parentProvince).then((data: any) => {
+      console.log("trips component", data)
+      this.locations = data;
       this.extractFeaturedItems(this.locations);
     });
+
+    // .subscribe((data: any) => {
+    //   this.locations = data.data;
+    //   this.extractFeaturedItems(this.locations);
+    // });
   }
 
   next() {

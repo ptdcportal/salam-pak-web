@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
+import axios from 'axios';
 const routes = {
   locations: (coordinates: any) => `/getNearByLocations?coordinates=[${coordinates[1]}, ${coordinates[0]}]`,
   categories: () => `/category`,
@@ -39,12 +40,36 @@ export class EventService {
   getActivityDetail(slug: string): Observable<any> {
     return this.httpClient.get(routes.activityDetail(slug)).pipe(map((body: any) => body.data));
   }
-  getCategoryDetail(slug: string): Observable<any> {
-    return this.httpClient.get(routes.categoryDetail(slug)).pipe(map((body: any) => body.data));
+  getCategoryDetail(slug: string) {
+    return axios.get(`${environment.serverUrl}` + routes.categoryDetail(slug))
+      .then(function (response) {
+        // handle success
+        return response.data.data;
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+    // return this.httpClient.get(routes.categoryDetail(slug)).pipe(map((body: any) => body.data));
   }
 
-  getLocationDetail(slug: string): Observable<any> {
-    return this.httpClient.get(routes.locationDetail(slug)).pipe(map((body: any) => body.data));
+  getLocationDetail(slug: string) {
+    return axios.get(`${environment.serverUrl}` + routes.locationDetail(slug))
+      .then(function (response) {
+        // handle success
+        return response.data.data;
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+    // return this.httpClient.get(routes.locationDetail(slug)).pipe(map((body: any) => body.data));
   }
 
   getCategories() {
@@ -140,8 +165,21 @@ export class EventService {
     return this.httpClient.post(`${environment.serverUrl}/user/plan`, { accommodationId });
   }
 
-  getCategoryLocations(id: string): Observable<any> {
-    return this.httpClient.get(routes.getCategoryLocations(id)).pipe(map((body: any) => body.data));
+  getCategoryLocations(id: string) {
+    return axios.get(`${environment.serverUrl}/` + routes.getCategoryLocations(id))
+      .then(function (response) {
+        // handle success
+        // console.log(response.data.data);
+        return response.data.data;
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+    // return this.httpClient.get(routes.getCategoryLocations(id)).pipe(map((body: any) => body.data));
   }
 
   getActivityLocations(id: string): Observable<any> {
@@ -227,20 +265,69 @@ export class EventService {
   }
 
   getFetrauredEvents(slug: any) {
-    return this.httpClient.get(`${environment.serverUrl}/location?parentProvince=${slug}`);
+    return axios.get(`${environment.serverUrl}/location?parentProvince=${slug}`)
+      .then(function (response) {
+        // handle success
+        return response.data.data;
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+    // return this.httpClient.get(`${environment.serverUrl}/location?locationType=province&pageSize=0`);
+    // return this.httpClient.get(`${environment.serverUrl}/location?parentProvince=${slug}`);
   }
   getDestinationFilters() {
     // i/category?categoryType=destination
-    return this.httpClient.get(routes.getDestinationFilters()).pipe(map((body: any) => body.data));
+    return axios.get(`${environment.serverUrl}` + routes.getDestinationFilters())
+      .then(function (response) {
+        // handle success
+        return response.data.data;
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+    // return this.httpClient.get(routes.getDestinationFilters()).pipe(map((body: any) => body.data));
   }
-  getSurroundings(coordinates: any, typeKey: any): Observable<any> {
-    return this.httpClient
-      .get(`${environment.serverUrl}/poi?coordinates=[${coordinates}]&typeKey=${typeKey}`)
-      .pipe(map((body) => body));
+  getSurroundings(coordinates: any, typeKey: any) {
+    return axios.get(`${environment.serverUrl}/poi?coordinates=[${coordinates}]&typeKey=${typeKey}`)
+    .then(function (response) {
+      // handle success
+      return response.data.data;
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .finally(function () {
+      // always executed
+    });
+    // return this.httpClient
+    //   .get(`${environment.serverUrl}/poi?coordinates=[${coordinates}]&typeKey=${typeKey}`)
+    //   .pipe(map((body) => body));
   }
 
   getAllCities() {
-    return this.httpClient.get(`${environment.serverUrl}/location?pageSize=0&skip=0`);
+    return axios.get(`${environment.serverUrl}/location?pageSize=0&skip=0`)
+      .then(function (response) {
+        // handle success
+        return response.data.data;
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+    // return this.httpClient.get(`${environment.serverUrl}/location?pageSize=0&skip=0`);
   }
 
   getPressRelease() {
@@ -252,12 +339,37 @@ export class EventService {
   }
 
   getAllEvents() {
-    return this.httpClient.get(`${environment.serverUrl}/events?pageSize=0&status=published`);
+    return axios.get(`${environment.serverUrl}/events?pageSize=0&status=published`)
+      .then(function (response) {
+        // handle success
+        return response.data.data;
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+    // return this.httpClient.get(`${environment.serverUrl}/events?pageSize=0&status=published`);
   }
 
   getEvents = (params: any) => {
     const _query = new URLSearchParams(params).toString();
-    return this.httpClient.get(`${environment.serverUrl}/trip/search?${_query}`).pipe(map((body: any) => body));
+    return axios.get(`${environment.serverUrl}/trip/search?${_query}`)
+      .then(function (response) {
+        // handle success
+        // console.log(response.data.data);
+        return response.data.data;
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+    // return this.httpClient.get(`${environment.serverUrl}/trip/search?${_query}`).pipe(map((body: any) => body));
   };
 
   getEventDetail(id: number) {
@@ -270,7 +382,19 @@ export class EventService {
   };
 
   getNews() {
-    return this.httpClient.get(routes.getNews()).pipe(map((body: any) => body.data));
+    return axios.get(`${environment.serverUrl}` + routes.getNews())
+      .then(function (response) {
+        // handle success
+        return response.data.data;
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+    // return this.httpClient.get(routes.getNews()).pipe(map((body: any) => body.data));
   }
 
   getPlanDetails(planId: any) {

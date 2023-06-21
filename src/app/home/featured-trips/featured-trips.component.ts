@@ -58,7 +58,7 @@ export class FeaturedTripsComponent implements OnInit {
       durationTo: index,
       pageSize: 0,
     };
-    this.eventService.getEvents(params).subscribe((events) => {
+    this.eventService.getEvents(params).then((events) => {
       this.featuredEvents = events.data.length > 4 ? events.data.slice(0, 4) : events.data;
       this.featuredEvents = this.featuredEvents.filter((item: any) => {
         return (

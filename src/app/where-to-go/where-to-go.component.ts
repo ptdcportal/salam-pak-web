@@ -22,15 +22,10 @@ export class WhereToGoComponent implements OnInit {
   constructor(private readonly homeService: HomeService, private readonly router: Router) {}
 
   getWhereToGoCategories() {
-    this.homeService
-      .getWhereToGoCategories()
-      .pipe(
-        finalize(() => {
-          this.isLoading = false;
-        })
-      )
-      .subscribe((categories: any) => {
+    this.homeService.getWhereToGoCategories().then((categories: any) => {
         this.categories = categories;
+        this.isLoading = false;
+        console.log(this.categories);
         // debugger;
         this.categories.filter((category: any, index: number) => {
           //   if (!category.thumbnail) {

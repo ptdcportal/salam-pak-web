@@ -109,7 +109,7 @@ export class HomeEventsComponent implements OnInit, AfterViewInit {
 
   getEvent = (selectedDate: any) => {
     // console.log('initial date: ', moment(this.form.value.date).format('YYYY-MM-DD'));
-    this.homeService.getEvents(selectedDate).subscribe((res: any) => {
+    this.homeService.getEvents(selectedDate).then((res: any) => {
       this.events = res;
     });
   };
@@ -136,7 +136,7 @@ export class HomeEventsComponent implements OnInit, AfterViewInit {
   dateChnaged(e: any) {
     //  console.log(moment(e).format('YYYY-MM-DD'));
     //  this.dateChanged(moment(e).format('YYYY-MM-DD'));
-    this.homeService.getEvents(moment(e).format('YYYY-MM-DD')).subscribe((res: any) => {
+    this.homeService.getEvents(moment(e).format('YYYY-MM-DD')).then((res: any) => {
       if (res.length) {
         this.events = res;
         this.generateDateClass(this.events);
@@ -147,7 +147,7 @@ export class HomeEventsComponent implements OnInit, AfterViewInit {
   }
 
   getAllEvents() {
-    this.eventService.getAllEvents().subscribe(
+    this.eventService.getAllEvents().then(
       (res: any) => {
         this.events.length = 0;
         this.events = res.data;

@@ -11,8 +11,9 @@ const proxyConfig = [
     context: '/api',
     pathRewrite: { '^/api': '' },
     target: 'https://api.salampakistan.gov.pk',
-    changeOrigin: true,
+    changeOrigin: false,
     secure: false,
+    "timeout": 6000000
   },
 ];
 

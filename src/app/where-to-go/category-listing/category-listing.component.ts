@@ -25,6 +25,8 @@ export class CategoryListingComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    alert('herer');
+
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
@@ -33,7 +35,7 @@ export class CategoryListingComponent implements OnInit {
   }
 
   getCategoryLocations(id: string) {
-    this.eventService.getCategoryLocations(id).subscribe((locs) => {
+    this.eventService.getCategoryLocations(id).then((locs) => {
       this.filteredRes = locs.filter((i: any) => {
         return (i.isFeatured = true);
       });

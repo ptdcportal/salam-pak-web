@@ -43,7 +43,7 @@ export class WeatherWidgetComponent implements OnInit {
     this.getWeather(this.split);
   }
   getCurrencyInfo() {
-    this.shellService.getCurrenciesInfo().subscribe((res) => {
+    this.shellService.getCurrenciesInfo().then((res) => {
       this.currencyData = res; //(1,4) ...slice(1, 10)
       // console.log('currenccyyyy', res);
       this.currencies = res.slice(1, 10);

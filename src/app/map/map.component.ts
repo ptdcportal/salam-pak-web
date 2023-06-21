@@ -57,8 +57,8 @@ export class MapComponent implements OnInit, AfterContentChecked {
       top: 0,
       behavior: 'smooth',
     });
-    this.eventService.getAllCities().subscribe((data: any) => {
-      data.data.forEach((item: any) => {
+    this.eventService.getAllCities().then((data: any) => {
+      data.forEach((item: any) => {
         if (item.locationType === 'city') {
           this.locations.push(item);
         }
@@ -116,7 +116,7 @@ export class MapComponent implements OnInit, AfterContentChecked {
 
   getSurrounding = (data: any) => {
     this.selectedSurr = data.name;
-    this.eventService.getSurroundings([this.center.lat, this.center.lng], data.typeKey).subscribe((data: any) => {
+    this.eventService.getSurroundings([this.center.lat, this.center.lng], data.typeKey).then((data: any) => {
       this.surroundingMakers = data.data;
       // console.log(this.surroundingMakers);
     });

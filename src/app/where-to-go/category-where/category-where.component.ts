@@ -81,7 +81,7 @@ export class CategoryWhereComponent implements OnInit, AfterViewInit, AfterConte
   }
 
   getFilters() {
-    this.eventService.getDestinationFilters().subscribe((categories) => {
+    this.eventService.getDestinationFilters().then((categories) => {
       this.categories = categories;
     });
   }
@@ -89,7 +89,7 @@ export class CategoryWhereComponent implements OnInit, AfterViewInit, AfterConte
   getCategoryLocations(id: string) {
     // Mountain based locations : "5f66b9b8e008c9f9b58dacd8"
     // https://ptdc.findmyadventure.pk/api/location?parentCategories=[%225f66b9b8e008c9f9b58dacd8%22]
-    this.eventService.getCategoryLocations(id).subscribe((locs) => {
+    this.eventService.getCategoryLocations(id).then((locs) => {
       // const locations = locs.slice(0, 2);
       // locations.filter((loc: any, index: number) => {
       //   if (!loc.thumbnail) {

@@ -52,13 +52,9 @@ export class HomeComponent implements OnInit {
     let params = `isFeatured=true&pageSize=6`;
     this.homeService
       .getActivities(params)
-      .pipe(
-        finalize(() => {
-          this.isLoading = false;
-          this.isWhereToGo = false;
-        })
-      )
-      .subscribe((categories: any) => {
+      .then((categories: any) => {
+        this.isLoading = false;
+        this.isWhereToGo = false;
         this.activities = categories.slice(0, 6);
       });
   }
@@ -66,13 +62,9 @@ export class HomeComponent implements OnInit {
     let params = `isFeatured=true&pageSize=6`;
     this.homeService
       .getCategories(params)
-      .pipe(
-        finalize(() => {
-          this.isLoading = false;
-          this.isWhereToGo = true;
-        })
-      )
-      .subscribe((locations: any) => {
+      .then((locations: any) => {
+        this.isLoading = false;
+        this.isWhereToGo = true;
         this.categories = locations.slice(0, 6);
       });
   }

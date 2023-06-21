@@ -60,7 +60,6 @@ img {
 /*-------------------------
      RESET Default Styles
  --------------------------*/
-*,
 h1,
 h2,
 h3,
@@ -79,7 +78,7 @@ p {
   margin: 0;
   padding: 0;
   font-family: Byom-Regular !important;
-  text-transform: capitalize;
+  text-transform: none;
 }
 *,
 :active,
@@ -112,7 +111,7 @@ button:focus,
   -ms-box-shadow: none;
   -o-box-shadow: none;
   box-shadow: none;
-  text-transform: capitalize;
+  text-transform: unset;
 }
 
 textarea {
@@ -1191,6 +1190,7 @@ h6 {
   font-size: 16px;
   line-height: 25px;
   margin-bottom: 0;
+  text-transform: none;
   /* margin-right: 20%; */
 }
 
@@ -1504,8 +1504,8 @@ h6 {
 .btn__primary:active,
 .btn__primary:focus,
 .btn__primary:hover {
-  background-color: transparent;
-  color: #8cc63e;
+  background-color: #629c15;
+  color: #fff;
 }
 
 .btn__primary.btn__hover2:active,
@@ -2522,7 +2522,7 @@ form input[type='file'] {
 .navbar .nav__item .nav__item-link {
   font-size: 15px;
   font-weight: 300;
-  text-transform: capitalize;
+  text-transform: none;
   display: block;
   position: relative;
   color: #333333;
@@ -2770,7 +2770,7 @@ form input[type='file'] {
 /* navbar-transparent */
 .header-transparent .navbar {
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  background-color: #ffffffc2;
+  background-color: #ffffff;
 }
 .home .header-transparent .navbar {
   /* border-bottom: 1px solid rgba(255, 255, 255, 0.15);
@@ -4599,12 +4599,11 @@ form input[type='file'] {
   margin-bottom: 14px;
 }
 .slider .slide__title {
-  font-size: 6.5vh;
-  /* font-size: 67px; */
+  font-size: 5.2rem;
   font-weight: 700;
-  line-height: 80px;
-  color: #f0ec70;
-  margin-bottom: 14px;
+  line-height: 3.5rem;
+  color: #fff;
+  margin-bottom: 2.2rem;
 }
 .slide__content i {
   padding-right: 10px;
@@ -4615,7 +4614,7 @@ form input[type='file'] {
   color: #000;
   padding-right: 50px;
   margin-bottom: 35px;
-  text-transform: capitalize;
+  text-transform: none;
 }
 .slider .slide__desc {
   /* font-size: 18px; */
@@ -4624,7 +4623,7 @@ form input[type='file'] {
   color: #fff;
   padding-right: 50px;
   margin-bottom: 35px;
-  text-transform: capitalize;
+  text-transform: none;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -10250,7 +10249,7 @@ html {
 .price__tag {
   font-size: 4.5vh;
   font-weight: bolder;
-  color: #f0ec70;
+  color: #fff;
 }
 
 .nsm-body,

@@ -38,7 +38,7 @@ export class ListingComponent implements OnInit {
   }
 
   getCategoryLocations(id: string) {
-    this.eventService.getCategoryLocations(id).subscribe((locs) => {
+    this.eventService.getCategoryLocations(id).then((locs) => {
       this.filteredRes = locs.filter((i: any) => {
         return (i.isFeatured = true);
       });

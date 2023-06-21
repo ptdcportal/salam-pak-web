@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { environment } from '@env/environment';
+import axios from 'axios';
+import { data } from 'jquery';
 
 const routes = {
   quote: (c: RandomQuoteContext) => `/jokes/random?category=${c.category}`,
@@ -48,28 +50,80 @@ export class HomeService {
   }
 
   getLocations() {
-    return this.httpClient.get(routes.locations()).pipe(
-      map((body: any) => body.data),
-      catchError(() => of('Error, could not load joke :-('))
-    );
+    return axios.get(`${environment.serverUrl}/` + routes.locations())
+      .then(function (response) {
+        // handle success
+        // console.log(response.data.data);
+        return response.data.data;
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+    // return this.httpClient.get(routes.locations()).pipe(
+    //   map((body: any) => body.data),
+    //   catchError(() => of('Error, could not load joke :-('))
+    // );
   }
   getCategories(params: any) {
-    return this.httpClient.get(routes.categories(params)).pipe(
-      map((body: any) => body.data),
-      catchError(() => of('Error, could not load joke :-('))
-    );
+    return axios.get(`${environment.serverUrl}/` + routes.categories(params))
+      .then(function (response) {
+        // handle success
+        // console.log(response.data.data);
+        return response.data.data;
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+    // return this.httpClient.get(routes.categories(params)).pipe(
+    //   map((body: any) => body.data),
+    //   catchError(() => of('Error, could not load joke :-('))
+    // );
   }
   getActivities(params: any) {
-    return this.httpClient.get(routes.activities(params)).pipe(
-      map((body: any) => body.data),
-      catchError(() => of('Error, could not load joke :-('))
-    );
+    return axios.get(`${environment.serverUrl}/` + routes.activities(params))
+      .then(function (response) {
+        // handle success
+        // console.log(response.data.data);
+        return response.data.data;
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+    // return this.httpClient.get(routes.activities(params)).pipe(
+    //   map((body: any) => body.data),
+    //   catchError(() => of('Error, could not load joke :-('))
+    // );
   }
   getVisaList() {
-    return this.httpClient.get(routes.visa()).pipe(
-      map((body: any) => body.data),
-      catchError(() => of('Error, could not load joke :-('))
-    );
+    return axios.get(`${environment.serverUrl}/` + routes.visa())
+      .then(function (response) {
+        // handle success
+        // console.log(response.data.data);
+        return response.data.data;
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+    // return this.httpClient.get(routes.visa()).pipe(
+    //   map((body: any) => body.data),
+    //   catchError(() => of('Error, could not load joke :-('))
+    // );
   }
   getBlogs() {
     return this.httpClient.get(environment.blogUrl + '/wp-json/wp/v2/posts');
@@ -77,10 +131,33 @@ export class HomeService {
   }
 
   getWhereToGoCategories() {
-    return this.httpClient.get(routes.whereToGoCategories()).pipe(
-      map((body: any) => body.data),
-      catchError(() => of('Error, could not load joke :-('))
-    );
+    return axios.get(`${environment.serverUrl}/` + routes.whereToGoCategories())
+      .then(function (response) {
+        // handle success
+        // console.log(response.data.data);
+        return response.data.data;
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+    // axios
+    //   .get(routes.whereToGoCategories())
+    //   .then((response) => {
+    //     // Handle successful response
+    //     console.log(response.data);
+    //   })
+    //   .catch((error) => {
+    //     // Handle error
+    //     console.error(error);
+    //   });
+    // return this.httpClient.get(routes.whereToGoCategories()).pipe(
+    //   map((body: any) => body.data),
+    //   catchError((error: any) => of(error.message))
+    // );
   }
   getSingleBlog(slug: string) {
     // https://www.findmyadventure.pk/api/blog/a-travellers-perspective-on-the-lockdown
@@ -91,17 +168,43 @@ export class HomeService {
   }
 
   getCities() {
-    return this.httpClient.get(routes.cities()).pipe(
-      map((body: any) => body.data),
-      catchError(() => of('Error, could not load joke :-('))
-    );
+    return axios.get(`${environment.serverUrl}/` + routes.cities())
+      .then(function (response) {
+        // handle success
+        // console.log(response.data.data);
+        return response.data.data;
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+    // return this.httpClient.get(routes.cities()).pipe(
+    //   map((body: any) => body.data),
+    //   catchError(() => of('Error, could not load joke :-('))
+    // );
   }
 
   getEvents(selectedDate: any) {
-    return this.httpClient.get(routes.events(selectedDate)).pipe(
-      map((body: any) => body.data),
-      catchError(() => of('Error, could not load joke :-('))
-    );
+    return axios.get(`${environment.serverUrl}/` + routes.events(selectedDate))
+      .then(function (response) {
+        // handle success
+        // console.log(response.data.data);
+        return response.data.data;
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+    // return this.httpClient.get(routes.events(selectedDate)).pipe(
+    //   map((body: any) => body.data),
+    //   catchError(() => of('Error, could not load joke :-('))
+    // );
   }
 
   checkCountry() {

@@ -200,7 +200,7 @@ export class BookingDetailsComponent implements OnInit {
 
   getCities() {
     states = [];
-    this.homeService.getCities().subscribe((data: any) => {
+    this.homeService.getCities().then((data: any) => {
       // console.log('Cities: ', data);
       this.locData = data;
       if (data) {

@@ -8,7 +8,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
-
+import axios from 'axios';
 @Injectable({
   providedIn: 'root',
 })
@@ -24,8 +24,8 @@ export class Shell {
   }
 
   constructor(private httpClient: HttpClient) {
-    this.getFilters().subscribe((data: any) => {
-      this.changeMessage(data.data);
+    this.getFilters().then((data: any) => {
+      this.changeMessage(data);
     });
   }
   /**
@@ -43,14 +43,50 @@ export class Shell {
       data: { reuse: true },
     };
   }
-  getCurrenciesInfo(): Observable<any> {
-    return this.httpClient.get(`${environment.serverUrl}/currencies`).pipe(map((body: any) => body.data));
+  getCurrenciesInfo() {
+    return axios.get(`${environment.serverUrl}/currencies`)
+      .then(function (response) {
+        // handle success
+        return response.data.data;
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+    // return this.httpClient.get(`${environment.serverUrl}/currencies`).pipe(map((body: any) => body.data));
   }
   getFilters() {
-    return this.httpClient.get(`${environment.serverUrl}/filters`);
+    return axios.get(`${environment.serverUrl}/filters`)
+      .then(function (response) {
+        // handle success
+        return response.data.data;
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+    // return this.httpClient.get(`${environment.serverUrl}/filters`);
   }
 
   getProvinces() {
-    return this.httpClient.get(`${environment.serverUrl}/location?locationType=province&pageSize=0`);
+    return axios.get(`${environment.serverUrl}/location?locationType=province&pageSize=0`)
+      .then(function (response) {
+        // handle success
+        return response.data.data;
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+    // return this.httpClient.get(`${environment.serverUrl}/location?locationType=province&pageSize=0`);
   }
 }

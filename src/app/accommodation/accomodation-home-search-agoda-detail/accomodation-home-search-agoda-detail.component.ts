@@ -145,7 +145,7 @@ export class AccomodationHomeSearchAgodaDetailComponent implements OnInit {
   }
 
   getCities() {
-    this.homeService.getCities().subscribe((data: any) => {
+    this.homeService.getCities().then((data: any) => {
       this.locData = data;
       if (data) {
         data.forEach((i: any) => {
@@ -199,7 +199,7 @@ export class AccomodationHomeSearchAgodaDetailComponent implements OnInit {
     //  this.isInPlan();
   }
   getCurrencyInfo() {
-    this.shellService.getCurrenciesInfo().subscribe((res) => {
+    this.shellService.getCurrenciesInfo().then((res) => {
       this.currencyData = res; //(1,4) ...slice(1, 10)
       // console.log('currenccyyyy', res);
       this.currencies = res.slice(1, 10);

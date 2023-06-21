@@ -8,7 +8,7 @@ import { EventService } from '../event.service';
 })
 export class LocationResolveService {
   constructor(private readonly eventService: EventService) {}
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     return this.eventService.getLocationDetail(route.params.slug);
   }
 }

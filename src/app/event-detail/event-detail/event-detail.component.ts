@@ -248,7 +248,7 @@ export class EventDetailComponent implements OnInit {
     //   lat: this.location?.location.coordinates[0],
     //   lng: this.location?.location.coordinates[1],
     // };
-    this.eventService.getSurroundings(this.event?.location.coordinates, surrounding.typeKey).subscribe((data: any) => {
+    this.eventService.getSurroundings(this.event?.location.coordinates, surrounding.typeKey).then((data: any) => {
       this.surroundingMakers = data.data;
       this.show = true;
       // console.log(this.surroundingMakers);

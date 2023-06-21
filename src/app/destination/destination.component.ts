@@ -433,7 +433,7 @@ export class DestinationComponent implements OnInit, AfterViewInit {
     // };
     this.eventService
       .getSurroundings(this.location?.location.coordinates, surrounding.typeKey)
-      .subscribe((data: any) => {
+      .then((data: any) => {
         this.surroundingMakers = data.data;
         this.show = true;
         // console.log(this.surroundingMakers);

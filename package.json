@@ -45,6 +45,7 @@
     "@ngx-translate/http-loader": "^5.0.0",
     "angular2-text-mask": "^9.0.0",
     "angularx-social-login": "^3.4.1",
+    "axios": "^0.21.4",
     "bootstrap": "^4.1.1",
     "express": "^4.17.1",
     "file-saver": "^2.0.5",
@@ -87,7 +88,6 @@
     "hads": "^2.0.1",
     "htmlhint": "^0.11.0",
     "https-proxy-agent": "^5.0.0",
-    "husky": "^4.2.3",
     "imagemin-webp": "^6.0.0",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~5.0.1",
@@ -116,10 +116,5 @@
         }
       }
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
   }
 }

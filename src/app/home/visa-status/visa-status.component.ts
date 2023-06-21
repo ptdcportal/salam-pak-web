@@ -28,7 +28,7 @@ export class VisaStatusComponent implements OnInit {
     this.initalizeVisaForm();
   }
   getVisaStatus() {
-    this.homeService.getVisaList().subscribe((visa) => {
+    this.homeService.getVisaList().then((visa) => {
       this.visas = visa;
       // debugger;
     });

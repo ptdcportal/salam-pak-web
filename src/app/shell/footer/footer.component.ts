@@ -67,8 +67,8 @@ export class FooterComponent implements OnInit {
 
   getFilters() {
     states = [];
-    this.eventService.getAllCities().subscribe((data: any) => {
-      data.data.forEach((item: any) => {
+    this.eventService.getAllCities().then((data: any) => {
+      data.forEach((item: any) => {
         if (item.locationType === 'city') {
           states.push(item.name);
         }
@@ -77,7 +77,7 @@ export class FooterComponent implements OnInit {
   }
 
   getAllNews() {
-    this.eventService.getNews().subscribe((res: any) => {
+    this.eventService.getNews().then((res: any) => {
       this.allNews = res.filter((item: any) => {
         return item.isFeatured == true;
       });
@@ -108,7 +108,7 @@ export class FooterComponent implements OnInit {
   };
 
   getBannerNews() {
-    this.eventService.getNews().subscribe((news: any) => {
+    this.eventService.getNews().then((news: any) => {
       // console.log(news);
     });
   }

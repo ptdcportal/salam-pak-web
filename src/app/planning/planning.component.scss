@@ -1,0 +1,83 @@
+.bg-overlay {
+  background-size: cover;
+}
+.bg-img {
+  top: -120px !important;
+}
+
+.plan-booking-details {
+  color: #fff !important;
+}
+
+#planning-content {
+  margin-top: unset !important;
+}
+
+.startDate,
+.endDate {
+  height: 32px;
+  line-height: 32px;
+  border: none;
+  border-bottom: 1px solid #f0ec70;
+  padding: 0 0 0 0px;
+  font-size: 14px;
+  font-family: Byom-Regular;
+}
+
+.plan-delete {
+  background: #eee;
+  padding: 5px;
+  text-align: center;
+  border-radius: 50px;
+  width: 30px;
+  height: 30px;
+}
+.plan-delete:hover {
+  background: #e63434;
+  padding: 5px;
+  text-align: center;
+  border-radius: 50px;
+  width: 30px;
+  height: 30px;
+  color: #fff;
+}
+
+.firsElement:before {
+  position: absolute;
+  top: -5px;
+  left: -9px;
+  height: 15px;
+  width: 15px;
+  background: #8cc63e;
+  content: "";
+  border-radius: 50px;
+}
+
+.lastElement:after {
+  position: absolute;
+  left: 12%;
+  height: 32px;
+  width: 30px;
+  background: #8cc63e;
+  content: "+";
+  border-radius: 50px;
+  text-align: -webkit-center;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 800;
+}
+
+.event {
+  margin-bottom: -30px !important;
+}
+
+.distanceBox {
+  // background-color: #8cc63e;
+  width: 70%;
+  padding: 5px;
+  text-align: left;
+  border-radius: 10px;
+  color: #908585;
+  font-family: "Byom-Regular" !important;
+}

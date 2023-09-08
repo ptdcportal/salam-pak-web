@@ -1,0 +1,112 @@
+<!-- ======================
+       Request Quote
+    ========================= -->
+<div class="user-account pb-90">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-3 account-sidebar p-0">
+        <aside class="sidebar mb-30">
+          <div class="widget widget-categories">
+            <h5 class="widget__title">user account</h5>
+            <div class="widget-content">
+              <app-user-sidebar></app-user-sidebar>
+            </div>
+            <!-- /.widget-content -->
+          </div>
+          <!-- /.widget-categories -->
+        </aside>
+        <!-- /.sidebar -->
+      </div>
+      <!-- /.col-lg-4 -->
+      <div class="col-sm-12 col-md-12 col-lg-9 pl-80">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="user-account.html">user account</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              my-bookings
+            </li>
+          </ol>
+        </nav>
+        <div class="col-sm-12 col-md-12 col-lg-12 review-list p-0">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Sr.</th>
+                <th scope="col">name</th>
+                <th scope="col">Date / Time</th>
+                <th scope="col">Type</th>
+                <!-- <th scope="col">Rating</th> -->
+                <th scope="col">amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of myBookings; let i = index">
+                <td scope="row">{{ i + 1 }}</td>
+                <td>
+                  {{
+                    item.type == 'hotelBooking'
+                      ? item?.hotelName
+                      : item.type == 'eventsBooking'
+                      ? item.eventName
+                      : item.type == 'busBooking'
+                      ? item.departure_city + ' - ' + item.arrival_city
+                      : item.type == 'airlineBooking'
+                      ? 'airline'
+                      : 'trip booking'
+                  }}
+                </td>
+                <td>{{ item.createdAt | date }}</td>
+                <td>
+                  {{
+                    item.type == 'hotelBooking'
+                      ? 'hotel reservation'
+                      : item.type == 'eventsBooking'
+                      ? 'event reservation'
+                      : item.type == 'busBooking'
+                      ? 'bus reservation'
+                      : item.type == 'airlineBooking'
+                      ? 'airline reservation'
+                      : 'trip reservation'
+                  }}
+                </td>
+                <!-- <td>
+                  <span class="stars align-listing">
+                    <span [ngStyle]="{ width: getRatingStars(item?.rating || 0) }"></span>
+                  </span>
+
+                  <span class="stars2" style="display: inline-table">
+                    <span [ngStyle]="{ width: getRatingStars(5.0) }"></span>
+                  </span>
+                </td> -->
+                <td>
+                  Rs.{{
+                    item.type == 'hotelBooking'
+                      ? 'to be confirm'
+                      : item.type == 'eventsBooking'
+                      ? item.amount
+                      : item.type == 'tripBooking'
+                      ? item.amount
+                      : item.type == 'busBooking'
+                      ? item.final_fare
+                      : item.type == 'airlineBooking'
+                      ? 'to be confirm'
+                      : ('' | number)
+                  }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div *ngIf="!myBookings.length" class="not-found-container">
+            <h2 class="text-muted">No bookings found!</h2>
+          </div>
+        </div>
+        <!-- /.col-lg-12 -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </div>
+  <!-- /.Request Quote -->
+</div>

@@ -1,0 +1,20 @@
+.bg-img {
+  margin-top: -120px;
+  .header-image {
+    width: 100%;
+    height: min-content;
+  }
+}
+.slide__content {
+  position: absolute;
+  top: -300px;
+  z-index: 1;
+  text-align: left;
+}
+.blog-auther-name {
+  font-size: 18px;
+  padding-top: 0;
+}
+.blog-auther-info {
+  margin-bottom: 15px;
+}

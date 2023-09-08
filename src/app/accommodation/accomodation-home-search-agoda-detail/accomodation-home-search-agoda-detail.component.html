@@ -1,0 +1,595 @@
+<!-- ============================
+        Slider
+    ============================== -->
+<section
+  id="page-title"
+  class="page-title page-title-layout4 text-center bg-overlay slider"
+>
+  <div class="bg-img">
+    <img
+      src="assets/images/backgrounds/accommodation-details.png"
+      alt="background"
+    />
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-8 page">
+        <div class="slide__content">
+          <h4 class="slide__title">Accomodations in {{ slug }}</h4>
+          <p class="slide__desc">
+            Check out the best luxury hotels in Pakistan
+          </p>
+        </div>
+        <!-- /.slide-content -->
+      </div>
+      <!-- /.col-lg-8 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.page-title -->
+<!-- Filter Bar-->
+<div class="form-filter-bar">
+  <div class="container">
+    <form class="user-account-form booking-form-home" [formGroup]="bookingForm">
+      <div class="row">
+        <div class="col-sm-12 col-md-2 col-lg-4">
+          <div class="form-group">
+            <input
+              type="text"
+              id="typeahead-basic"
+              name="location"
+              formControlName="location"
+              class="form-control"
+              placeholder="Enter Location"
+              [(ngModel)]="location"
+              [ngbTypeahead]="search"
+              [resultTemplate]="rt"
+              (change)="itemSelected($event)"
+            />
+            <ng-template #rt let-r="result" let-t="term">
+              <ngb-highlight [result]="r.site" [term]="t"></ngb-highlight>
+              <p class="mb-0">{{ r }}</p>
+            </ng-template>
+          </div>
+        </div>
+        <!-- /.col-lg-2 -->
+        <div class="col-sm-12 col-md-2 col-lg-2">
+          <div class="form-group">
+            <input
+              type="date"
+              formControlName="checkIn"
+              for
+              class="form-control"
+              placeholder="Select Arrival"
+            />
+          </div>
+          <small
+            [hidden]="
+              bookingForm.controls.checkIn.valid ||
+              bookingForm.controls.checkIn.untouched
+            "
+            class="text-danger"
+            translate
+          >
+            Please Select a date
+          </small>
+        </div>
+        <!-- /.col-lg-2 -->
+        <div class="col-sm-12 col-md-2 col-lg-2">
+          <div class="form-group">
+            <input
+              type="date"
+              class="form-control"
+              placeholder="Select Departure"
+            />
+          </div>
+        </div>
+        <!-- /.col-lg-2 -->
+        <div class="col-sm-3 col-md-2 col-lg-2 width">
+          <div class="form-group">
+            <select class="hotel-room-select">
+              <option>Rooms</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+            </select>
+          </div>
+        </div>
+        <!-- /.col-lg-2 -->
+        <div class="col-sm-2 col-md-2 col-lg-2 p-0">
+          <button
+            (click)="searchLocation()"
+            type="submit"
+            class="btn btn__secondary"
+          >
+            Search
+          </button>
+        </div>
+        <!-- /.col-lg-12 -->
+      </div>
+    </form>
+  </div>
+</div>
+<!--<div class="filter-bar">
+  <div class="container">
+    <div class="filter-dropdown">
+      <span>Filter:</span>
+      <div class="btn-group dropdown-filter">
+        <button type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img class="filter-btn-icon" src="assets/images/hotelicons/sofa.svg" />Hotel Type
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <label> <input type="checkbox" />Luxury Hotel </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" />
+            </label>
+          </li>
+          <li>
+            <label> <input type="checkbox" />E-Bill </label>
+          </li>
+        </ul>
+        <button
+          type="button"
+          class="btn-default dropdown-toggle"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <img class="filter-btn-icon" src="assets/images/hotelicons/favourite.svg" />Hotel Star
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <label> <input type="checkbox" />5 Star </label>
+          </li>
+          <li>
+            <label> <input type="checkbox" />4 Star </label>
+          </li>
+          <li>
+            <label> <input type="checkbox" />3 Star </label>
+          </li>
+        </ul>
+        <button
+          type="button"
+          class="btn-default dropdown-toggle"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <img class="filter-btn-icon" src="assets/images/hotelicons/thumbs.svg" />Hotle Rating
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <label> <input type="checkbox" />5 </label>
+          </li>
+          <li>
+            <label> <input type="checkbox" />4.5 - 5 </label>
+          </li>
+          <li>
+            <label> <input type="checkbox" />3.5 - 4.5 </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>-->
+<!-- Filter Bar-->
+<!--======-->
+<div class="container-fluid pt-80">
+  <div class="container">
+    <div class="col-md-3">
+      <div class="col-md-12 recommended-hotal-sidebar">
+        <h4 class="recommended-hotal-h4">Top Rated</h4>
+        <div
+          *ngFor="let hotel of topHotels; let count = index"
+          class="col-md-12 recommended-list"
+        >
+          <div class="col-md-4 recommended-hotel-image p-0">
+            <img src="{{ hotel.photos[0] }}" alt="post img" />
+          </div>
+          <div class="col-md-8 recommended-hotel-details">
+            <h6 class="recommended-hotal-h6">{{ hotel.hotel_name }}</h6>
+            <span class="stars align-listing">
+              <span
+                [ngStyle]="{ width: getRatingStars(hotel?.star_rating || 0) }"
+              ></span>
+            </span>
+            <span class="stars2" style="display: inline-table">
+              <span [ngStyle]="{ width: getRatingStars(5.0) }"></span>
+            </span>
+            <!-- <span class="fa fa-star {{ hotel.star_rating >= 1 ? 'review-checked' : '' }}"></span>
+            <span class="fa fa-star {{ hotel.star_rating >= 2 ? 'review-checked' : '' }}"></span>
+            <span class="fa fa-star {{ hotel.star_rating >= 3 ? 'review-checked' : '' }}"></span>
+            <span class="fa fa-star {{ hotel.star_rating >= 4 ? 'review-checked' : '' }}"></span>
+            <span class="fa fa-star {{ hotel.star_rating >= 5 ? 'review-checked' : '' }}"></span> -->
+            <p class="recommended-hotal-city">{{ hotel.city }}</p>
+            <!-- <p class="recommended-hotal-price">PKR {{ hotel.rates_from }}</p> -->
+            <p
+              class="list-hotel-price"
+              (click)="openCurrencyModal(hotel.rates_from * 160)"
+              style="cursor: pointer"
+            >
+              <span style="text-transform: uppercase">PKR</span>
+              {{ hotel.rates_from * 160 }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9 hotel-list">
+      <header>
+        <div id="hotel-tabs">
+          <ul class="col-md-12 p-0">
+            <li class="col-md-3 p-0">
+              <a id="hoteltab1-tab" (click)="hotelFilterTab('starHigh')"
+                >Stars (highest)</a
+              >
+            </li>
+            <li class="col-md-3 p-0">
+              <a id="hoteltab2-tab" (click)="hotelFilterTab('starLow')"
+                >Stars (lowest)</a
+              >
+            </li>
+            <li class="col-md-2 p-0">
+              <a id="hoteltab3-tab" (click)="hotelFilterTab('bestReview')"
+                >Best reviewed</a
+              >
+            </li>
+            <li class="col-md-2 p-0">
+              <a id="hoteltab3-tab" (click)="hotelFilterTab('priceHigh')"
+                >Price (highest)</a
+              >
+            </li>
+            <li class="col-md-2 p-0">
+              <a id="hoteltab3-tab" (click)="hotelFilterTab('priceLow')"
+                >Price (lowest)</a
+              >
+            </li>
+            <!-- <li class="col-md-2 p-0"><a id="tab4-tab" href="#tab4"><img src="assets/images/icons/car.svg">rentals</a></li>
+						<li class="col-md-2 p-0"><a id="tab5-tab" href="#tab5"><img src="assets/images/icons/bus.svg">  Bus  </a></li> -->
+          </ul>
+          <span class="yellow-bar"></span>
+        </div>
+      </header>
+      <div class="tab-content">
+        <div id="hoteltab1">
+          <div
+            *ngFor="
+              let item of allEvents
+                | paginate: { itemsPerPage: 6, currentPage: p };
+              let count = index
+            "
+            class="col-md-12 hotel-list-item p-0"
+          >
+            <div class="col-md-4 hotel-list-image p-0">
+              <div class="hotel-slider-{{ count }}">
+                <!-- <div *ngFor="let photo of item.photos; let indexfirst = index">
+                  <img src="{{ photo }}" alt="{{ indexfirst }}" />
+                </div> -->
+
+                <carousel [isAnimated]="true" [showIndicators]="false">
+                  <slide
+                    *ngFor="let photo of item.photos; let indexfirst = index"
+                  >
+                    <img
+                      src="{{ photo }}"
+                      alt="first slide"
+                      style="display: block; width: 100%"
+                    />
+                  </slide>
+                  <!-- <slide>
+                    <img src="assets/images/nature/2.jpg" alt="second slide" style="display: block; width: 100%;">
+                  </slide>
+                  <slide>
+                    <img src="assets/images/nature/3.jpg" alt="third slide" style="display: block; width: 100%;">
+                  </slide> -->
+                </carousel>
+              </div>
+              <!-- THUMBNAILS -->
+              <!-- <div class="slider-nav-thumbnails-{{ count }}">
+                <div *ngFor="let photo of item.photos; let indexsecond = index">
+                  <img src="{{ photo }}" alt="{{ indexsecond }}" />
+                </div>
+              </div> -->
+            </div>
+            <div class="col-md-8">
+              <div class="col-md-8">
+                <h5 class="list-hotal-h5">{{ item.hotel_name }}</h5>
+                <p class="list-hotal-city">
+                  {{ item.addressline1 }} -
+                  <span><a href="{{ item.url }}">View on agoda</a></span>
+                </p>
+              </div>
+              <div class="col-md-4">
+                <div class="col-md-9 p-0">
+                  <span class="stars align-listing">
+                    <span
+                      [ngStyle]="{
+                        width: getRatingStars(item?.star_rating || 0)
+                      }"
+                    ></span>
+                  </span>
+                  <span class="stars2" style="display: inline-table">
+                    <span [ngStyle]="{ width: getRatingStars(5.0) }"></span>
+                  </span>
+                  <p class="list-hotal-totalreview">
+                    {{ item.number_of_reviews }} reviews
+                  </p>
+                </div>
+                <div class="col-md-3 p-0 hotel-review-points">
+                  <p class="hotel-review-point">{{ item.rating_average }}</p>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <p>
+                  Check in - Check out :
+                  <span class="checkintime"
+                    >{{ item.checkin }} - {{ item.checkout }}</span
+                  >
+                </p>
+              </div>
+              <div class="col-md-12 hotel-amenities">
+                <h6 class="list-hotal-h5">Hotel Overview</h6>
+                <p class="hotel-overview">{{ item.overview }}</p>
+                <!--<div class="widget-content1">
+                <ul class="list-amenities-list">
+                  <li>
+                    <a href="#"><img src="assets/images/hotelicons/bus.svg" />Airport shuttle</a>
+                  </li>
+                  <li>
+                    <a href="#" class="active"><img src="assets/images/hotelicons/swimming.svg" />Swimming pool </a>
+                  </li>
+                  <li>
+                    <a href="#"><img src="assets/images/hotelicons/wifi.svg" />Free WiFi </a>
+                  </li>
+                  <li>
+                    <a href="#"><img src="assets/images/hotelicons/food.svg" />Good Breakfast</a>
+                  </li>
+                  <li>
+                    <a href="#"><img src="assets/images/hotelicons/washing-machine.svg" />Laundry</a>
+                  </li>
+                  <li>
+                    <a href="#"><img src="assets/images/hotelicons/voicemail.svg" />Voicemail Box</a>
+                  </li>
+                  <li>
+                    <a href="#"><img src="assets/images/hotelicons/parking.svg" />Free parking</a>
+                  </li>
+                  <li>
+                    <a href="#"><img src="assets/images/hotelicons/room-service.svg" />Room service</a>
+                  </li>
+                  <li>
+                    <a href="#"><img src="assets/images/hotelicons/barbell.svg" />Fitness Center</a>
+                  </li>
+                </ul>
+              </div>-->
+                <!-- /.widget-content -->
+              </div>
+              <div class="col-md-12 hotel-bookingdetails">
+                <div class="col-md-9 col-sm-12 p-0">
+                  <a
+                    href="{{ item.url }}"
+                    class="list-hotal-btn"
+                    target="_blank"
+                    >Manage Booking</a
+                  >
+                  <a
+                    *ngIf="!isInPlan(item._id) && isLoggedIn"
+                    (click)="addToPlan(item._id)"
+                    style="cursor: pointer !important"
+                    class="list-hotal-btn showbtn"
+                    ><i class="fa fa-plus"></i
+                    ><span class="label-hidden">add to plan</span></a
+                  >
+
+                  <a
+                    *ngIf="isInPlan(item._id) && isLoggedIn"
+                    (click)="removeFromPlan(item._id)"
+                    class="btn__hover2 showbtn removebtn"
+                    style="
+                      background-color: #ff5959 !important;
+                      border-color: #ff5959 !important;
+                    "
+                    ><i class="fa fa-minus"></i
+                    ><span class="label-hidden">remove from plan</span></a
+                  >
+
+                  <a
+                    *ngIf="!isInWishlist(item._id) && isLoggedIn"
+                    (click)="addToWishlist(item._id)"
+                    class="btn__wish showbtn"
+                    style="cursor: pointer !important"
+                    ><i class="fa fa-heart"></i
+                    ><span class="label-hidden">add to wishlist</span></a
+                  >
+                  <a
+                    *ngIf="isInWishlist(item._id) && isLoggedIn"
+                    (click)="removeFromWishlist(item._id)"
+                    class="btn__white showbtn removebtn"
+                    style="
+                      background-color: #ff5959 !important;
+                      border-color: #ff5959 !important;
+                    "
+                    ><i class="fa fa-heart"></i
+                    ><span class="label-hidden">remove from wishlist</span></a
+                  >
+                </div>
+                <div class="col-md-3 col-sm-12 p-0 hotel-price-detail">
+                  <h6 class="list-hotel-price-h6">Price starts from</h6>
+                  <h6
+                    class="list-hotel-price"
+                    (click)="openCurrencyModal(item.rates_from * 160)"
+                    style="cursor: pointer"
+                  >
+                    <span style="text-transform: uppercase">PKR</span>
+                    {{ item.rates_from * 160 }}
+                  </h6>
+                  <p class="list-hotel-cancle">Free Cancellation</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <div *ngIf="allEvents?.length > 3">
+                <pagination-controls
+                  class="my-pagination"
+                  (pageChange)="p = $event"
+                  (click)="loadScript()"
+                ></pagination-controls>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================
+             places Carousel
+        ========================= -->
+<section id="placeCarousel" class="place-carousel">
+  <div class="container">
+    <div class="row">
+      <h2 class="heading__title mx-5">all luxury hotel</h2>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <ngx-slick-carousel
+          class="carousel"
+          #slickModal="slick-carousel"
+          [config]="slideConfig"
+        >
+          <div
+            ngxSlickItem
+            *ngFor="
+              let location of allEvents;
+              let image;
+              of: images;
+              let i = index
+            "
+            class="post-item places-item carousel-cell pr-15"
+          >
+            <div class="post-item places-item">
+              <div class="places__img">
+                <img
+                  [src]="location.photos[0] || 'assets/images/hotel/other1.png'"
+                  alt="post img"
+                />
+              </div>
+              <!-- /.post-img -->
+              <div class="places__content">
+                <h6 class="places_sub">hotel in lahore</h6>
+                <h4 class="places__title">
+                  <a href="#">{{ location.hotel_name }}</a>
+                </h4>
+                <span class="fa fa-star review-checked"></span>
+                <span class="fa fa-star review-checked"></span>
+                <span class="fa fa-star review-checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="font-regular"> 190 reviews</span>
+                <!-- <a href="#" class="btn btn__secondary btn__link">
+                <span>More info</span><i class="icon-arrow-right"></i>
+              </a> -->
+              </div>
+              <!-- /.post-content -->
+            </div>
+          </div>
+        </ngx-slick-carousel>
+        <!-- /.carousel -->
+      </div>
+      <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.posts-carousel -->
+
+<!-- Category Filter-->
+<section class="browse-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <h2 class="heading__title">Browse hotel</h2>
+          <form class="browse-form">
+            <input
+              type="text"
+              class="search__input"
+              placeholder="Type Words Then Enter"
+            />
+            <button class="module__search-btn">
+              <i class="fa fa-search"></i>
+            </button>
+          </form>
+        </div>
+        <!-- /.col-lg-2 -->
+        <div class="col-sm-12 col-md-6 col-lg-6 btn-category">
+          <div class="col-md-12 p-0">
+            <h2 class="heading__title">Search by Category</h2>
+          </div>
+          <div class="browse-btn-1">
+            <span class="browse-btn category-btn"
+              ><a class="category-btn" href="#">All</a></span
+            >
+            <span *ngFor="let category of filter.categories" class="browse-btn"
+              ><a
+                *ngIf="category.categoryType === 'accomodation'"
+                class="category-btn"
+                target="_blank"
+                href="/accomodation/category/{{ category._id }}"
+                >{{ category.name }}</a
+              ></span
+            >
+          </div>
+          <!-- <div class="browse-btn-2">
+            <span class="browse-btn"><a href="#">mountain huts</a></span>
+            <span class="browse-btn"><a href="#">guest houses</a></span>
+            <span class="browse-btn"><a href="#">camping</a></span>
+          </div> -->
+        </div>
+        <!-- /.col-lg-2 -->
+      </div>
+    </div>
+  </div>
+</section>
+<ngx-smart-modal
+  [customClass]="'popupcurrency bottom m-0'"
+  #agoraCurrencyModal
+  identifier="agoraCurrencyModal"
+  escapable="true"
+>
+  <!--[customClass]="'popupcurrency'"-->
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-10 col-lg-8 p-2 visa-popup__main">
+      <div
+        class="col-md-12 form-group form-group-select currency-select"
+        (change)="setCountry($event)"
+      >
+        <select class="selectpicker" data-flag="true">
+          <option [disabled]="true">Select Country</option>
+          <!-- select country -->
+          <option
+            *ngFor="let item of currencyData"
+            [value]="item.name.currencyName"
+          >
+            {{ item.name.currencyName }}
+          </option>
+        </select>
+      </div>
+      <h5 *ngIf="convertedPriceToPKR" class="green-heading text-center">
+        <span class="smallh1">{{ currencySymbol }}</span>
+        {{ convertedPriceToPKR }}
+      </h5>
+    </div>
+  </div>
+</ngx-smart-modal>

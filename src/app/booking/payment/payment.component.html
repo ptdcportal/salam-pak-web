@@ -1,0 +1,114 @@
+<article class="paymentcard">
+  <div class="container">
+    <div class="paymentcard-title">
+      <h2>Payment</h2>
+    </div>
+    <div class="paymentcard-body">
+      <div class="payment-type">
+        <h4>Choose payment method below</h4>
+        <!-- <div class="types flexcard justify-space-between">
+          <a (click)="selectOption('price', 1)" style="display: contents;">
+            <div class="type" [ngClass]="{ 'selected': tab === 1 }">
+              <div class="logo">
+                <img src="creditcard.png">
+              </div>
+              <div class="text">
+                <p>Pay with Credit paymentcard</p>
+              </div>
+            </div>
+          </a>
+					<a (click)="selectOption('price', 2)" style="display: contents;">
+            <div class="type" [ngClass]="{ 'selected': tab === 2 }">
+              <div class="logo">
+                <img src="creditcard.png">
+              </div>
+              <div class="text">
+                <p>Pay with Credit paymentcard</p>
+              </div>
+            </div>
+          </a>
+          <a (click)="selectOption('price', 3)" style="display: contents;">
+            <div class="type" [ngClass]="{ 'selected': tab === 3 }">
+              <div class="logo">
+                <img src="creditcard.png">
+              </div>
+              <div class="text">
+                <p>Pay with Credit paymentcard</p>
+              </div>
+            </div>
+          </a>
+          <a (click)="selectOption('price', 4)" style="display: contents;">
+            <div class="type" [ngClass]="{ 'selected': tab === 4 }">
+              <div class="logo">
+                <img src="creditcard.png">
+              </div>
+              <div class="text">
+                <p>Pay with Credit paymentcard</p>
+              </div>
+            </div>
+          </a>
+          <a (click)="selectOption('price', 5)" style="display: contents;">
+            <div class="type" [ngClass]="{ 'selected': tab === 5 }">
+              <div class="logo">
+                <img src="creditcard.png">
+              </div>
+              <div class="text">
+                <p>Pay with Credit paymentcard</p>
+              </div>
+            </div>
+          </a>
+          <a (click)="selectOption('price', 6)" style="display: contents;">
+            <div class="type" [ngClass]="{ 'selected': tab === 6 }">
+              <div class="logo">
+                <img src="creditcard.png">
+              </div>
+              <div class="text">
+                <p>Pay with Credit paymentcard</p>
+              </div>
+            </div>
+          </a>
+          <a (click)="selectOption('price', 7)" style="display: contents;">
+            <div class="type" [ngClass]="{ 'selected': tab === 7 }">
+              <div class="logo">
+                <img src="creditcard.png">
+              </div>
+              <div class="text">
+                <p>Pay with Credit paymentcard</p>
+              </div>
+            </div>
+          </a>
+					
+				</div> -->
+        <div
+          *ngIf="paymentMethods"
+          class="types flexcard justify-space-between"
+        >
+          <a
+            *ngFor="let item of paymentMethods; let count = index"
+            (click)="selectOption(item, count)"
+            style="display: contents"
+          >
+            <div class="type" [ngClass]="{ selected: tab === count }">
+              <div class="logo">
+                <img src="{{ item.gateway_img }}" />
+              </div>
+              <div class="text">
+                <p>{{ item.title }}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div>
+          <button
+            (click)="placeBookingOrder()"
+            _ngcontent-kvk-c205=""
+            type="book"
+            class="btn btn__secondary mt-20"
+          >
+            confirm
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

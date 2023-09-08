@@ -1,0 +1,162 @@
+<!-- ==========================
+        contact 3
+    =========================== -->
+<section id="media" class="media">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
+        <div class="heading text-center mb-50">
+          <h2 class="heading__title">Media Gallery</h2>
+          <!-- <button (click)="displayData()">Click</button> -->
+        </div>
+        <!-- /.heading -->
+      </div>
+      <!-- /.col-lg-6 -->
+    </div>
+    <!-- /.row -->
+    <div class="masonry-wrapper masonry-style-2">
+      <div
+        *ngIf="!error"
+        class="masonry-container"
+        data-column-width=".col-md-4"
+      >
+        <div
+          *ngIf="media[0]"
+          class="masonry-item col-md-8 col-sm-6 col-xs-12 web"
+        >
+          <div class="masonry-image-item item-h-4 hover-zoom">
+            <a class="ajax-link">
+              <div class="item-image bg-image-holder" (click)="showCarousel(0)">
+                <img
+                  src="{{ media[0]?.thumbnail }}"
+                  alt=""
+                  style="border-radius: 30px; width: 100%"
+                />
+              </div>
+            </a>
+          </div>
+        </div>
+        <div
+          *ngIf="media[1]"
+          class="masonry-item col-md-4 col-sm-6 col-xs-12 web"
+        >
+          <div class="masonry-image-item item-h-4 hover-zoom">
+            <a class="ajax-link">
+              <div class="item-image bg-image-holder" (click)="showCarousel(1)">
+                <img
+                  src="{{ media[1]?.thumbnail }}"
+                  alt=""
+                  style="border-radius: 30px"
+                />
+              </div>
+            </a>
+          </div>
+        </div>
+        <div
+          *ngIf="media[2]"
+          class="masonry-item col-md-4 col-sm-6 col-xs-12 web pt-30"
+        >
+          <div class="masonry-image-item item-h-4 hover-zoom">
+            <a class="ajax-link">
+              <div class="item-image bg-image-holder" (click)="showCarousel(2)">
+                <img
+                  src="{{ media[2]?.thumbnail }}"
+                  alt=""
+                  style="border-radius: 30px"
+                />
+              </div>
+            </a>
+          </div>
+        </div>
+        <div
+          *ngIf="media[3]"
+          class="masonry-item col-md-4 col-sm-6 col-xs-12 web pt-30"
+        >
+          <div class="masonry-image-item item-h-4 hover-zoom">
+            <a class="ajax-link">
+              <div class="item-image bg-image-holder" (click)="showCarousel(3)">
+                <img
+                  src="{{ media[3]?.thumbnail }}"
+                  alt=""
+                  style="border-radius: 30px"
+                />
+              </div>
+            </a>
+          </div>
+        </div>
+        <div
+          *ngIf="media[4]"
+          class="masonry-item col-md-4 col-sm-6 col-xs-12 web pt-30"
+        >
+          <div class="masonry-image-item item-h-4 hover-zoom">
+            <a class="ajax-link">
+              <div class="item-image bg-image-holder" (click)="showCarousel(4)">
+                <img
+                  src="{{ media[4]?.thumbnail }}"
+                  alt=""
+                  style="border-radius: 30px"
+                />
+              </div>
+            </a>
+          </div>
+        </div>
+        <div
+          *ngIf="media[5]"
+          class="masonry-item col-md-4 col-sm-6 col-xs-12 web pt-30"
+        >
+          <div class="masonry-image-item item-h-4 hover-zoom">
+            <a class="ajax-link">
+              <div class="item-image bg-image-holder" (click)="showCarousel(5)">
+                <img
+                  src="{{ media[5]?.thumbnail }}"
+                  alt=""
+                  style="border-radius: 30px"
+                />
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <h5 *ngIf="error" class="text-center mx-auto">No Images to show!</h5>
+      <!-- .masonry-container end -->
+    </div>
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.contact 3 -->
+
+<ngx-smart-modal
+  #carouselModal
+  identifier="carouselModal"
+  escapable="true"
+  class="mt-5 scatter image__Slider"
+  (onClose)="hideCarousel()"
+  (onDismiss)="hideCarousel()"
+>
+  <div *ngIf="showImgs" class="imageViewer__container">
+    <carousel [isAnimated]="true">
+      <slide *ngFor="let img of localImageArray; let i = index">
+        <img
+          src="{{ img }}"
+          alt="first slide"
+          style="display: block; width: 100%"
+        />
+      </slide>
+      <!-- <slide>
+        <img src="{{ location.photos[1] }}" alt="second slide" style="display: block; width: 100%;">
+      </slide>
+      <slide>
+        <img src="{{ location.photos[2] }}" alt="third slide" style="display: block; width: 100%;">
+      </slide> -->
+    </carousel>
+    <!-- <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="imageSliderConfig">
+      <div ngxSlickItem *ngFor="let location of locations" class="post-item places-item carousel-cell pr-15">
+            <img
+              [src]="location.thumbnail"
+              onerror="this.onerror=null;this.src='assets/images/images/fall/fall1.jpg';"
+              alt="post img"
+            />
+      </div>
+    </ngx-slick-carousel> -->
+  </div>
+</ngx-smart-modal>

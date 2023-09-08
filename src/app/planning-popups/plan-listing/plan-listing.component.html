@@ -1,0 +1,109 @@
+<div class="row">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 p-5 login-popup__main">
+    <div class="visa-availabilty__popup p-5">
+      <h6 class="mb-3 text-left popup__heading">select a plan</h6>
+
+      <div class="plans__container mt-4 pb-3">
+        <div
+          *ngFor="let plan of userPlans"
+          class="col-10 col-md-10 col-lg-10 pointer"
+          (click)="selectedPlan(plan)"
+        >
+          <div
+            class="plan__box"
+            [ngClass]="{ ' active': selectedPlanId === plan._id }"
+          >
+            <h6 class="mb-2">{{ plan.name }}</h6>
+            <span
+              *ngFor="let location of plan.locations; let i = index"
+              class="plan__desc mt-3"
+            >
+              {{ location.name }}
+              {{ i < plan.locations.length - 1 ? ',' : '' }}</span
+            >
+            <div class="row text-center mt-4">
+              <div class="col-4 col-sm-4 col-md-4 col-lg-4">
+                <ul class="plan__properties">
+                  <li class="text-muted">duration</li>
+                  <li>{{ plan.duration }} days</li>
+                </ul>
+              </div>
+              <div class="col-4 col-sm-4 col-md-4 col-lg-4">
+                <ul class="plan__properties">
+                  <li class="text-muted">starts from</li>
+                  <li>
+                    {{
+                      plan.locations[0]?.length
+                        ? plan.locations[0]?.alias.slice(0, 8)
+                        : 'unavailable'
+                    }}
+                    {{ plan.locations[0]?.alias.length > 8 ? '...' : '' }}
+                  </li>
+                </ul>
+              </div>
+              <div class="col-4 col-sm-4 col-md-4 col-lg-4">
+                <ul class="plan__properties">
+                  <li class="text-muted">departure</li>
+                  <li *ngIf="plan.locations.length">
+                    {{ plan.locations[0]?.createdAt | date }}
+                  </li>
+                  <li *ngIf="!plan.locations.length">unavailable</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 
+        <div class="col-10 col-md-10 col-lg-10 pointer" (click)="selectedPlan(2)">
+          <div class="plan__box" [ngClass]="{ ' active': selectedPlanNo === 2 }">
+            <h6 class="mb-2">lahore to hunza</h6>
+            <p class="plan__desc">slamabad, hunza, khanjrab pass, fairy meadow and naltar</p>
+            <div class="row text-center">
+              <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                <ul class="plan__properties">
+                  <li class="text-muted">duration</li>
+                  <li>4 days</li>
+                </ul>
+              </div>
+              <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                <ul class="plan__properties">
+                  <li class="text-muted">starts from</li>
+                  <li>islamabad</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="col-10 col-md-10 col-lg-10 pointer" (click)="selectedPlan(3)">
+          <div class="plan__box" [ngClass]="{ ' active': selectedPlanNo === 3 }">
+            <h6 class="mb-2" [ngClass]="{ color: selectedPlanNo === 3 ? '#fff' : '' }">lahore to hunza</h6>
+            <p class="plan__desc">slamabad, hunza, khanjrab pass, fairy meadow and naltar</p>
+            <div class="row text-center">
+              <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                <ul class="plan__properties">
+                  <li class="text-muted">duration</li>
+                  <li>4 days</li>
+                </ul>
+              </div>
+              <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                <ul class="plan__properties">
+                  <li class="text-muted">starts from</li>
+                  <li>islamabad</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+      <button
+        type="button"
+        id="trainButton"
+        class="submit__button mt-3 text-center mx-auto"
+        (click)="openCreatePlanModal()"
+      >
+        add new plan
+      </button>
+    </div>
+  </div>
+</div>

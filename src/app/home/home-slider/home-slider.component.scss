@@ -1,0 +1,18 @@
+.slider-1 {
+  top: -120px;
+}
+.bg-overlay {
+  background-size: cover;
+}
+
+.bg-img {
+  object-fit: cover !important;
+  height: 100%;
+  width: 100% !important;
+}
+
+.bg-img > img {
+  object-fit: cover !important;
+  height: 100%;
+  width: 100% !important;
+}

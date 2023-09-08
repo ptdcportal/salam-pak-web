@@ -1,0 +1,75 @@
+<!-- ======================
+         banner 3
+    ========================= -->
+<section id="banner3" class="banner banner-3 pt-80 pb-80">
+  <div class="container">
+    <div class="col-sm-12 col-md-12 col-lg-12 background-banner bg-overlay">
+      <!-- <div class="">
+        <img
+          src="assets/images/home/video.webp"
+          onerror="this.onerror=null; this.src='assets/images/home/video.png'"
+          alt="background"
+        />
+      </div>-->
+      <div
+        *ngIf="playButton"
+        class="video__btn video__btn-white video__btn-right-center"
+      >
+        <span class="video__subtitle" [translate]="'HOMEVIDEOSUBTITLE'"></span>
+        <h2 class="video__title" [translate]="'HOMEVIDEOTITLE'"></h2>
+
+        <a class="popup-video">
+          <span class="video__player-animation"></span>
+          <span
+            class="video__player-animation video__player-animation-2"
+          ></span>
+          <div class="video__player">
+            <i class="fa fa-play"></i>
+          </div>
+        </a>
+      </div>
+      <div style="height: auto; width: 100%">
+        <video
+          #homeVideo
+          (click)="toggleVideo()"
+          (onLeave)="toggleVideo()"
+          width="100%"
+          height="auto"
+          poster="assets/images/home/video.png"
+          playsinline
+        >
+          <source src="assets/videos/SalamPakistan.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <!-- /.video -->
+    </div>
+    <!-- /.col-lg-6 -->
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.banner 3 -->
+
+<ngx-smart-modal
+  #videoModal
+  identifier="videoModal"
+  customClass="medium-modal"
+  class="visa-popup__main"
+>
+  <!-- <h1>Hey, I Rickrolled You!</h1> -->
+  <!-- <iframe
+    #rickroll
+    width="100%"
+    height="300px"
+    src="https://www.youtube.com/embed/fW2aPXT2-DE"
+    frameborder="0"
+    allowfullscreen
+  ></iframe> -->
+  <!-- <video 
+    class="home-video" 
+    
+    
+    autoplay 
+    loop>
+    <source src="assets/SalamPakistan.mp4" type="video/mp4" />
+  </video> -->
+</ngx-smart-modal>

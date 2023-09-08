@@ -1,0 +1,159 @@
+.bg-img {
+  margin-top: -120px;
+  background-color: #000000;
+  .header-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    opacity: 0.7 !important;
+  }
+}
+
+.slide__content {
+  position: absolute;
+  top: -300px;
+  z-index: 1;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  #trip-content {
+    margin-top: 0px !important;
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  #trip-content {
+    margin-left: 20px;
+  }
+}
+
+::ng-deep.login-popup__main {
+  @media (min-width: 768px) {
+    margin-top: 10em !important; /*2em !important*/
+    margin-right: unset !important; /*margin-right: auto !important;    */
+    margin-bottom: unset !important;
+    margin-left: 0px !important;
+    background-color: white;
+    max-width: unset !important;
+  }
+}
+
+.itinerary-day__label {
+  display: block;
+}
+
+////// Itinerary List Starts Here
+ul.trip-timeline {
+  li.trip-event {
+    span {
+      margin-left: -10px;
+      color: #8cc63e;
+      &.itinerary-time__label {
+        margin-bottom: 10px;
+      }
+    }
+    p {
+      // color: black;
+    }
+  }
+}
+//////  Itinerary List Ends Here
+
+@media screen and (max-width: 768px) {
+  .trip-body .col-md-5 {
+    background: #fafafa;
+    padding: 20px 0;
+    margin: 0px auto 25px;
+    border-radius: 10px;
+  }
+}
+
+.facilities-list h6 {
+  margin-bottom: -2px !important;
+}
+
+.visa-availabilty__popup {
+  border-radius: 10px;
+}
+
+.popup__heading {
+  color: #8cc63e;
+}
+
+.create-plan__checkIn {
+  height: 30px !important;
+  font-size: 12px !important;
+  padding: 0px 0px 0px 2px !important;
+}
+
+.plan__name {
+  height: 35px !important;
+  padding: 0px 0px 0px 10px !important;
+}
+
+.submit__button {
+  line-height: unset !important;
+  height: 35px !important;
+}
+
+.info__list {
+  display: flex !important;
+  color: #fff;
+  font-size: 2.4vh;
+  margin-bottom: 10px;
+  // font-family: inherit !important;
+}
+
+.info__list span {
+  font-family: sans-serif;
+}
+
+.info__list span:not(:nth-child(1)) {
+  padding-right: 10px !important;
+  padding-left: 10px !important;
+}
+
+.info__list span:nth-child(1) {
+  padding-right: 10px !important;
+}
+
+.info__list span:not(:nth-child(2)) {
+  border-right: 2px solid #8cc63e;
+}
+
+.contact-popup {
+  margin-top: 20rem;
+
+  .contact-main-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .contact-number__container {
+    margin-top: 2rem;
+  }
+
+  .fa-phone {
+    border: 1px solid #8cc63e;
+    border-radius: 3rem;
+    padding: 0.5rem;
+    background-color: #8cc63e;
+    font-size: 1.5rem;
+  }
+}
+
+.breadcrumb {
+  padding-bottom: 1rem;
+  li {
+    color: #fff;
+  }
+  .breadcrumb-item::before {
+    color: #fff;
+  }
+}
+
+.contactModal-body {
+  margin-top: 2rem;
+}

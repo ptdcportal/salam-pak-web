@@ -1,0 +1,62 @@
+<!-- ============================
+        Slider
+    ============================== -->
+<section
+  id="page-title"
+  class="page-title-layout4 text-center bg-overlay slider"
+>
+  <div class="bg-img">
+    <img class="header-image" [src]="blog.imagePath" alt="background" />
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-8 page">
+        <div class="slide__content">
+          <h2 class="slide__title blog-heading">{{ blog.title }}</h2>
+          <p class="slide__desc">
+            <span class="blogs-day"> 2 days / </span>
+            <span class="blogs-by"> by {{ blog.author }}/ </span>
+            <span class="blogs-duration"> 3 min read </span>
+          </p>
+        </div>
+        <!-- /.slide-content -->
+      </div>
+      <!-- /.col-lg-8 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.page-title -->
+
+<!--======-->
+<div class="container pt-80">
+  <div id="auther-sticky-anchor"></div>
+  <div class="container">
+    <div id="auther-sticky" class="col-md-2 blog-auther-info">
+      <p>Written by</p>
+      <!-- <img src="assets/images/blog/auther.png"> -->
+      <h3 class="blog-auther-name">{{ blog.author }}</h3>
+      <a href="#" class="auther-follow-btn">Follow now</a>
+    </div>
+    <div class="col-md-8 blog-body">
+      <p [innerHTML]="blog.featuredText"></p>
+      <!-- <img src="assets/images/blog/blog-body.png"> -->
+      <h3 class="blog-h3">About</h3>
+      <p [innerHTML]="blog.body"></p>
+      <!-- <ul class="blog-ul">
+                <li>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</li>
+                <li>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis.</li>
+                <li>Et harum quidem rerum facilis est et expedita distinctio. </li>
+            </ul>
+            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia
+                non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+                deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non
+                provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+                Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est
+                eligendi optio cumque.</p> -->
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>

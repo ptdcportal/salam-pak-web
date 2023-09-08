@@ -1,0 +1,21 @@
+.booking-home {
+  ul {
+    justify-content: space-evenly !important;
+  }
+}
+
+iframe {
+  width: 100% !important;
+  height: 600px;
+}
+
+.tab-content > div {
+  background: url("../../../assets/images/backgrounds/loading-buffering.gif")
+    center center no-repeat;
+}
+
+@media screen and (max-width: 767px) {
+  iframe {
+    height: 300px;
+  }
+}

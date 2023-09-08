@@ -1,0 +1,134 @@
+<!-- ======================
+       Request Quote
+    ========================= -->
+<div class="user-account pb-90">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-3 account-sidebar p-0">
+        <aside class="sidebar mb-30">
+          <div class="widget widget-categories">
+            <h5 class="widget__title">user account</h5>
+            <div class="widget-content">
+              <app-user-sidebar></app-user-sidebar>
+            </div>
+            <!-- /.widget-content -->
+          </div>
+          <!-- /.widget-categories -->
+        </aside>
+        <!-- /.sidebar -->
+      </div>
+      <!-- /.col-lg-4 -->
+      <div class="col-sm-12 col-md-12 col-lg-9 pl-80">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="user-account.html">user account</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">wishlist</li>
+          </ol>
+        </nav>
+        <div
+          *ngFor="let item of locations"
+          class="col-sm-12 col-md-12 col-lg-12 itinerary-list"
+        >
+          <div class="col-sm-12 col-md-12 col-lg-3 p-0">
+            <img
+              *ngIf="item.thumbnail"
+              src="{{ item?.thumbnail }}"
+              style="max-width: 90% !important"
+            />
+            <img
+              *ngIf="item.photo1"
+              src="{{ item?.photo1 }}"
+              style="max-width: 90% !important"
+            />
+            <img
+              *ngIf="!item.photo1 && !item.thumbnail"
+              src="../../../assets/images/images/spring1.png"
+            />
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-6 p-2 itinerary-list-detail">
+            <h6 *ngIf="item.description" class="itinerary-name mb-1">
+              {{
+                item.type == 'location'
+                  ? item.name
+                  : item.type == 'accommodation'
+                  ? item.hotelName
+                  : item.title
+              }}
+            </h6>
+            <!-- <h6 *ngIf="item.hotel_name" class="itinerary-name">{{ item?.hotel_name }}</h6> -->
+            <small class="d-block text-muted">{{ item.type }}</small>
+            <span class="stars align-listing">
+              <span
+                [ngStyle]="{ width: getRatingStars(item?.rating || 0) }"
+              ></span>
+            </span>
+
+            <span class="stars2" style="display: inline-table">
+              <span [ngStyle]="{ width: getRatingStars(5.0) }"></span>
+            </span>
+
+            <span class="font-regular">
+              ({{ item.reviews ? item.reviews : 0 }}) reviews</span
+            >
+            <p class="itinerary-place">
+              {{ item?.description.slice(0, 150) }}
+              {{ item.description.length > 150 ? '...' : '' }}
+            </p>
+          </div>
+          <div
+            class="col-sm-12 col-md-12 col-lg-3 wishlist-btn-action p-2 text-center"
+          >
+            <span *ngIf="item.type == 'location'"
+              ><a (click)="addToPlan(item)" class="wishlist-btn pointer"
+                >add plan</a
+              ></span
+            >
+            <span
+              ><a
+                class="wishlist-btn-del"
+                (click)="removeWishlist(item)"
+                style="cursor: pointer !important"
+                ><i class="fa fa-trash"></i></a
+            ></span>
+          </div>
+        </div>
+
+        <h2
+          *ngIf="!this.locations?.length"
+          class="text-center text-muted"
+          style="margin-top: 2em"
+        >
+          No wishlists...
+        </h2>
+        <!-- /.col-lg-12 -->
+        <!-- <div *ngFor="let item of locations" class="col-sm-12 col-md-12 col-lg-12 itinerary-list">
+              <div class="col-sm-12 col-md-12 col-lg-3 p-0">
+                <img src="{{item?.thumbnail}}" />
+              </div>
+              <div class="col-sm-12 col-md-12 col-lg-6 p-0 itinerary-list-detail">
+                <h6 class="itinerary-name">{{item?.description}}</h6>
+                <span class="fa fa-star review-checked"></span>
+                <span class="fa fa-star review-checked"></span>
+                <span class="fa fa-star review-checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="font-regular"> 190 reviews</span>
+                <p class="itinerary-detail">travelled via daewoo bus, hotel stay at ramada for three days</p>
+              </div>
+              <div class="col-sm-12 col-md-12 col-lg-3 wishlist-btn-action p-0">
+                <span><a href="#" class="wishlist-btn">add plan</a></span>
+                <span
+                  ><a href="#" class="wishlist-btn-del"><i class="fa fa-trash"></i></a
+                ></span>
+              </div>
+            </div>
+          </div>
+           /.row -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.Request Quote -->
+  </div>
+</div>

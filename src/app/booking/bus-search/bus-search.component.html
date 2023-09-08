@@ -1,0 +1,619 @@
+<!-- ============================
+        Slider
+    ============================== -->
+<section
+  id="page-title"
+  class="page-title page-title-layout4 text-center bg-overlay slider"
+>
+  <div class="bg-img">
+    <img src="assets/images/backgrounds/bus.png" alt="background" />
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-8 page">
+        <div class="slide__content">
+          <h4 class="slide__title">
+            {{ data.origin_city_name }} TO {{ data.destination_city_name }}
+          </h4>
+          <p class="slide__desc">Travel in Pakistan</p>
+        </div>
+        <!-- /.slide-content -->
+      </div>
+      <!-- /.col-lg-8 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.page-title -->
+<!-- Filter Bar-->
+
+<!--<div class="filter-bar">
+  <div class="container">
+    <div class="filter-dropdown">
+      <span>Filter:</span>
+      <div class="btn-group dropdown-filter">
+        <button type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img class="filter-btn-icon" src="assets/images/hotelicons/sofa.svg" />Hotel Type
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <label> <input type="checkbox" />Luxury Hotel </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" />
+            </label>
+          </li>
+          <li>
+            <label> <input type="checkbox" />E-Bill </label>
+          </li>
+        </ul>
+        <button
+          type="button"
+          class="btn-default dropdown-toggle"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <img class="filter-btn-icon" src="assets/images/hotelicons/favourite.svg" />Hotel Star
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <label> <input type="checkbox" />5 Star </label>
+          </li>
+          <li>
+            <label> <input type="checkbox" />4 Star </label>
+          </li>
+          <li>
+            <label> <input type="checkbox" />3 Star </label>
+          </li>
+        </ul>
+        <button
+          type="button"
+          class="btn-default dropdown-toggle"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <img class="filter-btn-icon" src="assets/images/hotelicons/thumbs.svg" />Hotle Rating
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <label> <input type="checkbox" />5 </label>
+          </li>
+          <li>
+            <label> <input type="checkbox" />4.5 - 5 </label>
+          </li>
+          <li>
+            <label> <input type="checkbox" />3.5 - 4.5 </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>-->
+<!-- Filter Bar-->
+<!--======-->
+<div class="container-fluid pt-80">
+  <div class="container">
+    <div class="col-md-3">
+      <div class="col-md-12 bus-sidebar2">
+        <h4 class="bus-sidebar-h4">Filter</h4>
+        <form
+          class="user-account-form booking-form-home"
+          [formGroup]="bookingBusForm"
+        >
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="typeahead-basic"
+                  name="origin_city_name"
+                  formControlName="origin_city_name"
+                  class="form-control"
+                  placeholder="Enter Location"
+                  [ngbTypeahead]="search"
+                  [resultTemplate]="busfrom"
+                />
+                <ng-template #busfrom let-r="result" let-t="term">
+                  <ngb-highlight [result]="r.site" [term]="t"></ngb-highlight>
+                  <p class="mb-0">{{ r }}</p>
+                </ng-template>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="typeahead-basic"
+                  name="destination_city_name"
+                  formControlName="destination_city_name"
+                  class="form-control"
+                  placeholder="Enter Location"
+                  [ngbTypeahead]="search"
+                  [resultTemplate]="busto"
+                />
+                <ng-template #busto let-r="result" let-t="term">
+                  <ngb-highlight [result]="r.site" [term]="t"></ngb-highlight>
+                  <p class="mb-0">{{ r }}</p>
+                </ng-template>
+              </div>
+            </div>
+            <!-- /.col-lg-2 -->
+            <div class="col-sm-12">
+              <div class="form-group">
+                <input
+                  type="date"
+                  min="{{ currentDate }}"
+                  formControlName="date"
+                  for
+                  class="form-control"
+                  placeholder="Please Select a date"
+                />
+              </div>
+              <small
+                [hidden]="
+                  bookingBusForm.controls.date.valid ||
+                  bookingBusForm.controls.date.untouched
+                "
+                class="text-danger"
+                translate
+              >
+                Please Select a date
+              </small>
+            </div>
+            <!-- /.col-lg-2 -->
+
+            <!-- /.col-lg-2 -->
+            <div class="col-md-12">
+              <button
+                (click)="searchLocation()"
+                type="submit"
+                class="btn btn__secondary"
+              >
+                Search
+              </button>
+            </div>
+            <!-- /.col-lg-12 -->
+          </div>
+        </form>
+      </div>
+      <div class="col-md-12 bus-sidebar1">
+        <h4 class="bus-sidebar-h4">Need Help?</h4>
+        <p>
+          We would be more than happy to help you. Our customer support team is
+          available 24/7, 365 days a year.
+        </p>
+        <h4 class="bus-sidebar-h4">Find Available Hotels and Flights?</h4>
+        <p>
+          To explore availability of hotels and flights. Please click on the
+          below button
+        </p>
+        <a
+          href="https://www.booking.com/"
+          target="_blank"
+          class="btn btn__secondary"
+          >Check Availability</a
+        >
+      </div>
+    </div>
+    <div class="col-md-9 bus-list">
+      <header>
+        <div id="bus-tabs">
+          <ul class="col-md-12 p-0">
+            <li class="col-md-3 p-0">
+              <a
+                id="bustab1-tab"
+                (click)="hotelFilterTab('price', 1)"
+                [ngClass]="{ ' active': tab === 1 }"
+                >Price</a
+              >
+            </li>
+            <li class="col-md-3 p-0">
+              <a
+                id="bustab2-tab"
+                (click)="hotelFilterTab('depratureTime', 2)"
+                [ngClass]="{ ' active': tab === 2 }"
+                >Departure Time</a
+              >
+            </li>
+
+            <!-- <li class="col-md-2 p-0"><a id="tab4-tab" href="#tab4"><img src="assets/images/icons/car.svg">rentals</a></li>
+						<li class="col-md-2 p-0"><a id="tab5-tab" href="#tab5"><img src="assets/images/icons/bus.svg">  Bus  </a></li> -->
+          </ul>
+          <span class="yellow-bar"></span>
+        </div>
+      </header>
+      <div class="tab-content">
+        <app-loader [isLoading]="isLoading"></app-loader>
+        <h3 *ngIf="!isLoading && !total" class="text-center pt-100">
+          no record found!
+        </h3>
+        <div id="bustab1">
+          <div
+            *ngFor="
+              let item of allEvents
+                | paginate
+                  : {
+                      itemsPerPage: pageSize,
+                      currentPage: skip,
+                      totalItems: total
+                    };
+              let count = index
+            "
+            class="col-md-12 bus-list-item p-0"
+          >
+            <div class="col-md-12 mp-0">
+              <div
+                class="col-4 col-md-2 bus-company-logo mp-0 float-left-mobile"
+              >
+                <div class="bus-logo" style="height: 70px; margin-top: -18px">
+                  <img
+                    style="height: 100px"
+                    src="{{ item.thumbnail }}"
+                    alt="company"
+                  />
+                </div>
+              </div>
+              <div class="col-8 col-md-7 float-right-mobile">
+                <div class="col-md-12 mp-0">
+                  <div class="bus-type col-md-4 mp-0">
+                    <p class="bus-type-text">{{ item.busName }}</p>
+                  </div>
+                  <div class="col-md-2 mp-0">
+                    <span class="stars align-listing">
+                      <span
+                        [ngStyle]="{ width: getRatingStars(item?.rating || 0) }"
+                      ></span>
+                    </span>
+                    <span class="stars2" style="display: inline-table">
+                      <span [ngStyle]="{ width: getRatingStars(5.0) }"></span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 mp-0">
+              <div class="col-md-2 bus-company-logo mp-0">
+                <div class="bus-book-powered-mt">
+                  <p>
+                    Powered by:
+                    <img
+                      class="bus-poweredby-logo"
+                      src="https://bookmepk.s3.eu-central-1.amazonaws.com/static/images/logo.png"
+                    />
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-7 bus-booking-detail mp-0">
+                <div class="col-md-12 mp-0">
+                  <div class="col-md-12 mp-0">
+                    <span class="bus-timing-h5">
+                      Time: <span class="green">{{ item.departureTime }}</span>
+                    </span>
+                    <span class="list-bus-seat-h6"
+                      >Seat Left: {{ item.availableSeats }}</span
+                    >
+                    <h5 class="list-bus-h5">
+                      {{ data.origin_city_name }} TO
+                      {{ data.destination_city_name }}
+                    </h5>
+                  </div>
+                </div>
+                <div class="col-md-12 hotel-amenities mp-0">
+                  <ul class="bus-amenities-list">
+                    <li
+                      *ngFor="let facility of item.facilities"
+                      class="bus-facilities-name"
+                    >
+                      <span
+                        ><img src="{{ facility.img }}" />
+                        <span class="bus-facilities-text"
+                          >{{ facility.name }}
+                        </span></span
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="col-md-12 col-sm-12 p-0 hotel-price-detail">
+                  <h6 class="list-hotel-price" style="cursor: pointer">
+                    <span style="text-transform: uppercase">pkr</span>
+                    <span *ngIf="item.discountedFare === item.originalFare">{{
+                      item.originalFare | number
+                    }}</span>
+                    <span *ngIf="item.discountedFare !== item.originalFare">
+                      <span
+                        style="
+                          text-decoration: line-through;
+                          text-decoration-color: red;
+                          text-decoration-thickness: 2px;
+                        "
+                        >{{ item.originalFare | number }}</span
+                      >
+                      <span> {{ item.discountedFare | number }}</span>
+                    </span>
+                  </h6>
+                  <div class="col-md-12 col-sm-12 p-0 bus-book-mt">
+                    <a
+                      (click)="openBusModal(item)"
+                      style="cursor: pointer"
+                      class="list-hotal-btn"
+                      >Book Now</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <div *ngIf="total > 10">
+                <pagination-controls
+                  class="my-pagination"
+                  (pageChange)="skip = $event"
+                  (click)="nextPage()"
+                ></pagination-controls>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ngx-smart-modal
+  [customClass]="
+    'popupBooking bottom m-0 nsm-dialog-animation-fade nsm-centered nsm-dialogue'
+  "
+  #busModalPopup
+  identifier="busModalPopup"
+  escapable="true"
+>
+  <!--[customClass]="'popupBusBooking'"-->
+  <div class="auth__modal">
+    <!-- this is the entire modal form, including the background -->
+
+    <div class="cd-user-modal-container">
+      <div class="row">
+        <div *ngIf="formFlag" class="col-12 p-2 bus-booking-popup">
+          <div id="bus">
+            <h3 class="bus-destination-h3">
+              {{ data.origin_city_name }} TO {{ data.destination_city_name }}
+            </h3>
+          </div>
+
+          <ul class="showcase">
+            <li>
+              <div class="seat"></div>
+              <small>N/A</small>
+            </li>
+            <li>
+              <div class="seat selected"></div>
+              <small>Selected</small>
+            </li>
+            <li>
+              <div class="seat occupied"></div>
+              <small>Occupied - Male</small>
+            </li>
+            <li>
+              <div class="seat occupied-female"></div>
+              <small>Occupied - Female</small>
+            </li>
+          </ul>
+          <div class="col-md-6">
+            <div class="bus-container">
+              <div class="bus-seat-container">
+                <div class="screen"></div>
+
+                <div
+                  *ngFor="let seat of totalSeats; let index = index"
+                  class="row"
+                >
+                  <div
+                    [class.occupied]="checkMaleOccupied(index * bustype + 1)"
+                    [class.occupied-female]="
+                      checkFemaleOccupied(index * bustype + 1)
+                    "
+                    class="seat bus"
+                    (click)="
+                      !(
+                        checkMaleOccupied(index * bustype + 1) ||
+                        checkFemaleOccupied(index * bustype + 1)
+                      ) && seatChange($event, index * bustype + 1)
+                    "
+                  >
+                    {{ index * bustype + 1 }}
+                  </div>
+                  <div
+                    *ngIf="bustype == 4"
+                    [class.occupied]="
+                      checkMaleOccupied(index * bustype + 1 + (bustype - 3))
+                    "
+                    [class.occupied-female]="
+                      checkFemaleOccupied(index * bustype + 1 + (bustype - 3))
+                    "
+                    class="seat bus"
+                    (click)="
+                      !(
+                        checkMaleOccupied(
+                          index * bustype + 1 + (bustype - 3)
+                        ) ||
+                        checkFemaleOccupied(index * bustype + 1 + (bustype - 3))
+                      ) &&
+                        seatChange($event, index * bustype + 1 + (bustype - 3))
+                    "
+                  >
+                    {{ index * bustype + 1 + (bustype - 3) }}
+                  </div>
+
+                  <div
+                    [class.occupied]="
+                      checkMaleOccupied(index * bustype + 1 + (bustype - 2))
+                    "
+                    [class.occupied-female]="
+                      checkFemaleOccupied(index * bustype + 1 + (bustype - 2))
+                    "
+                    class="seat bus"
+                    (click)="
+                      !(
+                        checkMaleOccupied(
+                          index * bustype + 1 + (bustype - 2)
+                        ) ||
+                        checkFemaleOccupied(index * bustype + 1 + (bustype - 2))
+                      ) &&
+                        seatChange($event, index * bustype + 1 + (bustype - 2))
+                    "
+                  >
+                    {{ index * bustype + 1 + (bustype - 2) }}
+                  </div>
+                  <div
+                    [class.occupied]="
+                      checkMaleOccupied(index * bustype + 1 + (bustype - 1))
+                    "
+                    [class.occupied-female]="
+                      checkFemaleOccupied(index * bustype + 1 + (bustype - 1))
+                    "
+                    class="seat bus"
+                    (click)="
+                      !(
+                        checkMaleOccupied(
+                          index * bustype + 1 + (bustype - 1)
+                        ) ||
+                        checkFemaleOccupied(index * bustype + 1 + (bustype - 1))
+                      ) &&
+                        seatChange($event, index * bustype + 1 + (bustype - 1))
+                    "
+                  >
+                    {{ index * bustype + 1 + (bustype - 1) }}
+                  </div>
+                </div>
+                <!--
+          <p class="text">
+            You have selected <span id="count">{{ selectedSeats.length }}</span> seats
+          </p>-->
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 bus-book-form">
+            <p class="text">
+              You have selected seat number:
+              <span id="count">{{ selectedSeats.toString() }}</span>
+            </p>
+            <h5 value="250">(Rs. {{ totalAmount | number }})</h5>
+            <form
+              novalidate=""
+              [formGroup]="busForm"
+              class="cd-form cd-form-bus ng-untouched ng-pristine ng-invalid"
+              ng-reflect-form="[object Object]"
+            >
+              <p class="fieldset mb-0">
+                <label class="image-replace">Name</label>
+                <input
+                  type="name"
+                  formControlName="name"
+                  class="form-control full-width has-padding has-border ng-pristine ng-invalid ng-touched"
+                  placeholder="Name "
+                />
+              </p>
+
+              <p class="fieldset mb-0">
+                <label class="image-replace">Phone No</label>
+                <input
+                  type="text"
+                  placeholder="Phone No"
+                  formControlName="phoneNo"
+                  class="form-control full-width has-padding has-border ng-untouched ng-pristine ng-invalid"
+                />
+              </p>
+              <p class="fieldset mb-0">
+                <label class="image-replace">Email Address</label>
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  formControlName="email"
+                  class="form-control full-width has-padding has-border ng-untouched ng-pristine ng-invalid"
+                />
+              </p>
+              <p class="fieldset mb-0">
+                <label class="image-replace">CNIC</label>
+                <input
+                  type="text"
+                  placeholder="CNIC"
+                  formControlName="cnic"
+                  class="form-control full-width has-padding has-border ng-untouched ng-pristine ng-invalid"
+                />
+              </p>
+              <button
+                (click)="bookBus(busItem)"
+                _ngcontent-kvk-c205=""
+                type="book"
+                class="btn btn__secondary mt-20"
+              >
+                Book Now
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div *ngIf="paymentFlag" class="col-12 p-2 bus-booking-popup">
+          <app-payment
+            [bookingId]="bookingId"
+            [user]="user"
+            [amount]="totalAmount"
+            (onSuccess)="onPaymentMethodSuccess($event)"
+          ></app-payment>
+        </div>
+
+        <div *ngIf="paymentSuccesFlag" class="col-12 p-50 bus-booking-popup">
+          <div id="paymentSuccess" class="pl-20">
+            <div *ngIf="bookingResponse && bookingResponse.redirect_url">
+              <iframe
+                [src]="bankURL(bookingResponse.redirect_url)"
+                height="500"
+                width="835"
+              >
+              </iframe>
+            </div>
+            <div *ngIf="bookingResponse && !bookingResponse.redirect_url">
+              <h3 class="payment-confrimation-h3">Payemnt Confirmed</h3>
+              <div>
+                <p>
+                  your token number is:
+                  <span class="payment-success-span">
+                    {{ bookingResponse && bookingResponse.token }}</span
+                  >
+                </p>
+              </div>
+              <div>
+                <p>
+                  payment method:
+                  <span class="payment-success-span">
+                    : {{ bookingResponse && bookingResponse.gateway }}</span
+                  >
+                </p>
+              </div>
+              <div>
+                <p>{{ bookingResponse && bookingResponse.message }}</p>
+              </div>
+              <div>
+                <p>
+                  expiry :
+                  <span class="payment-success-span">{{
+                    bookingResponse && bookingResponse.expiry
+                  }}</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ngx-smart-modal>

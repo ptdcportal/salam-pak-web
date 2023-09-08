@@ -1,0 +1,720 @@
+<!-- ============================
+        Slider
+    ============================== -->
+<section
+  id="page-title"
+  class="page-title page-title-layout4 text-center bg-overlay slider"
+>
+  <div class="bg-img">
+    <img src="assets/images/backgrounds/air.png" alt="background" />
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-8 page">
+        <div class="slide__content">
+          <h4 class="slide__title">Flight from {{ data.departureCityName }}</h4>
+          <p class="slide__desc">Travel in Pakistan</p>
+        </div>
+        <!-- /.slide-content -->
+      </div>
+      <!-- /.col-lg-8 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.page-title -->
+<!-- Filter Bar-->
+
+<div class="container-fluid pt-80">
+  <div class="container">
+    <div class="col-md-3">
+      <div class="col-md-12 flight-sidebar2">
+        <h4 class="flight-sidebar-h4">Filter</h4>
+        <form
+          class="user-account-form booking-form-home"
+          [formGroup]="bookingFlightForm"
+        >
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="typeahead-basic"
+                  name="departureCityName"
+                  formControlName="departureCityName"
+                  class="form-control"
+                  placeholder="Enter Departure"
+                  [ngbTypeahead]="search"
+                  [resultTemplate]="flightfrom"
+                />
+                <ng-template #flightfrom let-r="result" let-t="term">
+                  <ngb-highlight [result]="r.site" [term]="t"></ngb-highlight>
+                  <p class="mb-0">{{ r }}</p>
+                </ng-template>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="typeahead-basic"
+                  name="destinationCityName"
+                  formControlName="destinationCityName"
+                  class="form-control"
+                  placeholder="Enter Destination"
+                  [ngbTypeahead]="search"
+                  [resultTemplate]="flightto"
+                />
+                <ng-template #flightto let-r="result" let-t="term">
+                  <ngb-highlight [result]="r.site" [term]="t"></ngb-highlight>
+                  <p class="mb-0">{{ r }}</p>
+                </ng-template>
+              </div>
+            </div>
+            <!-- /.col-lg-2 -->
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <div class="form-group">
+                <input
+                  type="date"
+                  min="{{ currentDate }}"
+                  formControlName="dep_date"
+                  for
+                  class="form-control"
+                  placeholder="Select Departure"
+                />
+              </div>
+              <small
+                [hidden]="
+                  bookingFlightForm.controls.dep_date.valid ||
+                  bookingFlightForm.controls.dep_date.untouched
+                "
+                class="text-danger"
+                translate
+              >
+                Please Select a date
+              </small>
+            </div>
+            <!-- /.col-lg-2 -->
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <div class="form-group">
+                <input
+                  type="date"
+                  min="{{ bookingFlightForm.controls.dep_date.value }}"
+                  for
+                  formControlName="return_date"
+                  class="form-control"
+                  placeholder="Select Arrival"
+                />
+              </div>
+            </div>
+            <!-- /.col-lg-2 -->
+
+            <div class="col-sm-12 col-md-6 col-lg-12">
+              <div class="form-group">
+                <label>adults</label>
+                <div class="booking-count">
+                  <button
+                    [disabled]="
+                      bookingFlightForm.get('no_of_adults').value == 0
+                    "
+                    (click)="decrement(bookingFlightForm, 'no_of_adults')"
+                    class="minus"
+                  >
+                    -
+                  </button>
+                  <input
+                    [readonly]="true"
+                    formControlName="no_of_adults"
+                    class="form-control"
+                    type="text"
+                  />
+                  <button
+                    [disabled]="
+                      bookingFlightForm.get('no_of_adults').value == 5
+                    "
+                    (click)="increment(bookingFlightForm, 'no_of_adults')"
+                    class="plus"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-12">
+              <div class="form-group">
+                <label>child</label>
+                <div class="booking-count">
+                  <button
+                    [disabled]="
+                      bookingFlightForm.get('no_of_children').value == 0
+                    "
+                    (click)="decrement(bookingFlightForm, 'no_of_children')"
+                    class="minus"
+                  >
+                    -
+                  </button>
+                  <input
+                    [readonly]="true"
+                    formControlName="no_of_children"
+                    class="form-control"
+                    type="text"
+                  />
+                  <button
+                    [disabled]="
+                      bookingFlightForm.get('no_of_children').value == 5
+                    "
+                    (click)="increment(bookingFlightForm, 'no_of_children')"
+                    class="plus"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <div class="form-group">
+                <label>infants</label>
+                <div class="booking-count">
+                  <button
+                    [disabled]="
+                      bookingFlightForm.get('no_of_infants').value == 0
+                    "
+                    (click)="decrement(bookingFlightForm, 'no_of_infants')"
+                    class="minus"
+                  >
+                    -
+                  </button>
+                  <input
+                    [readonly]="true"
+                    formControlName="no_of_infants"
+                    class="form-control"
+                    type="text"
+                  />
+                  <button
+                    [disabled]="
+                      bookingFlightForm.get('no_of_infants').value == 5
+                    "
+                    (click)="increment(bookingFlightForm, 'no_of_infants')"
+                    class="plus"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- /.col-lg-2 -->
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <button
+                (click)="searchLocation()"
+                type="submit"
+                class="btn btn__secondary"
+              >
+                Search
+              </button>
+            </div>
+            <!-- /.col-lg-12 -->
+          </div>
+        </form>
+      </div>
+      <div class="col-md-12 flight-sidebar1">
+        <h4 class="flight-sidebar-h4">Need Help?</h4>
+        <p>
+          We would be more than happy to help you. Our customer support team is
+          available 24/7, 365 days a year.
+        </p>
+        <h4 class="flight-sidebar-h4">Find Available Hotels and Flights?</h4>
+        <p>
+          To explore availability of hotels and flights. Please click on the
+          below button
+        </p>
+        <a
+          href="https://www.booking.com/"
+          target="_blank"
+          class="btn btn__secondary"
+          >Check Availability</a
+        >
+      </div>
+    </div>
+    <div class="col-md-9 hotel-list">
+      <header>
+        <div id="flight-tabs">
+          <ul class="col-md-12 p-0">
+            <li class="col-md-1 p-0 sort-tab">Sort</li>
+            <li class="col-md-3 p-0">
+              <a
+                id="flighttab1-tab"
+                (click)="hotelFilterTab('price', 1)"
+                [ngClass]="{ ' active': tab === 1 }"
+                >price (highest)</a
+              >
+            </li>
+            <li class="col-md-3 p-0">
+              <a
+                id="flighttab2-tab"
+                (click)="hotelFilterTab('-price', 2)"
+                [ngClass]="{ ' active': tab === 2 }"
+                >price (lowest)</a
+              >
+            </li>
+            <li class="col-md-2 p-0">
+              <a
+                id="flighttab3-tab"
+                (click)="hotelFilterTab('rating', 3)"
+                [ngClass]="{ ' active': tab === 3 }"
+                >best reviewed</a
+              >
+            </li>
+
+            <!-- <li class="col-md-2 p-0"><a id="tab4-tab" href="#tab4"><img src="assets/images/icons/car.svg">rentals</a></li>
+						<li class="col-md-2 p-0"><a id="tab5-tab" href="#tab5"><img src="assets/images/icons/bus.svg">  Bus  </a></li> -->
+          </ul>
+          <span class="yellow-bar"></span>
+        </div>
+      </header>
+      <div class="tab-content">
+        <app-loader [isLoading]="isLoading"></app-loader>
+        <h3 *ngIf="!isLoading && !total" class="text-center pt-100">
+          no record found!
+        </h3>
+        <div id="flighttab1">
+          <div
+            *ngFor="
+              let item of allEvents
+                | paginate
+                  : {
+                      itemsPerPage: pageSize,
+                      currentPage: skip,
+                      totalItems: total
+                    };
+              let count = index
+            "
+            class="col-md-12 flight-list-item p-0"
+          >
+            <div class="col-md-3 bus-company-logo">
+              <div class="bus-logo" style="height: 70px">
+                <img
+                  style="height: 100px"
+                  src="{{ item.outboundRoute[0].airline_logo }}"
+                  alt="company"
+                />
+              </div>
+            </div>
+            <div class="col-md-9">
+              <div class="col-md-6">
+                <h6 class="flight-departure-h5">
+                  {{ item.outboundRoute[0].airline }}
+                </h6>
+              </div>
+              <div class="col-md-6 flight-powered-by">
+                <p>
+                  Powered by:
+                  <img
+                    class="flight-poweredby-logo"
+                    src="{{
+                      item.source === 'bookMe'
+                        ? 'https://bookmepk.s3.eu-central-1.amazonaws.com/static/images/logo.png'
+                        : ''
+                    }}"
+                  />
+                </p>
+              </div>
+            </div>
+            <div class="col-md-12 mt-30">
+              <div class="col-md-9 flight-timing-div">
+                <div
+                  class="col-md-12 p-0"
+                  *ngIf="
+                    item.direction === 'one_way' || item.direction === 'return'
+                  "
+                >
+                  <div class="col-md-4 p-0">
+                    <h6 class="flight-departure-h5">
+                      departure - {{ item.outboundRoute[0].from }}
+                    </h6>
+                    <p class="fight-date">
+                      {{ item.outboundRoute[0].depart | date: 'EEE, dd-MMM-y' }}
+                    </p>
+                    <p class="green flight-time">
+                      {{ item.outboundRoute[0].depart | date: 'h:mm a' }}
+                    </p>
+                  </div>
+                  <div class="col-md-4 mobile-p-0 mobile-mt-20">
+                    <h6 class="flight-landing-h5">
+                      landing - {{ item.outboundRoute[0].to }}
+                    </h6>
+                    <p class="fight-date">
+                      {{
+                        item.outboundRoute[0].arrival | date: 'EEE, dd-MMM-y'
+                      }}
+                    </p>
+                    <p class="green flight-time">
+                      {{ item.outboundRoute[0].arrival | date: 'h:mm a' }}
+                    </p>
+                  </div>
+                  <div class="col-md-4 mobile-p-0 mobile-mt-20">
+                    <h6 class="flight-time-h5">total time</h6>
+                    <p class="green flight-time">
+                      {{ item.outboundRoute[0].travel_time_readable }}
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="col-md-12 mt-30 p-0"
+                  *ngIf="item.direction === 'return'"
+                >
+                  <div class="col-md-4 p-0">
+                    <h6 class="flight-departure-h5">
+                      departure - {{ item.inboundRoute[0].from }}
+                    </h6>
+                    <p class="fight-date">
+                      {{ item.inboundRoute[0].depart | date: 'EEE, dd-MMM-y' }}
+                    </p>
+                    <p class="green flight-time">
+                      {{ item.outboundRoute[0].depart | date: 'h:mm a' }}
+                    </p>
+                  </div>
+                  <div class="col-md-4 mobile-p-0 mobile-mt-20">
+                    <h6 class="flight-landing-h5">
+                      landing - {{ item.inboundRoute[0].to }}
+                    </h6>
+                    <p class="fight-date">
+                      {{ item.inboundRoute[0].arrival | date: 'EEE, dd-MMM-y' }}
+                    </p>
+                    <p class="green flight-time">
+                      {{ item.inboundRoute[0].arrival | date: 'h:mm a' }}
+                    </p>
+                  </div>
+                  <div class="col-md-4 mobile-p-0 mobile-mt-20">
+                    <h6 class="flight-time-h5">total time</h6>
+                    <p class="green flight-time">
+                      {{ item.inboundRoute[0].travel_time_readable }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <h6 class="margin-0">
+                  {{
+                    1 * data.no_of_adults +
+                      1 * data.no_of_children +
+                      1 * data.no_of_infants
+                  }}
+                  passenger(s)
+                </h6>
+                <p class="margin-0">
+                  (
+                  <label
+                    class="margin-0 passenger-flight"
+                    *ngIf="1 * data.no_of_adults"
+                    >{{ data.no_of_adults }} adult(s)</label
+                  >
+                  <label
+                    class="margin-0 passenger-flight"
+                    *ngIf="1 * data.no_of_children"
+                    >, {{ data.no_of_children }}
+                    {{
+                      1 * data.no_of_children > 1 ? 'children' : 'child'
+                    }}</label
+                  >
+                  <label
+                    class="margin-0 passenger-flight"
+                    *ngIf="1 * data.no_of_infants"
+                    >, {{ data.no_of_infants }} infant(s)</label
+                  >
+                  )
+                </p>
+                <h5 class="flight-price-h5 green">
+                  PKR {{ item.approxTotalPrice | number }}
+                </h5>
+                <div class="col-md-12 flight-bookingdetails p-0">
+                  <div class="col-md-12 col-sm-12 p-0">
+                    <a
+                      (click)="openFlightModal(item)"
+                      class="list-hotal-btn"
+                      target="_blank"
+                      >Book Now</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <div *ngIf="total > 10">
+                <pagination-controls
+                  class="my-pagination"
+                  (pageChange)="skip = $event"
+                  (click)="nextPage()"
+                ></pagination-controls>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ngx-smart-modal
+  [customClass]="
+    'popupBooking bottom m-0 nsm-dialog-animation-fade nsm-centered nsm-dialogue'
+  "
+  #flightModalPopup
+  identifier="flightModalPopup"
+  escapable="true"
+>
+  <!--[customClass]="'popupBusBooking'"-->
+  <div class="auth__modal">
+    <!-- this is the entire modal form, including the background -->
+
+    <div class="cd-user-modal-container">
+      <div class="row">
+        <div *ngIf="formFlag" class="col-12 p-2 bus-booking-popup">
+          <div id="flight-popup">
+            <div class="col-md-4 flight-popup-left">
+              <img
+                style="height: 130px"
+                src="https://bookmepk.s3.eu-central-1.amazonaws.com/static/images/airlines/PA.svg"
+              />
+              <div class="col-md-12 p-0">
+                <h6 class="flight-departure-h5">
+                  departure -
+                  {{ flightItem && flightItem.outboundRoute[0].from }}
+                </h6>
+                <p class="fight-date">
+                  {{
+                    flightItem && flightItem.outboundRoute[0].depart
+                      | date: 'EEE, dd-MMM-y'
+                  }}
+                </p>
+                <p class="green flight-time">
+                  {{
+                    flightItem && flightItem.outboundRoute[0].depart
+                      | date: 'h:mm a'
+                  }}
+                </p>
+              </div>
+
+              <div class="col-md-12 p-0 mt-30">
+                <h6 class="flight-departure-h5">
+                  landing - {{ flightItem && flightItem.outboundRoute[0].to }}
+                </h6>
+                <p class="fight-date">
+                  {{
+                    flightItem && flightItem.outboundRoute[0].arrival
+                      | date: 'EEE, dd-MMM-y'
+                  }}
+                </p>
+                <p class="green flight-time">
+                  {{
+                    flightItem && flightItem.outboundRoute[0].arrival
+                      | date: 'h:mm a'
+                  }}
+                </p>
+              </div>
+
+              <div class="col-md-12 p-0 mt-30">
+                <h6 class="flight-departure-h5">total time</h6>
+                <p class="green flight-time">
+                  {{
+                    flightItem &&
+                      flightItem.outboundRoute[0].travel_time_readable
+                  }}
+                </p>
+              </div>
+              <div class="col-md-12 p-0 mt-40 mb-40">
+                <p class="flight-time">
+                  {{
+                    1 * data.no_of_adults +
+                      1 * data.no_of_children +
+                      1 * data.no_of_infants
+                  }}
+                  passenger(s) (
+                  <label
+                    class="margin-0 passenger-flight"
+                    *ngIf="1 * data.no_of_adults"
+                    >{{ data.no_of_adults }} adult(s)</label
+                  >
+                  <label
+                    class="margin-0 passenger-flight"
+                    *ngIf="1 * data.no_of_children"
+                    >, {{ data.no_of_children }}
+                    {{
+                      1 * data.no_of_children > 1 ? 'children' : 'child'
+                    }}</label
+                  >
+                  <label
+                    class="margin-0 passenger-flight"
+                    *ngIf="1 * data.no_of_infants"
+                    >, {{ data.no_of_infants }} infant(s)</label
+                  >
+                  )
+                </p>
+                <h6 class="flight-departure-h5 green">
+                  pkr {{ flightItem && flightItem.approxTotalPrice | number }}
+                </h6>
+              </div>
+            </div>
+            <div class="col-md-8 mt-40">
+              <div class="col-md-6 flight-powered-by">
+                <p>
+                  Powered by:
+                  <img
+                    class="flight-poweredby-logo"
+                    src="https://bookmepk.s3.eu-central-1.amazonaws.com/static/images/logo.png"
+                  />
+                </p>
+              </div>
+              <h6 class="flight-departure-h5 green">
+                Passenger(s) Personal Information
+              </h6>
+              <p>
+                Your booking details will be sent to this email address and
+                mobile number.
+              </p>
+              <form
+                novalidate=""
+                [formGroup]="flightFrom"
+                class="cd-form cd-form-bus ng-untouched ng-pristine ng-invalid"
+                ng-reflect-form="[object Object]"
+              >
+                <p class="col-md-2 fieldset mb-0 mt-0 p-0">
+                  <label>gender</label>
+                  <select
+                    formControlName="srName"
+                    class="form-control select-field mobile100"
+                  >
+                    <option value="mr">Mr</option>
+                    <option value="mrs">Mrs</option>
+                  </select>
+                </p>
+
+                <p class="col-md-5 fieldset mb-0 mt-0 mobile-p-0">
+                  <label>first Name</label>
+                  <input
+                    type="name"
+                    formControlName="firstName"
+                    class="form-control full-width has-padding has-border ng-pristine ng-invalid ng-touched"
+                    placeholder="Name "
+                  />
+                </p>
+
+                <p class="col-md-5 fieldset mb-0 mt-0 mobile-p-0">
+                  <label>last name</label>
+                  <input
+                    type="text"
+                    placeholder="Last Name"
+                    formControlName="lastName"
+                    class="form-control full-width has-padding has-border ng-untouched ng-pristine ng-invalid"
+                  />
+                </p>
+                <p class="col-md-6 fieldset mb-0 p-0">
+                  <label>Email Address</label>
+                  <input
+                    type="email"
+                    placeholder="Email Address"
+                    formControlName="email"
+                    class="form-control full-width has-padding has-border ng-untouched ng-pristine ng-invalid"
+                  />
+                </p>
+                <p class="col-md-6 fieldset mb-0 mobile-p-0">
+                  <label>CNIC</label>
+                  <input
+                    type="text"
+                    placeholder="CNIC"
+                    formControlName="cnic"
+                    class="form-control full-width has-padding has-border ng-untouched ng-pristine ng-invalid"
+                  />
+                </p>
+                <p class="col-md-6 fieldset mb-0 p-0">
+                  <label>country</label>
+                  <select
+                    formControlName="country"
+                    class="form-control w-100 select-field"
+                  >
+                    <option value="paksitan">Pakistan</option>
+                    <option value="india">India</option>
+                  </select>
+                </p>
+                <p class="col-md-6 fieldset mb-0 mobile-p-0">
+                  <label>Phone number</label>
+                  <input
+                    type="text"
+                    placeholder="Phone No"
+                    formControlName="phoneNo"
+                    class="form-control full-width has-padding has-border ng-untouched ng-pristine ng-invalid"
+                  />
+                </p>
+                <button
+                  (click)="bookFlight(flightItem)"
+                  _ngcontent-kvk-c205=""
+                  type="book"
+                  class="form-control btn btn__secondary mt-20"
+                >
+                  Book Now
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="paymentFlag" class="col-12 p-2 bus-booking-popup">
+          <app-payment
+            [bookingId]="bookingId"
+            [user]="user"
+            [amount]="flightItem && flightItem.approxTotalPrice"
+            (onSuccess)="onPaymentMethodSuccess($event)"
+          ></app-payment>
+        </div>
+
+        <div *ngIf="paymentSuccesFlag" class="col-12 p-50 bus-booking-popup">
+          <div id="paymentSuccess" class="pl-20">
+            <div *ngIf="bookingResponse && bookingResponse.redirect_url">
+              <iframe
+                [src]="bankURL(bookingResponse.redirect_url)"
+                height="500"
+                width="835"
+              >
+              </iframe>
+            </div>
+            <div *ngIf="bookingResponse && !bookingResponse.redirect_url">
+              <h3 class="payment-confrimation-h3">Payemnt Confirmed</h3>
+              <div>
+                <p>
+                  your token number is:
+                  <span class="payment-success-span">
+                    {{ bookingResponse && bookingResponse.token }}</span
+                  >
+                </p>
+              </div>
+              <div>
+                <p>
+                  payment method:
+                  <span class="payment-success-span">
+                    : {{ bookingResponse && bookingResponse.gateway }}</span
+                  >
+                </p>
+              </div>
+              <div>
+                <p>{{ bookingResponse && bookingResponse.message }}</p>
+              </div>
+              <div>
+                <p>
+                  expiry :
+                  <span class="payment-success-span">{{
+                    bookingResponse && bookingResponse.expiry
+                  }}</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ngx-smart-modal>

@@ -1,0 +1,83 @@
+<!-- ======================
+           posts Carousel
+      ========================= -->
+<div id="postsCarousel" class="posts-carousel pt30 pb-80">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <span class="heading__subtitle" [translate]="'BLOGSSUBTITLE'"
+          >Intimate Insights</span
+        >
+        <h2 class="heading__title" [translate]="'BLOGSHEADING'">expert tips</h2>
+      </div>
+      <div class="col-md-4 show-all-btn">
+        <a href="{{ blogUrl }}"
+          >show all
+          <img
+            class="iconArrowRightTop"
+            src="assets/images/icons/left-arrow-green.svg"
+          />
+          <!-- <i class="icon-arrow-right"></i> -->
+        </a>
+        <!--target="_blank"-->
+      </div>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+      <div
+        class="col-sm-12 col-md-12 col-lg-12"
+        style="padding-left: 50px; padding-right: 50px"
+      >
+        <ngx-slick-carousel
+          class=""
+          #slickModal="slick-carousel"
+          [config]="slideConfig"
+        >
+          <div
+            ngxSlickItem
+            *ngFor="let blog of blogs; let i = index"
+            class="post-item pr-15"
+          >
+            <div class="post__img">
+              <img
+                [src]="blog.img_urls.full[0] || 'assets/images/home/fall1.webp'"
+                alt="post img"
+                onerror="this.onerror=null;this.src='assets/images/home/fall1.webp';"
+              />
+            </div>
+
+            <!-- /.post-img -->
+            <div class="post__content">
+              <h4 class="post__title">
+                <a [href]="blog.link" class="stretched-link">{{
+                  blog.title.rendered
+                }}</a>
+                <!--target="_blank"-->
+              </h4>
+              <p class="post__desc">
+                {{ blog.featuredTextMobile }}
+              </p>
+              <a
+                [href]="blog.link"
+                class="btn btn__secondary btn__link stretched-link"
+              >
+                <span>Read More</span>
+                <img
+                  class="iconArrowRight"
+                  src="assets/images/icons/left-arrow-green.svg"
+                />
+                <!-- <i class="iconArrowRight"></i> class="icon-arrow-right" -->
+              </a>
+            </div>
+            <!-- /.post-content -->
+          </div>
+        </ngx-slick-carousel>
+        <!-- /.post-item -->
+      </div>
+      <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</div>
+<!-- /.posts-carousel -->

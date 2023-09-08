@@ -1,0 +1,241 @@
+<!-- ============================
+        Slider
+    ============================== -->
+<section
+  id="page-title"
+  class="page-title page-title-layout4 text-center bg-overlay slider"
+>
+  <div class="bg-img">
+    <img src="assets/images/backgrounds/planning.png" alt="background" />
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-8 page">
+        <div class="slide__content">
+          <h2 class="slide__title">planning</h2>
+          <p class="slide__desc">plan your tour</p>
+        </div>
+        <!-- /.slide-content -->
+      </div>
+      <!-- /.col-lg-8 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.page-title -->
+
+<!--======-->
+<div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h2 class="heading__title">your plan details</h2>
+        <h6 class="mb-3">
+          {{ planningForm.get('duration').value }}
+          {{
+            planningForm.get('duration').value > 1 ? 'days plan' : 'day plan'
+          }}
+        </h6>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 row">
+        <div class="planning">
+          <form [formGroup]="dateForm">
+            <div class="col-sm-12 col-md-4 col-lg-4">
+              <div class="form-group">
+                <label>From</label>
+                <input
+                  type="date"
+                  min="{{ minDateFrom }}"
+                  class="form-control startDate"
+                  formControlName="fromDate"
+                  placeholder="starting date"
+                />
+              </div>
+              <small
+                [hidden]="fromDate.valid || fromDate.untouched"
+                class="text-danger"
+                translate
+              >
+                Please Select From date
+              </small>
+            </div>
+            <!-- /.col-lg-2 -->
+            <div class="col-sm-12 col-md-4 col-lg-4">
+              <div class="form-group">
+                <label>To</label>
+                <input
+                  type="date"
+                  class="form-control endDate"
+                  min="{{ minDateFrom }}"
+                  formControlName="toDate"
+                  placeholder="ending date"
+                />
+              </div>
+              <small
+                [hidden]="toDate.valid || toDate.untouched"
+                class="text-danger"
+                translate
+              >
+                Please Select To date
+              </small>
+            </div>
+            <!-- <div class="col-sm-12 col-md-3 col-lg-3">
+              <button
+                class="btn btn__secondary"
+                id="plan-show"
+                (click)="showPlanBody()"
+                [disabled]="planningForm.invalid"
+              >
+                proceed
+              </button>
+              [disabled]="planningForm.invalid"
+            </div> -->
+          </form>
+
+          <!-- /.col-lg-12 -->
+        </div>
+
+        <div id="planning-content mb-5">
+          <h5 class="plan-dep">Locations:</h5>
+
+          <div *ngIf="!planItems.length" class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center p-5">
+              <h2 class="text-muted ml-5">no items in plan!</h2>
+            </div>
+          </div>
+
+          <bs-sortable
+            [(ngModel)]="planItems"
+            (ngModelChange)="dataChanged($event)"
+            [itemTemplate]="itemTemplate"
+            itemClass="sortable-item"
+            itemActiveClass="sortable-item-active"
+            placeholderItem=""
+            placeholderClass="placeholderStyle"
+            wrapperClass="sortable-wrapper"
+          >
+          </bs-sortable>
+
+          <!-- <p>{{ planInfo | json }}</p> -->
+
+          <ng-template #itemTemplate let-item="item" let-index="index">
+            <ul
+              id="sortable"
+              class="timeline"
+              [ngClass]="{ firsElement: index == 0 }"
+            >
+              <li class="event">
+                <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+                <span
+                  class="float-right plan-delete"
+                  (click)="removeItem(item.value)"
+                  ><i class="fa fa-trash"></i
+                ></span>
+                <h3>
+                  {{ item.value.name }}
+                  <span class="plan-booking-details">
+                    {{ item.value.name }}
+                    Hotel Booked at
+                    <span class="hotel-plan">Sarena Hotel</span>
+                    from
+                    <span
+                      class="mt-3 distanceBox"
+                      [ngClass]="{
+                        'd-block': item.value.calculatedDistance,
+                        'd-none': !item.value.calculatedDistance
+                      }"
+                      >{{ item.value.calculatedDistance }}</span
+                    >
+                    <!-- <span class="hotel-plan-date">{{item.value.dateTo}} to {{item.value.dateFrom}}</span> -->
+                  </span>
+                </h3>
+              </li>
+            </ul>
+            <a
+              [ngClass]="{ lastElement: index === planItems.length - 1 }"
+              [routerLink]="['/where-to-go']"
+            ></a>
+            <!-- <b class="calculated-distance">{{ item.value.calculatedDistance }}</b> -->
+          </ng-template>
+
+          <!-- <h5 class="plan-arrive">arrival</h5> -->
+
+          <!-- <hr />
+
+          <h5 class="plan-dep">Trips:</h5>
+          <bs-sortable
+            [(ngModel)]="userPlanItems"
+            [itemTemplate]="planTemplate"
+            itemClass="sortable-item"
+            itemActiveClass="sortable-item-active"
+            placeholderItem="Drag here"
+            placeholderClass="placeholderStyle"
+            wrapperClass="sortable-wrapper"
+          >
+          </bs-sortable> -->
+
+          <!-- <p>{{ planInfo | json }}</p> -->
+
+          <ng-template #planTemplate let-item="item" let-index="index">
+            <ul id="sortable" class="timeline">
+              <li class="event">
+                <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+                <h3>
+                  {{ item.value.title }}
+                  <span class="plan-booking-details">
+                    <!-- {{item.value.name}}  -->
+                    Hotel Booked at
+                    <span class="hotel-plan">Sarena Hotel</span>
+                    from
+                    <span class="hotel-plan-date">20 sep to 22 sep</span>
+                    <!-- <span class="hotel-plan-date">{{item.value.dateTo}} to {{item.value.dateFrom}}</span> -->
+                  </span>
+                </h3>
+              </li>
+            </ul>
+            <b class="calculated-distance">{{
+              item.value.calculatedDistance
+            }}</b>
+          </ng-template>
+
+          <!-- <h5 class="plan-arrive">arrival</h5> -->
+        </div>
+
+        <div *ngIf="locMarkers.length" class="row mx-auto mt-5">
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3">
+            <button
+              class="btn btn__secondary"
+              id="plan-show"
+              (click)="savePlan()"
+              [disabled]="enableSaveButton"
+            >
+              Save plan
+            </button>
+          </div>
+          <!-- 
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 text-center mb-3">
+          <a [routerLink]="['/where-to-go']">
+            <button class="btn btn__secondary" id="plan-show">Add more locations</button>
+          </a>
+        </div> -->
+        </div>
+      </div>
+      <div *ngIf="locMarkers.length" class="col-md-6 planning-map">
+        <agm-map
+          [zoom]="7"
+          [latitude]="locMarkers[0].location?.coordinates[1]"
+          [longitude]="locMarkers[0].location?.coordinates[0]"
+        >
+          <agm-marker
+            *ngFor="let item of locMarkers"
+            [latitude]="item?.location?.coordinates[1]"
+            [longitude]="item?.location?.coordinates[0]"
+          ></agm-marker>
+        </agm-map>
+      </div>
+    </div>
+  </div>
+</div>

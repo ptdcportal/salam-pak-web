@@ -1,0 +1,101 @@
+<!-- ========================
+        Booking Details
+    =========================== -->
+<div id="bookingSectionTab" style="padding-top: 80px"></div>
+<section id="bookingtabs" class="booking-home p-0">
+  <!--pt-80-->
+  <div class="container">
+    <div class="col-md-12">
+      <!-- <span class="heading__subtitle" [translate]="'BOOKINGANDRESERVATION'"></span>
+          <h2 class="heading__title" [translate]="'BOOKINGDETAILS'">booking details</h2> -->
+    </div>
+    <header>
+      <div id="booking-tabs">
+        <ul class="col-md-12 p-0">
+          <li class="col-md-2 p-0 pointer">
+            <a
+              (click)="tab = 1"
+              id="tab1-tab"
+              rel="#tab1"
+              [translate]="'BOOKINGOPTION1'"
+              [ngClass]="{ ' active': tab === 1 }"
+              ><img src="" />islamabad</a
+            >
+          </li>
+          <li class="col-md-2 p-0 pointer">
+            <a
+              (click)="tab = 2"
+              id="tab2-tab"
+              rel="#tab2"
+              [translate]="'BOOKINGOPTION2'"
+              [ngClass]="{ ' active': tab === 2 }"
+              ><img src="" />Pakistan</a
+            >
+          </li>
+          <li class="col-md-2 p-0 pointer">
+            <a
+              (click)="tab = 3"
+              id="tab3-tab"
+              rel="#tab3"
+              [translate]="'BOOKINGOPTION5'"
+              [ngClass]="{ ' active': tab === 3 }"
+              ><img src="" />Gandhara</a
+            >
+          </li>
+          <li class="col-md-2 p-0 pointer">
+            <a
+              (click)="tab = 4"
+              id="tab4-tab"
+              rel="#tab4"
+              [translate]="'BOOKINGOPTION3'"
+              [ngClass]="{ ' active': tab === 4 }"
+              ><img src="" />Gurdwara</a
+            >
+          </li>
+        </ul>
+        <span class="yellow-bar"></span>
+      </div>
+    </header>
+    <div class="col-12 col-md-12">
+      <div class="tab-content">
+        <div
+          *ngIf="tab === 1"
+          id="tab1"
+          class="frame-one"
+          [ngClass]="{ ' active': tab === 1 }"
+        >
+          <iframe
+            src="https://interactivegrp.com/salam/islamabad"
+            title="Islamabad 3d map"
+          >
+          </iframe>
+        </div>
+
+        <div *ngIf="tab === 2" id="tab2" [ngClass]="{ active: tab === 2 }">
+          <iframe
+            src=" https://interactivegrp.com/salam/pakistan"
+            title="pakistan 3d map"
+          >
+          </iframe>
+        </div>
+
+        <div *ngIf="tab === 3" id="tab3" [ngClass]="{ active: tab === 3 }">
+          <iframe
+            src="https://interactivegrp.com/salam/gandhara"
+            title="gandhara 3d map"
+          >
+          </iframe>
+        </div>
+
+        <div *ngIf="tab === 4" id="tab4" [ngClass]="{ active: tab === 4 }">
+          <iframe
+            src="https://interactivegrp.com/salam/gurudwara"
+            title="gurudwara 3d map"
+          >
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /.Booking Details -->

@@ -1,0 +1,441 @@
+.bg-img {
+  margin-top: -120px;
+}
+
+.post__content {
+  background: transparent;
+}
+
+.category-btn {
+  display: inline-block;
+  margin: 3px;
+}
+
+.places__img img {
+  height: 225px;
+}
+
+.slick-dots {
+  display: none !important;
+}
+.carousel {
+  margin-left: -240px !important;
+}
+.hotel-filter-type {
+  background: #8cc63e;
+  border: none;
+  padding: 10px;
+  border-radius: 30px;
+  color: #fff;
+  margin-left: 20px;
+}
+.filter-dropdown .show {
+  display: inline !important;
+}
+.filter-btn-icon {
+  margin-right: 10px;
+}
+.dropdown-filter label {
+  font-weight: 400;
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  line-height: 1.42857143;
+  color: #333;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.dropdown-filter label:hover,
+.dropdown-filter label:focus {
+  color: #262626;
+  text-decoration: none;
+  background-color: #f5f5f5;
+}
+.dropdown-filter label input[type="checkbox"],
+.dropdown-filter label input[type="radio"] {
+  margin-right: 0.5em;
+}
+
+.dropdown-actions {
+  margin-top: 5px;
+  margin-left: 10px;
+}
+.filter-bar {
+  padding: 20px;
+  box-shadow: 3px 10px 14px #eee;
+}
+.dropdown-filter button {
+  background: #8cc63e;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 30px !important;
+  margin-left: 10px;
+}
+.recommended-hotal-sidebar {
+  padding: 20px;
+  box-shadow: 3px 0px 14px #eee;
+}
+.slider-nav-thumbnails .slick-slide {
+  opacity: 0.9;
+}
+.slick-prev,
+.slick-next {
+  display: none !important;
+}
+.hotel-list {
+  padding: 20px;
+  box-shadow: 3px 0px 14px #eee;
+}
+.hotel-list-item {
+  border: 1px solid #eee;
+  padding: 10px 10px 10px 10px !important;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+.recommended-list {
+  border: 1px solid #eee;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+.recommended-hotal-h4 {
+  font-size: 18px;
+}
+.recommended-hotal-h6 {
+  margin-bottom: 0px;
+  font-size: 15px;
+}
+.recommended-hotal-price {
+  color: #8cc63e;
+  margin-bottom: 0px;
+}
+.recommended-hotal-city {
+  margin-bottom: 0px;
+}
+.list-hotal-city,
+.list-hotal-h5,
+.list-hotal-review,
+.list-hotal-totalreview {
+  margin-bottom: 0px;
+}
+.list-hotal-totalreview {
+  font-size: 12px;
+}
+.hotel-review-point {
+  padding: 10px;
+  background-color: #8cc63e;
+  color: #fff;
+  border-radius: 5px;
+}
+.list-amenities-list {
+  columns: 3;
+  /* display: flex; */
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: auto;
+}
+.list-amenities-list li {
+  margin-right: 35px;
+  font-family: Byom-Regular !important;
+  height: auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.list-amenities-list li a {
+  color: #000;
+  font-size: 12px;
+}
+.list-amenities-list li a img {
+  margin-right: 10px;
+  width: 25px;
+  height: 25px;
+}
+.list-amenities-list li span {
+  color: #000;
+  font-size: 12px;
+}
+.list-amenities-list li span img {
+  margin-right: 10px;
+  width: 25px;
+  height: 25px;
+}
+.hotel-bookingdetails {
+  display: flex;
+  padding-top: 0px;
+}
+.list-hotel-price-h6 {
+  text-align: right;
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+.list-hotel-price {
+  text-align: right;
+  color: #8cc63e;
+  margin-bottom: 0px;
+}
+.list-hotel-cancle {
+  text-align: right;
+  font-size: 12px;
+}
+.list-hotal-btn {
+  background: #8cc63e;
+  color: #fff !important;
+  padding: 15px 25px;
+  border-radius: 33px;
+  display: inline-flex;
+  line-height: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.list-hotal-btn:hover {
+  background: #7eb633;
+  color: #fff !important;
+  padding: 15px 25px;
+  border-radius: 33px;
+  display: inline-flex;
+  line-height: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.hotel-amenities {
+  padding-right: 0px;
+}
+.slick-dots button {
+  display: none !important;
+}
+.checkintime {
+  font-size: 15px;
+  color: #8cc63e;
+}
+.hotel-overview {
+  overflow: hidden;
+  display: block;
+  height: 100px;
+  /* white-space: nowrap; */
+  text-overflow: ellipsis;
+}
+#flight-tabs {
+  position: relative;
+  display: block;
+  padding: 0;
+}
+#flight-tabs li a {
+  text-align: center;
+  border-bottom: 5px solid #eee;
+}
+#flight-tabs li a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  padding: 22px;
+  text-transform: lowercase;
+  font-size: 16px;
+  color: #231f20;
+  text-align: center;
+  font-family: Byom-Bold !important;
+  width: 100%;
+  /* border-bottom: 5px solid #eee; */
+  height: 75px;
+}
+#flight-tabs li a.active {
+  font-weight: 700;
+  outline: none;
+  border-bottom: 5px solid #f0ec70;
+  background: #8cc63e;
+  color: #fff;
+}
+.form-filter-bar {
+  padding: 20px;
+  background: #3f3f3f;
+}
+.hotel-room-select {
+  height: 50px;
+  line-height: 50px;
+  border: none;
+  border: 1px solid #eaeaea;
+  border-radius: 1px;
+  padding: 0 0 0 20px;
+  font-size: 14px;
+  border-radius: 2px;
+  font-family: Byom-Regular;
+  width: 100%;
+  background: #fff;
+}
+.form-filter-bar .form-group {
+  margin-bottom: 0px;
+}
+.form-filter-bar .form-control {
+  background-color: #fff;
+}
+.btn__wish {
+  background: #00a299;
+  color: #fff;
+  padding: 15px 17px;
+  border-radius: 33px;
+  display: inline-flex;
+  cursor: pointer;
+}
+a.showbtn .label-hidden {
+  max-width: 0;
+  opacity: 0;
+  max-height: 1em;
+  white-space: nowrap;
+  transition: 0.2s;
+  z-index: -10;
+}
+a.showbtn:hover .label-hidden {
+  max-width: 200px;
+  margin-left: 8px;
+  opacity: 1;
+  z-index: 1000;
+}
+.showbtn span {
+  line-height: 15px;
+}
+.removebtn {
+  background: #ff5959;
+  color: #fff;
+  padding: 15px 17px;
+  border-radius: 33px;
+  display: inline-flex;
+  border: none;
+  cursor: pointer;
+}
+.bs-popover-left {
+  width: 200px;
+  left: -100px;
+}
+.flight-powered-by {
+  float: right;
+}
+.flight-powered-by p {
+  text-align: right;
+}
+.flight-poweredby-logo {
+  width: 55px;
+}
+.flight-list-item {
+  border: 1px solid #eee;
+  padding: 30px 20px 30px 20px !important;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+.flight-departure-h5 {
+  margin-bottom: 0px;
+}
+.flight-landing-h5,
+.flight-time-h5,
+.flight-price-h5 {
+  margin-bottom: 0px;
+}
+.fight-date {
+  margin-bottom: 0px;
+  color: #656565;
+  font-weight: 600;
+}
+.flight-time {
+  margin-bottom: 0px;
+}
+.green {
+  color: #8cc63e;
+}
+.margin-0 {
+  margin: 0px;
+}
+.flight-bookingdetails {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.flight-sidebar {
+  padding: 20px;
+  box-shadow: 3px 0px 14px #eee;
+}
+.sort-tab {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  padding: 22px !important;
+  text-transform: lowercase;
+  font-size: 16px;
+  color: #231f20;
+  text-align: center;
+  font-family: Byom-Bold !important;
+  width: 100%;
+  height: 75px;
+}
+.passenger-flight {
+  font-size: 12px;
+  font-family: "Byom-Regular";
+}
+.flight-timing-div:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 120%;
+  width: 95%;
+  border-right: 1px solid #8cc63e;
+}
+#flight-popup {
+  padding: 40px;
+}
+.select-field {
+  padding: 8px 0px 10px 8px;
+  border: 1px solid #8cc63e;
+  border-radius: 0.25em;
+}
+.flight-popup-left:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 51px;
+  height: 85%;
+  width: 87%;
+  border-right: 1px solid #8cc63e;
+}
+.flight-sidebar2 {
+  padding: 20px;
+  box-shadow: 3px 0px 14px #eee;
+}
+.flight-sidebar1 {
+  padding: 20px;
+  box-shadow: 3px 0px 14px #eee;
+  margin-top: 30px;
+}
+.flight-sidebar-h4 {
+  font-size: 18px;
+}
+@media only screen and (max-width: 600px) and (min-width: 200px) {
+  .list-hotel-price-h6,
+  .list-hotel-cancle,
+  .list-hotel-price {
+    text-align: left;
+  }
+  .hotel-bookingdetails {
+    display: block;
+  }
+  .hotel-price-detail {
+    padding-top: 20px !important;
+  }
+  .hotel-review-points {
+    display: flex !important;
+  }
+  .recommended-hotal-sidebar {
+    display: none;
+  }
+  .flight-popup-left:before {
+    display: none;
+  }
+  .mobile100 {
+    width: 100%;
+  }
+  .mobile-p-0 {
+    padding: 0px;
+  }
+  .mobile-mt-20 {
+    margin-top: 20px;
+  }
+  .flight-timing-div:before {
+    display: none;
+  }
+}

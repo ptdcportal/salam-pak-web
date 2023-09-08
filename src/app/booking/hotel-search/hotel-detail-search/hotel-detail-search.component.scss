@@ -1,0 +1,180 @@
+.bg-img {
+  margin-top: -120px;
+}
+
+.post__content {
+  background: transparent;
+}
+
+.category-btn {
+  display: inline-block;
+  margin: 3px;
+}
+
+.places__img img {
+  height: 225px;
+}
+.carousel {
+  margin-left: -240px !important;
+}
+
+#room-package-tabs0 {
+  position: relative;
+  display: block;
+  padding: 0;
+}
+.room-package ul {
+  display: inline-flex;
+}
+#room-package-tabs0 li a.active {
+  font-weight: 700;
+  outline: none;
+  border-bottom: 5px solid #f0ec70;
+}
+.room-detail {
+  display: contents;
+}
+.list-hotal-btn {
+  background: #8cc63e;
+  color: #fff !important;
+  padding: 15px 25px;
+  border-radius: 33px;
+  display: inline-flex;
+  line-height: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.list-hotal-btn:hover {
+  background: #7eb633;
+  color: #fff !important;
+  padding: 15px 25px;
+  border-radius: 33px;
+  display: inline-flex;
+  line-height: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.hotel-room-list {
+  margin-bottom: 50px;
+}
+.hotel-room-detail-list {
+  padding-top: 50px !important;
+  padding-bottom: 50px !important;
+}
+.hotel-contact-details {
+  display: contents;
+}
+.hotel-contact-details .container {
+  // margin-top: 5%;
+}
+#room-package-tabs0 li a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  padding: 22px;
+  text-transform: lowercase;
+  font-size: 20px;
+  color: #231f20;
+  text-align: center;
+  font-family: Byom-Bold !important;
+  width: 300px;
+  border-bottom: 5px solid #eee;
+  height: 75px;
+}
+.room-left-num {
+  margin-bottom: 0px;
+}
+.room-details-tab-content {
+  margin-top: 70px;
+}
+.room-detail-select select {
+  float: right;
+  width: 100%;
+  padding: 6px;
+  border-radius: 5px;
+}
+.room-rate-h4 {
+  margin-bottom: 0px;
+}
+.room-detail-btn-div {
+  margin-top: 20px;
+}
+
+#room-tabs {
+  position: relative;
+  display: block;
+  padding: 0;
+}
+
+#room-tabs li a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  padding: 22px;
+  text-transform: lowercase;
+  font-size: 20px;
+  color: #231f20;
+  text-align: center;
+  font-family: Byom-Bold !important;
+  width: 100%;
+  /*     border-bottom: 5px solid #eee; */
+  height: 75px;
+}
+#room-tabs li a {
+  text-align: center;
+  border-bottom: 5px solid #eee;
+}
+#room-tabs li a.active {
+  font-weight: 700;
+  outline: none;
+  border-bottom: 5px solid #f0ec70;
+}
+
+#room-tabs li a:not(.active):hover {
+  background-color: inherit;
+  color: #7c848a;
+}
+.hotel-booking-popup {
+  padding: 30px !important;
+}
+.hotel-name-h3 {
+  margin-bottom: 0px;
+  font-size: 25px;
+}
+.hotel-room {
+  color: #8cc63e;
+  font-size: 18px;
+  font-weight: bold;
+}
+.popup-checkin-out {
+  color: #8cc63e;
+  font-size: 15px;
+  font-family: Byom-Regular;
+}
+.hotel-checkin-p {
+  margin-bottom: 5px;
+  font-family: Byom-Bold !important;
+}
+.hotel-checkout-p {
+  font-family: Byom-Bold !important;
+}
+.hotel-popup-left {
+  padding-top: 50px;
+}
+.hotel-popup-left:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 53px;
+  height: 65%;
+  width: 90%;
+  border-right: 1px solid #8cc63e;
+}
+.room-tabs ul li a.active {
+  font-weight: 700;
+  outline: none;
+  border-bottom: 5px solid #f0ec70;
+}
+.hotel-package {
+  margin-bottom: 20px;
+}

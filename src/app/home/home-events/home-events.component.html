@@ -1,0 +1,112 @@
+<div class="home-events">
+  <div class="main-wrapper">
+    <div class="grey lighten-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <h2 class="heading__title">upcoming events</h2>
+          </div>
+          <div class="col-md-4 show-all-btn">
+            <a [routerLink]="['/event/listing']"
+              >show all<i class="icon-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+        <!-- /.row -->
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+          <bs-datepicker-inline
+            [bsValue]="bsInlineValue"
+            Datep
+            [minDate]="minDate"
+            [maxDate]="maxDate"
+            weekdays="false"
+            showWeekNumbers="false"
+            displayMonths="false"
+            (bsValueChange)="dateChnaged($event)"
+            [bsConfig]="{ showWeekNumbers: false }"
+          ></bs-datepicker-inline>
+          <!-- <input
+            type="text"
+            readonly="readonly"
+            (focus)="autoOpen()"
+            (blur)="autoOpen()"
+            placeholder="Datepicker"
+            class="form-control datePicker-input"
+            formControlName="date"
+            [minDate]="minDate"
+            [maxDate]="maxDate"
+            bsDatepicker
+          /> -->
+          <!-- <bs-datepicker-inline class="form-control" [bsValue]="bsInlineValue" formControlName="date"></bs-datepicker-inline>   -->
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+          <div class="emptyForm" id="emptyForm">
+            <!-- <div class="sidebar-title">
+            <h5 id="eventDayName">{{city}}</h5>
+          </div> -->
+            <div class="sidebar-events" id="homeEvents">
+              <ngx-slick-carousel
+                class="carousel"
+                #slickModal="slick-carousel"
+                [config]="slideConfig"
+              >
+                <div
+                  ngxSlickItem
+                  class="event-item"
+                  *ngFor="let event of events"
+                >
+                  <div class="event__img">
+                    <h4 class="event__title">
+                      <a>{{ event.title }}</a>
+                    </h4>
+                    <a href="event/detail/{{ event._id }}/{{ event.slug }}">
+                      <img
+                        *ngIf="event.title"
+                        class="event__image"
+                        src="{{ event.thumbnails[0] }}"
+                        onerror="this.onerror=null;this.src='assets/images/images/fall/fall1.jpg';"
+                        alt="post img"
+                      />
+                    </a>
+                  </div>
+                  <!-- /.post-img -->
+                  <div class="event__content pt-30">
+                    <p *ngIf="!show" class="event__desc">
+                      {{
+                        event.description.length > 150
+                          ? event.description.slice(0, 150)
+                          : event.description
+                      }}
+                      {{ event.description.length > 150 ? '...' : '' }}
+                    </p>
+                    <!-- <p *ngIf="show" class="event__desc">{{ event.description }}</p> -->
+                    <a
+                      href="event/detail/{{ event._id }}/{{ event.slug }}"
+                      class="btn btn__primary btn__hover2 mr-30 mt-10 mb-20"
+                      >View More</a
+                    >
+                  </div>
+                  <!-- /.post-content -->
+                </div>
+              </ngx-slick-carousel>
+
+              <div *ngIf="events.length == 0" class="text-center no-data">
+                <h2 class="text-center">No events!</h2>
+              </div>
+              <!-- /.post-item -->
+              <!-- <div *ngIf="events.length > 0" class="container">
+                <div class="row">
+                  <div class="col-md-12 text-center">
+                    <div>
+                      <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="blog-container" data-column-width=".col-md-4">
+  <div
+    *ngFor="let category of accomodationCategories; let i = index"
+    class="col-md-4 post-item"
+  >
+    <a [routerLink]="['/accomodation/category', category._id]">
+      <div class="post__img">
+        <img src="assets/images/acco/{{ i + 1 }}.png" alt="post img" />
+      </div>
+      <!-- /.post-img -->
+      <div class="post__content">
+        <h4 class="post__title">{{ category.alias }}</h4>
+        <!-- <span *ngIf="showStars" class="stars align-listing">
+          <span [ngStyle]="{ width: getRatingStars(category?.ratingAverage || 0) }"></span>
+        </span>
+        <span *ngIf="showStars" class="stars2" style="display: inline-table">
+          <span [ngStyle]="{ width: getRatingStars(5.0) }"></span>
+        </span>
+        <span class="font-regular"> ({{ category.reviews ? category.reviews : '0' }}) reviews</span> -->
+        <!-- <span class="fa fa-star review-checked"></span>
+          <span class="fa fa-star review-checked"></span>
+          <span class="fa fa-star review-checked"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span> -->
+
+        <p class="post__desc">
+          {{ category?.description?.substr(0, 100) }} ...
+        </p>
+        <a
+          *ngIf="showBrowseButton"
+          [routerLink]="['/accomodation/category', category._id]"
+          class="btn btn__primary btn__hover2 mr-30 mt-10 mb-30"
+          >browse</a
+        >
+      </div>
+      <!-- /.post-content -->
+    </a>
+  </div>
+  <!-- .masonry-container end -->
+</div>

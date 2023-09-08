@@ -1,0 +1,348 @@
+<style>
+  ::ng-deep ngb-typeahead-window.dropdown-menu {
+    width: 100% !important;
+  }
+
+  ::ng-deep ngb-typeahead-window.dropdown-menu .active {
+    background-color: #8cc63e !important;
+  }
+
+  .drop-down-items {
+    margin-top: 15px !important;
+  }
+</style>
+
+<!-- PAKISTAN IN DETAIL-->
+<!-- ========================
+          Footer
+  ========================== -->
+<footer id="footer" class="footer">
+  <div class="footer-top-btn">
+    <p class="marquee">
+      <span>
+        <ul class="ticker__list" data-ticker="list">
+          <li
+            class="ticker__item"
+            data-ticker="item"
+            *ngFor="let news of allNews"
+          >
+            <!-- <span *ngIf= "news.isFeatured"> {{ news.description }} </span> -->
+            {{ news.description }} : {{ news.title }}
+            <!-- {{ news.isFeatured ? news.description : null }}  -->
+            <!-- Pakistan has great potential for development of eco-tourism: Chinese Scholar -->
+          </li>
+        </ul>
+      </span>
+    </p>
+
+    <!-- <div class="ticker__viewport">
+      <ul class="ticker__list" data-ticker="list">
+        <li class="ticker__item" data-ticker="item">
+          Pakistan has great potential for development of eco-tourism: Chinese Scholar
+        </li>
+        <li class="ticker__item" data-ticker="item">
+          Pakistan to promote tourism sector to generate revenue, address unemployment issue: PM
+        </li>
+        <li class="ticker__item" data-ticker="item">
+          KP plans to rehabilitate 9 archaeological sites to promote religious tourism
+        </li>
+      </ul>
+    </div> -->
+    <!-- /.container -->
+  </div>
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div
+          class="col-6 col-sm-6 col-md-4 col-lg-3 footer__widget footer__widget-nav"
+        >
+          <h6 class="footer__widget-title">Help</h6>
+          <div class="footer__widget-content">
+            <nav>
+              <ul class="list-unstyled">
+                <li><a [routerLink]="['/cookie']">Cookies Policy</a></li>
+                <li><a [routerLink]="['/privacy']">Privacy Policy</a></li>
+                <li>
+                  <a [routerLink]="['/disclaimer']"
+                    >Third Party Services Disclaimer</a
+                  >
+                </li>
+                <li><a [routerLink]="['/contact']">Contact Us</a></li>
+                <li><a [routerLink]="['/faq']">FAQ's</a></li>
+                <li><a [routerLink]="['/media']">Media</a></li>
+                <li><a [routerLink]="['/pressrelease']">Press Release</a></li>
+                <li>
+                  <a (click)="openComplaint()" style="color: #fff">Complaint</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <!-- /.footer-widget-content -->
+        </div>
+        <!-- /.col-lg-2 -->
+        <div
+          class="col-6 col-sm-6 col-md-4 col-lg-3 footer__widget footer__widget-nav"
+        >
+          <h6 class="footer__widget-title">Cities</h6>
+          <div class="footer__widget-content">
+            <nav>
+              <ul class="list-unstyled">
+                <li>
+                  <a
+                    [routerLink]="[
+                      '/where-to-go/category/cities/location/islamabad'
+                    ]"
+                    >Islamabad</a
+                  >
+                </li>
+                <li>
+                  <a
+                    [routerLink]="[
+                      '/where-to-go/category/cities/location/lahore'
+                    ]"
+                    >Lahore</a
+                  >
+                </li>
+                <li>
+                  <a
+                    [routerLink]="[
+                      '/where-to-go/category/cities/location/karachi'
+                    ]"
+                    >Karachi</a
+                  >
+                </li>
+                <li>
+                  <a
+                    [routerLink]="[
+                      '/where-to-go/category/cities/location/peshawar'
+                    ]"
+                    >peshawar</a
+                  >
+                </li>
+                <li>
+                  <a
+                    [routerLink]="[
+                      '/where-to-go/category/cities/location/gilgit'
+                    ]"
+                    >gilgit</a
+                  >
+                </li>
+                <li>
+                  <a
+                    [routerLink]="[
+                      '/where-to-go/category/cities/location/quetta'
+                    ]"
+                    >quetta</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <!-- /.footer-widget-content -->
+        </div>
+        <!-- /.col-lg-2 -->
+        <div
+          class="col-6 col-sm-6 col-md-4 col-lg-3 footer__widget footer__widget-nav"
+        >
+          <h6 class="footer__widget-title">Links</h6>
+          <div class="footer__widget-content">
+            <nav>
+              <ul class="list-unstyled">
+                <!-- <li>
+                  <a
+                    [routerLink]="[
+                      '/accomodation/category/5f66c1fb898584fe8756300f'
+                    ]"
+                    >All Hotels</a
+                  >
+                </li>
+                <li>
+                  <a
+                    [routerLink]="[
+                      '/accomodation/category/5f66c156e008c9f9b58dad06'
+                    ]"
+                    >Luxury Hotels</a
+                  >
+                </li>
+                <li>
+                  <a
+                    [routerLink]="[
+                      '/accomodation/category/5f66c2b05b6d27ff5e7d8ce4'
+                    ]"
+                    >guest house</a
+                  >
+                </li>
+                <li>
+                  <a
+                    [routerLink]="[
+                      '/accomodation/category/5f66c2775b6d27ff5e7d8ce0'
+                    ]"
+                    >camping</a
+                  >
+                </li>
+                <li>
+                  <a
+                    [routerLink]="[
+                      '/accomodation/category/5f66c2875b6d27ff5e7d8ce2'
+                    ]"
+                    >mountain huts</a
+                  >
+                </li> -->
+                <li>
+                  <a
+                    [routerLink]="[
+                      '/map/3d-map'
+                    ]"
+                    >Maps</a
+                  >
+                </li>
+                <!-- <li>
+                  <a
+                  [translate]="'HEADERITEM6'"
+                    >Bookings</a
+                  >
+                </li> -->
+              </ul>
+            </nav>
+          </div>
+          <!-- /.footer-widget-content -->
+        </div>
+        <!-- /.col-lg-2 -->
+        <div
+          class="col-6 col-sm-6 col-md-4 col-lg-3 footer__widget footer__widget-nav"
+        >
+          <h6 class="footer__widget-title">Provincial/Regional Tourism Department</h6>
+          <div class="footer__widget-content">
+            <nav>
+              <ul class="list-unstyled">
+                <li><a target="_blank" href="https://tourism.gov.pk/">PTDC, Islamabad</a></li>
+                <li><a target="_blank" href="https://tdcp.gop.pk/">TDCP, Punjab</a></li>
+                <li><a target="_blank" href="https://stdc.gos.pk">STDC, Sindh</a></li>
+                <li><a target="_blank" href="https://kptourism.com">KPCTA, Khyber Pakhtunkhwa</a></li>
+                <li>
+                  <a target="_blank" href="http://tourismbalochistan.gob.pk">Directorate of Tourism, Balochistan</a>
+                </li>
+                <li>
+                  <a target="_blank" href="https://visitgilgitbaltistan.gov.pk"
+                    >Tourism & Culture Dept, Gilgit-Baltistan</a
+                  >
+                </li>
+                <li>
+                  <a target="_blank" href="https://ajktourism.gov.pk">Tourism & Archaeology Dept, Azad Jammu & Khashmir</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <!-- /.footer-widget-content -->
+        </div>
+
+        <div
+          class="col-6 col-sm-6 col-md-4 col-lg-3 footer__widget footer__widget-nav publications-link pointer"
+        >
+          <h6 class="footer__widget-title" [routerLink]="['/publications']">
+            Publications
+          </h6>
+          <div class="footer__widget-content">
+            <!-- <nav>
+              <ul class="list-unstyled">
+                <li><a href="https://tdcp.gop.pk/">punjab</a></li>
+                <li><a href="https://stdc.gos.pk">sindh</a></li>
+                <li><a href="https://kptourism.com">khyber pakhtunkhwa</a></li>
+                <li><a href="http://tourismbalochistan.gob.pk">balochistan</a></li>
+                <li><a href="https://visitgilgitbaltistan.gov.pk">gilgit baltistan</a></li>
+                <li><a href="https://ajktourism.gov.pk">azad jamu khashmir</a></li>
+              </ul>
+            </nav> -->
+          </div>
+          <!-- /.footer-widget-content -->
+        </div>
+        <!-- /.col-lg-2 -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </div>
+  <!-- /.footer-top -->
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <div class="footer__copyright">
+            <span>&copy;2023 Salam Pakistan | All Rights Reserved by Pakistan Tourism Development Corporation (PTDC), Islamabad.</span>
+          </div>
+          <!-- /.Footer-copyright -->
+        </div>
+        <!-- /.col-lg-6 -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </div>
+  <!-- /.Footer-bottom -->
+</footer>
+<!-- /.Footer -->
+
+<div class="module__search-container" [ngClass]="show ? 'active' : 'inActive'">
+  <i class="fa fa-times close-search" (click)="show = false"></i>
+  <form class="module__search-form">
+    <input
+      name="search"
+      id="typeahead-basic"
+      (change)="itemSelected($event)"
+      type="text"
+      class="search__input"
+      placeholder="Type Words Then Enter"
+      [(ngModel)]="model"
+      [ngbTypeahead]="search"
+      [resultTemplate]="rt"
+    />
+    <ng-template #rt let-r="result" let-t="term">
+      <ngb-highlight [result]="r.site" [term]="t"></ngb-highlight>
+      <p class="drop-down-items">{{ r }}</p>
+    </ng-template>
+
+    <!-- <input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search"/> -->
+    <button class="module__search-btn"><i class="fa fa-search"></i></button>
+  </form>
+  <div class="module__search-google">
+    <a href="sitesearch" class="module__search-btn-google">Search in Site</a>
+  </div>
+</div>
+<!-- /.module-search-container -->
+
+<button
+  id="scrollTopBtn"
+  (click)="scrollToTop()"
+  [ngClass]="{ actived: showUpArrow, '': !showUpArrow }"
+>
+  <i class="fa fa-long-arrow-up"></i>
+</button>
+
+<ngx-smart-modal
+  [customClass]="
+    'popupBooking bottom m-0 nsm-dialog-animation-fade nsm-centered nsm-dialogue'
+  "
+  #flightModalPopup
+  identifier="complaintModalPopup"
+  escapable="true"
+>
+  <!--[customClass]="'popupBusBooking'"-->
+  <div class="auth__modal">
+    <!-- this is the entire modal form, including the background -->
+
+    <div class="cd-user-modal-container">
+      <div class="row">
+        <div class="col-12 p-2 complaint-popup">
+          <object
+            data="{{ cmsUrl }}"
+            height="500"
+            width="700"
+            type="text/html"
+            sandbox="allow-forms allow-modals allow-scripts"
+            class="complaint-iframe"
+          ></object>
+        </div>
+      </div>
+    </div>
+  </div>
+</ngx-smart-modal>

@@ -67,6 +67,20 @@ const routes: Routes = [
         (m) => m.PublicationsModule
       ),
   },
+  {
+    path: 'bookings',
+    loadChildren: () =>
+      import('./booking-module/booking-module.module').then(
+        (m) => m.BookingModuleModule
+      ),
+  },
+  {
+    path: 'booking-airline',
+    loadChildren: () =>
+      import('./booking-airline/booking-airline.module').then(
+        (m) => m.BookingAirlineModule
+      ),
+  },
 
   { path: '**', component: HomeComponent, pathMatch: 'full' },
 

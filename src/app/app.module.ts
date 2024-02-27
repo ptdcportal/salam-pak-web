@@ -73,6 +73,7 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider,
 } from 'angularx-social-login';
+import { BookingModuleListingComponent } from './booking-module/booking-module-listing/booking-module-listing.component';
 
 @NgModule({
   imports: [
@@ -135,6 +136,7 @@ import {
     // SpringTripsComponent,
     // CategoryListingComponent,
     SitesearchComponent,
+    // BookingModuleListingComponent,
   ],
   providers: [
     UserService,

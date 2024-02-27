@@ -179,14 +179,45 @@
           </li>
 
           <!-- [routerLink]="['/map']" -->
-          <li class="nav__item with-dropdown">
+          <!-- <li class="nav__item with-dropdown">
             <a
               (click)="scrollToBookings()"
               class="dropdown-toggle nav__item-link pointer"
               [translate]="'HEADERITEM6'"
               >Bookings</a
             >
+          </li> -->
+          <li class="nav__item with-dropdown pointer">
+            <a
+              [ngClass]="{ active: router.url.includes('bookings') }"
+              class="dropdown-toggle nav__item-link"
+              [translate]="'HEADERITEM6'"
+              >Booking</a
+            >
+            <i class="fa fa-angle-right" data-toggle="dropdown"></i>
+            <ul class="dropdown-menu">
+              <li class="nav__item">
+                <a [routerLink]="['/bookings']" class="nav__item-link"
+                  >Accomudation Booking</a
+                >
+              </li>
+              <li class="nav__item">
+                <a [routerLink]="['/booking-airline']" class="nav__item-link"
+                  >Airline Booking</a
+                >
+              </li>
+            </ul>
           </li>
+
+          <!-- <li class="nav__item">
+            <a
+              [routerLink]="['/bookings']"
+              [ngClass]="{ active: router.url.includes('bookings') }"
+              class="dropdown-toggle nav__item-link"
+              [translate]="'HEADERITEM6'"
+              >Bookings</a
+            >
+          </li> -->
 
           <li class="nav__item">
             <!-- [routerLink]="['/what-to-do']" -->

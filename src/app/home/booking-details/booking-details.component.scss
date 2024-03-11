@@ -13,3 +13,23 @@
   border-bottom: 1px solid #f0ec70;
   height: 32px;
 }
+
+.btn__primary {
+  text-transform: none !important;
+  // color: #292222 !important;
+  width: 310px;
+}
+
+.plan-box {
+  border: 1px solid #8cc63e;
+  padding: 16px;
+  border-radius: 10px;
+  margin: 5px;
+}
+
+.booking_box {
+  background-color: #8cc63e; 
+  width: 330px;
+  height: 145px;
+  text-align: center;
+}

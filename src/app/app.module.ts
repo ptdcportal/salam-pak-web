@@ -73,7 +73,9 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider,
 } from 'angularx-social-login';
-import { BookingModuleListingComponent } from './booking-module/booking-module-listing/booking-module-listing.component';
+import { BookingAirlineComponent } from './booking-airline/booking-airline.component';
+import { BookingRailwayComponent } from './booking-railway/booking-railway.component';
+import { ExplorePakistanComponent } from './explore-pakistan/explore-pakistan.component';
 
 @NgModule({
   imports: [
@@ -136,6 +138,10 @@ import { BookingModuleListingComponent } from './booking-module/booking-module-l
     // SpringTripsComponent,
     // CategoryListingComponent,
     SitesearchComponent,
+    BookingAirlineComponent,
+    BookingRailwayComponent,
+    ExplorePakistanComponent,
+    // BookingBussListingComponent,
     // BookingModuleListingComponent,
   ],
   providers: [

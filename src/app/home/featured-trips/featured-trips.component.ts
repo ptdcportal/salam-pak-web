@@ -67,16 +67,20 @@ export class FeaturedTripsComponent implements OnInit {
     };
     this.eventService.getEvents(params).then((events) => {
       this.featuredEvents =
-        events.data.length > 4 ? events.data.slice(0, 4) : events.data;
+        events.length > 4 ? events.slice(0, 4) : events;
+        console.log(this.featuredEvents);
+        
       this.featuredEvents = this.featuredEvents.filter((item: any) => {
         return (
-          item.status == 'published' &&
-          (moment(moment(item.date).format('YYYY-MM-DD')).isAfter(
-            moment(new Date()).format('YYYY-MM-DD')
-          ) ||
-            moment(moment(item.date).format('YYYY-MM-DD')).isSame(
-              moment(new Date()).format('YYYY-MM-DD')
-            ))
+          item.status == 'published'
+
+          //   item.status == 'published' &&
+          // (moment(moment(item.date).format('YYYY-MM-DD')).isAfter(
+          //   moment(new Date()).format('YYYY-MM-DD')
+          // ) ||
+          //   moment(moment(item.date).format('YYYY-MM-DD')).isSame(
+          //     moment(new Date()).format('YYYY-MM-DD')
+          //   ))
         );
       });
       // console.log('eventsss: ', this.featuredEvents);

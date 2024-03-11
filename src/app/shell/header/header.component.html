@@ -71,6 +71,7 @@
           </li>
           <!-- /.nav-item -->
           <!-- /.nav-item -->
+          
           <li class="nav__item with-dropdown">
             <!-- [routerLink]="['/what-to-do']" -->
             <a
@@ -93,13 +94,12 @@
           </li> -->
           <!-- /.nav-item -->
           <li class="nav__item with-dropdown">
-            <!-- [routerLink]="['/planning']" -->
             <a
-              [routerLink]="['/planning/listing']"
+              [routerLink]="['/explore-pakistan']"
               [ngClass]="{ active: router.url.includes('planning') }"
               class="dropdown-toggle nav__item-link"
               [translate]="'HEADERITEM5'"
-              >Trip Plan</a
+              >Explore Pakistan</a
             >
             <i class="fa fa-angle-right" data-toggle="dropdown"></i>
             <ul class="dropdown-menu">
@@ -139,7 +139,7 @@
               </li>
               <li class="nav__item">
                 <a [routerLink]="['/planning/tic']" class="nav__item-link"
-                  >tic</a
+                  >Tourist Information Centers</a
                 >
               </li>
             </ul>
@@ -156,7 +156,10 @@
             >
           </li> -->
           <!-- [routerLink]="['/map']" -->
-          <li class="nav__item with-dropdown pointer">
+          
+          <!-- Jahanzaib khan commented code for -->
+
+          <!-- <li class="nav__item with-dropdown pointer">
             <a
               [ngClass]="{ active: router.url.includes('map') }"
               class="dropdown-toggle nav__item-link"
@@ -176,6 +179,27 @@
                 >
               </li>
             </ul>
+          </li> -->
+          <li class="nav__item with-dropdown pointer">
+            <a  [routerLink]="['/map']"
+              [ngClass]="{ active: router.url.includes('map') }"
+              class="dropdown-toggle nav__item-link"
+              [translate]="'HEADERITEM6'"
+              >Maps</a
+            >
+            <!-- <i class="fa fa-angle-right" data-toggle="dropdown"></i> -->
+            <!-- <ul class="dropdown-menu">
+              <li class="nav__item">
+                <a [routerLink]="['/map']" class="nav__item-link"
+                  >Geolocational Map</a
+                >
+              </li>
+              <li class="nav__item">
+                <a [routerLink]="['/map/3d-map']" class="nav__item-link"
+                  >3D map</a
+                >
+              </li>
+            </ul> -->
           </li>
 
           <!-- [routerLink]="['/map']" -->
@@ -189,23 +213,35 @@
           </li> -->
           <li class="nav__item with-dropdown pointer">
             <a
+              (click)="scrollToBookings()"
               [ngClass]="{ active: router.url.includes('bookings') }"
-              class="dropdown-toggle nav__item-link"
+               target="_blank"class="dropdown-toggle nav__item-link"
               [translate]="'HEADERITEM6'"
               >Booking</a
             >
             <i class="fa fa-angle-right" data-toggle="dropdown"></i>
             <ul class="dropdown-menu">
               <li class="nav__item">
-                <a [routerLink]="['/bookings']" class="nav__item-link"
-                  >Accomudation Booking</a
+                <a [routerLink]="['/booking-accommodation']" class="nav__item-link"
+                  >Accommodations</a
                 >
               </li>
               <li class="nav__item">
-                <a [routerLink]="['/booking-airline']" class="nav__item-link"
-                  >Airline Booking</a
+                <a [routerLink]="['/booking-bus']" class="nav__item-link"
+                  >Buses</a
                 >
               </li>
+              <li class="nav__item">
+                <a href="https://www.google.com/travel/flights" target="_blank" class="nav__item-link"
+                  >Airlines</a
+                >
+              </li>
+              <li class="nav__item">
+                <a href="https://www.pakrail.gov.pk/" target="_blank" class="nav__item-link"
+                  >Railways</a
+                >
+              </li>
+              
             </ul>
           </li>
 
@@ -227,6 +263,14 @@
               class="dropdown-toggle nav__item-link"
               [translate]="'HEADERITEM3'"
               >Publications</a
+            >
+          </li>
+          <li class="nav__item with-dropdown">
+            <!-- [routerLink]="['/what-to-do']" -->
+            <a
+              href="https://visa.nadra.gov.pk/tourist-visit-visas/" target="_blank"
+              class="dropdown-toggle nav__item-link"
+              >E-Visa</a
             >
           </li>
 

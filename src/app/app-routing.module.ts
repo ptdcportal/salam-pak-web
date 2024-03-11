@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { BookingAirlineComponent } from './booking-airline/booking-airline.component';
+import { BookingRailwayComponent } from './booking-railway/booking-railway.component';
+import { ExplorePakistanComponent } from './explore-pakistan/explore-pakistan.component';
 
 const routes: Routes = [
   // { path: '', pathMatch: 'full' redirectTo: 'home' },
@@ -75,11 +78,27 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'booking-airline',
+    path: 'booking-accommodation',
     loadChildren: () =>
-      import('./booking-airline/booking-airline.module').then(
-        (m) => m.BookingAirlineModule
+      import('./booking-module/booking-module.module').then(
+        (m) => m.BookingModuleModule
       ),
+  },
+  {
+    path: 'booking-airline', component: BookingAirlineComponent
+  },
+  {
+    path: 'booking-railway', component: BookingRailwayComponent
+  },
+  {
+    path: 'booking-bus',
+    loadChildren: () =>
+      import('./booking-buss/booking-buss.module').then(
+        (m) => m.BookingBussModule
+      ),
+  },
+  {
+    path: 'explore-pakistan', component: ExplorePakistanComponent
   },
 
   { path: '**', component: HomeComponent, pathMatch: 'full' },

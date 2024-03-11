@@ -1,0 +1,838 @@
+<!-- ========================
+        Booking Details
+    =========================== -->
+<div id="bookingSectionTab" style="padding-top: 140px"></div>
+<section id="bookingtabs" class="booking-home p-0">
+  <!--pt-80-->
+  <div class="container">
+    <div class="col-md-12">
+      <span
+        class="heading__subtitle"
+        [translate]="'BOOKINGANDRESERVATION'"
+      ></span>
+      <h2 class="heading__title" [translate]="'BOOKINGDETAILS'">
+        booking details
+      </h2>
+    </div>
+    <header>
+      <div id="booking-tabs">
+        <ul class="col-md-12 p-0">
+          <li class="col-md-2 p-0">
+            <a
+              (click)="tab = 1"
+              id="tab1-tab"
+              rel="#tab1"
+              [translate]="'BOOKINGOPTION1'"
+              [ngClass]="{ ' active': tab === 1 }"
+              ><img src="assets/images/icons/hotel-book.svg" />hotels</a
+            >
+          </li>
+          <li class="col-md-2 p-0">
+            <a
+              (click)="tab = 2"
+              id="tab2-tab"
+              rel="#tab2"
+              [translate]="'BOOKINGOPTION2'"
+              [ngClass]="{ ' active': tab === 2 }"
+              ><img src="assets/images/icons/plane.svg" />flights</a
+            >
+          </li>
+          <li class="col-md-2 p-0">
+            <a
+              (click)="tab = 3"
+              id="tab3-tab"
+              rel="#tab3"
+              [translate]="'BOOKINGOPTION5'"
+              [ngClass]="{ ' active': tab === 3 }"
+              ><img src="assets/images/icons/bus.svg" />Bus</a
+            >
+          </li>
+          <li class="col-md-2 p-0">
+            <a
+              (click)="tab = 4"
+              id="tab4-tab"
+              rel="#tab4"
+              [translate]="'BOOKINGOPTION3'"
+              [ngClass]="{ ' active': tab === 4 }"
+              ><img src="assets/images/icons/train.svg" />trains</a
+            >
+          </li>
+        </ul>
+        <span class="yellow-bar"></span>
+      </div>
+    </header>
+    <div class="col-md-12">
+      <div class="tab-content">
+        <div id="tab1" [ngClass]="{ ' active': tab === 1, hidden: tab !== 1 }">
+          <form
+            class="user-account-form booking-form-home"
+            [formGroup]="bookingForm"
+          >
+            <div class="row mb-30">
+              <div class="col-sm-12 col-md-2 col-lg-2">
+                <div class="form-group">
+                  <label>Location</label>
+                  <input
+                    type="text"
+                    id="typeahead-basic"
+                    name="location"
+                    formControlName="location"
+                    class="form-control"
+                    placeholder="Enter Location"
+                    [(ngModel)]="model"
+                    [ngbTypeahead]="search"
+                    [resultTemplate]="rt"
+                    (change)="itemSelected($event)"
+                  />
+                  <ng-template #rt let-r="result" let-t="term">
+                    <ngb-highlight [result]="r.site" [term]="t"></ngb-highlight>
+                    <p class="mb-0">{{ r }}</p>
+                  </ng-template>
+                </div>
+              </div>
+              <!-- /.col-lg-2 -->
+              <div class="col-sm-12 col-md-2 col-lg-2">
+                <div class="form-group">
+                  <label>Check in</label>
+                  <input
+                    type="date"
+                    min="{{ minDateForCheckIn }}"
+                    id="checkIn__datePicker"
+                    formControlName="checkIn"
+                    for
+                    class="form-control"
+                    placeholder="Select Arrival"
+                  />
+                </div>
+                <small
+                  [hidden]="
+                    bookingForm.controls.checkIn.valid ||
+                    bookingForm.controls.checkIn.untouched
+                  "
+                  class="text-danger"
+                  translate
+                >
+                  Please Select a date
+                </small>
+              </div>
+              <!-- /.col-lg-2 -->
+              <div class="col-sm-12 col-md-2 col-lg-2">
+                <div class="form-group">
+                  <label>check out </label>
+                  <input
+                    type="date"
+                    min="{{ minDateForCheckOut }}"
+                    formControlName="checkOut"
+                    class="form-control"
+                    placeholder="Select Departure"
+                  />
+                </div>
+              </div>
+              <!-- /.col-lg-2 -->
+              <div class="col-sm-12 col-md-2 col-lg-2">
+                <div class="form-group">
+                  <label>Room</label>
+                  <div class="booking-count">
+                    <button
+                      class="minus"
+                      [disabled]="bookingForm.get('room').value == 1"
+                      (click)="
+                        bookingForm
+                          .get('room')
+                          .patchValue(bookingForm.get('room').value - 1)
+                      "
+                    >
+                      -
+                    </button>
+                    <input
+                      type="text"
+                      [readonly]="true"
+                      value="{{ bookingForm.get('room').value }}"
+                    />
+                    <button
+                      class="plus"
+                      [disabled]="bookingForm.get('room').value == 5"
+                      (click)="
+                        bookingForm
+                          .get('room')
+                          .patchValue(bookingForm.get('room').value + 1)
+                      "
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- /.col-lg-2 -->
+              <div class="col-sm-12 col-md-2 col-lg-2">
+                <div class="form-group">
+                  <label>adults</label>
+                  <div class="booking-count">
+                    <button
+                      class="minus"
+                      [disabled]="bookingForm.get('adults').value == 1"
+                      (click)="
+                        bookingForm
+                          .get('adults')
+                          .patchValue(bookingForm.get('adults').value - 1)
+                      "
+                    >
+                      -
+                    </button>
+                    <input
+                      type="text"
+                      [readonly]="true"
+                      value="{{ bookingForm.get('adults').value }}"
+                    />
+                    <button
+                      class="plus"
+                      [disabled]="bookingForm.get('adults').value == 5"
+                      (click)="
+                        bookingForm
+                          .get('adults')
+                          .patchValue(bookingForm.get('adults').value + 1)
+                      "
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- /.col-lg-2 -->
+              <div class="col-sm-12 col-md-2 col-lg-2">
+                <div class="form-group">
+                  <label>Children</label>
+                  <div class="booking-count">
+                    <button
+                      class="minus"
+                      [disabled]="bookingForm.get('children').value == 0"
+                      (click)="
+                        bookingForm
+                          .get('children')
+                          .patchValue(bookingForm.get('children').value - 1)
+                      "
+                    >
+                      -
+                    </button>
+                    <input
+                      type="text"
+                      [readonly]="true"
+                      value="{{ bookingForm.get('children').value }}"
+                    />
+                    <button
+                      class="plus"
+                      [disabled]="bookingForm.get('children').value == 5"
+                      (click)="
+                        bookingForm
+                          .get('children')
+                          .patchValue(bookingForm.get('children').value + 1)
+                      "
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- /.col-lg-2 -->
+            </div>
+            <div class="row container">
+              <div class="col-sm-12 col-md-12 col-lg-12 p-0">
+                <button
+                  (click)="navigateHotel()"
+                  class="btn btn__secondary"
+                  [disabled]="bookingForm.invalid"
+                >
+                  let's go
+                </button>
+              </div>
+              <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+          </form>
+        </div>
+        <div id="tab2" [ngClass]="{ active: tab === 2, hidden: tab !== 2 }">
+          <form class="user-account-form" [formGroup]="flightBookingForm">
+            <div class="row mb-30">
+              <div class="row container mb-30">
+                <div class="col-sm-12 col-md-3 col-lg-3">
+                  <div class="col-md-6 form-group input-radio">
+                    <label class="label-radio font-weitht-100"
+                      >One Way
+                      <input
+                        formControlName="flightTrip"
+                        [(ngModel)]="flightTrip"
+                        (change)="getFlightTrip($event)"
+                        name="flightTrip"
+                        type="radio"
+                        value="Single"
+                        checked=""
+                      />
+                      <span class="radio-indicator"></span>
+                    </label>
+                  </div>
+                  <div class="col-md-6 form-group input-radio">
+                    <label class="label-radio font-weitht-100"
+                      >Round Trip
+                      <input
+                        formControlName="flightTrip"
+                        [(ngModel)]="flightTrip"
+                        (change)="getFlightTrip($event)"
+                        name="flightTrip"
+                        type="radio"
+                        value="Round"
+                      />
+                      <span class="radio-indicator"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row container mb-30">
+                <div class="col-sm-12 col-md-2 col-lg-2">
+                  <div class="form-group">
+                    <label>From</label
+                    ><input
+                      type="text"
+                      name="locationFrom"
+                      class="form-control"
+                      id="typeahead-basic"
+                      [ngbTypeahead]="allAirports"
+                      formControlName="from"
+                      [(ngModel)]="flightFrom"
+                      [resultTemplate]="pb"
+                      (change)="getFlightFrom($event)"
+                      placeholder="Enter Location"
+                    />
+                    <ng-template #pb let-r="result" let-t="term">
+                      <ngb-highlight
+                        [result]="r.site"
+                        [term]="t"
+                      ></ngb-highlight>
+                      <p class="mb-0">{{ r }}</p>
+                    </ng-template>
+                  </div>
+                  <small
+                    [hidden]="
+                      flightBookingForm.controls.from.valid ||
+                      flightBookingForm.controls.from.untouched
+                    "
+                    class="text-danger"
+                    translate
+                  >
+                    feild required
+                  </small>
+                </div>
+                <!-- /.col-lg-2 -->
+                <div class="col-sm-12 col-md-2 col-lg-2">
+                  <div class="form-group">
+                    <label>To</label
+                    ><input
+                      type="text"
+                      class="form-control"
+                      name="flightTo"
+                      placeholder="Enter Location"
+                      formControlName="to"
+                      [ngbTypeahead]="searchAirports"
+                      [(ngModel)]="flightTo"
+                      [resultTemplate]="db"
+                      (change)="getFlightTo($event)"
+                    />
+                    <ng-template #db let-r="result" let-t="term">
+                      <ngb-highlight
+                        [result]="r.site"
+                        [term]="t"
+                      ></ngb-highlight>
+                      <p class="mb-0">{{ r }}</p>
+                    </ng-template>
+                  </div>
+                  <small
+                    [hidden]="
+                      flightBookingForm.controls.to.valid ||
+                      flightBookingForm.controls.to.untouched
+                    "
+                    class="text-danger"
+                    translate
+                  >
+                    feild required
+                  </small>
+                </div>
+                <!-- /.col-lg-2 -->
+                <div class="col-sm-12 col-md-2 col-lg-2">
+                  <div class="form-group">
+                    <label>departing</label>
+                    <input
+                      [(ngModel)]="date"
+                      type="date"
+                      formControlName="arrival"
+                      min="{{ currentDate }}"
+                      class="form-control"
+                      placeholder="select departing"
+                    />
+                    <small
+                      [hidden]="
+                        flightBookingForm.controls.arrival.valid ||
+                        flightBookingForm.controls.arrival.untouched
+                      "
+                      class="text-danger"
+                      translate
+                    >
+                      please select a date
+                    </small>
+                  </div>
+                </div>
+                <!-- /.col-lg-2 -->
+
+                <div
+                  [hidden]="
+                    flightBookingForm.controls.flightTrip.value == 'Single'
+                  "
+                  class="col-sm-12 col-md-2 col-lg-2"
+                >
+                  <div class="form-group">
+                    <label>returning</label
+                    ><input
+                      formControlName="returnDate"
+                      [(ngModel)]="returnDate"
+                      type="date"
+                      class="form-control"
+                      placeholder="select returning"
+                    />
+                    <small
+                      [hidden]="
+                        flightBookingForm.controls.returnDate.valid ||
+                        flightBookingForm.controls.returnDate.untouched
+                      "
+                      class="text-danger"
+                      translate
+                    >
+                      please select a date
+                    </small>
+                  </div>
+                </div>
+              </div>
+              <!-- /.col-lg-2 -->
+              <!-- /.col-lg-2 -->
+              <div class="row container mb-30">
+                <div class="col-sm-12 col-md-2 col-lg-2">
+                  <div class="form-group">
+                    <label>adults</label>
+                    <div class="booking-count">
+                      <button
+                        [disabled]="
+                          flightBookingForm.get('flightAdult').value == 0
+                        "
+                        (click)="
+                          flightBookingForm
+                            .get('flightAdult')
+                            .patchValue(
+                              flightBookingForm.get('flightAdult').value - 1
+                            )
+                        "
+                        class="subtract"
+                      >
+                        -
+                      </button>
+                      <input
+                        formControlName="flightAdult"
+                        [(ngModel)]="flightAdult"
+                        [readonly]="true"
+                        class="form-control"
+                        type="text"
+                        value="flightAdult"
+                      />
+                      <!--  -->
+                      <button
+                        [disabled]="
+                          flightBookingForm.get('flightAdult').value == 5
+                        "
+                        (click)="
+                          flightBookingForm
+                            .get('flightAdult')
+                            .patchValue(
+                              flightBookingForm.get('flightAdult').value + 1
+                            )
+                        "
+                        class="add"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.col-lg-2 -->
+                <div class="col-sm-12 col-md-2 col-lg-2">
+                  <div class="form-group">
+                    <label>Children</label>
+                    <div class="booking-count">
+                      <button
+                        [disabled]="
+                          flightBookingForm.get('flightChild').value == 0
+                        "
+                        (click)="
+                          flightBookingForm
+                            .get('flightChild')
+                            .patchValue(
+                              flightBookingForm.get('flightChild').value - 1
+                            )
+                        "
+                        class="subtract"
+                      >
+                        -
+                      </button>
+                      <input
+                        formControlName="flightChild"
+                        [(ngModel)]="flightChild"
+                        [readonly]="true"
+                        class="form-control"
+                        type="text"
+                        value="0"
+                      />
+                      <!-- (change)="getFlightChild($event)" -->
+                      <button
+                        [disabled]="
+                          flightBookingForm.get('flightChild').value == 5
+                        "
+                        (click)="
+                          flightBookingForm
+                            .get('flightChild')
+                            .patchValue(
+                              flightBookingForm.get('flightChild').value + 1
+                            )
+                        "
+                        class="add"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-2 col-lg-2">
+                  <div class="form-group">
+                    <label>infants</label>
+                    <div class="booking-count">
+                      <button
+                        [disabled]="
+                          flightBookingForm.get('flightInfants').value == 0
+                        "
+                        (click)="
+                          flightBookingForm
+                            .get('flightInfants')
+                            .patchValue(
+                              flightBookingForm.get('flightInfants').value - 1
+                            )
+                        "
+                        class="subtract"
+                      >
+                        -
+                      </button>
+                      <input
+                        formControlName="flightInfants"
+                        [(ngModel)]="flightInfants"
+                        [readonly]="true"
+                        class="form-control"
+                        type="text"
+                        value="0"
+                      />
+                      <!-- (change)="getFlightInfants($event)" -->
+                      <button
+                        [disabled]="
+                          flightBookingForm.get('flightInfants').value == 5
+                        "
+                        (click)="
+                          flightBookingForm
+                            .get('flightInfants')
+                            .patchValue(
+                              flightBookingForm.get('flightInfants').value + 1
+                            )
+                        "
+                        class="add"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-2 col-lg-2">
+                  <div class="form-group">
+                    <label>Class of Travel</label
+                    ><select
+                      name="cabin"
+                      formControlName="cabin"
+                      class="flight-type"
+                    >
+                      <option value="Economy">Economy</option>
+                      <option value="PremiumEconomy">Premium Economy</option>
+                      <option value="Business">Business</option>
+                    </select>
+                    <ng-template #pb let-r="result" let-t="term">
+                      <ngb-highlight
+                        [result]="r.site"
+                        [term]="t"
+                      ></ngb-highlight>
+                      <p class="mb-0">{{ r }}</p>
+                    </ng-template>
+                  </div>
+                  <small
+                    [hidden]="
+                      flightBookingForm.controls.from.valid ||
+                      flightBookingForm.controls.from.untouched
+                    "
+                    class="text-danger"
+                    translate
+                  >
+                    feild required
+                  </small>
+                </div>
+              </div>
+            </div>
+            <div class="row container">
+              <div class="col-sm-12 col-md-12 col-lg-12 p-0">
+                <button
+                  (click)="navigateToFlightBooking()"
+                  type="submit"
+                  class="btn btn__secondary"
+                  [disabled]="flightBookingForm.invalid"
+                >
+                  lets go
+                </button>
+              </div>
+              <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+          </form>
+        </div>
+        <div id="tab3" [ngClass]="{ active: tab === 3, hidden: tab !== 3 }">
+          <form class="user-account-form" [formGroup]="busBookingForm">
+            <div class="row mb-30">
+              <div class="row container mb-30">
+                <!-- <div class="col-sm-12 col-md-2 col-lg-2">
+                  <div class="form-group">
+                    <label>service</label
+                    ><select formControlName="cabin" name="cabin" class="flight-type">
+                      <option value="Economy">Economy</option>
+                      <option value="PremiumEconomy">Premium Economy</option>
+                      <option value="Business">Business</option>
+                    </select>
+                    <ng-template #pb let-r="result" let-t="term">
+                      <ngb-highlight [result]="r.site" [term]="t"></ngb-highlight>
+                      <p class="mb-0">{{ r }}</p>
+                    </ng-template>
+                  </div>
+                </div> -->
+                <div class="col-sm-12 col-md-2 col-lg-2">
+                  <div class="form-group">
+                    <label>From</label
+                    ><input
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter Location"
+                      formControlName="busFrom"
+                      [ngbTypeahead]="search"
+                      [(ngModel)]="busFrom"
+                      [resultTemplate]="busFromTemplate"
+                      (change)="getBusFrom($event)"
+                    />
+                    <ng-template #busFromTemplate let-r="result" let-t="term">
+                      <ngb-highlight
+                        [result]="r.site"
+                        [term]="t"
+                      ></ngb-highlight>
+                      <p class="mb-0">{{ r }}</p>
+                    </ng-template>
+
+                    <small
+                      [hidden]="
+                        busBookingForm.controls.busFrom.valid ||
+                        busBookingForm.controls.busFrom.untouched
+                      "
+                      class="text-danger"
+                      translate
+                    >
+                      feild required
+                    </small>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-2 col-lg-2">
+                  <div class="form-group">
+                    <label>To</label
+                    ><input
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter Location"
+                      formControlName="busTo"
+                      [ngbTypeahead]="search"
+                      [(ngModel)]="busTo"
+                      [resultTemplate]="busToTemplate"
+                      (change)="getBusTo($event)"
+                    />
+
+                    <ng-template #busToTemplate let-r="result" let-t="term">
+                      <ngb-highlight
+                        [result]="r.site"
+                        [term]="t"
+                      ></ngb-highlight>
+                      <p class="mb-0">{{ r }}</p>
+                    </ng-template>
+                    <small
+                      [hidden]="
+                        busBookingForm.controls.busTo.valid ||
+                        busBookingForm.controls.busTo.untouched
+                      "
+                      class="text-danger"
+                      translate
+                    >
+                      feild required
+                    </small>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-2 col-lg-2">
+                  <div class="form-group">
+                    <label>Departure date </label>
+                    <input
+                      type="date"
+                      min="{{ currentDate }}"
+                      formControlName="checkOut"
+                      class="form-control"
+                      placeholder="Select Departure"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row container">
+              <div class="col-sm-12 col-md-12 col-lg-12 p-0">
+                <button
+                  (click)="navigatebus()"
+                  type="submit"
+                  class="btn btn__secondary"
+                  [disabled]="busBookingForm.invalid"
+                >
+                  lets go
+                </button>
+              </div>
+              <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+          </form>
+        </div>
+        <div id="tab4" [ngClass]="{ active: tab === 4, hidden: tab !== 4 }">
+          <form class="user-account-form" [formGroup]="trainBookingForm">
+            <div class="row mb-30">
+              <div class="col-sm-12 col-md-2 col-lg-2">
+                <div class="form-group">
+                  <label>From</label
+                  ><input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter Location"
+                    formControlName="trainFrom"
+                    [ngbTypeahead]="searchStations"
+                    [(ngModel)]="trainFrom"
+                    [resultTemplate]="trainFromTemplate"
+                    (change)="getTrainFrom($event)"
+                  />
+                  <ng-template #trainFromTemplate let-r="result" let-t="term">
+                    <ngb-highlight [result]="r.site" [term]="t"></ngb-highlight>
+                    <p class="mb-0">{{ r }}</p>
+                  </ng-template>
+
+                  <small
+                    [hidden]="
+                      trainBookingForm.controls.trainFrom.valid ||
+                      trainBookingForm.controls.trainFrom.untouched
+                    "
+                    class="text-danger"
+                    translate
+                  >
+                    feild required
+                  </small>
+                </div>
+              </div>
+              <!-- /.col-lg-2 -->
+              <div class="col-sm-12 col-md-2 col-lg-2">
+                <div class="form-group">
+                  <label>To</label
+                  ><input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter Location"
+                    formControlName="trainTo"
+                    [ngbTypeahead]="searchStations"
+                    [(ngModel)]="trainTo"
+                    [resultTemplate]="trainToTemplate"
+                    (change)="getTrainTo($event)"
+                  />
+
+                  <ng-template #trainToTemplate let-r="result" let-t="term">
+                    <ngb-highlight [result]="r.site" [term]="t"></ngb-highlight>
+                    <p class="mb-0">{{ r }}</p>
+                  </ng-template>
+                  <small
+                    [hidden]="
+                      trainBookingForm.controls.trainTo.valid ||
+                      trainBookingForm.controls.trainTo.untouched
+                    "
+                    class="text-danger"
+                    translate
+                  >
+                    feild required
+                  </small>
+                </div>
+              </div>
+              <!-- /.col-lg-2 -->
+              <div
+                class="col-sm-12 col-md-4 col-lg-4 d-flex flex-wrap booking-radio ml-0"
+              >
+                <div class="col-md-6 form-group input-radio">
+                  <label class="label-radio font-weitht-100"
+                    >Single Trip
+                    <input
+                      formControlName="trainTrip"
+                      [(ngModel)]="trainTrip"
+                      (change)="getTrainTrip($event)"
+                      name="trainTrip"
+                      type="radio"
+                      value="Single"
+                      checked=""
+                    />
+                    <span class="radio-indicator"></span>
+                  </label>
+                </div>
+                <div class="col-md-6 form-group input-radio">
+                  <label class="label-radio font-weitht-100"
+                    >Round Trip
+                    <input
+                      formControlName="trainTrip"
+                      [(ngModel)]="trainTrip"
+                      (change)="getTrainTrip($event)"
+                      name="trainTrip"
+                      type="radio"
+                      value="Round"
+                    />
+                    <span class="radio-indicator"></span>
+                  </label>
+                </div>
+              </div>
+              <!-- /.col-lg-12 -->
+            </div>
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-12">
+                <button
+                  (click)="navigateToTrainBooking()"
+                  type="button"
+                  id="trainButton"
+                  class="btn btn__secondary"
+                  [disabled]="trainBookingForm.invalid"
+                >
+                  Let's go!
+                </button>
+              </div>
+              <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /.Booking Details -->

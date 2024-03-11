@@ -612,10 +612,10 @@ export class EventService {
   getEvents = (params: any) => {
     const _query = new URLSearchParams(params).toString();
     return axios
-      .get(`${environment.serverUrl}/trip/search?${_query}`)
+      .get(`${environment.serverUrl}/trip?${_query}`)
       .then(function (response) {
         // handle success
-        // console.log(response.data.data);
+        console.log(response.data.data);
         return response.data.data;
       })
       .catch(function (error) {

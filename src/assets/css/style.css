@@ -7,12 +7,14 @@ body {
   overflow-x: hidden;
 }
 @font-face {
-  font-family: Byom-Bold;
+  /* font-family: Byom-Bold; */
+  font-family: Arial, sans-serif;
   src: url(../fonts/Byom-Bold.otf);
   font-display: swap;
 }
 @font-face {
-  font-family: Byom-Regular;
+  /* font-family: Byom-Regular; */
+  font-family: Arial, sans-serif;
   src: url(../fonts/Byom-Regular.otf);
   font-display: swap;
 }
@@ -39,7 +41,8 @@ a {
   -moz-transition: color 0.3s ease;
   -ms-transition: color 0.3s ease;
   -o-transition: color 0.3s ease;
-  font-family: Byom-Regular !important;
+  font-family: Arial, sans-serif !important;
+  /* font-family: Byom-Regular !important; */
 }
 
 a:hover {
@@ -71,13 +74,15 @@ ol,
 li {
   margin: 0;
   padding: 0;
-  font-family: Byom-Bold;
+  /* font-family: Byom-Bold; */
+  font-family: Arial, sans-serif;
   text-transform: capitalize;
 }
 p {
   margin: 0;
   padding: 0;
-  font-family: Byom-Regular !important;
+  /* font-family: Byom-Regular !important; */
+  font-family: Arial, sans-serif !important;
   text-transform: none;
 }
 *,
@@ -89,7 +94,8 @@ p {
 ul,
 ol {
   list-style: none;
-  font-family: Byom-Regular !important;
+  /* font-family: Byom-Regular !important; */
+  font-family: Arial, sans-serif !important;
   text-transform: capitalize;
 }
 
@@ -1133,7 +1139,8 @@ h4,
 h5,
 h6 {
   color: #121c45;
-  font-family: Byom-Bold;
+  /* font-family: Byom-Bold; */
+  font-family: Arial, sans-serif;
   text-transform: capitalize;
   font-weight: 600;
   line-height: 1.1;
@@ -1769,7 +1776,8 @@ label {
   line-height: 1;
   margin-bottom: 15px;
   color: #121c45;
-  font-family: Byom-Bold;
+  /* font-family: Byom-Bold; */
+  font-family: Arial, sans-serif;
 }
 
 .form-group {
@@ -1786,7 +1794,8 @@ label {
   padding: 0 0 0 20px;
   font-size: 14px;
   border-radius: 2px;
-  font-family: Byom-Regular;
+  /* font-family: Byom-Regular; */
+  font-family: Arial, sans-serif;
 }
 
 .form-control:focus {
@@ -3388,7 +3397,9 @@ form input[type='file'] {
   .header-transparent .navbar > .container,
   .header-transparent .navbar > .container-fluid {
     height: 80px;
+    margin-top: 2px;
   }
+  
 
   .header .header-full .navbar,
   .header .header-full .navbar .navbar-brand,
@@ -3861,6 +3872,9 @@ form input[type='file'] {
   .accordion-item {
     padding: 15px 20px;
   }
+  .video-content {
+    margin-top: 110px !important; 
+  }
 }
 
 /*----------------------
@@ -3961,7 +3975,8 @@ form input[type='file'] {
   line-height: 33px;
 }
 .footer__copyright {
-  font-family: Byom-Regular;
+  /* font-family: Byom-Regular; */
+  font-family: Arial, sans-serif;
   text-align: center;
   color: #fff;
 }
@@ -4009,7 +4024,8 @@ form input[type='file'] {
 }
 .footer-top-button a {
   color: #fff;
-  font-family: Byom-Bold !important;
+  /* font-family: Byom-Bold !important; */
+  font-family: Arial, sans-serif !important;
 }
 .home .weather-currency {
   /* background: none; */
@@ -4032,12 +4048,13 @@ form input[type='file'] {
   float: right;
 }
 .weather-heading {
-  padding: 5px 0px 0px 0px;
-  text-align: right;
+  padding: 5px 0px 0px 50px;
+  /* text-align: right; */
 }
 .weather-heading p {
   color: #000;
-  font-family: Byom-Regular !important;
+  /* font-family: Byom-Regular !important; */
+  font-family: Arial, sans-serif !important;
   margin-bottom: 0px;
 }
 .weather-heading p img {
@@ -4062,8 +4079,12 @@ form input[type='file'] {
   display: inline-block;
   margin-top: 10px;
 }
+.helpline-heading {
+  text-align: right;
+  padding: 5px 0px 0px 0px;
+}
 .currency-heading {
-  padding: 5px 0px 0px 34px;
+  padding: 5px 0px 0px 0px;
   text-align: left;
 }
 .currency-heading h6 {
@@ -4072,7 +4093,8 @@ form input[type='file'] {
   line-height: 25px;
   font-weight: 400;
   margin-bottom: 1px;
-  font-family: Byom-Regular !important;
+  /* font-family: Byom-Regular !important; */
+  font-family: Arial, sans-serif !important;
 }
 .currency-heading h5 {
   color: #fff;
@@ -4081,7 +4103,8 @@ form input[type='file'] {
 }
 .currency-country {
   color: #fff;
-  font-family: Byom-Regular;
+  /* font-family: Byom-Regular; */
+  font-family: Arial, sans-serif;
   margin-bottom: 0px;
 }
 .currency-slider h3 {
@@ -4999,7 +5022,8 @@ form input[type='file'] {
 }
 .video__subtitle {
   color: #fff;
-  font-family: Byom-Regular;
+  /* font-family: Byom-Regular; */
+  font-family: Arial, sans-serif;
 }
 .video__title {
   color: #fff;
@@ -6103,7 +6127,8 @@ form input[type='file'] {
   display: none;
 }
 .places_sub {
-  font-family: Byom-Regular !important;
+  /* font-family: Byom-Regular !important; */
+  font-family: Arial, sans-serif !important; 
   font-size: 17px;
   margin-bottom: 0px;
 }
@@ -6134,11 +6159,13 @@ form input[type='file'] {
 }
 .blog-ul {
   list-style: disc;
-  font-family: Byom-Regular !important;
+  /* font-family: Byom-Regular !important; */
+  font-family: Arial, sans-serif !important;
   padding-bottom: 30px;
 }
 .blog-ul li {
-  font-family: Byom-Regular !important;
+  /* font-family: Byom-Regular !important; */
+  font-family: Arial, sans-serif !important;
 }
 .blog-auther-info {
   text-align: center;
@@ -6235,7 +6262,8 @@ form input[type='file'] {
   border-bottom: 1px solid #000;
   width: 65%;
   font-weight: 100;
-  font-family: Byom-Regular !important;
+  /* font-family: Byom-Regular !important; */
+  font-family: Arial, sans-serif !important;
   background: none;
 }
 .browse-form button {
@@ -6261,7 +6289,8 @@ form input[type='file'] {
 }
 .show-all-btn a {
   float: right;
-  font-family: Byom-Bold !important;
+  /* font-family: Byom-Bold !important; */
+  font-family: Arial, sans-serif !important;
 }
 .show-all-btn a i {
   padding-left: 10px;
@@ -8169,14 +8198,16 @@ form input[type='file'] {
 .whattodo-menu li a {
   color: #000;
   padding: 10px;
-  font-family: Byom-Bold !important;
+  /* font-family: Byom-Bold !important; */
+  font-family: Arial, sans-serif !important;
 }
 .whattodo-menu li a:hover {
   color: #8cc63e;
 }
 .whattodo-menu li {
   padding: 8px 0px;
-  font-family: Byom-Bold !important;
+  /* font-family: Byom-Bold !important; */
+  font-family: Arial, sans-serif !important;
 }
 
 .whattodo-menu li a img {
@@ -8870,7 +8901,8 @@ xsigin/signup popup
   color: #8cc63e;
 }
 .font-regular {
-  font-family: Byom-Regular !important;
+  /* font-family: Byom-Regular !important; */
+  font-family: Arial, sans-serif !important;
 }
 .wishlist-btn {
   background: #8cc63e;
@@ -8890,12 +8922,14 @@ xsigin/signup popup
 table th {
   background: #8cc63e;
   color: #fff;
-  font-family: Byom-Regular;
+  /* font-family: Byom-Regular; */
+  font-family: Arial, sans-serif;
 }
 table td {
   background: #fff;
   color: #000;
-  font-family: Byom-Regular;
+  /* font-family: Byom-Regular; */
+  font-family: Arial, sans-serif;
   font-weight: 100;
 }
 .table > thead > tr > th,
@@ -8929,7 +8963,8 @@ table td {
   border-bottom: 1px solid #f0ec70;
   padding: 0 0 0 0px;
   font-size: 14px;
-  font-family: Byom-Regular;
+  /* font-family: Byom-Regular; */
+  font-family: Arial, sans-serif;
 }
 .booking-home label {
   font-size: 14px;
@@ -8937,7 +8972,8 @@ table td {
   line-height: 1;
   margin-bottom: 0px;
   color: #121c45;
-  font-family: Byom-Bold;
+  /* font-family: Byom-Bold; */
+  font-family: Arial, sans-serif;
 }
 .booking-home .form-group {
   position: relative;
@@ -8947,7 +8983,8 @@ table td {
   margin: auto;
 }
 .font-weitht-100 {
-  font-family: Byom-Regular !important;
+  /* font-family: Byom-Regular !important; */
+  font-family: Arial, sans-serif !important;
 }
 .hide {
   display: none;
@@ -8981,7 +9018,8 @@ table td {
   font-size: 20px;
   color: #231f20;
   text-align: center;
-  font-family: Byom-Bold !important;
+  /* font-family: Byom-Bold !important; */
+  font-family: Arial, sans-serif !important; 
   width: 100%;
   /*     border-bottom: 5px solid #eee; */
   height: 75px;
@@ -9016,7 +9054,8 @@ table td {
   font-size: 20px;
   color: #231f20;
   text-align: center;
-  font-family: Byom-Bold !important;
+  /* font-family: Byom-Bold !important; */
+  font-family: Arial, sans-serif !important;
   width: 300px;
   border-bottom: 5px solid #eee;
   height: 75px;
@@ -9059,7 +9098,8 @@ table td {
   border-radius: 0px;
   display: inline-block;
   vertical-align: middle;
-  font-family: Byom-Regular !important;
+  /* font-family: Byom-Regular !important; */
+  font-family: Arial, sans-serif !important;
 }
 /*Vertical Flip*/
 
@@ -9260,7 +9300,8 @@ table td {
 .visa select {
   border: none;
   border-bottom: 1px solid #f0ec70;
-  font-family: Byom-Regular;
+  /* font-family: Byom-Regular; */
+  font-family: Arial, sans-serif;
   padding: 13px;
 }
 
@@ -9285,7 +9326,8 @@ table td {
 }
 
 .visa select option {
-  font-family: Byom-Regular;
+  /* font-family: Byom-Regular; */
+  font-family: Arial, sans-serif;
 }
 .visa .form-group-select:after {
   content: '';
@@ -9358,7 +9400,8 @@ table td {
 .timeline h1,
 .timeline h2,
 .timeline h3 {
-  font-family: Byom-Bold;
+  /* font-family: Byom-Bold; */
+  font-family: Arial, sans-serif;
   letter-spacing: 1.5px;
   font-weight: 100;
   font-size: 1.4em;
@@ -9387,10 +9430,12 @@ table td {
   border: none;
 }
 .hotel-plan {
-  font-family: Byom-Bold;
+  /* font-family: Byom-Bold; */
+  font-family: Arial, sans-serif;
 }
 .hotel-plan-date {
-  font-family: Byom-Bold;
+  /* font-family: Byom-Bold; */
+  font-family: Arial, sans-serif;
 }
 .plan-book-btb {
   background: #8cc63e;
@@ -9425,7 +9470,8 @@ table td {
   color: #000;
 }
 .plan-booking-details {
-  font-family: Byom-Regular;
+  /* font-family: Byom-Regular; */
+  font-family: Arial, sans-serif;
   color: #00a299;
   font-size: 15px;
 }
@@ -9440,7 +9486,8 @@ table td {
 }
 .breadcrumb-item.active {
   color: #000000;
-  font-family: Byom-Regular !important;
+  /* font-family: Byom-Regular !important; */
+  font-family: Arial, sans-serif !important;
 }
 .details-review {
   color: #fff;
@@ -9481,7 +9528,8 @@ table td {
 .trip-timeline h1,
 .trip-timeline h2,
 .trip-timeline h3 {
-  font-family: Byom-Bold;
+  /* font-family: Byom-Bold; */
+  font-family: Arial, sans-serif;
   letter-spacing: 1.5px;
   font-weight: 100;
   font-size: 1.4em;
@@ -9558,11 +9606,13 @@ table td {
   display: inline-flex;
   list-style: none;
   color: #000;
-  font-family: Byom-Regular !important;
+  /* font-family: Byom-Regular !important; */
+  font-family: Arial, sans-serif !important;
 }
 .activities-list li {
   margin-right: 35px;
-  font-family: Byom-Regular !important;
+  /* font-family: Byom-Regular !important; */
+  font-family: Arial, sans-serif !important;
 }
 .activities-list li::before {
   content: '\2022';
@@ -9594,7 +9644,8 @@ table td {
 }
 .amenities-list li {
   margin-right: 35px;
-  font-family: Byom-Regular !important;
+  /* font-family: Byom-Regular !important; */
+  font-family: Arial, sans-serif !important;
   height: auto;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -9613,7 +9664,8 @@ table td {
 }
 .location-distance {
   color: #000;
-  font-family: Byom-Regular !important;
+  /* font-family: Byom-Regular !important; */
+  font-family: Arial, sans-serif !important;
 }
 
 .map-list li {
@@ -9705,7 +9757,8 @@ table td {
   }
   .show-all-btn a {
     float: left;
-    font-family: Byom-Bold !important;
+    /* font-family: Byom-Bold !important; */
+    font-family: Arial, sans-serif !important;
     margin-bottom: 20px;
   }
   .width50 {
@@ -9769,6 +9822,13 @@ table td {
   .currency-heading {
     display: none;
   }
+  .weather-heading {
+    display: none;
+  }
+  .helpline-heading {
+    text-align: center;
+    padding: 5px 0px 0px 0px;
+  }
   .home .header {
     position: relative;
     z-index: 1010;
@@ -9812,7 +9872,8 @@ table td {
     font-size: 15px;
     color: #231f20;
     text-align: center;
-    font-family: Byom-Bold !important;
+    /* font-family: Byom-Bold !important; */
+    font-family: Arial, sans-serif !important;
     width: 150px;
     /* border-bottom: 5px solid #eee; */
     height: 60px;
@@ -9841,7 +9902,8 @@ table td {
   }
   .show-all-btn a {
     float: left;
-    font-family: Byom-Bold !important;
+    /* font-family: Byom-Bold !important; */
+    font-family: Arial, sans-serif !important;
     margin-bottom: 20px;
   }
   .amenities-list {
@@ -10288,7 +10350,8 @@ a:not([href]):not([tabindex]) {
 }
 
 .visa-ul li {
-  font-family: Byom-Regular;
+  /* font-family: Byom-Regular; */
+  font-family: Arial, sans-serif;
   position: relative;
   line-height: 30px;
 }
@@ -10308,7 +10371,8 @@ a:not([href]):not([tabindex]) {
   padding-left: 20px;
 }
 .visa-sub-ul li {
-  font-family: Byom-Regular;
+  /* font-family: Byom-Regular; */
+  font-family: Arial, sans-serif;
   position: relative;
   line-height: 30px;
 }
@@ -10329,7 +10393,8 @@ a:not([href]):not([tabindex]) {
   margin-top: 10%;
   font-size: 12px;
   color: #a1a1a1;
-  font-family: Byom-Regular;
+  /* font-family: Byom-Regular; */
+  font-family: Arial, sans-serif;
 }
 .heading-2 {
   display: flex;

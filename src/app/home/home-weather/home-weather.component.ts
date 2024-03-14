@@ -11,6 +11,11 @@ export class HomeWeatherComponent implements OnInit {
   constructor() {}
   cities: any = [
     {
+      name: 'islamabad',
+      alias: 'Islamabad',
+      city_code: '33d7373d09',
+    },
+    {
       name: 'bahawalpur',
       alias: 'Bahawalpur',
       city_code: '29d3571d69',
@@ -31,10 +36,10 @@ export class HomeWeatherComponent implements OnInit {
       city_code: '25d4068d36',
     },
     {
-      name: 'islamabad',
-      alias: 'Islamabad',
-      city_code: '33d7373d09',
-    },
+      name: 'Hunza',
+      alias: 'hunza-nagar',
+      city_code: '36d3974d69',
+    },
     {
       name: 'karachi',
       alias: 'Karachi',
@@ -94,6 +99,11 @@ export class HomeWeatherComponent implements OnInit {
       name: 'rawalpindi',
       alias: 'Rawalpindi',
       city_code: '33d5773d02',
+    },
+    {
+      name: 'Skardu',
+      alias: 'skardu',
+      city_code: '35d3275d55',
     },
     {
       name: 'sukkur',

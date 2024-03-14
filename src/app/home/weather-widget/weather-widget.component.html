@@ -1,18 +1,23 @@
 <div class="weather-currency">
-  <div class="col-md-6 weather-home">
-    <div class="col-md-6 weather-heading">
+  <div class="col-md-12 weather-home">
+    <div class="col-md-3"></div>
+    <div class="col-md-3 helpline-heading">
+      <img src="/assets/images/icons/support-helpline-1422.svg" /> 24/7 Tourism Helpline: <a href="tel:1422"><i class="fa fa-clock"></i> 1422</a>
+    </div>
+    <div class="col-md-3 weather-heading">
       <p>
-        <img src="assets/images/icons/weathercloudy.svg" />weather in islamabad
+        <img src="assets/images/icons/weathercloudy.svg" />Weather in Islamabad
         <span class="city-weather" style="text-transform: uppercase !important"
           ><span id="current-weather">{{ temp }}</span
           ><span>&#176;</span>C</span
         >
       </p>
     </div>
+    
     <div
       (click)="openCurrencyModal()"
       style="cursor: pointer"
-      class="col-md-6 currency-heading"
+      class="col-sm-6 col-md-3  currency-heading"
     >
       <h6 class="currensy-flip">
         <span (click)="openCurrencyModal()" style="cursor: pointer">

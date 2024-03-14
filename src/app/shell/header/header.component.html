@@ -38,6 +38,7 @@
           <li class="nav__item with-dropdown">
             <a
               [routerLink]="['/']"
+              (click)="toggleSidebar()"
               [translate]="'HEADERITEM1'"
               [ngClass]="{ active: router.url === '/' }"
               class="dropdown-toggle nav__item-link"
@@ -60,6 +61,7 @@
               <li class="nav__item" *ngFor="let province of provinces">
                 <a
                   class="nav__item-link"
+                  (click)="toggleSidebar()"
                   (click)="navigate('/where-to-go/locations', province.slug)"
                   style="cursor: pointer"
                   >{{ province.name }}</a
@@ -76,6 +78,7 @@
             <!-- [routerLink]="['/what-to-do']" -->
             <a
               [routerLink]="['/what-to-do']"
+              (click)="toggleSidebar()"
               [ngClass]="{ active: router.url.includes('what-to-do') }"
               class="dropdown-toggle nav__item-link"
               [translate]="'HEADERITEM3'"
@@ -96,6 +99,7 @@
           <li class="nav__item with-dropdown">
             <a
               [routerLink]="['/explore-pakistan']"
+              (click)="toggleSidebar()"
               [ngClass]="{ active: router.url.includes('planning') }"
               class="dropdown-toggle nav__item-link"
               [translate]="'HEADERITEM5'"
@@ -104,25 +108,27 @@
             <i class="fa fa-angle-right" data-toggle="dropdown"></i>
             <ul class="dropdown-menu">
               <li class="nav__item">
-                <a [routerLink]="['/planning/tips']" class="nav__item-link"
-                  >tips
+                <a [routerLink]="['/planning/tips']" (click)="toggleSidebar()" class="nav__item-link"
+                  >Travel Tips
                 </a>
               </li>
               <li class="nav__item">
                 <a
+                (click)="toggleSidebar()"
                   [routerLink]="['/planning/getting-here']"
                   class="nav__item-link"
-                  >getting here
+                  >getting to Pakistan 
                 </a>
               </li>
               <li class="nav__item">
                 <a
                   [routerLink]="['/planning/getting-around']"
+                  (click)="toggleSidebar()"
                   class="nav__item-link"
-                  >getting around</a
+                  >getting around Pakistan</a
                 >
               </li>
-              <li class="nav__item">
+              <!-- <li class="nav__item">
                 <a [routerLink]="['/planning/covid']" class="nav__item-link"
                   >covid restriction</a
                 >
@@ -130,15 +136,15 @@
               <li class="nav__item">
                 <a [routerLink]="['/planning/visa']" class="nav__item-link"
                   >mountaineering visa</a
-                >
-              </li>
+                > 
+              </li>-->
               <li class="nav__item">
-                <a [routerLink]="['/planning/travel']" class="nav__item-link"
+                <a [routerLink]="['/planning/travel']" (click)="toggleSidebar()" class="nav__item-link"
                   >travel guide</a
                 >
               </li>
               <li class="nav__item">
-                <a [routerLink]="['/planning/tic']" class="nav__item-link"
+                <a [routerLink]="['/planning/tic']" (click)="toggleSidebar()" class="nav__item-link"
                   >Tourist Information Centers</a
                 >
               </li>
@@ -181,7 +187,7 @@
             </ul>
           </li> -->
           <li class="nav__item with-dropdown pointer">
-            <a  [routerLink]="['/map']"
+            <a  [routerLink]="['/map']" (click)="toggleSidebar()"
               [ngClass]="{ active: router.url.includes('map') }"
               class="dropdown-toggle nav__item-link"
               [translate]="'HEADERITEM6'"
@@ -217,27 +223,27 @@
               [ngClass]="{ active: router.url.includes('bookings') }"
                target="_blank"class="dropdown-toggle nav__item-link"
               [translate]="'HEADERITEM6'"
-              >Booking</a
+              >Bookings</a
             >
             <i class="fa fa-angle-right" data-toggle="dropdown"></i>
             <ul class="dropdown-menu">
               <li class="nav__item">
-                <a [routerLink]="['/booking-accommodation']" class="nav__item-link"
+                <a (click)="toggleSidebar()" [routerLink]="['/booking-accommodation']" class="nav__item-link"
                   >Accommodations</a
                 >
               </li>
               <li class="nav__item">
-                <a [routerLink]="['/booking-bus']" class="nav__item-link"
+                <a (click)="toggleSidebar()" [routerLink]="['/booking-bus']" class="nav__item-link"
                   >Buses</a
                 >
               </li>
               <li class="nav__item">
-                <a href="https://www.google.com/travel/flights" target="_blank" class="nav__item-link"
+                <a (click)="toggleSidebar()" href="https://www.google.com/travel/flights" target="_blank" class="nav__item-link"
                   >Airlines</a
                 >
               </li>
               <li class="nav__item">
-                <a href="https://www.pakrail.gov.pk/" target="_blank" class="nav__item-link"
+                <a (click)="toggleSidebar()" href="https://www.pakrail.gov.pk/" target="_blank" class="nav__item-link"
                   >Railways</a
                 >
               </li>
@@ -258,6 +264,7 @@
           <li class="nav__item">
             <!-- [routerLink]="['/what-to-do']" -->
             <a
+              (click)="toggleSidebar()"
               [routerLink]="['/publications']"
               [ngClass]="{ active: router.url.includes('publications') }"
               class="dropdown-toggle nav__item-link"
@@ -268,17 +275,50 @@
           <li class="nav__item with-dropdown">
             <!-- [routerLink]="['/what-to-do']" -->
             <a
-              href="https://visa.nadra.gov.pk/tourist-visit-visas/" target="_blank"
               class="dropdown-toggle nav__item-link"
-              >E-Visa</a
-            >
+              >Apply Visa</a>
+            <i class="fa fa-angle-right" data-toggle="dropdown"></i>
+            <ul class="dropdown-menu">
+
+              <li class="nav__item">
+                <a (click)="toggleSidebar()" href="https://visa.nadra.gov.pk/tourist-visa/" target="_blank" class="nav__item-link"
+                  >General Tourist Visa</a
+                >
+              </li>
+
+              <li class="nav__item">
+                <a (click)="toggleSidebar()" href="https://visa.nadra.gov.pk/mountaineering-trekking/" target="_blank" class="nav__item-link"
+                  >Mountaineering & Trekking Visa</a
+                >
+              </li>
+              <li class="nav__item">
+                <a (click)="toggleSidebar()" href="https://visa.nadra.gov.pk/visa-on-arrival-tourist/" target="_blank" class="nav__item-link"
+                  >Tourist Visa on Arrival</a
+                >
+              </li>
+              <li class="nav__item">
+                <a (click)="toggleSidebar()" href="https://visa.nadra.gov.pk/religious-tourism/" target="_blank" class="nav__item-link"
+                  >Religious Tourism</a
+                >
+              </li>
+              <li class="nav__item">
+                <a (click)="toggleSidebar()" href="https://visa.nadra.gov.pk/medical-visa/" target="_blank" class="nav__item-link"
+                  >Medical Tourism</a
+                >
+              </li>
+           
+              
+            </ul>
           </li>
+
+        
 
           <!-- /.nav-item -->
           <!-- /.nav-item -->
           <li *ngIf="isLoggedIn" class="nav__item with-dropdown visible-xs">
             <a
               [routerLink]="['/profile']"
+              (click)="toggleSidebar()"
               data-toggle="dropdown"
               class="dropdown-toggle nav__item-link"
               >Profile</a

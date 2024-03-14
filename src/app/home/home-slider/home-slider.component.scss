@@ -16,3 +16,12 @@
   height: 100%;
   width: 100% !important;
 }
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .bg-img {
+    margin-top: 110px !important; /* Adjust the value as needed */
+  }
+  .bg-overlay {
+    height: 352px !important;
+  }
+}

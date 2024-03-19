@@ -91,3 +91,11 @@
 .heading__desc {
   margin: 0 -10em;
 }
+
+
+@media screen and (max-width: 767px) {
+  .heading__desc {
+    margin: 0px 0px 0px 0px !important ;
+  }
+}
+

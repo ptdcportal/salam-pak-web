@@ -37,7 +37,7 @@ export class HomeWeatherComponent implements OnInit {
     },
     {
       name: 'Hunza',
-      alias: 'hunza-nagar',
+      alias: 'Hunza',
       city_code: '36d3974d69',
     },
     {
@@ -102,7 +102,7 @@ export class HomeWeatherComponent implements OnInit {
     },
     {
       name: 'Skardu',
-      alias: 'skardu',
+      alias: 'Skardu',
       city_code: '35d3275d55',
     },
     {

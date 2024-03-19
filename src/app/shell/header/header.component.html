@@ -276,10 +276,14 @@
             <!-- [routerLink]="['/what-to-do']" -->
             <a
               class="dropdown-toggle nav__item-link"
-              >Apply Visa</a>
+              >Apply E-Visa</a>
             <i class="fa fa-angle-right" data-toggle="dropdown"></i>
             <ul class="dropdown-menu">
-
+              <li class="nav__item">
+                <a (click)="toggleSidebar()" href="https://visa.nadra.gov.pk/visa-on-arrival-tourist/" target="_blank" class="nav__item-link"
+                  >Tourist Visa on Arrival</a
+                >
+              </li>
               <li class="nav__item">
                 <a (click)="toggleSidebar()" href="https://visa.nadra.gov.pk/tourist-visa/" target="_blank" class="nav__item-link"
                   >General Tourist Visa</a
@@ -291,11 +295,7 @@
                   >Mountaineering & Trekking Visa</a
                 >
               </li>
-              <li class="nav__item">
-                <a (click)="toggleSidebar()" href="https://visa.nadra.gov.pk/visa-on-arrival-tourist/" target="_blank" class="nav__item-link"
-                  >Tourist Visa on Arrival</a
-                >
-              </li>
+              
               <li class="nav__item">
                 <a (click)="toggleSidebar()" href="https://visa.nadra.gov.pk/religious-tourism/" target="_blank" class="nav__item-link"
                   >Religious Tourism</a
@@ -385,13 +385,13 @@
                 class="dropdown-menu align-profile__menu"
                 style="font-size: 15px"
               >
-                <li>
+                <!-- <li>
                   <a
                     href="https://dashboard.salampakistan.gov.pk/"
                     target="_blank"
                     >login as vendor</a
                   >
-                </li>
+                </li> -->
                 <hr />
                 <!-- <li><a href="#">Bookings</a></li> -->
                 <li>

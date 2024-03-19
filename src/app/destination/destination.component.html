@@ -118,8 +118,7 @@
   <div class="container">
     <div class="row heading heading-2 mb-40">
       <div class="col-sm-12 col-md-8 col-lg-8 mx-auto text-center">
-        <p [innerHTML]="location.longDescription" class="heading__desc">
-          <!-- {{ location.longDescription }} -->
+        <p [innerHTML]="sanitizeHtml(location.longDescription)" class="heading__desc">
         </p>
       </div>
       <!-- /.col-lg-5 -->

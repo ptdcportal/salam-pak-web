@@ -22,6 +22,7 @@ import { AuthModalComponent } from '../common/auth-modal/auth-modal.component';
 import { CreatePlanComponent } from '../planning-popups/create-plan/create-plan.component';
 import { PlanListingComponent } from '../planning-popups/plan-listing/plan-listing.component';
 import { environment } from '../../environments/environment';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 const responsiveSettings = [
   {
@@ -147,8 +148,11 @@ export class DestinationComponent implements OnInit, AfterViewInit {
     public homeService: HomeService,
     public routeLocation: Location,
     private authenticationService: AuthenticationService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private sanitizer: DomSanitizer
   ) {
+
+    
     // this.isLoggedIn = this.credentialsService.isAuthenticated();
 
     // this.loc = this.routeLocation.path();
@@ -191,6 +195,10 @@ export class DestinationComponent implements OnInit, AfterViewInit {
     this.userData = JSON.parse(localStorage.getItem('userData'));
     this.getLocations();
     // this.createForm();
+  }
+
+  sanitizeHtml(html: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 
   loadWeather(s: any, id: any) {

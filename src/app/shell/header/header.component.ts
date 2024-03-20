@@ -341,4 +341,11 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterContentChecked {
       this.viewPortScroller.scrollToAnchor('bookingSectionTab');
     }, 400);
   }
+
+  scrollToVisa() {
+    this.router.navigate(['/']);
+    setTimeout(() => {
+      this.viewPortScroller.scrollToAnchor('visa');
+    }, 400);
+  }
 }

@@ -1,9 +1,10 @@
 <!--- VISA-->
+<br>
 <section id="visa" class="visa pb-70">
   <div class="container">
     <div class="row heading heading-2 mb-40">
       <div class="col-sm-12 col-md-12 col-lg-6">
-        <h2 class="heading__title">visa status</h2>
+        <h2 class="heading__title">Check Visa Eligibility</h2>
         <p class="heading__desc">
           Pakistan Online Visa (E-Visa) System is now open for the citizens of 192 Countries! Moreover, citizens from 64 Countries are eligible to apply for Visa on Arrival (Electronic Travel Authorization - ETA) Tourist Category. Applicants must plan travel only upon receipt of a valid visa. Please select your country to get started.
         </p>
@@ -12,7 +13,7 @@
             <div class="form-group-select">
               <form [formGroup]="visaForm">
                 <select>
-                  <option value="">select your country</option>
+                  <option value="">Select Your Country</option>
                   <option *ngFor="let visa of visas" [value]="visa.name">
                     {{ visa.name }}
                   </option>
@@ -62,7 +63,7 @@
         <h4 class="text-center mb-2">Visa Availabilty</h4>
         <h4 class="text-center">{{ selectedCountry }}</h4>
         <ul class="visa-availabilty__txt-list ml-5">
-          <li class="visa-availability-list-item">
+          <li *ngIf="online" class="visa-availability-list-item">
             <b>Citizens of {{ selectedCountry }} are eligible to apply for an E-Visa.</b><br><br>
             Please ensure to apply for your E-Visa well in advance of your planned trip to Pakistan.<br> The processing times for various visa categories are as follows: 
             <br>
@@ -114,7 +115,7 @@
       class="col-10 col-sm-10 col-md-12 col-lg-12 p-5 visa-popup__main"
     >
       <div style="background-color: white">
-        <h4 class="text-center">Please select your country!</h4>
+        <h4 class="text-center">Please Select Your Country!</h4>
       </div>
       <div class="text-center">
         <a

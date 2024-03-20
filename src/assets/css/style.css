@@ -5393,7 +5393,7 @@ form input[type='file'] {
 .post-item .post__img {
   position: relative;
   overflow: hidden;
-  border-radius: 3px;
+  border-radius: 20px;
   height: 240px;
   -webkit-transition: all 0.6s linear;
   -moz-transition: all 0.6s linear;
@@ -5497,6 +5497,7 @@ form input[type='file'] {
   font-weight: 600;
   line-height: 28px;
   margin-bottom: 0;
+  text-align: center;
 }
 
 .post-item .post__title a {

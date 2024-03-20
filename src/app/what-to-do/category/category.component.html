@@ -35,16 +35,13 @@
 <!-- /.page-title -->
 
 <!--======-->
-<div class="container-fluid seasons">
+<!-- <div class="container-fluid seasons">
   <div class="container">
     <div class="row">
       <div class="col-md-8">
         <span class="heading__subtitle">{{ category.name }}</span>
         <h2 class="heading__title">featured {{ category.name }} events</h2>
       </div>
-      <!-- <div class="col-md-4 show-all-btn">
-        <a href="#">show all<i class="icon-arrow-right"></i></a>
-      </div> -->
     </div>
     <div class="masonry-wrapper masonry-style-2">
       <div class="blog-container" data-column-width=".col-md-4">
@@ -55,8 +52,6 @@
           "
           class="col-md-4 post-item p-4"
         >
-          <!-- [routerLink]="['/what-to-do', category.url, 'location', location.slug]" -->
-          <!--slice: 0:3; let image; of: images; let i = index-->
           <a
             href="/what-to-do{{ category.url }}/location/{{ location.slug }}"
             [routerLink]="[
@@ -71,9 +66,7 @@
                 alt="post img"
                 onerror="this.onerror=null;this.src='assets/images/images/fall/fall1.jpg';"
               />
-              <!---->
             </div>
-            <!-- /.post-img -->
             <div class="post__content">
               <h4 class="post__title">{{ location.alias }}</h4>
               <p class="post__desc">
@@ -81,7 +74,6 @@
                 {{ location.description.length > 100 ? '...' : '' }}
               </p>
             </div>
-            <!-- /.post-content --></a
           >
         </div>
         <div *ngIf="!featured.length" class="mt-5">
@@ -89,9 +81,7 @@
             No featured "{{ category.name }}" found!
           </h2>
         </div>
-        <!-- /.post-item -->
       </div>
-      <!-- .masonry-container end -->
     </div>
   </div>
   <div class="container">
@@ -106,7 +96,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- new all grid here... -->
 
@@ -114,6 +104,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8">
+        <span class="heading__subtitle">What To Do</span>
+
         <h2 class="heading__title">all {{ category.name }}</h2>
       </div>
       <div class="col-md-4 show-all-btn">
@@ -127,9 +119,9 @@
             | paginate: { itemsPerPage: 12, currentPage: q }
         "
         class="blog-container"
-        data-column-width=".col-md-4"
+        data-column-width=".col-md-3"
       >
-        <div class="col-md-4 post-item">
+        <div class="col-md-3 post-item">
           <a
             [routerLink]="[
               '/where-to-go/category',
@@ -150,10 +142,10 @@
 
             <div class="post__content">
               <h4 class="post__title">{{ location.alias }}</h4>
-              <p class="post__desc">
+              <!-- <p class="post__desc">
                 {{ location.description.substring(0, 100) }}
                 {{ location.description.length > 100 ? '...' : '' }}
-              </p>
+              </p> -->
             </div>
 
             <!-- /.post-content -->
@@ -167,7 +159,7 @@
     </div>
   </div>
 
-  <div *ngIf="locations.length > 12" class="container">
+  <!-- <div *ngIf="locations.length > 12" class="container">
     <div class="row">
       <div class="col-md-12 text-center">
         <div>
@@ -178,7 +170,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <h2 *ngIf="!locations.length" class="text-center text-muted d-block">
     No {{ category.name }} found!
   </h2>

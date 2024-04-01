@@ -1,0 +1,139 @@
+<!-- ========================
+        Booking Details
+    =========================== -->
+<div id="bookingSectionTab" style="padding-top: 140px"></div>
+<section id="bookingtabs" class="booking-home p-0">
+  <!--pt-80-->
+  <div class="container">
+    <div class="col-md-12">
+      <span
+        class="heading__subtitle"
+        [translate]="'BOOKINGANDRESERVATION'"
+      ></span>
+      <h2 class="heading__title" [translate]="'BOOKINGDETAILS'">
+        booking details
+      </h2>
+    </div>
+    
+    <header>
+      <div class="masonry-wrapper masonry-style-2">
+        <div class="masonry-container" data-column-width=".col-md-4">
+          <div  class="masonry-item col-md-3 col-sm-6 col-xs-12 web">
+            <div class="season-image-item item-h-4 hover-zoom">
+              <a [routerLink]="['/booking-accommodation']"  target="_blank"  class="ajax-link">
+                <div
+                  class="item-image bg-image-holder"
+                  style="
+                    background-image: url('assets/images/home/hotel-final.jpg');
+                    background-size: cover;
+                  "
+                >
+                  <img
+                    src="assets/images/home/hotel-final.jpg"
+                    onerror="this.onerror=null;this.src='assets/images/home/hotel-final.jpeg';"
+                    alt="" style="width: 100%;"
+                  />
+                </div>
+                <div class="item-overlay overlay-alt"></div>
+                <div class="item-details details-inside">
+                  <!-- <img src="assets/images/icons/hotel-updated.svg" /> -->
+                  <!-- <h4 class="item-title text-white"><img src="assets/images/icons/hotel-updated.svg" /></h4> -->
+                  <p class="item-cat">Accommodations</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="masonry-item col-md-3 col-sm-6 col-xs-12 web season-box">
+            <div class="season-image-item item-h-4 hover-zoom">
+              <a [routerLink]="['/booking-bus']"  target="_blank" class="ajax-link">
+                <div
+                  class="item-image bg-image-holder"
+                  style="
+                    background-image: url('assets/images/home/bus-final-2.jpg');
+                    background-size: cover;
+                  "
+                >
+                  <img src="assets/images/home/bus-final-2.jpg" alt="" style="width: 100%;"/>
+                </div>
+                <div class="item-overlay overlay-alt"></div>
+                <div class="item-details details-inside">
+                  <!-- <img src="assets/images/icons/bus-updated.svg" /> -->
+                  <!-- <h4 class="item-title text-white"><img src="assets/images/icons/hotel-updated.svg" /></h4> -->
+                  <p class="item-cat">Buses</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="masonry-item col-md-3 col-sm-6 col-xs-12 web season-box">
+            <div class="season-image-item item-h-4 hover-zoom">
+              <a href="https://www.google.com/travel/flights"   target="_blank" class="ajax-link">
+                <div
+                  class="item-image bg-image-holder"
+                  style="
+                    background-image: url('assets/images/home/plane-final-2.jpg');
+                    background-size: cover;
+                  "
+                >
+                  <img src="assets/images/home/plane-final-2.jpg" alt="" style="width: 100%;"/>
+                </div>
+                <div class="item-overlay overlay-alt"></div>
+                <div class="item-details details-inside">
+                  <!-- <img src="assets/images/icons/airline-updated.svg" /> -->
+                  <!-- <h4 class="item-title text-white"><img src="assets/images/icons/hotel-updated.svg" /></h4> -->
+                  <p class="item-cat">Airlines</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="masonry-item col-md-3 col-sm-6 col-xs-12 web season-box">
+            <div class="season-image-item item-h-4 hover-zoom">
+              <a href="https://www.pakrail.gov.pk/" target="_blank" class="ajax-link">
+                <div
+                  class="item-image bg-image-holder"
+                  style="
+                    background-image: url('assets/images/home/train-final.jpg');
+                    background-size: cover;
+                  "
+                >
+                  <img src="assets/images/home/train-final.jpg" alt="" style="width: 100%;"/>
+                </div>
+                <div class="item-overlay overlay-alt"></div>
+                <div class="item-details details-inside">
+                  <!-- <img src="assets/images/icons/train-updated.svg" /> -->
+                  <!-- <h4 class="item-title text-white"><img src="assets/images/icons/hotel-updated.svg" /></h4> -->
+                  <p class="item-cat">Railways</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- .masonry-container end -->
+      </div>
+      <!-- <div id="booking-tabs">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-12">
+            <a routerLink="/bookings" class="btn btn__primary btn__hover2 mr-30 planbtn">
+              <img src="assets/images/icons/hotel-updated.svg" /> Accomudation
+            </a>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-12">
+            <a routerLink="/booking-buss" class="btn btn__primary btn__hover2 mr-30 planbtn">
+              <img src="assets/images/icons/bus-updated.svg" /> Bus
+            </a>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-12">
+            <a routerLink="/booking-airline" class="btn btn__primary btn__hover2 mr-30 planbtn">
+              <img src="assets/images/icons/plane-updated.svg" /> Airline
+            </a>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-12">
+            <a routerLink="/booking-railway" class="btn btn__primary btn__hover2 mr-30 planbtn">
+              <img src="assets/images/icons/train-updated.svg" /> Railway
+            </a>
+          </div>
+        </div>
+      </div> -->
+    </header>
+  </div>
+</section>
+<!-- /.Booking Details -->

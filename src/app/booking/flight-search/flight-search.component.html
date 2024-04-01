@@ -12,7 +12,7 @@
     <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-8 page">
         <div class="slide__content">
-          <h4 class="slide__title">Flight from {{ data.departureCityName }}</h4>
+          <h4 class="slide__title">Flight from {{ data.legs }}</h4>
           <p class="slide__desc">Travel in Pakistan</p>
         </div>
         <!-- /.slide-content -->
@@ -272,175 +272,43 @@
           <span class="yellow-bar"></span>
         </div>
       </header>
+      <pre>{{ allEvents | json }}</pre>
+
       <div class="tab-content">
-        <app-loader [isLoading]="isLoading"></app-loader>
+        <!-- <app-loader [isLoading]="isLoading"></app-loader> -->
         <h3 *ngIf="!isLoading && !total" class="text-center pt-100">
           no record found!
         </h3>
         <div id="flighttab1">
-          <div
-            *ngFor="
-              let item of allEvents
-                | paginate
-                  : {
-                      itemsPerPage: pageSize,
-                      currentPage: skip,
-                      totalItems: total
-                    };
-              let count = index
-            "
-            class="col-md-12 flight-list-item p-0"
-          >
-            <div class="col-md-3 bus-company-logo">
-              <div class="bus-logo" style="height: 70px">
-                <img
-                  style="height: 100px"
-                  src="{{ item.outboundRoute[0].airline_logo }}"
-                  alt="company"
-                />
+          <div *ngFor="let item of allEvents.flightItineraries" class="col-md-12 flight-list-item p-0">
+              <div class="col-md-9">
+                  <div *ngFor="let segment of item.leg1.segments" class="col-md-6">
+                      <h6 class="flight-departure-h5">{{ segment.airlineCode }}</h6>
+                      <div class="col-md-12 p-0">
+                          <div class="col-md-4 p-0">
+                              <h6 class="flight-departure-h5">departure - {{ segment.departureAirportCode }}</h6>
+                              <p class="fight-date">{{ segment.departureDateTime | date: 'EEE, dd-MMM-y' }}</p>
+                              <p class="green flight-time">{{ segment.departureDateTime | date: 'h:mm a' }}</p>
+                          </div>
+                          <div class="col-md-4 mobile-p-0 mobile-mt-20">
+                              <h6 class="flight-landing-h5">landing - {{ segment.arrivalAirportCode }}</h6>
+                              <p class="fight-date">{{ segment.arrivalDateTime | date: 'EEE, dd-MMM-y' }}</p>
+                              <p class="green flight-time">{{ segment.arrivalDateTime | date: 'h:mm a' }}</p>
+                          </div>
+                      </div>
+                  </div>
               </div>
-            </div>
-            <div class="col-md-9">
-              <div class="col-md-6">
-                <h6 class="flight-departure-h5">
-                  {{ item.outboundRoute[0].airline }}
-                </h6>
+              <div class="col-md-3 bus-company-logo">
+                  <h5 class="flight-price-h5 green">Total Amount: PKR {{ item.price.totalAmount | number }}</h5>
+                  <h5 class="flight-price-h5 green">Amount Per Adult: PKR {{ item.price.pricePerAdult | number }}</h5>
+                  <h5 class="flight-price-h5 green">Amount Per Child: PKR {{ item.price.pricePerChild | number }}</h5>
+                  <h5 class="flight-price-h5 green">Amount Per Infant: PKR {{ item.price.pricePerInfant | number }}</h5>
+                  <div class="col-md-12 flight-bookingdetails p-0">
+                      <div class="col-md-12 col-sm-12 p-0">
+                          <a href="{{ item.deeplinkUrl }}" target="_blank" class="list-hotal-btn">Book Now</a>
+                      </div>
+                  </div>
               </div>
-              <div class="col-md-6 flight-powered-by">
-                <p>
-                  Powered by:
-                  <img
-                    class="flight-poweredby-logo"
-                    src="{{
-                      item.source === 'bookMe'
-                        ? 'https://bookmepk.s3.eu-central-1.amazonaws.com/static/images/logo.png'
-                        : ''
-                    }}"
-                  />
-                </p>
-              </div>
-            </div>
-            <div class="col-md-12 mt-30">
-              <div class="col-md-9 flight-timing-div">
-                <div
-                  class="col-md-12 p-0"
-                  *ngIf="
-                    item.direction === 'one_way' || item.direction === 'return'
-                  "
-                >
-                  <div class="col-md-4 p-0">
-                    <h6 class="flight-departure-h5">
-                      departure - {{ item.outboundRoute[0].from }}
-                    </h6>
-                    <p class="fight-date">
-                      {{ item.outboundRoute[0].depart | date: 'EEE, dd-MMM-y' }}
-                    </p>
-                    <p class="green flight-time">
-                      {{ item.outboundRoute[0].depart | date: 'h:mm a' }}
-                    </p>
-                  </div>
-                  <div class="col-md-4 mobile-p-0 mobile-mt-20">
-                    <h6 class="flight-landing-h5">
-                      landing - {{ item.outboundRoute[0].to }}
-                    </h6>
-                    <p class="fight-date">
-                      {{
-                        item.outboundRoute[0].arrival | date: 'EEE, dd-MMM-y'
-                      }}
-                    </p>
-                    <p class="green flight-time">
-                      {{ item.outboundRoute[0].arrival | date: 'h:mm a' }}
-                    </p>
-                  </div>
-                  <div class="col-md-4 mobile-p-0 mobile-mt-20">
-                    <h6 class="flight-time-h5">total time</h6>
-                    <p class="green flight-time">
-                      {{ item.outboundRoute[0].travel_time_readable }}
-                    </p>
-                  </div>
-                </div>
-
-                <div
-                  class="col-md-12 mt-30 p-0"
-                  *ngIf="item.direction === 'return'"
-                >
-                  <div class="col-md-4 p-0">
-                    <h6 class="flight-departure-h5">
-                      departure - {{ item.inboundRoute[0].from }}
-                    </h6>
-                    <p class="fight-date">
-                      {{ item.inboundRoute[0].depart | date: 'EEE, dd-MMM-y' }}
-                    </p>
-                    <p class="green flight-time">
-                      {{ item.outboundRoute[0].depart | date: 'h:mm a' }}
-                    </p>
-                  </div>
-                  <div class="col-md-4 mobile-p-0 mobile-mt-20">
-                    <h6 class="flight-landing-h5">
-                      landing - {{ item.inboundRoute[0].to }}
-                    </h6>
-                    <p class="fight-date">
-                      {{ item.inboundRoute[0].arrival | date: 'EEE, dd-MMM-y' }}
-                    </p>
-                    <p class="green flight-time">
-                      {{ item.inboundRoute[0].arrival | date: 'h:mm a' }}
-                    </p>
-                  </div>
-                  <div class="col-md-4 mobile-p-0 mobile-mt-20">
-                    <h6 class="flight-time-h5">total time</h6>
-                    <p class="green flight-time">
-                      {{ item.inboundRoute[0].travel_time_readable }}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-3">
-                <h6 class="margin-0">
-                  {{
-                    1 * data.no_of_adults +
-                      1 * data.no_of_children +
-                      1 * data.no_of_infants
-                  }}
-                  passenger(s)
-                </h6>
-                <p class="margin-0">
-                  (
-                  <label
-                    class="margin-0 passenger-flight"
-                    *ngIf="1 * data.no_of_adults"
-                    >{{ data.no_of_adults }} adult(s)</label
-                  >
-                  <label
-                    class="margin-0 passenger-flight"
-                    *ngIf="1 * data.no_of_children"
-                    >, {{ data.no_of_children }}
-                    {{
-                      1 * data.no_of_children > 1 ? 'children' : 'child'
-                    }}</label
-                  >
-                  <label
-                    class="margin-0 passenger-flight"
-                    *ngIf="1 * data.no_of_infants"
-                    >, {{ data.no_of_infants }} infant(s)</label
-                  >
-                  )
-                </p>
-                <h5 class="flight-price-h5 green">
-                  PKR {{ item.approxTotalPrice | number }}
-                </h5>
-                <div class="col-md-12 flight-bookingdetails p-0">
-                  <div class="col-md-12 col-sm-12 p-0">
-                    <a
-                      (click)="openFlightModal(item)"
-                      class="list-hotal-btn"
-                      target="_blank"
-                      >Book Now</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
         <div class="container">

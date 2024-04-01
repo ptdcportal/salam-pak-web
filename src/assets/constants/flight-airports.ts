@@ -600,4 +600,10 @@ export const airports: any = [
     location: 'Greenwood, Nova Scotia',
     country: 'Canada',
   },
+  {
+    iataCode: 'DXB',
+    airportName: 'Dubai International Airport',
+    location: 'Dubai International Airport',
+    country: 'Dubai United Arab Emirates',
+  },
 ];

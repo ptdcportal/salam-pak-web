@@ -64,6 +64,42 @@
   padding: 20px;
   box-shadow: 3px 10px 14px #eee;
 }
+// start
+.flight_list {
+  background: #fafafa;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0px 1px 10px 0.2px rgba(0, 0, 0, 0.18);
+  border: 1px solid #fff;
+  overflow: hidden;
+  position: relative;
+}
+
+.flight_list .link {
+  background: #fff;
+  height: 15px;
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.airline {
+  text-align: center;
+}
+
+.legend label {
+  background: #fff;
+  display: block;
+  padding: 5px;
+  border-radius: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid #ffc619;
+}
+
+// end
+
 .dropdown-filter button {
   background: #8cc63e;
   color: #fff;

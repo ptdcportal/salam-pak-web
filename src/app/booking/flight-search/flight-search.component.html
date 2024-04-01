@@ -85,10 +85,7 @@
                 />
               </div>
               <small
-                [hidden]="
-                  bookingFlightForm.controls.dep_date.valid ||
-                  bookingFlightForm.controls.dep_date.untouched
-                "
+                [hidden]=""
                 class="text-danger"
                 translate
               >
@@ -100,7 +97,7 @@
               <div class="form-group">
                 <input
                   type="date"
-                  min="{{ bookingFlightForm.controls.dep_date.value }}"
+                  min=""
                   for
                   formControlName="return_date"
                   class="form-control"
@@ -115,9 +112,7 @@
                 <label>adults</label>
                 <div class="booking-count">
                   <button
-                    [disabled]="
-                      bookingFlightForm.get('no_of_adults').value == 0
-                    "
+                    
                     (click)="decrement(bookingFlightForm, 'no_of_adults')"
                     class="minus"
                   >
@@ -130,9 +125,7 @@
                     type="text"
                   />
                   <button
-                    [disabled]="
-                      bookingFlightForm.get('no_of_adults').value == 5
-                    "
+                    [disabled]=""
                     (click)="increment(bookingFlightForm, 'no_of_adults')"
                     class="plus"
                   >
@@ -146,9 +139,7 @@
                 <label>child</label>
                 <div class="booking-count">
                   <button
-                    [disabled]="
-                      bookingFlightForm.get('no_of_children').value == 0
-                    "
+                    [disabled]=""
                     (click)="decrement(bookingFlightForm, 'no_of_children')"
                     class="minus"
                   >
@@ -161,9 +152,7 @@
                     type="text"
                   />
                   <button
-                    [disabled]="
-                      bookingFlightForm.get('no_of_children').value == 5
-                    "
+                    [disabled]=""
                     (click)="increment(bookingFlightForm, 'no_of_children')"
                     class="plus"
                   >
@@ -177,9 +166,7 @@
                 <label>infants</label>
                 <div class="booking-count">
                   <button
-                    [disabled]="
-                      bookingFlightForm.get('no_of_infants').value == 0
-                    "
+                    [disabled]=""
                     (click)="decrement(bookingFlightForm, 'no_of_infants')"
                     class="minus"
                   >
@@ -192,9 +179,7 @@
                     type="text"
                   />
                   <button
-                    [disabled]="
-                      bookingFlightForm.get('no_of_infants').value == 5
-                    "
+                    [disabled]=""
                     (click)="increment(bookingFlightForm, 'no_of_infants')"
                     class="plus"
                   >
@@ -272,7 +257,7 @@
           <span class="yellow-bar"></span>
         </div>
       </header>
-      <pre>{{ allEvents | json }}</pre>
+      <!-- <pre>{{ allEvents | json }}</pre> -->
 
       <div class="tab-content">
         <!-- <app-loader [isLoading]="isLoading"></app-loader> -->
@@ -280,6 +265,333 @@
           no record found!
         </h3>
         <div id="flighttab1">
+          <div class="flight_list flight_detail PA_flight" style="">
+            <div class="row justify-content-between">
+              
+                <input type="hidden" name="dep_hour" value="02">
+                <div class="col-lg-3 col-md-4 col-4 departure_section_new PA">
+                  <div class="flight_desc">
+                    <div class="legend">
+                      <label>Departure</label>
+                      <p>ISB - 02:55 AM                  <span class="d-block"> April 02, Tue</span>
+                      </p>
+                    </div>
+                    <!--END OF LEGEND-->
+                  </div>
+                  <!--END OF FLIGHT DESC-->
+                </div>
+                <!--END OF COL MD 4-->
+      
+                <div class="col-lg-3 col-md-4 col-4">
+      
+                  <div class="airline">
+                    <img src="https://mosafir.pk/assets/AirlineLogos/PA.png" alt="Airblue" data-toggle="tooltip" data-placement="top" class="img-fluid">
+                    <p>PA - 210</p>
+                  </div>
+                  <!--END OF AIRLINE-->
+                </div>
+                <!--END OF COL MD 4-->
+      
+                <div class="col-lg-3 col-md-4 col-4 arrival_section_new">
+                  <div class="flight_desc">
+                    <div class="legend">
+                      <label>Arrival</label>
+                      <p>DXB - 05:25 AM                  <span class="d-block">April 02, Tue</span>
+                      </p>
+                    </div>
+                    <!--END OF LEGEND-->
+                  </div>
+                  <!--END OF FLIGHT DESC-->
+                </div>
+                <!--END OF COL MD 4-->
+                <div class="col-12">
+                  <div class="airline">
+                    <h5>Direct <strong class="text-danger">| Value</strong></h5>
+                  </div>
+                </div>
+                <div>
+                            </div>
+                <!--END OF COL MD 4-->
+              
+                <div class="link"></div>
+                <div class="col-lg-3 col-md-4 col-4 departure_section_new PA">
+                  <div class="flight_desc">
+                    <div class="legend">
+                      <label>Departure</label>
+                      <p>DXB - 05:00 PM                  <span class="d-block"> May 15, Wed</span>
+                      </p>
+                    </div>
+                    <!--END OF LEGEND-->
+                  </div>
+                  <!--END OF FLIGHT DESC-->
+                </div>
+                <!--END OF COL MD 4-->
+      
+                <div class="col-lg-3 col-md-4 col-4">
+      
+                  <div class="airline">
+                    <img src="https://mosafir.pk/assets/AirlineLogos/PA.png" alt="Airblue" data-toggle="tooltip" data-placement="top" class="img-fluid">
+                    <p>PA - 217</p>
+                  </div>
+                  <!--END OF AIRLINE-->
+                </div>
+                <!--END OF COL MD 4-->
+      
+                <div class="col-lg-3 col-md-4 col-4 arrival_section_new">
+                  <div class="flight_desc">
+                    <div class="legend">
+                      <label>Arrival</label>
+                      <p>ISB - 09:20 PM                  <span class="d-block">May 15, Wed</span>
+                      </p>
+                    </div>
+                    <!--END OF LEGEND-->
+                  </div>
+                  <!--END OF FLIGHT DESC-->
+                </div>
+                <!--END OF COL MD 4-->
+                <div class="col-12">
+                  <div class="airline">
+                    <h5>Direct <strong class="text-danger">| Value</strong></h5>
+                  </div>
+                </div>
+                <div>
+                                <form action="https://mosafir.pk/Airblue/booking" method="post" class="book_form" id="book_form__ab17">
+                      <input type="hidden" name="search_form_data" value="eyJyb3VuZF90cmlwIjoiMSIsIm9yaWdpbiI6IklTQiwgSXNsYW1hYmFkIEludGVybmF0aW9uYWwgQWlycG9ydCwgSXNsYW1hYmFkLCBJc2xhbWFiYWQsIFBha2lzdGFuIiwiZGVzdGluYXRpb24iOiJEWEIsIER1YmFpIEludGVybmF0aW9uYWwgQWlycG9ydCwgRHViYWksIER1YmFpLCBVbml0ZWQgQXJhYiBFbWlyYXRlcyIsInByZWZlcnJlZERlcERhdGUiOiJBcHIgMDIsIDIwMjQiLCJQcmVmZXJyZWRSZXREYXRlIjoiTWF5IDE1LCAyMDI0IiwiYWR1bHQiOiIxIiwiY2hpbGRyZW4iOiIwIiwiaW5mYW50IjoiMCJ9">
+                      <input type="hidden" name="flight_data" value="W3siYXR0ciI6eyJPcmlnaW5EZXN0aW5hdGlvblJlZk51bWJlciI6IjEifSwiQWlySXRpbmVyYXJ5Ijp7Ik9yaWdpbkRlc3RpbmF0aW9uT3B0aW9ucyI6eyJPcmlnaW5EZXN0aW5hdGlvbk9wdGlvbiI6eyJhdHRyIjp7IlJQSCI6IjAtMCJ9LCJGbGlnaHRTZWdtZW50Ijp7ImF0dHIiOnsiRGVwYXJ0dXJlRGF0ZVRpbWUiOiIyMDI0LTA0LTAyVDAyOjU1OjAwIiwiQXJyaXZhbERhdGVUaW1lIjoiMjAyNC0wNC0wMlQwNToyNTowMCIsIlN0b3BRdWFudGl0eSI6IjAiLCJSUEgiOiIwLTAtRVYtMC0wIiwiRmxpZ2h0TnVtYmVyIjoiMjEwIiwiUmVzQm9va0Rlc2lnQ29kZSI6IkciLCJTdGF0dXMiOiJPTlRJTUUifSwiRGVwYXJ0dXJlQWlycG9ydCI6eyJhdHRyIjp7IkxvY2F0aW9uQ29kZSI6IklTQiJ9fSwiQXJyaXZhbEFpcnBvcnQiOnsiYXR0ciI6eyJMb2NhdGlvbkNvZGUiOiJEWEIifX0sIk9wZXJhdGluZ0FpcmxpbmUiOnsiYXR0ciI6eyJDb2RlIjoiUEEifX0sIkVxdWlwbWVudCI6eyJhdHRyIjp7IkFpckVxdWlwVHlwZSI6IkEzMjFOWCJ9fSwiTWFya2V0aW5nQWlybGluZSI6eyJhdHRyIjp7IkNvZGUiOiJQQSJ9fX19fX0sIkFpckl0aW5lcmFyeVByaWNpbmdJbmZvIjp7Ikl0aW5Ub3RhbEZhcmUiOnsiQmFzZUZhcmUiOnsiYXR0ciI6eyJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIxMjU1OCJ9fSwiVGF4ZXMiOnsiYXR0ciI6eyJBbW91bnQiOiIxMDQ0MCJ9LCJUYXgiOlt7ImF0dHIiOnsiVGF4Q29kZSI6IlAyIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMCJ9fSx7ImF0dHIiOnsiVGF4Q29kZSI6IlJHIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiNTAwMCJ9fSx7ImF0dHIiOnsiVGF4Q29kZSI6IlNGIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMCJ9fSx7ImF0dHIiOnsiVGF4Q29kZSI6IlNQIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMjAwMCJ9fSx7ImF0dHIiOnsiVGF4Q29kZSI6IlhaIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMTQwMCJ9fSx7ImF0dHIiOnsiVGF4Q29kZSI6IllEIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMTQwMCJ9fSx7ImF0dHIiOnsiVGF4Q29kZSI6IlpSIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMzkwIn19LHsiYXR0ciI6eyJUYXhDb2RlIjoiTjkiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIyNTAifX1dfSwiRmVlcyI6eyJhdHRyIjp7IkFtb3VudCI6IjM5MDAifSwiRmVlIjpbeyJhdHRyIjp7IkZlZUNvZGUiOiJRMiIsIkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjAifX0seyJhdHRyIjp7IkZlZUNvZGUiOiJRMSIsIkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjM5MDAifX1dfSwiVG90YWxGYXJlIjp7ImF0dHIiOnsiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMjY4OTgifX19LCJQVENfRmFyZUJyZWFrZG93bnMiOnsiUFRDX0ZhcmVCcmVha2Rvd24iOnsiUGFzc2VuZ2VyVHlwZVF1YW50aXR5Ijp7ImF0dHIiOnsiQ29kZSI6IkFEVCIsIlF1YW50aXR5IjoiMSJ9fSwiUGFzc2VuZ2VyRmFyZSI6eyJCYXNlRmFyZSI6eyJhdHRyIjp7IkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjEyNTU4In19LCJUYXhlcyI6eyJhdHRyIjp7IkFtb3VudCI6IjEwNDQwIn0sIlRheCI6W3siYXR0ciI6eyJUYXhDb2RlIjoiUDIiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIwIn19LHsiYXR0ciI6eyJUYXhDb2RlIjoiUkciLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiI1MDAwIn19LHsiYXR0ciI6eyJUYXhDb2RlIjoiU0YiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIwIn19LHsiYXR0ciI6eyJUYXhDb2RlIjoiU1AiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIyMDAwIn19LHsiYXR0ciI6eyJUYXhDb2RlIjoiWFoiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIxNDAwIn19LHsiYXR0ciI6eyJUYXhDb2RlIjoiWUQiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIxNDAwIn19LHsiYXR0ciI6eyJUYXhDb2RlIjoiWlIiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIzOTAifX0seyJhdHRyIjp7IlRheENvZGUiOiJOOSIsIkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjI1MCJ9fV19LCJGZWVzIjp7ImF0dHIiOnsiQW1vdW50IjoiMzkwMCJ9LCJGZWUiOlt7ImF0dHIiOnsiRmVlQ29kZSI6IlEyIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMCJ9fSx7ImF0dHIiOnsiRmVlQ29kZSI6IlExIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMzkwMCJ9fV19LCJUb3RhbEZhcmUiOnsiYXR0ciI6eyJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIyNjg5OCJ9fX0sIkZhcmVJbmZvIjpbeyJEZXBhcnR1cmVEYXRlIjp7InZhbHVlIjoiMjAyNC0wNC0wMlQwMDowMDowMCJ9LCJEZXBhcnR1cmVBaXJwb3J0Ijp7ImF0dHIiOnsiTG9jYXRpb25Db2RlIjoiSVNCIn19LCJBcnJpdmFsQWlycG9ydCI6eyJhdHRyIjp7IkxvY2F0aW9uQ29kZSI6IkRYQiJ9fSwiRmFyZUluZm8iOnsiYXR0ciI6eyJGYXJlQmFzaXNDb2RlIjoiRVZUQVJURyJ9fSwiUGFzc2VuZ2VyRmFyZSI6eyJCYXNlRmFyZSI6eyJhdHRyIjp7IkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjEyNTU4In19LCJUYXhlcyI6eyJhdHRyIjp7IkFtb3VudCI6IjEwNDQwIn0sIlRheCI6W3siYXR0ciI6eyJUYXhDb2RlIjoiUDIiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIwIn19LHsiYXR0ciI6eyJUYXhDb2RlIjoiUkciLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiI1MDAwIn19LHsiYXR0ciI6eyJUYXhDb2RlIjoiU0YiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIwIn19LHsiYXR0ciI6eyJUYXhDb2RlIjoiU1AiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIyMDAwIn19LHsiYXR0ciI6eyJUYXhDb2RlIjoiWFoiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIxNDAwIn19LHsiYXR0ciI6eyJUYXhDb2RlIjoiWUQiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIxNDAwIn19LHsiYXR0ciI6eyJUYXhDb2RlIjoiWlIiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIzOTAifX0seyJhdHRyIjp7IlRheENvZGUiOiJOOSIsIkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjI1MCJ9fV19LCJGZWVzIjp7ImF0dHIiOnsiQW1vdW50IjoiMzkwMCJ9LCJGZWUiOlt7ImF0dHIiOnsiRmVlQ29kZSI6IlEyIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMCJ9fSx7ImF0dHIiOnsiRmVlQ29kZSI6IlExIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMzkwMCJ9fV19LCJUb3RhbEZhcmUiOnsiYXR0ciI6eyJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIyNjg5OCJ9fX19LHsiRGVwYXJ0dXJlRGF0ZSI6eyJ2YWx1ZSI6IjIwMjQtMDQtMDJUMDA6MDA6MDAifSwiUnVsZUluZm8iOnsiQ2hhcmdlc1J1bGVzIjp7IlZvbHVudGFyeUNoYW5nZXMiOnsiUGVuYWx0eSI6W3siYXR0ciI6eyJIb3Vyc0JlZm9yZURlcGFydHVyZSI6IjwwIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMzAwMDAifX0seyJhdHRyIjp7IkhvdXJzQmVmb3JlRGVwYXJ0dXJlIjoiPDQ4IiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMjUwMDAifX0seyJhdHRyIjp7IkhvdXJzQmVmb3JlRGVwYXJ0dXJlIjoiPjQ4IiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMjAwMDAifX1dfSwiVm9sdW50YXJ5UmVmdW5kcyI6eyJQZW5hbHR5IjpbeyJhdHRyIjp7IkhvdXJzQmVmb3JlRGVwYXJ0dXJlIjoiPDAiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIzNTAwMCJ9fSx7ImF0dHIiOnsiSG91cnNCZWZvcmVEZXBhcnR1cmUiOiI8NDgiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIzMDAwMCJ9fSx7ImF0dHIiOnsiSG91cnNCZWZvcmVEZXBhcnR1cmUiOiI+NDgiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIyNTAwMCJ9fV19fX0sIkRlcGFydHVyZUFpcnBvcnQiOnsiYXR0ciI6eyJMb2NhdGlvbkNvZGUiOiJJU0IifX0sIkFycml2YWxBaXJwb3J0Ijp7ImF0dHIiOnsiTG9jYXRpb25Db2RlIjoiRFhCIn19fV19fX0sImZsaWdodF9pZCI6IjAtMC1FVi0wLTAiLCJYTUxfQWlySXRpbmVyYXJ5Ijp7IkBhdHRyaWJ1dGVzIjp7IlJQSCI6IjAtMCJ9LCJGbGlnaHRTZWdtZW50Ijp7IkBhdHRyaWJ1dGVzIjp7IkRlcGFydHVyZURhdGVUaW1lIjoiMjAyNC0wNC0wMlQwMjo1NTowMCIsIkFycml2YWxEYXRlVGltZSI6IjIwMjQtMDQtMDJUMDU6MjU6MDAiLCJTdG9wUXVhbnRpdHkiOiIwIiwiUlBIIjoiMC0wLUVWLTAtMCIsIkZsaWdodE51bWJlciI6IjIxMCIsIlJlc0Jvb2tEZXNpZ0NvZGUiOiJHIiwiU3RhdHVzIjoiT05USU1FIn0sIkRlcGFydHVyZUFpcnBvcnQiOnsiQGF0dHJpYnV0ZXMiOnsiTG9jYXRpb25Db2RlIjoiSVNCIn19LCJBcnJpdmFsQWlycG9ydCI6eyJAYXR0cmlidXRlcyI6eyJMb2NhdGlvbkNvZGUiOiJEWEIifX0sIk9wZXJhdGluZ0FpcmxpbmUiOnsiQGF0dHJpYnV0ZXMiOnsiQ29kZSI6IlBBIn19LCJFcXVpcG1lbnQiOnsiQGF0dHJpYnV0ZXMiOnsiQWlyRXF1aXBUeXBlIjoiQTMyMU5YIn19LCJNYXJrZXRpbmdBaXJsaW5lIjp7IkBhdHRyaWJ1dGVzIjp7IkNvZGUiOiJQQSJ9fX19LCJYTUxfUFRDX0ZhcmVCcmVha2Rvd25zIjp7IlBUQ19GYXJlQnJlYWtkb3duIjp7IlBhc3NlbmdlclR5cGVRdWFudGl0eSI6eyJAYXR0cmlidXRlcyI6eyJDb2RlIjoiQURUIiwiUXVhbnRpdHkiOiIxIn19LCJQYXNzZW5nZXJGYXJlIjp7IkJhc2VGYXJlIjp7IkBhdHRyaWJ1dGVzIjp7IkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjEyNTU4In19LCJUYXhlcyI6eyJAYXR0cmlidXRlcyI6eyJBbW91bnQiOiIxMDQ0MCJ9LCJUYXgiOlt7IkBhdHRyaWJ1dGVzIjp7IlRheENvZGUiOiJQMiIsIkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjAifX0seyJAYXR0cmlidXRlcyI6eyJUYXhDb2RlIjoiUkciLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiI1MDAwIn19LHsiQGF0dHJpYnV0ZXMiOnsiVGF4Q29kZSI6IlNGIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMCJ9fSx7IkBhdHRyaWJ1dGVzIjp7IlRheENvZGUiOiJTUCIsIkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjIwMDAifX0seyJAYXR0cmlidXRlcyI6eyJUYXhDb2RlIjoiWFoiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIxNDAwIn19LHsiQGF0dHJpYnV0ZXMiOnsiVGF4Q29kZSI6IllEIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMTQwMCJ9fSx7IkBhdHRyaWJ1dGVzIjp7IlRheENvZGUiOiJaUiIsIkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjM5MCJ9fSx7IkBhdHRyaWJ1dGVzIjp7IlRheENvZGUiOiJOOSIsIkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjI1MCJ9fV19LCJGZWVzIjp7IkBhdHRyaWJ1dGVzIjp7IkFtb3VudCI6IjM5MDAifSwiRmVlIjpbeyJAYXR0cmlidXRlcyI6eyJGZWVDb2RlIjoiUTIiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIwIn19LHsiQGF0dHJpYnV0ZXMiOnsiRmVlQ29kZSI6IlExIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMzkwMCJ9fV19LCJUb3RhbEZhcmUiOnsiQGF0dHJpYnV0ZXMiOnsiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMjY4OTgifX19LCJGYXJlSW5mbyI6W3siRGVwYXJ0dXJlRGF0ZSI6IjIwMjQtMDQtMDJUMDA6MDA6MDAiLCJEZXBhcnR1cmVBaXJwb3J0Ijp7IkBhdHRyaWJ1dGVzIjp7IkxvY2F0aW9uQ29kZSI6IklTQiJ9fSwiQXJyaXZhbEFpcnBvcnQiOnsiQGF0dHJpYnV0ZXMiOnsiTG9jYXRpb25Db2RlIjoiRFhCIn19LCJGYXJlSW5mbyI6eyJAYXR0cmlidXRlcyI6eyJGYXJlQmFzaXNDb2RlIjoiRVZUQVJURyJ9fSwiUGFzc2VuZ2VyRmFyZSI6eyJCYXNlRmFyZSI6eyJAYXR0cmlidXRlcyI6eyJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIxMjU1OCJ9fSwiVGF4ZXMiOnsiQGF0dHJpYnV0ZXMiOnsiQW1vdW50IjoiMTA0NDAifSwiVGF4IjpbeyJAYXR0cmlidXRlcyI6eyJUYXhDb2RlIjoiUDIiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIwIn19LHsiQGF0dHJpYnV0ZXMiOnsiVGF4Q29kZSI6IlJHIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiNTAwMCJ9fSx7IkBhdHRyaWJ1dGVzIjp7IlRheENvZGUiOiJTRiIsIkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjAifX0seyJAYXR0cmlidXRlcyI6eyJUYXhDb2RlIjoiU1AiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIyMDAwIn19LHsiQGF0dHJpYnV0ZXMiOnsiVGF4Q29kZSI6IlhaIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMTQwMCJ9fSx7IkBhdHRyaWJ1dGVzIjp7IlRheENvZGUiOiJZRCIsIkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjE0MDAifX0seyJAYXR0cmlidXRlcyI6eyJUYXhDb2RlIjoiWlIiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIzOTAifX0seyJAYXR0cmlidXRlcyI6eyJUYXhDb2RlIjoiTjkiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIyNTAifX1dfSwiRmVlcyI6eyJAYXR0cmlidXRlcyI6eyJBbW91bnQiOiIzOTAwIn0sIkZlZSI6W3siQGF0dHJpYnV0ZXMiOnsiRmVlQ29kZSI6IlEyIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMCJ9fSx7IkBhdHRyaWJ1dGVzIjp7IkZlZUNvZGUiOiJRMSIsIkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjM5MDAifX1dfSwiVG90YWxGYXJlIjp7IkBhdHRyaWJ1dGVzIjp7IkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjI2ODk4In19fX0seyJEZXBhcnR1cmVEYXRlIjoiMjAyNC0wNC0wMlQwMDowMDowMCIsIlJ1bGVJbmZvIjp7IkNoYXJnZXNSdWxlcyI6eyJWb2x1bnRhcnlDaGFuZ2VzIjp7IlBlbmFsdHkiOlt7IkBhdHRyaWJ1dGVzIjp7IkhvdXJzQmVmb3JlRGVwYXJ0dXJlIjoiPDAiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIzMDAwMCJ9fSx7IkBhdHRyaWJ1dGVzIjp7IkhvdXJzQmVmb3JlRGVwYXJ0dXJlIjoiPDQ4IiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMjUwMDAifX0seyJAYXR0cmlidXRlcyI6eyJIb3Vyc0JlZm9yZURlcGFydHVyZSI6Ij40OCIsIkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjIwMDAwIn19XX0sIlZvbHVudGFyeVJlZnVuZHMiOnsiUGVuYWx0eSI6W3siQGF0dHJpYnV0ZXMiOnsiSG91cnNCZWZvcmVEZXBhcnR1cmUiOiI8MCIsIkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjM1MDAwIn19LHsiQGF0dHJpYnV0ZXMiOnsiSG91cnNCZWZvcmVEZXBhcnR1cmUiOiI8NDgiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIzMDAwMCJ9fSx7IkBhdHRyaWJ1dGVzIjp7IkhvdXJzQmVmb3JlRGVwYXJ0dXJlIjoiPjQ4IiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMjUwMDAifX1dfX19LCJEZXBhcnR1cmVBaXJwb3J0Ijp7IkBhdHRyaWJ1dGVzIjp7IkxvY2F0aW9uQ29kZSI6IklTQiJ9fSwiQXJyaXZhbEFpcnBvcnQiOnsiQGF0dHJpYnV0ZXMiOnsiTG9jYXRpb25Db2RlIjoiRFhCIn19fV19fX0seyJhdHRyIjp7Ik9yaWdpbkRlc3RpbmF0aW9uUmVmTnVtYmVyIjoiMiJ9LCJBaXJJdGluZXJhcnkiOnsiT3JpZ2luRGVzdGluYXRpb25PcHRpb25zIjp7Ik9yaWdpbkRlc3RpbmF0aW9uT3B0aW9uIjp7ImF0dHIiOnsiUlBIIjoiMS0xIn0sIkZsaWdodFNlZ21lbnQiOnsiYXR0ciI6eyJEZXBhcnR1cmVEYXRlVGltZSI6IjIwMjQtMDUtMTVUMTc6MDA6MDAiLCJBcnJpdmFsRGF0ZVRpbWUiOiIyMDI0LTA1LTE1VDIxOjIwOjAwIiwiU3RvcFF1YW50aXR5IjoiMCIsIlJQSCI6IjEtMS1FVi0wLTAiLCJGbGlnaHROdW1iZXIiOiIyMTciLCJSZXNCb29rRGVzaWdDb2RlIjoiSCIsIlN0YXR1cyI6Ik9OVElNRSJ9LCJEZXBhcnR1cmVBaXJwb3J0Ijp7ImF0dHIiOnsiTG9jYXRpb25Db2RlIjoiRFhCIn19LCJBcnJpdmFsQWlycG9ydCI6eyJhdHRyIjp7IkxvY2F0aW9uQ29kZSI6IklTQiJ9fSwiT3BlcmF0aW5nQWlybGluZSI6eyJhdHRyIjp7IkNvZGUiOiJQQSJ9fSwiRXF1aXBtZW50Ijp7ImF0dHIiOnsiQWlyRXF1aXBUeXBlIjoiQTMyMSJ9fSwiTWFya2V0aW5nQWlybGluZSI6eyJhdHRyIjp7IkNvZGUiOiJQQSJ9fX19fX0sIkFpckl0aW5lcmFyeVByaWNpbmdJbmZvIjp7Ikl0aW5Ub3RhbEZhcmUiOnsiQmFzZUZhcmUiOnsiYXR0ciI6eyJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIxMDk5OCJ9fSwiVGF4ZXMiOnsiYXR0ciI6eyJBbW91bnQiOiI5NzUwIn0sIlRheCI6W3siYXR0ciI6eyJUYXhDb2RlIjoiQUUiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiI1ODUwIn19LHsiYXR0ciI6eyJUYXhDb2RlIjoiUFMiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIzOTAifX0seyJhdHRyIjp7IlRheENvZGUiOiJGNiIsIkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjMxMjAifX0seyJhdHRyIjp7IlRheENvZGUiOiJaUiIsIkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjM5MCJ9fV19LCJGZWVzIjp7ImF0dHIiOnsiQW1vdW50IjoiMTE3MCJ9LCJGZWUiOlt7ImF0dHIiOnsiRmVlQ29kZSI6IlEyIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMCJ9fSx7ImF0dHIiOnsiRmVlQ29kZSI6IlExIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMTE3MCJ9fV19LCJUb3RhbEZhcmUiOnsiYXR0ciI6eyJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIyMTkxOCJ9fX0sIlBUQ19GYXJlQnJlYWtkb3ducyI6eyJQVENfRmFyZUJyZWFrZG93biI6eyJQYXNzZW5nZXJUeXBlUXVhbnRpdHkiOnsiYXR0ciI6eyJDb2RlIjoiQURUIiwiUXVhbnRpdHkiOiIxIn19LCJQYXNzZW5nZXJGYXJlIjp7IkJhc2VGYXJlIjp7ImF0dHIiOnsiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMTA5OTgifX0sIlRheGVzIjp7ImF0dHIiOnsiQW1vdW50IjoiOTc1MCJ9LCJUYXgiOlt7ImF0dHIiOnsiVGF4Q29kZSI6IkFFIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiNTg1MCJ9fSx7ImF0dHIiOnsiVGF4Q29kZSI6IlBTIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMzkwIn19LHsiYXR0ciI6eyJUYXhDb2RlIjoiRjYiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIzMTIwIn19LHsiYXR0ciI6eyJUYXhDb2RlIjoiWlIiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIzOTAifX1dfSwiRmVlcyI6eyJhdHRyIjp7IkFtb3VudCI6IjExNzAifSwiRmVlIjpbeyJhdHRyIjp7IkZlZUNvZGUiOiJRMiIsIkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjAifX0seyJhdHRyIjp7IkZlZUNvZGUiOiJRMSIsIkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjExNzAifX1dfSwiVG90YWxGYXJlIjp7ImF0dHIiOnsiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMjE5MTgifX19LCJGYXJlSW5mbyI6W3siRGVwYXJ0dXJlRGF0ZSI6eyJ2YWx1ZSI6IjIwMjQtMDUtMTVUMDA6MDA6MDAifSwiRGVwYXJ0dXJlQWlycG9ydCI6eyJhdHRyIjp7IkxvY2F0aW9uQ29kZSI6IkRYQiJ9fSwiQXJyaXZhbEFpcnBvcnQiOnsiYXR0ciI6eyJMb2NhdGlvbkNvZGUiOiJJU0IifX0sIkZhcmVJbmZvIjp7ImF0dHIiOnsiRmFyZUJhc2lzQ29kZSI6IkVWVEFSVEgifX0sIlBhc3NlbmdlckZhcmUiOnsiQmFzZUZhcmUiOnsiYXR0ciI6eyJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIxMDk5OCJ9fSwiVGF4ZXMiOnsiYXR0ciI6eyJBbW91bnQiOiI5NzUwIn0sIlRheCI6W3siYXR0ciI6eyJUYXhDb2RlIjoiQUUiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiI1ODUwIn19LHsiYXR0ciI6eyJUYXhDb2RlIjoiUFMiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIzOTAifX0seyJhdHRyIjp7IlRheENvZGUiOiJGNiIsIkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjMxMjAifX0seyJhdHRyIjp7IlRheENvZGUiOiJaUiIsIkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjM5MCJ9fV19LCJGZWVzIjp7ImF0dHIiOnsiQW1vdW50IjoiMTE3MCJ9LCJGZWUiOlt7ImF0dHIiOnsiRmVlQ29kZSI6IlEyIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMCJ9fSx7ImF0dHIiOnsiRmVlQ29kZSI6IlExIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMTE3MCJ9fV19LCJUb3RhbEZhcmUiOnsiYXR0ciI6eyJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIyMTkxOCJ9fX19LHsiRGVwYXJ0dXJlRGF0ZSI6eyJ2YWx1ZSI6IjIwMjQtMDUtMTVUMDA6MDA6MDAifSwiUnVsZUluZm8iOnsiQ2hhcmdlc1J1bGVzIjp7IlZvbHVudGFyeUNoYW5nZXMiOnsiUGVuYWx0eSI6W3siYXR0ciI6eyJIb3Vyc0JlZm9yZURlcGFydHVyZSI6IjwwIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMzAwMDAifX0seyJhdHRyIjp7IkhvdXJzQmVmb3JlRGVwYXJ0dXJlIjoiPDQ4IiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMjUwMDAifX0seyJhdHRyIjp7IkhvdXJzQmVmb3JlRGVwYXJ0dXJlIjoiPjQ4IiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMjAwMDAifX1dfSwiVm9sdW50YXJ5UmVmdW5kcyI6eyJQZW5hbHR5IjpbeyJhdHRyIjp7IkhvdXJzQmVmb3JlRGVwYXJ0dXJlIjoiPDAiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIzNTAwMCJ9fSx7ImF0dHIiOnsiSG91cnNCZWZvcmVEZXBhcnR1cmUiOiI8NDgiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIzMDAwMCJ9fSx7ImF0dHIiOnsiSG91cnNCZWZvcmVEZXBhcnR1cmUiOiI+NDgiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIyNTAwMCJ9fV19fX0sIkRlcGFydHVyZUFpcnBvcnQiOnsiYXR0ciI6eyJMb2NhdGlvbkNvZGUiOiJEWEIifX0sIkFycml2YWxBaXJwb3J0Ijp7ImF0dHIiOnsiTG9jYXRpb25Db2RlIjoiSVNCIn19fV19fX0sImZsaWdodF9pZCI6IjEtMS1FVi0wLTAiLCJYTUxfQWlySXRpbmVyYXJ5Ijp7IkBhdHRyaWJ1dGVzIjp7IlJQSCI6IjEtMSJ9LCJGbGlnaHRTZWdtZW50Ijp7IkBhdHRyaWJ1dGVzIjp7IkRlcGFydHVyZURhdGVUaW1lIjoiMjAyNC0wNS0xNVQxNzowMDowMCIsIkFycml2YWxEYXRlVGltZSI6IjIwMjQtMDUtMTVUMjE6MjA6MDAiLCJTdG9wUXVhbnRpdHkiOiIwIiwiUlBIIjoiMS0xLUVWLTAtMCIsIkZsaWdodE51bWJlciI6IjIxNyIsIlJlc0Jvb2tEZXNpZ0NvZGUiOiJIIiwiU3RhdHVzIjoiT05USU1FIn0sIkRlcGFydHVyZUFpcnBvcnQiOnsiQGF0dHJpYnV0ZXMiOnsiTG9jYXRpb25Db2RlIjoiRFhCIn19LCJBcnJpdmFsQWlycG9ydCI6eyJAYXR0cmlidXRlcyI6eyJMb2NhdGlvbkNvZGUiOiJJU0IifX0sIk9wZXJhdGluZ0FpcmxpbmUiOnsiQGF0dHJpYnV0ZXMiOnsiQ29kZSI6IlBBIn19LCJFcXVpcG1lbnQiOnsiQGF0dHJpYnV0ZXMiOnsiQWlyRXF1aXBUeXBlIjoiQTMyMSJ9fSwiTWFya2V0aW5nQWlybGluZSI6eyJAYXR0cmlidXRlcyI6eyJDb2RlIjoiUEEifX19fSwiWE1MX1BUQ19GYXJlQnJlYWtkb3ducyI6eyJQVENfRmFyZUJyZWFrZG93biI6eyJQYXNzZW5nZXJUeXBlUXVhbnRpdHkiOnsiQGF0dHJpYnV0ZXMiOnsiQ29kZSI6IkFEVCIsIlF1YW50aXR5IjoiMSJ9fSwiUGFzc2VuZ2VyRmFyZSI6eyJCYXNlRmFyZSI6eyJAYXR0cmlidXRlcyI6eyJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIxMDk5OCJ9fSwiVGF4ZXMiOnsiQGF0dHJpYnV0ZXMiOnsiQW1vdW50IjoiOTc1MCJ9LCJUYXgiOlt7IkBhdHRyaWJ1dGVzIjp7IlRheENvZGUiOiJBRSIsIkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjU4NTAifX0seyJAYXR0cmlidXRlcyI6eyJUYXhDb2RlIjoiUFMiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIzOTAifX0seyJAYXR0cmlidXRlcyI6eyJUYXhDb2RlIjoiRjYiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIzMTIwIn19LHsiQGF0dHJpYnV0ZXMiOnsiVGF4Q29kZSI6IlpSIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMzkwIn19XX0sIkZlZXMiOnsiQGF0dHJpYnV0ZXMiOnsiQW1vdW50IjoiMTE3MCJ9LCJGZWUiOlt7IkBhdHRyaWJ1dGVzIjp7IkZlZUNvZGUiOiJRMiIsIkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjAifX0seyJAYXR0cmlidXRlcyI6eyJGZWVDb2RlIjoiUTEiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIxMTcwIn19XX0sIlRvdGFsRmFyZSI6eyJAYXR0cmlidXRlcyI6eyJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIyMTkxOCJ9fX0sIkZhcmVJbmZvIjpbeyJEZXBhcnR1cmVEYXRlIjoiMjAyNC0wNS0xNVQwMDowMDowMCIsIkRlcGFydHVyZUFpcnBvcnQiOnsiQGF0dHJpYnV0ZXMiOnsiTG9jYXRpb25Db2RlIjoiRFhCIn19LCJBcnJpdmFsQWlycG9ydCI6eyJAYXR0cmlidXRlcyI6eyJMb2NhdGlvbkNvZGUiOiJJU0IifX0sIkZhcmVJbmZvIjp7IkBhdHRyaWJ1dGVzIjp7IkZhcmVCYXNpc0NvZGUiOiJFVlRBUlRIIn19LCJQYXNzZW5nZXJGYXJlIjp7IkJhc2VGYXJlIjp7IkBhdHRyaWJ1dGVzIjp7IkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjEwOTk4In19LCJUYXhlcyI6eyJAYXR0cmlidXRlcyI6eyJBbW91bnQiOiI5NzUwIn0sIlRheCI6W3siQGF0dHJpYnV0ZXMiOnsiVGF4Q29kZSI6IkFFIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiNTg1MCJ9fSx7IkBhdHRyaWJ1dGVzIjp7IlRheENvZGUiOiJQUyIsIkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjM5MCJ9fSx7IkBhdHRyaWJ1dGVzIjp7IlRheENvZGUiOiJGNiIsIkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjMxMjAifX0seyJAYXR0cmlidXRlcyI6eyJUYXhDb2RlIjoiWlIiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIzOTAifX1dfSwiRmVlcyI6eyJAYXR0cmlidXRlcyI6eyJBbW91bnQiOiIxMTcwIn0sIkZlZSI6W3siQGF0dHJpYnV0ZXMiOnsiRmVlQ29kZSI6IlEyIiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMCJ9fSx7IkBhdHRyaWJ1dGVzIjp7IkZlZUNvZGUiOiJRMSIsIkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjExNzAifX1dfSwiVG90YWxGYXJlIjp7IkBhdHRyaWJ1dGVzIjp7IkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjIxOTE4In19fX0seyJEZXBhcnR1cmVEYXRlIjoiMjAyNC0wNS0xNVQwMDowMDowMCIsIlJ1bGVJbmZvIjp7IkNoYXJnZXNSdWxlcyI6eyJWb2x1bnRhcnlDaGFuZ2VzIjp7IlBlbmFsdHkiOlt7IkBhdHRyaWJ1dGVzIjp7IkhvdXJzQmVmb3JlRGVwYXJ0dXJlIjoiPDAiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIzMDAwMCJ9fSx7IkBhdHRyaWJ1dGVzIjp7IkhvdXJzQmVmb3JlRGVwYXJ0dXJlIjoiPDQ4IiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMjUwMDAifX0seyJAYXR0cmlidXRlcyI6eyJIb3Vyc0JlZm9yZURlcGFydHVyZSI6Ij40OCIsIkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjIwMDAwIn19XX0sIlZvbHVudGFyeVJlZnVuZHMiOnsiUGVuYWx0eSI6W3siQGF0dHJpYnV0ZXMiOnsiSG91cnNCZWZvcmVEZXBhcnR1cmUiOiI8MCIsIkN1cnJlbmN5Q29kZSI6IlBLUiIsIkFtb3VudCI6IjM1MDAwIn19LHsiQGF0dHJpYnV0ZXMiOnsiSG91cnNCZWZvcmVEZXBhcnR1cmUiOiI8NDgiLCJDdXJyZW5jeUNvZGUiOiJQS1IiLCJBbW91bnQiOiIzMDAwMCJ9fSx7IkBhdHRyaWJ1dGVzIjp7IkhvdXJzQmVmb3JlRGVwYXJ0dXJlIjoiPjQ4IiwiQ3VycmVuY3lDb2RlIjoiUEtSIiwiQW1vdW50IjoiMjUwMDAifX1dfX19LCJEZXBhcnR1cmVBaXJwb3J0Ijp7IkBhdHRyaWJ1dGVzIjp7IkxvY2F0aW9uQ29kZSI6IkRYQiJ9fSwiQXJyaXZhbEFpcnBvcnQiOnsiQGF0dHJpYnV0ZXMiOnsiTG9jYXRpb25Db2RlIjoiSVNCIn19fV19fX1d">
+                      <input type="hidden" name="encoded_XML_AirItinerary" value="IjxPcmlnaW5EZXN0aW5hdGlvbk9wdGlvbiBSUEg9XCIwLTBcIj48RmxpZ2h0U2VnbWVudCBEZXBhcnR1cmVEYXRlVGltZT1cIjIwMjQtMDQtMDJUMDI6NTU6MDBcIiBBcnJpdmFsRGF0ZVRpbWU9XCIyMDI0LTA0LTAyVDA1OjI1OjAwXCIgU3RvcFF1YW50aXR5PVwiMFwiIFJQSD1cIjAtMC1FVi0wLTBcIiBGbGlnaHROdW1iZXI9XCIyMTBcIiBSZXNCb29rRGVzaWdDb2RlPVwiR1wiIFN0YXR1cz1cIk9OVElNRVwiPjxEZXBhcnR1cmVBaXJwb3J0IExvY2F0aW9uQ29kZT1cIklTQlwiXC8+PEFycml2YWxBaXJwb3J0IExvY2F0aW9uQ29kZT1cIkRYQlwiXC8+PE9wZXJhdGluZ0FpcmxpbmUgQ29kZT1cIlBBXCJcLz48RXF1aXBtZW50IEFpckVxdWlwVHlwZT1cIkEzMjFOWFwiXC8+PE1hcmtldGluZ0FpcmxpbmUgQ29kZT1cIlBBXCJcLz48XC9GbGlnaHRTZWdtZW50PjxcL09yaWdpbkRlc3RpbmF0aW9uT3B0aW9uPjxPcmlnaW5EZXN0aW5hdGlvbk9wdGlvbiBSUEg9XCIxLTFcIj48RmxpZ2h0U2VnbWVudCBEZXBhcnR1cmVEYXRlVGltZT1cIjIwMjQtMDUtMTVUMTc6MDA6MDBcIiBBcnJpdmFsRGF0ZVRpbWU9XCIyMDI0LTA1LTE1VDIxOjIwOjAwXCIgU3RvcFF1YW50aXR5PVwiMFwiIFJQSD1cIjEtMS1FVi0wLTBcIiBGbGlnaHROdW1iZXI9XCIyMTdcIiBSZXNCb29rRGVzaWdDb2RlPVwiSFwiIFN0YXR1cz1cIk9OVElNRVwiPjxEZXBhcnR1cmVBaXJwb3J0IExvY2F0aW9uQ29kZT1cIkRYQlwiXC8+PEFycml2YWxBaXJwb3J0IExvY2F0aW9uQ29kZT1cIklTQlwiXC8+PE9wZXJhdGluZ0FpcmxpbmUgQ29kZT1cIlBBXCJcLz48RXF1aXBtZW50IEFpckVxdWlwVHlwZT1cIkEzMjFcIlwvPjxNYXJrZXRpbmdBaXJsaW5lIENvZGU9XCJQQVwiXC8+PFwvRmxpZ2h0U2VnbWVudD48XC9PcmlnaW5EZXN0aW5hdGlvbk9wdGlvbj4i">
+                      <input type="hidden" name="encoded_XML_PTC_FareBreakdowns" value="IjxQVENfRmFyZUJyZWFrZG93bnM+PFBUQ19GYXJlQnJlYWtkb3duPjxQYXNzZW5nZXJUeXBlUXVhbnRpdHkgQ29kZT1cIkFEVFwiIFF1YW50aXR5PVwiMVwiXC8+PFBhc3NlbmdlckZhcmU+PEJhc2VGYXJlIEN1cnJlbmN5Q29kZT1cIlBLUlwiIEFtb3VudD1cIjEyNTU4XCJcLz48VGF4ZXMgQW1vdW50PVwiMTA0NDBcIj48VGF4IFRheENvZGU9XCJQMlwiIEN1cnJlbmN5Q29kZT1cIlBLUlwiIEFtb3VudD1cIjBcIlwvPjxUYXggVGF4Q29kZT1cIlJHXCIgQ3VycmVuY3lDb2RlPVwiUEtSXCIgQW1vdW50PVwiNTAwMFwiXC8+PFRheCBUYXhDb2RlPVwiU0ZcIiBDdXJyZW5jeUNvZGU9XCJQS1JcIiBBbW91bnQ9XCIwXCJcLz48VGF4IFRheENvZGU9XCJTUFwiIEN1cnJlbmN5Q29kZT1cIlBLUlwiIEFtb3VudD1cIjIwMDBcIlwvPjxUYXggVGF4Q29kZT1cIlhaXCIgQ3VycmVuY3lDb2RlPVwiUEtSXCIgQW1vdW50PVwiMTQwMFwiXC8+PFRheCBUYXhDb2RlPVwiWURcIiBDdXJyZW5jeUNvZGU9XCJQS1JcIiBBbW91bnQ9XCIxNDAwXCJcLz48VGF4IFRheENvZGU9XCJaUlwiIEN1cnJlbmN5Q29kZT1cIlBLUlwiIEFtb3VudD1cIjM5MFwiXC8+PFRheCBUYXhDb2RlPVwiTjlcIiBDdXJyZW5jeUNvZGU9XCJQS1JcIiBBbW91bnQ9XCIyNTBcIlwvPjxcL1RheGVzPjxGZWVzIEFtb3VudD1cIjM5MDBcIj48RmVlIEZlZUNvZGU9XCJRMlwiIEN1cnJlbmN5Q29kZT1cIlBLUlwiIEFtb3VudD1cIjBcIlwvPjxGZWUgRmVlQ29kZT1cIlExXCIgQ3VycmVuY3lDb2RlPVwiUEtSXCIgQW1vdW50PVwiMzkwMFwiXC8+PFwvRmVlcz48VG90YWxGYXJlIEN1cnJlbmN5Q29kZT1cIlBLUlwiIEFtb3VudD1cIjI2ODk4XCJcLz48XC9QYXNzZW5nZXJGYXJlPjxGYXJlSW5mbz48RGVwYXJ0dXJlRGF0ZT4yMDI0LTA0LTAyVDAwOjAwOjAwPFwvRGVwYXJ0dXJlRGF0ZT48RGVwYXJ0dXJlQWlycG9ydCBMb2NhdGlvbkNvZGU9XCJJU0JcIlwvPjxBcnJpdmFsQWlycG9ydCBMb2NhdGlvbkNvZGU9XCJEWEJcIlwvPjxGYXJlSW5mbyBGYXJlQmFzaXNDb2RlPVwiRVZUQVJUR1wiXC8+PFBhc3NlbmdlckZhcmU+PEJhc2VGYXJlIEN1cnJlbmN5Q29kZT1cIlBLUlwiIEFtb3VudD1cIjEyNTU4XCJcLz48VGF4ZXMgQW1vdW50PVwiMTA0NDBcIj48VGF4IFRheENvZGU9XCJQMlwiIEN1cnJlbmN5Q29kZT1cIlBLUlwiIEFtb3VudD1cIjBcIlwvPjxUYXggVGF4Q29kZT1cIlJHXCIgQ3VycmVuY3lDb2RlPVwiUEtSXCIgQW1vdW50PVwiNTAwMFwiXC8+PFRheCBUYXhDb2RlPVwiU0ZcIiBDdXJyZW5jeUNvZGU9XCJQS1JcIiBBbW91bnQ9XCIwXCJcLz48VGF4IFRheENvZGU9XCJTUFwiIEN1cnJlbmN5Q29kZT1cIlBLUlwiIEFtb3VudD1cIjIwMDBcIlwvPjxUYXggVGF4Q29kZT1cIlhaXCIgQ3VycmVuY3lDb2RlPVwiUEtSXCIgQW1vdW50PVwiMTQwMFwiXC8+PFRheCBUYXhDb2RlPVwiWURcIiBDdXJyZW5jeUNvZGU9XCJQS1JcIiBBbW91bnQ9XCIxNDAwXCJcLz48VGF4IFRheENvZGU9XCJaUlwiIEN1cnJlbmN5Q29kZT1cIlBLUlwiIEFtb3VudD1cIjM5MFwiXC8+PFRheCBUYXhDb2RlPVwiTjlcIiBDdXJyZW5jeUNvZGU9XCJQS1JcIiBBbW91bnQ9XCIyNTBcIlwvPjxcL1RheGVzPjxGZWVzIEFtb3VudD1cIjM5MDBcIj48RmVlIEZlZUNvZGU9XCJRMlwiIEN1cnJlbmN5Q29kZT1cIlBLUlwiIEFtb3VudD1cIjBcIlwvPjxGZWUgRmVlQ29kZT1cIlExXCIgQ3VycmVuY3lDb2RlPVwiUEtSXCIgQW1vdW50PVwiMzkwMFwiXC8+PFwvRmVlcz48VG90YWxGYXJlIEN1cnJlbmN5Q29kZT1cIlBLUlwiIEFtb3VudD1cIjI2ODk4XCJcLz48XC9QYXNzZW5nZXJGYXJlPjxcL0ZhcmVJbmZvPjxGYXJlSW5mbz48RGVwYXJ0dXJlRGF0ZT4yMDI0LTA0LTAyVDAwOjAwOjAwPFwvRGVwYXJ0dXJlRGF0ZT48UnVsZUluZm8+PENoYXJnZXNSdWxlcz48Vm9sdW50YXJ5Q2hhbmdlcz48UGVuYWx0eSBIb3Vyc0JlZm9yZURlcGFydHVyZT1cIiZsdDswXCIgQ3VycmVuY3lDb2RlPVwiUEtSXCIgQW1vdW50PVwiMzAwMDBcIlwvPjxQZW5hbHR5IEhvdXJzQmVmb3JlRGVwYXJ0dXJlPVwiJmx0OzQ4XCIgQ3VycmVuY3lDb2RlPVwiUEtSXCIgQW1vdW50PVwiMjUwMDBcIlwvPjxQZW5hbHR5IEhvdXJzQmVmb3JlRGVwYXJ0dXJlPVwiJmd0OzQ4XCIgQ3VycmVuY3lDb2RlPVwiUEtSXCIgQW1vdW50PVwiMjAwMDBcIlwvPjxcL1ZvbHVudGFyeUNoYW5nZXM+PFZvbHVudGFyeVJlZnVuZHM+PFBlbmFsdHkgSG91cnNCZWZvcmVEZXBhcnR1cmU9XCImbHQ7MFwiIEN1cnJlbmN5Q29kZT1cIlBLUlwiIEFtb3VudD1cIjM1MDAwXCJcLz48UGVuYWx0eSBIb3Vyc0JlZm9yZURlcGFydHVyZT1cIiZsdDs0OFwiIEN1cnJlbmN5Q29kZT1cIlBLUlwiIEFtb3VudD1cIjMwMDAwXCJcLz48UGVuYWx0eSBIb3Vyc0JlZm9yZURlcGFydHVyZT1cIiZndDs0OFwiIEN1cnJlbmN5Q29kZT1cIlBLUlwiIEFtb3VudD1cIjI1MDAwXCJcLz48XC9Wb2x1bnRhcnlSZWZ1bmRzPjxcL0NoYXJnZXNSdWxlcz48XC9SdWxlSW5mbz48RGVwYXJ0dXJlQWlycG9ydCBMb2NhdGlvbkNvZGU9XCJJU0JcIlwvPjxBcnJpdmFsQWlycG9ydCBMb2NhdGlvbkNvZGU9XCJEWEJcIlwvPjxcL0ZhcmVJbmZvPjxcL1BUQ19GYXJlQnJlYWtkb3duPjxcL1BUQ19GYXJlQnJlYWtkb3ducz48UFRDX0ZhcmVCcmVha2Rvd25zPjxQVENfRmFyZUJyZWFrZG93bj48UGFzc2VuZ2VyVHlwZVF1YW50aXR5IENvZGU9XCJBRFRcIiBRdWFudGl0eT1cIjFcIlwvPjxQYXNzZW5nZXJGYXJlPjxCYXNlRmFyZSBDdXJyZW5jeUNvZGU9XCJQS1JcIiBBbW91bnQ9XCIxMDk5OFwiXC8+PFRheGVzIEFtb3VudD1cIjk3NTBcIj48VGF4IFRheENvZGU9XCJBRVwiIEN1cnJlbmN5Q29kZT1cIlBLUlwiIEFtb3VudD1cIjU4NTBcIlwvPjxUYXggVGF4Q29kZT1cIlBTXCIgQ3VycmVuY3lDb2RlPVwiUEtSXCIgQW1vdW50PVwiMzkwXCJcLz48VGF4IFRheENvZGU9XCJGNlwiIEN1cnJlbmN5Q29kZT1cIlBLUlwiIEFtb3VudD1cIjMxMjBcIlwvPjxUYXggVGF4Q29kZT1cIlpSXCIgQ3VycmVuY3lDb2RlPVwiUEtSXCIgQW1vdW50PVwiMzkwXCJcLz48XC9UYXhlcz48RmVlcyBBbW91bnQ9XCIxMTcwXCI+PEZlZSBGZWVDb2RlPVwiUTJcIiBDdXJyZW5jeUNvZGU9XCJQS1JcIiBBbW91bnQ9XCIwXCJcLz48RmVlIEZlZUNvZGU9XCJRMVwiIEN1cnJlbmN5Q29kZT1cIlBLUlwiIEFtb3VudD1cIjExNzBcIlwvPjxcL0ZlZXM+PFRvdGFsRmFyZSBDdXJyZW5jeUNvZGU9XCJQS1JcIiBBbW91bnQ9XCIyMTkxOFwiXC8+PFwvUGFzc2VuZ2VyRmFyZT48RmFyZUluZm8+PERlcGFydHVyZURhdGU+MjAyNC0wNS0xNVQwMDowMDowMDxcL0RlcGFydHVyZURhdGU+PERlcGFydHVyZUFpcnBvcnQgTG9jYXRpb25Db2RlPVwiRFhCXCJcLz48QXJyaXZhbEFpcnBvcnQgTG9jYXRpb25Db2RlPVwiSVNCXCJcLz48RmFyZUluZm8gRmFyZUJhc2lzQ29kZT1cIkVWVEFSVEhcIlwvPjxQYXNzZW5nZXJGYXJlPjxCYXNlRmFyZSBDdXJyZW5jeUNvZGU9XCJQS1JcIiBBbW91bnQ9XCIxMDk5OFwiXC8+PFRheGVzIEFtb3VudD1cIjk3NTBcIj48VGF4IFRheENvZGU9XCJBRVwiIEN1cnJlbmN5Q29kZT1cIlBLUlwiIEFtb3VudD1cIjU4NTBcIlwvPjxUYXggVGF4Q29kZT1cIlBTXCIgQ3VycmVuY3lDb2RlPVwiUEtSXCIgQW1vdW50PVwiMzkwXCJcLz48VGF4IFRheENvZGU9XCJGNlwiIEN1cnJlbmN5Q29kZT1cIlBLUlwiIEFtb3VudD1cIjMxMjBcIlwvPjxUYXggVGF4Q29kZT1cIlpSXCIgQ3VycmVuY3lDb2RlPVwiUEtSXCIgQW1vdW50PVwiMzkwXCJcLz48XC9UYXhlcz48RmVlcyBBbW91bnQ9XCIxMTcwXCI+PEZlZSBGZWVDb2RlPVwiUTJcIiBDdXJyZW5jeUNvZGU9XCJQS1JcIiBBbW91bnQ9XCIwXCJcLz48RmVlIEZlZUNvZGU9XCJRMVwiIEN1cnJlbmN5Q29kZT1cIlBLUlwiIEFtb3VudD1cIjExNzBcIlwvPjxcL0ZlZXM+PFRvdGFsRmFyZSBDdXJyZW5jeUNvZGU9XCJQS1JcIiBBbW91bnQ9XCIyMTkxOFwiXC8+PFwvUGFzc2VuZ2VyRmFyZT48XC9GYXJlSW5mbz48RmFyZUluZm8+PERlcGFydHVyZURhdGU+MjAyNC0wNS0xNVQwMDowMDowMDxcL0RlcGFydHVyZURhdGU+PFJ1bGVJbmZvPjxDaGFyZ2VzUnVsZXM+PFZvbHVudGFyeUNoYW5nZXM+PFBlbmFsdHkgSG91cnNCZWZvcmVEZXBhcnR1cmU9XCImbHQ7MFwiIEN1cnJlbmN5Q29kZT1cIlBLUlwiIEFtb3VudD1cIjMwMDAwXCJcLz48UGVuYWx0eSBIb3Vyc0JlZm9yZURlcGFydHVyZT1cIiZsdDs0OFwiIEN1cnJlbmN5Q29kZT1cIlBLUlwiIEFtb3VudD1cIjI1MDAwXCJcLz48UGVuYWx0eSBIb3Vyc0JlZm9yZURlcGFydHVyZT1cIiZndDs0OFwiIEN1cnJlbmN5Q29kZT1cIlBLUlwiIEFtb3VudD1cIjIwMDAwXCJcLz48XC9Wb2x1bnRhcnlDaGFuZ2VzPjxWb2x1bnRhcnlSZWZ1bmRzPjxQZW5hbHR5IEhvdXJzQmVmb3JlRGVwYXJ0dXJlPVwiJmx0OzBcIiBDdXJyZW5jeUNvZGU9XCJQS1JcIiBBbW91bnQ9XCIzNTAwMFwiXC8+PFBlbmFsdHkgSG91cnNCZWZvcmVEZXBhcnR1cmU9XCImbHQ7NDhcIiBDdXJyZW5jeUNvZGU9XCJQS1JcIiBBbW91bnQ9XCIzMDAwMFwiXC8+PFBlbmFsdHkgSG91cnNCZWZvcmVEZXBhcnR1cmU9XCImZ3Q7NDhcIiBDdXJyZW5jeUNvZGU9XCJQS1JcIiBBbW91bnQ9XCIyNTAwMFwiXC8+PFwvVm9sdW50YXJ5UmVmdW5kcz48XC9DaGFyZ2VzUnVsZXM+PFwvUnVsZUluZm8+PERlcGFydHVyZUFpcnBvcnQgTG9jYXRpb25Db2RlPVwiRFhCXCJcLz48QXJyaXZhbEFpcnBvcnQgTG9jYXRpb25Db2RlPVwiSVNCXCJcLz48XC9GYXJlSW5mbz48XC9QVENfRmFyZUJyZWFrZG93bj48XC9QVENfRmFyZUJyZWFrZG93bnM+Ig==">
+                      <input type="hidden" name="dom_int" value="International">
+                      <input type="hidden" name="baseFare_original" value="23556">
+                      <input type="hidden" name="taxes" value="20190">
+                      <input type="hidden" name="fees" value="5070">
+                      <input type="hidden" name="total" value="48816">
+                      <input type="hidden" name="markup_amount" value="236">
+                      <input type="hidden" name="gTotal_original" value="48816">
+                      <input type="hidden" name="gTotal" value="49052">
+                    </form>
+                    <form action="https://mosafir.pk/Airblue/booking" method="get" class="ab_form" id="ab_form__ab17"></form>
+      
+                    <input type="hidden" name="arr_hour" value="21">
+                            </div>
+                <!--END OF COL MD 4-->
+              
+            </div>
+            <!--END OF ROW-->
+            <div id="errorMsg__ab17" class="text-right" style="color:red; font-weight: bold; display: none;">An error occured while booking segments. Please try again later.</div>
+            <div class="bottom_sec">
+              <ul class="list-unstyled">
+                <!-- <li><a href="#">Fare Rules</a></li> -->
+                <li>Refundable</li>
+                <!--  <li><a href="javascript:void(0);" onclick="requestFareRules('', '', '');">Fare Rules</a></li> -->
+                <li><a href="#further__ab17" data-toggle="modal" aria-expanded="false" aria-controls="further"><span>View Flight Details</span></a></li>
+              </ul>
+              <div class="fares_flight">
+                          <h2>PKR 49,052</h2>
+                <input type="button" class="btn btnBookNow" onclick="checkUserLoggedAb('_ab17')" value="Book Now">
+              </div>
+            </div>
+            <!--END OF BOTTOM SEC-->
+            <div class="modal further_detail" id="further__ab17">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Flight Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="top: 238.8px; right: 10px;">
+                      <i class="fa fa-times-circle"></i>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-md-12">
+                                            <div class="flight_info_colored pt-2 pb-2">
+                            <div class="info justify-content-center">
+                              <h2>Islamabad International Airport <i class="fa fa-plane"></i> Dubai International Airport</h2>
+                            </div>
+                            <!--END OF INFO--->
+                          </div>
+                          <div class="row mt-3">
+                            <div class="col-md-8">
+                              <div class="airline_info">
+                                <span><img src="https://mosafir.pk/assets/AirlineLogos/PA.png" alt=""></span>
+                                <p>Airblue Airblue - 210 <small>Value</small></p>
+                              </div>
+                              <!--END OF AIRLINE INFO-->
+                            </div>
+                            <!--END OF COL MD 8-->
+                            <div class="col-md-4">
+                              <ul class="list-unstyled offers">
+                                <li class="active"><i class="fa fa-utensils"></i></li>
+                                <li><i class="fa fa-plane"></i></li>
+                                <li><i class="fa fa-file-video"></i></li>
+                                <li class="active"><i class="fa fa-wifi"></i></li>
+                                <li class="active text-dark"><i class="fa fa-briefcase"></i>
+                                                             </li>
+                              </ul>
+                            </div>
+                            <!--END OF COL MD 4-->
+                          </div>
+                          <!--END OF ROW-->
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="source_destination">
+                                <div class="source_name">
+                                  <h4>Apr 02 , Tue</h4>
+                                  <h4>02:55 AM</h4>
+                                  <p>Islamabad International Airport</p>
+                                </div>
+                                <!--END OF COURCE NAME-->
+                                <div class="layover2">
+                                  <div class="stops">
+                                    <i class="fa fa-plane"></i>
+                                    <span class="dot"></span>
+                                    <span class="name">&nbsp;</span>
+                                    <span class="duration">&nbsp;</span>
+                                  </div>
+                                  <!--END OF STOPS-->
+                                </div>
+                                <!--END OF LAYOVER-->
+                                <div class="source_name">
+                                  <h4>Apr 02 , Tue</h4>
+                                  <h4>05:25 AM</h4>
+                                  <p>Dubai International Airport</p>
+                                </div>
+                                <!--END OF COURCE NAME-->
+                              </div>
+                              <!--END OF SOURCE DESTI--->
+                            </div>
+                            <!--END OF COL MD 12-->
+                          </div>
+                          <!--END OF ROW-->
+                                            <div class="flight_info_colored pt-2 pb-2">
+                            <div class="info justify-content-center">
+                              <h2>Dubai International Airport <i class="fa fa-plane"></i> Islamabad International Airport</h2>
+                            </div>
+                            <!--END OF INFO--->
+                          </div>
+                          <div class="row mt-3">
+                            <div class="col-md-8">
+                              <div class="airline_info">
+                                <span><img src="https://mosafir.pk/assets/AirlineLogos/PA.png" alt=""></span>
+                                <p>Airblue Airblue - 217 <small>Value</small></p>
+                              </div>
+                              <!--END OF AIRLINE INFO-->
+                            </div>
+                            <!--END OF COL MD 8-->
+                            <div class="col-md-4">
+                              <ul class="list-unstyled offers">
+                                <li class="active"><i class="fa fa-utensils"></i></li>
+                                <li><i class="fa fa-plane"></i></li>
+                                <li><i class="fa fa-file-video"></i></li>
+                                <li class="active"><i class="fa fa-wifi"></i></li>
+                                <li class="active text-dark"><i class="fa fa-briefcase"></i>
+                                                             </li>
+                              </ul>
+                            </div>
+                            <!--END OF COL MD 4-->
+                          </div>
+                          <!--END OF ROW-->
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="source_destination">
+                                <div class="source_name">
+                                  <h4>May 15 , Wed</h4>
+                                  <h4>05:00 PM</h4>
+                                  <p>Dubai International Airport</p>
+                                </div>
+                                <!--END OF COURCE NAME-->
+                                <div class="layover2">
+                                  <div class="stops">
+                                    <i class="fa fa-plane"></i>
+                                    <span class="dot"></span>
+                                    <span class="name">&nbsp;</span>
+                                    <span class="duration">&nbsp;</span>
+                                  </div>
+                                  <!--END OF STOPS-->
+                                </div>
+                                <!--END OF LAYOVER-->
+                                <div class="source_name">
+                                  <h4>May 15 , Wed</h4>
+                                  <h4>09:20 PM</h4>
+                                  <p>Islamabad International Airport</p>
+                                </div>
+                                <!--END OF COURCE NAME-->
+                              </div>
+                              <!--END OF SOURCE DESTI--->
+                            </div>
+                            <!--END OF COL MD 12-->
+                          </div>
+                          <!--END OF ROW-->
+                                        </div>
+                      <!--END OF COL MD 12-->
+                      <div class="col-md-12 mt-2">
+                        <div class="fare-tabs">
+                          <ul class="nav nav-pills" id="summary" role="tablist">
+                            <li class="nav-item">
+                              <a class="nav-link active" id="fare-summary-tab" data-toggle="pill" href="#fare-summary_" role="tab" aria-controls="fare-summary" aria-selected="true">Fare Summary</a>
+                            </li>
+      
+                          </ul>
+                          <div class="tab-content" id="booking-summary">
+                            <div class="tab-pane fade show active" id="fare-summary_" role="tabpanel" aria-labelledby="fare-summary-tab">
+                              <table class="table">
+                                <tbody>
+                                  <tr>
+                                    <th>Fare Summary </th>
+                                    <th>Base Fare</th>
+                                    <th>Fees &amp; Taxes</th>
+                                  </tr>
+                                  <tr><td>ADT X 1</td>
+      
+            <td>PKR 10,998</td>
+      
+            <td>PKR 10,920</td>
+      
+            </tr>                            <tr>
+                                    <td>&nbsp;</td>
+                                    <td>PKR 23,556</td>
+                                    <td>PKR 25,260</td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <h3>Total</h3>
+                                    </td>
+                                    <td colspan="2" align="right">
+                                      <h3>PKR 49,052</h3>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="3">
+                                      <p>*Total fare displayed above has been rounded off and may thus show a slight difference.</p>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <!--END OF tab pane-->
+      
+                          </div>
+                          <!--END OF TAB CONTENT booking summary--->
+                          <!-- <button class="btn">Book</button> -->
+                        </div>
+                        <!--END OF FAIR TABS-->
+                      </div>
+                      <!--END OF COL MD 12-->
+                    </div>
+                    <!--END OF ROW-->
+                  </div><!-- END OF MODAL-BODY-->
+                </div><!-- END OF MODAL-CONTENT-->
+              </div><!-- END OF MODAL-DIALOG-->
+            </div>
+            <!--end of modal-->
+      
+      
+      
+            <div class="stop_0 d-none"></div>
+            <input type="hidden" class="priceInput d-none" value="49052">
+            <div class="refundNon_Refundable d-none"></div>
+            <div class="prcSort PAsort d-none">49052</div>
+            <div class="prcCurrency d-none">PKR</div>
+          </div>
           <div *ngFor="let item of allEvents.flightItineraries" class="col-md-12 flight-list-item p-0">
               <div class="col-md-9">
                   <div *ngFor="let segment of item.leg1.segments" class="col-md-6">

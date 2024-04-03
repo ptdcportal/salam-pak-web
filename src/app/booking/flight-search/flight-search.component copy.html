@@ -84,7 +84,14 @@
                   placeholder="Select Departure"
                 />
               </div>
-              <small [hidden]="" class="text-danger" translate>
+              <small
+                [hidden]="
+                  bookingFlightForm.controls.dep_date.valid ||
+                  bookingFlightForm.controls.dep_date.untouched
+                "
+                class="text-danger"
+                translate
+              >
                 Please Select a date
               </small>
             </div>
@@ -93,7 +100,7 @@
               <div class="form-group">
                 <input
                   type="date"
-                  min=""
+                  min="{{ bookingFlightForm.controls.dep_date.value }}"
                   for
                   formControlName="return_date"
                   class="form-control"
@@ -108,6 +115,9 @@
                 <label>adults</label>
                 <div class="booking-count">
                   <button
+                    [disabled]="
+                      bookingFlightForm.get('no_of_adults').value == 0
+                    "
                     (click)="decrement(bookingFlightForm, 'no_of_adults')"
                     class="minus"
                   >
@@ -120,7 +130,9 @@
                     type="text"
                   />
                   <button
-                    [disabled]=""
+                    [disabled]="
+                      bookingFlightForm.get('no_of_adults').value == 5
+                    "
                     (click)="increment(bookingFlightForm, 'no_of_adults')"
                     class="plus"
                   >
@@ -134,7 +146,9 @@
                 <label>child</label>
                 <div class="booking-count">
                   <button
-                    [disabled]=""
+                    [disabled]="
+                      bookingFlightForm.get('no_of_children').value == 0
+                    "
                     (click)="decrement(bookingFlightForm, 'no_of_children')"
                     class="minus"
                   >
@@ -147,7 +161,9 @@
                     type="text"
                   />
                   <button
-                    [disabled]=""
+                    [disabled]="
+                      bookingFlightForm.get('no_of_children').value == 5
+                    "
                     (click)="increment(bookingFlightForm, 'no_of_children')"
                     class="plus"
                   >
@@ -161,7 +177,9 @@
                 <label>infants</label>
                 <div class="booking-count">
                   <button
-                    [disabled]=""
+                    [disabled]="
+                      bookingFlightForm.get('no_of_infants').value == 0
+                    "
                     (click)="decrement(bookingFlightForm, 'no_of_infants')"
                     class="minus"
                   >
@@ -174,7 +192,9 @@
                     type="text"
                   />
                   <button
-                    [disabled]=""
+                    [disabled]="
+                      bookingFlightForm.get('no_of_infants').value == 5
+                    "
                     (click)="increment(bookingFlightForm, 'no_of_infants')"
                     class="plus"
                   >
@@ -252,7 +272,7 @@
           <span class="yellow-bar"></span>
         </div>
       </header>
-      <!-- <pre>{{ allEvents | json }}</pre> -->
+      <pre>{{ allEvents | json }}</pre>
 
       <div class="tab-content">
         <!-- <app-loader [isLoading]="isLoading"></app-loader> -->
@@ -260,355 +280,35 @@
           no record found!
         </h3>
         <div id="flighttab1">
-          <div
-            *ngFor="let item of allEvents.flightItineraries"
-            class="col-md-12 flight-list-item p-0"
-          >
-            <div class="flight_list flight_detail PA_flight" style="">
-              <div *ngFor="let segment of item.leg1.segments" class="row justify-content-between">
-                <input type="hidden" name="dep_hour" value="02" />
-                <div class="col-lg-3 col-md-4 col-4 departure_section_new PA">
-                  <div class="flight_desc">
-                    <div class="legend">
-                      <label>Departure</label>
-                      <p>
-                        {{ segment.departureAirportCode }} - {{ segment.departureDateTime | date: 'h:mm a' }}
-                        <span class="d-block"> {{ segment.departureDateTime | date: 'EEE, dd-MMM-y' }}</span>
-                      </p>
-                    </div>
-                    <!--END OF LEGEND-->
-                  </div>
-                  <!--END OF FLIGHT DESC-->
-                </div>
-                <!--END OF COL MD 4-->
-
-                <div class="col-lg-3 col-md-4 col-4">
-                  <div class="airline">
-                    <img
-                      [src]="getAirlineLogo(segment.airlineCode)"
-                      [alt]="getAirlineName(segment.airlineCode)"
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      class="img-fluid"
-                    />
-                    <p>{{ segment.airlineCode }} - {{ segment.aircraftCode }}</p>
-                  </div>
-                  <!--END OF AIRLINE-->
-                </div>
-                <!--END OF COL MD 4-->
-
-                <div class="col-lg-3 col-md-4 col-4 arrival_section_new">
-                  <div class="flight_desc">
-                    <div class="legend">
-                      <label>Arrival</label>
-                      <p>
-                        {{ segment.arrivalAirportCode }} - {{ segment.arrivalDateTime | date: 'h:mm a' }}
-                        <span class="d-block">{{ segment.departureDateTime | date: 'EEE, dd-MMM-y' }}</span>
-                      </p>
-                    </div>
-                    <!--END OF LEGEND-->
-                  </div>
-                  <!--END OF FLIGHT DESC-->
-                </div>
-                <!--END OF COL MD 4-->
-                <div class="col-12">
-                  <div class="airline">
-                    <h5>Direct <strong class="text-danger">| Value</strong></h5>
-                  </div>
-                </div>
-                <!--END OF COL MD 4-->
-
-                <div class="link"></div>
-                
-                <!--END OF COL MD 4-->
-              </div>
-              <div class="bottom_sec">
-                <ul class="list-unstyled">
-                  <!-- <li><a href="#">Fare Rules</a></li> -->
-                  <li>Refundable</li>
-                  <!--  <li><a href="javascript:void(0);" onclick="requestFareRules('', '', '');">Fare Rules</a></li> -->
-                  <li>
-                    <a
-                      href="#further__ab17"
-                      data-toggle="modal"
-                      aria-expanded="false"
-                      aria-controls="further"
-                      ><span>View Flight Details</span></a
-                    >
-                  </li>
-                </ul>
-                <div class="fares_flight">
-                  <h2>PKR 49,052</h2>
-                  <input
-                    type="button"
-                    class="btn btnBookNow"
-                    onclick="checkUserLoggedAb('_ab17')"
-                    value="Book Now"
-                  />
-                </div>
-              </div>
-              <!--END OF BOTTOM SEC-->
-              <div class="modal further_detail" id="further__ab17">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLongTitle">
-                        Flight Details
-                      </h5>
-                      <button
-                        type="button"
-                        class="close"
-                        data-dismiss="modal"
-                        aria-label="Close"
-                        style="top: 238.8px; right: 10px"
-                      >
-                        <i class="fa fa-times-circle"></i>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <div class="row">
-                        <div class="col-md-12">
-                          <div class="flight_info_colored pt-2 pb-2">
-                            <div class="info justify-content-center">
-                              <h2>
-                                Islamabad International Airport
-                                <i class="fa fa-plane"></i> Dubai International
-                                Airport
-                              </h2>
-                            </div>
-                            <!--END OF INFO--->
+          <div *ngFor="let item of allEvents.flightItineraries" class="col-md-12 flight-list-item p-0">
+              <div class="col-md-9">
+                  <div *ngFor="let segment of item.leg1.segments" class="col-md-6">
+                      <h6 class="flight-departure-h5">{{ segment.airlineCode }}</h6>
+                      <div class="col-md-12 p-0">
+                          <div class="col-md-4 p-0">
+                              <h6 class="flight-departure-h5">departure - {{ segment.departureAirportCode }}</h6>
+                              <p class="fight-date">{{ segment.departureDateTime | date: 'EEE, dd-MMM-y' }}</p>
+                              <p class="green flight-time">{{ segment.departureDateTime | date: 'h:mm a' }}</p>
                           </div>
-                          <div class="row mt-3">
-                            <div class="col-md-8">
-                              <div class="airline_info">
-                                <span
-                                  ><img
-                                    src="https://mosafir.pk/assets/AirlineLogos/PA.png"
-                                    alt=""
-                                /></span>
-                                <p>
-                                  Airblue Airblue - 210 <small>Value</small>
-                                </p>
-                              </div>
-                              <!--END OF AIRLINE INFO-->
-                            </div>
-                            <!--END OF COL MD 8-->
-                            <div class="col-md-4">
-                              <ul class="list-unstyled offers">
-                                <li class="active">
-                                  <i class="fa fa-utensils"></i>
-                                </li>
-                                <li><i class="fa fa-plane"></i></li>
-                                <li><i class="fa fa-file-video"></i></li>
-                                <li class="active">
-                                  <i class="fa fa-wifi"></i>
-                                </li>
-                                <li class="active text-dark">
-                                  <i class="fa fa-briefcase"></i>
-                                </li>
-                              </ul>
-                            </div>
-                            <!--END OF COL MD 4-->
+                          <div class="col-md-4 mobile-p-0 mobile-mt-20">
+                              <h6 class="flight-landing-h5">landing - {{ segment.arrivalAirportCode }}</h6>
+                              <p class="fight-date">{{ segment.arrivalDateTime | date: 'EEE, dd-MMM-y' }}</p>
+                              <p class="green flight-time">{{ segment.arrivalDateTime | date: 'h:mm a' }}</p>
                           </div>
-                          <!--END OF ROW-->
-                          <div class="row">
-                            <div class="col-md-12">
-                              <div class="source_destination">
-                                <div class="source_name">
-                                  <h4>Apr 02 , Tue</h4>
-                                  <h4>02:55 AM</h4>
-                                  <p>Islamabad International Airport</p>
-                                </div>
-                                <!--END OF COURCE NAME-->
-                                <div class="layover2">
-                                  <div class="stops">
-                                    <i class="fa fa-plane"></i>
-                                    <span class="dot"></span>
-                                    <span class="name">&nbsp;</span>
-                                    <span class="duration">&nbsp;</span>
-                                  </div>
-                                  <!--END OF STOPS-->
-                                </div>
-                                <!--END OF LAYOVER-->
-                                <div class="source_name">
-                                  <h4>Apr 02 , Tue</h4>
-                                  <h4>05:25 AM</h4>
-                                  <p>Dubai International Airport</p>
-                                </div>
-                                <!--END OF COURCE NAME-->
-                              </div>
-                              <!--END OF SOURCE DESTI--->
-                            </div>
-                            <!--END OF COL MD 12-->
-                          </div>
-                          <!--END OF ROW-->
-                          <div class="flight_info_colored pt-2 pb-2">
-                            <div class="info justify-content-center">
-                              <h2>
-                                Dubai International Airport
-                                <i class="fa fa-plane"></i> Islamabad
-                                International Airport
-                              </h2>
-                            </div>
-                            <!--END OF INFO--->
-                          </div>
-                          <div class="row mt-3">
-                            <div class="col-md-8">
-                              <div class="airline_info">
-                                <span
-                                  ><img
-                                    src="https://mosafir.pk/assets/AirlineLogos/PA.png"
-                                    alt=""
-                                /></span>
-                                <p>
-                                  Airblue Airblue - 217 <small>Value</small>
-                                </p>
-                              </div>
-                              <!--END OF AIRLINE INFO-->
-                            </div>
-                            <!--END OF COL MD 8-->
-                            <div class="col-md-4">
-                              <ul class="list-unstyled offers">
-                                <li class="active">
-                                  <i class="fa fa-utensils"></i>
-                                </li>
-                                <li><i class="fa fa-plane"></i></li>
-                                <li><i class="fa fa-file-video"></i></li>
-                                <li class="active">
-                                  <i class="fa fa-wifi"></i>
-                                </li>
-                                <li class="active text-dark">
-                                  <i class="fa fa-briefcase"></i>
-                                </li>
-                              </ul>
-                            </div>
-                            <!--END OF COL MD 4-->
-                          </div>
-                          <!--END OF ROW-->
-                          <div class="row">
-                            <div class="col-md-12">
-                              <div class="source_destination">
-                                <div class="source_name">
-                                  <h4>May 15 , Wed</h4>
-                                  <h4>05:00 PM</h4>
-                                  <p>Dubai International Airport</p>
-                                </div>
-                                <!--END OF COURCE NAME-->
-                                <div class="layover2">
-                                  <div class="stops">
-                                    <i class="fa fa-plane"></i>
-                                    <span class="dot"></span>
-                                    <span class="name">&nbsp;</span>
-                                    <span class="duration">&nbsp;</span>
-                                  </div>
-                                  <!--END OF STOPS-->
-                                </div>
-                                <!--END OF LAYOVER-->
-                                <div class="source_name">
-                                  <h4>May 15 , Wed</h4>
-                                  <h4>09:20 PM</h4>
-                                  <p>Islamabad International Airport</p>
-                                </div>
-                                <!--END OF COURCE NAME-->
-                              </div>
-                              <!--END OF SOURCE DESTI--->
-                            </div>
-                            <!--END OF COL MD 12-->
-                          </div>
-                          <!--END OF ROW-->
-                        </div>
-                        <!--END OF COL MD 12-->
-                        <div class="col-md-12 mt-2">
-                          <div class="fare-tabs">
-                            <ul
-                              class="nav nav-pills"
-                              id="summary"
-                              role="tablist"
-                            >
-                              <li class="nav-item">
-                                <a
-                                  class="nav-link active"
-                                  id="fare-summary-tab"
-                                  data-toggle="pill"
-                                  href="#fare-summary_"
-                                  role="tab"
-                                  aria-controls="fare-summary"
-                                  aria-selected="true"
-                                  >Fare Summary</a
-                                >
-                              </li>
-                            </ul>
-                            <div class="tab-content" id="booking-summary">
-                              <div
-                                class="tab-pane fade show active"
-                                id="fare-summary_"
-                                role="tabpanel"
-                                aria-labelledby="fare-summary-tab"
-                              >
-                                <table class="table">
-                                  <tbody>
-                                    <tr>
-                                      <th>Fare Summary</th>
-                                      <th>Base Fare</th>
-                                      <th>Fees &amp; Taxes</th>
-                                    </tr>
-                                    <tr>
-                                      <td>ADT X 1</td>
-
-                                      <td>PKR 10,998</td>
-
-                                      <td>PKR 10,920</td>
-                                    </tr>
-                                    <tr>
-                                      <td>&nbsp;</td>
-                                      <td>PKR 23,556</td>
-                                      <td>PKR 25,260</td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <h3>Total</h3>
-                                      </td>
-                                      <td colspan="2" align="right">
-                                        <h3>PKR 49,052</h3>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td colspan="3">
-                                        <p>
-                                          *Total fare displayed above has been
-                                          rounded off and may thus show a slight
-                                          difference.
-                                        </p>
-                                      </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                              </div>
-                              <!--END OF tab pane-->
-                            </div>
-                            <!--END OF TAB CONTENT booking summary--->
-                            <!-- <button class="btn">Book</button> -->
-                          </div>
-                          <!--END OF FAIR TABS-->
-                        </div>
-                        <!--END OF COL MD 12-->
                       </div>
-                      <!--END OF ROW-->
-                    </div>
-                    <!-- END OF MODAL-BODY-->
                   </div>
-                  <!-- END OF MODAL-CONTENT-->
-                </div>
-                <!-- END OF MODAL-DIALOG-->
               </div>
-              <!--end of modal-->
-
-              <div class="stop_0 d-none"></div>
-              <input type="hidden" class="priceInput d-none" value="49052" />
-              <div class="refundNon_Refundable d-none"></div>
-              <div class="prcSort PAsort d-none">49052</div>
-              <div class="prcCurrency d-none">PKR</div>
-            </div>
+              <div class="col-md-3 bus-company-logo">
+                  <h5 class="flight-price-h5 green">Total Amount: PKR {{ item.price.totalAmount | number }}</h5>
+                  <h5 class="flight-price-h5 green">Amount Per Adult: PKR {{ item.price.pricePerAdult | number }}</h5>
+                  <h5 class="flight-price-h5 green">Amount Per Child: PKR {{ item.price.pricePerChild | number }}</h5>
+                  <h5 class="flight-price-h5 green">Amount Per Infant: PKR {{ item.price.pricePerInfant | number }}</h5>
+                  <div class="col-md-12 flight-bookingdetails p-0">
+                      <div class="col-md-12 col-sm-12 p-0">
+                          <a href="{{ item.deeplinkUrl }}" target="_blank" class="list-hotal-btn">Book Now</a>
+                      </div>
+                  </div>
+              </div>
           </div>
         </div>
         <div class="container">

@@ -451,6 +451,24 @@ export class EventService {
       });
   }
 
+  getAirlines() {
+    return axios
+      .get(
+        `https://cdn.jsdelivr.net/gh/besrourms/airlines@latest/airlines.json`
+      )
+      .then(function (response) {
+        // handle success
+        return response.data;
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+  }
+
   getbuss(data: any, pageSize = 10, skip = 0, filter: any = '') {
     // return this.httpClient.get(
     //   `${environment.serverUrl}/all_bus_services?origin_city_name=${data.origin_city_name}&destination_city_name=${data.destination_city_name}&date=${data.date}&skip=${skip}&pageSize=${pageSize}&sortBy=${filter}`

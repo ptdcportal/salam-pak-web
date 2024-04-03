@@ -15,6 +15,13 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { airports } from 'src/assets/constants/flight-airports';
 import axios from 'axios';
 
+interface Airline {
+  name: string;
+  code: string;
+  is_lowcost: boolean;
+  logo: string;
+}
+
 let states: any = [];
 @Component({
   selector: 'app-flight-search',
@@ -70,7 +77,7 @@ export class FlightSearchComponent implements OnInit {
        {  
           departureCode:"ISB",
           arrivalCode:"DXB",
-          outboundDate:"2024-04-03"
+          outboundDate:"2024-04-08"
        }
     ],
     adultsCount:1,
@@ -88,7 +95,7 @@ export class FlightSearchComponent implements OnInit {
     //   return (i.location == this.route.snapshot.queryParams.to);
     // }),
     destinationCityName: this.route.snapshot.queryParams.to,
-    dep_date: this.route.snapshot.queryParams.arrival,
+    dep_date: "2024-04-08",
     return_date: this.route.snapshot.queryParams.returnDate,
     flightTrip: this.route.snapshot.queryParams.flightTrip,
     no_of_adults: this.route.snapshot.queryParams.flightAdult,
@@ -101,6 +108,7 @@ export class FlightSearchComponent implements OnInit {
   paymentSuccesFlag = false;
   bookingId: any = null;
   bookingResponse: any = null;
+  airlines: Airline[] = [];
   constructor(
     private readonly route: ActivatedRoute,
     private readonly eventService: EventService,
@@ -116,8 +124,10 @@ export class FlightSearchComponent implements OnInit {
     this.userId = localStorage.getItem('userId');
     this.userData = JSON.parse(localStorage.getItem('userData'));
     this.isLoggedIn = this.credentialsService.isAuthenticated();
+    this.eventService.getAirlines().then((airlines: Airline[]) => {
+      this.airlines = airlines;
+    });
     this.getCities();
-    console.log();
     airports.filter((i: any) => {
       return (i.location == this.route.snapshot.queryParams.to);
     });
@@ -166,6 +176,7 @@ export class FlightSearchComponent implements OnInit {
       this.filter = filters;
     });
     this.getCurrencyInfo();
+    
   }
 
   getFlights(data: any, pageSize = 0, skip = 0, filter: any) {
@@ -817,7 +828,13 @@ export class FlightSearchComponent implements OnInit {
     // });
     this.eventService.getFlightSearch(data).then((data: any) => {
       console.log(data);
+
+      console.log("response data", this.airlines);
+      console.log("LOGO", this.getAirlineLogo('PA'));
     })
+
+
+
 
     // this.eventService
     //   .getFlights(data, pageSize, skip, filter)
@@ -841,6 +858,16 @@ export class FlightSearchComponent implements OnInit {
     script.async = true;
     script.defer = true;
     body.appendChild(script);
+  }
+
+  public getAirlineLogo(code: string): string {
+    const airline = this.airlines.find(airline => airline.code === code);
+    return airline ? airline.logo : '';
+  }
+
+  public getAirlineName(code: string): string {
+      const airline = this.airlines.find(airline => airline.code === code);
+      return airline ? airline.name : '';
   }
 
   private createForm() {

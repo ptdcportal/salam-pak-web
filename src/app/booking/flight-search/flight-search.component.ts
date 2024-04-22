@@ -176,8 +176,8 @@ export class FlightSearchComponent implements OnInit {
       this.filter = filters;
     });
     this.getCurrencyInfo();
-    
   }
+
 
   getFlights(data: any, pageSize = 0, skip = 0, filter: any) {
     // this.isLoading = true;

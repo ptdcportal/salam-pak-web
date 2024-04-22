@@ -430,16 +430,11 @@ export class EventService {
   }
 
   getFlightSearch(data:any) {
-    // return this.httpClient
-    //   .post(`https://mosafir.pk/API/Wego/flights_listing`, data)
-    //   .pipe(map((body: any) => body.data));
     return axios
       .post(
         `https://mosafir.pk/API/PTDC/flights_listing`, data
       )
       .then(function (response) {
-        // handle success
-        console.log(response);
         return response.data;
       })
       .catch(function (error) {

@@ -117,10 +117,124 @@
 <section id="services" class="services">
   <div class="container">
     <div class="row heading heading-2 mb-40">
-      <div class="col-sm-12 col-md-8 col-lg-8 mx-auto text-center">
+      <header>
+        <div id="booking-tabs">
+          <ul class="col-md-12">
+            <li class="col-md-2 pointer">
+              <a
+                (click)="tab = 1"
+                id="tab1-tab"
+                rel="#tab1"
+                [ngClass]="{ ' active': tab === 1 }"
+                >Welcome</a
+              >
+              <!-- islamabad -->
+            </li>
+            <li class="col-md-2 pointer">
+              <a
+                (click)="tab = 2"
+                id="tab2-tab"
+                rel="#tab2"
+                [ngClass]="{ ' active': tab === 2 }"
+                >Getting There</a
+              >
+              <!-- Pakistan -->
+            </li>
+            <li class="col-md-2 pointer">
+              <a
+                (click)="tab = 3"
+                id="tab3-tab"
+                rel="#tab3"
+                [ngClass]="{ ' active': tab === 3 }"
+                >What to Do</a
+              >
+            </li>
+            <li class="col-md-2 pointer">
+              <a
+                (click)="tab = 4"
+                id="tab4-tab"
+                rel="#tab4"
+                [ngClass]="{ ' active': tab === 4 }"
+                >Best Time to Visit
+                </a
+              >
+            </li>
+            <li class="col-md-2 pointer">
+              <a
+                (click)="tab = 5"
+                id="tab5-tab"
+                rel="#tab5"
+                [ngClass]="{ ' active': tab === 5 }"
+                >Where to Stay
+                </a
+              >
+            </li>
+            <li class="col-md-2 pointer">
+              <a
+                (click)="tab = 6"
+                id="tab6-tab"
+                rel="#tab6"
+                [ngClass]="{ ' active': tab === 6 }"
+                >Additional Information
+                </a
+              >
+            </li>
+          </ul>
+          <span class="yellow-bar"></span>
+        </div>
+      </header>
+      <div class="col-12 col-md-12">
+        <div class="tab-content">
+          <div
+            *ngIf="tab === 1"
+            id="tab1"
+            class="frame-one"
+            [ngClass]="{ ' active': tab === 1 }"
+          >
+            <div class="col-sm-12 col-md-12 col-lg-12 mx-auto text-center" >
+              <p [innerHTML]="sanitizeHtml(location.longDescription)">
+              </p>
+            </div>  
+          </div>
+  
+          <div *ngIf="tab === 2" id="tab2" [ngClass]="{ active: tab === 2 }">
+            <div class="col-sm-12 col-md-12 col-lg-12 mx-auto text-center">
+              <p [innerHTML]="location.gettingThere ? sanitizeHtml(location.gettingThere) : ''">
+              </p>
+            </div>
+          </div>
+  
+          <div *ngIf="tab === 3" id="tab3" [ngClass]="{ active: tab === 3 }">
+            <div class="col-sm-12 col-md-12 col-lg-12 mx-auto text-center">
+              <p [innerHTML]="location.whatToDo ? sanitizeHtml(location.whatToDo): ''">
+              </p>
+            </div>
+          </div>
+  
+          <div *ngIf="tab === 4" id="tab4" [ngClass]="{ active: tab === 4 }">
+            <div class="col-sm-12 col-md-12 col-lg-12 mx-auto text-center">
+              <p [innerHTML]="location.whatToDo ? sanitizeHtml(location.timeToVisit): ''">
+              </p>
+            </div>  
+          </div>
+          <div *ngIf="tab === 5" id="tab5" [ngClass]="{ active: tab === 5 }">
+            <div class="col-sm-12 col-md-12 col-lg-12 mx-auto text-center">
+              <p [innerHTML]="location.whereToStay ? sanitizeHtml(location.whereToStay): ''">
+              </p>
+            </div>  
+          </div>
+          <div *ngIf="tab === 6" id="tab6" [ngClass]="{ active: tab === 6 }">
+            <div class="col-sm-12 col-md-12 col-lg-12 mx-auto text-center">
+              <p [innerHTML]="location.additionalInformation ? sanitizeHtml(location.additionalInformation): ''">
+              </p>
+            </div>  
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col-sm-12 col-md-8 col-lg-8 mx-auto text-center">
         <p [innerHTML]="sanitizeHtml(location.longDescription)" class="heading__desc">
         </p>
-      </div>
+      </div> -->
       <!-- /.col-lg-5 -->
       <!-- <div class="col-sm-12 col-md-12 col-lg-6">
         <img

@@ -75,33 +75,34 @@ export class FlightSearchComponent implements OnInit {
   data = {  
     legs: [  
        {  
-          departureCode:"ISB",
-          arrivalCode:"DXB",
-          outboundDate:"2024-04-08"
+          departureCode: this.getAirportCode(this.route.snapshot.queryParams.from),
+          arrivalCode: this.getAirportCode(this.route.snapshot.queryParams.to),
+          outboundDate: this.route.snapshot.queryParams.arrival
        }
     ],
-    adultsCount:1,
-    childrenCount:0,
-    infantsCount:0,
+    adultsCount:2,
+    childrenCount:1,
+    infantsCount:1,
     cabin:"economy",
     currencyCode:"PKR",
     locale:"en",
 
-    // departureCityName: airports.filter((i: any) => {
-    //   return (i.location == this.route.snapshot.queryParams.from);
-    // }),
-    // departureCityName: this.route.snapshot.queryParams.to,
-    // destinationCityName: airports.filter((i: any) => {
-    //   return (i.location == this.route.snapshot.queryParams.to);
-    // }),
+    departureCityName: airports.filter((i: any) => {
+      return (i.location == this.route.snapshot.queryParams.from);
+    }),
+    destinationCityNam: airports.filter((i: any) => {
+      return (i.location == this.route.snapshot.queryParams.to);
+    }),
     destinationCityName: this.route.snapshot.queryParams.to,
-    dep_date: "2024-04-08",
+    dep_date: this.route.snapshot.queryParams.arrival,
     return_date: this.route.snapshot.queryParams.returnDate,
     flightTrip: this.route.snapshot.queryParams.flightTrip,
     no_of_adults: this.route.snapshot.queryParams.flightAdult,
     no_of_children: this.route.snapshot.queryParams.flightChild,
     no_of_infants: this.route.snapshot.queryParams.flightInfants,
  };
+  from: any = this.route.snapshot.queryParams.from;
+  to: any = this.route.snapshot.queryParams.to;
   user: any;
   formFlag = true;
   paymentFlag = false;
@@ -151,7 +152,19 @@ export class FlightSearchComponent implements OnInit {
     if (this.data) {
       this.getFlights(this.data, this.pageSize, this.skip, '-price');
     }
-    // this.createForm();
+    this.createForm();
+  }
+
+  getAirportCode(text: any)
+  {
+    const airport = airports.filter((i: any) => {
+      return (i.location == text);
+    });
+    if (airport.length > 0)
+    {
+      return airport[0].iataCode;
+    }
+    return false;
   }
 
   increment(form: any, field: any) {
@@ -180,675 +193,44 @@ export class FlightSearchComponent implements OnInit {
 
 
   getFlights(data: any, pageSize = 0, skip = 0, filter: any) {
-    // this.isLoading = true;
-    this.allEvents = 
-      {
-        "flightItineraries": [
-            {
-                "leg1": {
-                    "segments": [
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "613",
-                            "airlineCode": "EK",
-                            "operatingAirlineCode": "EK",
-                            "aircraftCode": "77W",
-                            "departureDateTime": "2024-03-28T09:00:00.000+05:00",
-                            "arrivalDateTime": "2024-03-28T11:35:00.000+04:00",
-                            "departureAirportCode": "ISB",
-                            "arrivalAirportCode": "DXB"
-                        }
-                    ]
-                },
-                "price": {
-                    "currencyCode": "PKR",
-                    "totalAmount": 94632,
-                    "pricePerAdult": 91350,
-                    "pricePerChild": 0,
-                    "pricePerInfant": 0,
-                    "isRefundable": "false"
-                },
-                "deeplinkUrl": "https://mosafir.pk/Wego/booking/DhG4i5uFuDKAwfCv+RAAAA=="
-            },
-            {
-                "leg1": {
-                    "segments": [
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "5144",
-                            "airlineCode": "J2",
-                            "operatingAirlineCode": "J2",
-                            "aircraftCode": "319",
-                            "departureDateTime": "2024-03-28T02:00:00.000+05:00",
-                            "arrivalDateTime": "2024-03-28T05:30:00.000+04:00",
-                            "departureAirportCode": "ISB",
-                            "arrivalAirportCode": "GYD"
-                        },
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "11",
-                            "airlineCode": "J2",
-                            "operatingAirlineCode": "J2",
-                            "aircraftCode": "788",
-                            "departureDateTime": "2024-03-28T10:00:00.000+04:00",
-                            "arrivalDateTime": "2024-03-28T12:55:00.000+04:00",
-                            "departureAirportCode": "GYD",
-                            "arrivalAirportCode": "DXB"
-                        }
-                    ]
-                },
-                "price": {
-                    "currencyCode": "PKR",
-                    "totalAmount": 108321,
-                    "pricePerAdult": 104644,
-                    "pricePerChild": 0,
-                    "pricePerInfant": 0,
-                    "isRefundable": "false"
-                },
-                "deeplinkUrl": "https://mosafir.pk/Wego/booking/DhG4i5uFuDKAxfCv+RAAAA=="
-            },
-            {
-                "leg1": {
-                    "segments": [
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "316",
-                            "airlineCode": "XY",
-                            "operatingAirlineCode": "XY",
-                            "aircraftCode": "320",
-                            "departureDateTime": "2024-03-28T04:40:00.000+05:00",
-                            "arrivalDateTime": "2024-03-28T07:30:00.000+03:00",
-                            "departureAirportCode": "ISB",
-                            "arrivalAirportCode": "RUH"
-                        },
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "205",
-                            "airlineCode": "XY",
-                            "operatingAirlineCode": "XY",
-                            "aircraftCode": "320",
-                            "departureDateTime": "2024-03-28T12:25:00.000+03:00",
-                            "arrivalDateTime": "2024-03-28T15:25:00.000+04:00",
-                            "departureAirportCode": "RUH",
-                            "arrivalAirportCode": "DXB"
-                        }
-                    ]
-                },
-                "price": {
-                    "currencyCode": "PKR",
-                    "totalAmount": 112051,
-                    "pricePerAdult": 108410,
-                    "pricePerChild": 0,
-                    "pricePerInfant": 0,
-                    "isRefundable": "true"
-                },
-                "deeplinkUrl": "https://mosafir.pk/Wego/booking/DhG4i5uFuDKAyfCv+RAAAA=="
-            },
-            {
-                "leg1": {
-                    "segments": [
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "208",
-                            "airlineCode": "KU",
-                            "operatingAirlineCode": "KU",
-                            "aircraftCode": "338",
-                            "departureDateTime": "2024-03-28T03:10:00.000+05:00",
-                            "arrivalDateTime": "2024-03-28T05:30:00.000+03:00",
-                            "departureAirportCode": "ISB",
-                            "arrivalAirportCode": "KWI"
-                        },
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "671",
-                            "airlineCode": "KU",
-                            "operatingAirlineCode": "KU",
-                            "aircraftCode": "32A",
-                            "departureDateTime": "2024-03-28T09:25:00.000+03:00",
-                            "arrivalDateTime": "2024-03-28T12:20:00.000+04:00",
-                            "departureAirportCode": "KWI",
-                            "arrivalAirportCode": "DXB"
-                        }
-                    ]
-                },
-                "price": {
-                    "currencyCode": "PKR",
-                    "totalAmount": 116460,
-                    "pricePerAdult": 112499,
-                    "pricePerChild": 0,
-                    "pricePerInfant": 0,
-                    "isRefundable": "true"
-                },
-                "deeplinkUrl": "https://mosafir.pk/Wego/booking/DhG4i5uFuDKAzfCv+RAAAA=="
-            },
-            {
-                "leg1": {
-                    "segments": [
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "633",
-                            "airlineCode": "QR",
-                            "operatingAirlineCode": "QR",
-                            "aircraftCode": "788",
-                            "departureDateTime": "2024-03-28T03:10:00.000+05:00",
-                            "arrivalDateTime": "2024-03-28T05:20:00.000+03:00",
-                            "departureAirportCode": "ISB",
-                            "arrivalAirportCode": "DOH"
-                        },
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "1006",
-                            "airlineCode": "QR",
-                            "operatingAirlineCode": "QR",
-                            "aircraftCode": "359",
-                            "departureDateTime": "2024-03-28T08:00:00.000+03:00",
-                            "arrivalDateTime": "2024-03-28T10:15:00.000+04:00",
-                            "departureAirportCode": "DOH",
-                            "arrivalAirportCode": "DXB"
-                        }
-                    ]
-                },
-                "price": {
-                    "currencyCode": "PKR",
-                    "totalAmount": 133455,
-                    "pricePerAdult": 129061,
-                    "pricePerChild": 0,
-                    "pricePerInfant": 0,
-                    "isRefundable": "true"
-                },
-                "deeplinkUrl": "https://mosafir.pk/Wego/booking/DhG4i5uFuDKA0fCv+RAAAA=="
-            },
-            {
-                "leg1": {
-                    "segments": [
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "615",
-                            "airlineCode": "QR",
-                            "operatingAirlineCode": "QR",
-                            "aircraftCode": "359",
-                            "departureDateTime": "2024-03-28T08:35:00.000+05:00",
-                            "arrivalDateTime": "2024-03-28T10:45:00.000+03:00",
-                            "departureAirportCode": "ISB",
-                            "arrivalAirportCode": "DOH"
-                        },
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "1006",
-                            "airlineCode": "QR",
-                            "operatingAirlineCode": "QR",
-                            "aircraftCode": "77W",
-                            "departureDateTime": "2024-03-29T08:00:00.000+03:00",
-                            "arrivalDateTime": "2024-03-29T10:15:00.000+04:00",
-                            "departureAirportCode": "DOH",
-                            "arrivalAirportCode": "DXB"
-                        }
-                    ]
-                },
-                "price": {
-                    "currencyCode": "PKR",
-                    "totalAmount": 134199,
-                    "pricePerAdult": 129786,
-                    "pricePerChild": 0,
-                    "pricePerInfant": 0,
-                    "isRefundable": "true"
-                },
-                "deeplinkUrl": "https://mosafir.pk/Wego/booking/DhG4i5uFuDKAGgCv+RAAAA=="
-            },
-            {
-                "leg1": {
-                    "segments": [
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "316",
-                            "airlineCode": "XY",
-                            "operatingAirlineCode": "XY",
-                            "aircraftCode": "320",
-                            "departureDateTime": "2024-03-28T04:40:00.000+05:00",
-                            "arrivalDateTime": "2024-03-28T07:30:00.000+03:00",
-                            "departureAirportCode": "ISB",
-                            "arrivalAirportCode": "RUH"
-                        },
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "211",
-                            "airlineCode": "XY",
-                            "operatingAirlineCode": "XY",
-                            "aircraftCode": "320",
-                            "departureDateTime": "2024-03-28T15:25:00.000+03:00",
-                            "arrivalDateTime": "2024-03-28T18:25:00.000+04:00",
-                            "departureAirportCode": "RUH",
-                            "arrivalAirportCode": "DXB"
-                        }
-                    ]
-                },
-                "price": {
-                    "currencyCode": "PKR",
-                    "totalAmount": 155266,
-                    "pricePerAdult": 150080,
-                    "pricePerChild": 0,
-                    "pricePerInfant": 0,
-                    "isRefundable": "true"
-                },
-                "deeplinkUrl": "https://mosafir.pk/Wego/booking/DhG4i5uFuDKAHgCv+RAAAA=="
-            },
-            {
-                "leg1": {
-                    "segments": [
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "208",
-                            "airlineCode": "KU",
-                            "operatingAirlineCode": "KU",
-                            "aircraftCode": "338",
-                            "departureDateTime": "2024-03-28T03:10:00.000+05:00",
-                            "arrivalDateTime": "2024-03-28T05:30:00.000+03:00",
-                            "departureAirportCode": "ISB",
-                            "arrivalAirportCode": "KWI"
-                        },
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "673",
-                            "airlineCode": "KU",
-                            "operatingAirlineCode": "KU",
-                            "aircraftCode": "32N",
-                            "departureDateTime": "2024-03-28T15:00:00.000+03:00",
-                            "arrivalDateTime": "2024-03-28T17:55:00.000+04:00",
-                            "departureAirportCode": "KWI",
-                            "arrivalAirportCode": "DXB"
-                        }
-                    ]
-                },
-                "price": {
-                    "currencyCode": "PKR",
-                    "totalAmount": 162744,
-                    "pricePerAdult": 157129,
-                    "pricePerChild": 0,
-                    "pricePerInfant": 0,
-                    "isRefundable": "true"
-                },
-                "deeplinkUrl": "https://mosafir.pk/Wego/booking/DhG4i5uFuDKAIgCv+RAAAA=="
-            },
-            {
-                "leg1": {
-                    "segments": [
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "615",
-                            "airlineCode": "EK",
-                            "operatingAirlineCode": "EK",
-                            "aircraftCode": "77W",
-                            "departureDateTime": "2024-03-28T03:15:00.000+05:00",
-                            "arrivalDateTime": "2024-03-28T05:45:00.000+04:00",
-                            "departureAirportCode": "ISB",
-                            "arrivalAirportCode": "DXB"
-                        }
-                    ]
-                },
-                "price": {
-                    "currencyCode": "PKR",
-                    "totalAmount": 170712,
-                    "pricePerAdult": 164710,
-                    "pricePerChild": 0,
-                    "pricePerInfant": 0,
-                    "isRefundable": "true"
-                },
-                "deeplinkUrl": "https://mosafir.pk/Wego/booking/DhG4i5uFuDKAJgCv+RAAAA=="
-            },
-            {
-                "leg1": {
-                    "segments": [
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "316",
-                            "airlineCode": "XY",
-                            "operatingAirlineCode": "XY",
-                            "aircraftCode": "320",
-                            "departureDateTime": "2024-03-28T04:40:00.000+05:00",
-                            "arrivalDateTime": "2024-03-28T07:30:00.000+03:00",
-                            "departureAirportCode": "ISB",
-                            "arrivalAirportCode": "RUH"
-                        },
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "207",
-                            "airlineCode": "XY",
-                            "operatingAirlineCode": "XY",
-                            "aircraftCode": "320",
-                            "departureDateTime": "2024-03-28T15:50:00.000+03:00",
-                            "arrivalDateTime": "2024-03-28T18:50:00.000+04:00",
-                            "departureAirportCode": "RUH",
-                            "arrivalAirportCode": "DXB"
-                        }
-                    ]
-                },
-                "price": {
-                    "currencyCode": "PKR",
-                    "totalAmount": 179958,
-                    "pricePerAdult": 173890,
-                    "pricePerChild": 0,
-                    "pricePerInfant": 0,
-                    "isRefundable": "true"
-                },
-                "deeplinkUrl": "https://mosafir.pk/Wego/booking/DhG4i5uFuDKAKgCv+RAAAA=="
-            },
-            {
-                "leg1": {
-                    "segments": [
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "5144",
-                            "airlineCode": "J2",
-                            "operatingAirlineCode": "J2",
-                            "aircraftCode": "319",
-                            "departureDateTime": "2024-03-28T02:00:00.000+05:00",
-                            "arrivalDateTime": "2024-03-28T05:30:00.000+04:00",
-                            "departureAirportCode": "ISB",
-                            "arrivalAirportCode": "GYD"
-                        },
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "710",
-                            "airlineCode": "FZ",
-                            "operatingAirlineCode": "FZ",
-                            "aircraftCode": "7M8",
-                            "departureDateTime": "2024-03-28T12:15:00.000+04:00",
-                            "arrivalDateTime": "2024-03-28T15:15:00.000+04:00",
-                            "departureAirportCode": "GYD",
-                            "arrivalAirportCode": "DXB"
-                        }
-                    ]
-                },
-                "price": {
-                    "currencyCode": "PKR",
-                    "totalAmount": 266051,
-                    "pricePerAdult": 256702,
-                    "pricePerChild": 0,
-                    "pricePerInfant": 0,
-                    "isRefundable": "false"
-                },
-                "deeplinkUrl": "https://mosafir.pk/Wego/booking/DhG4i5uFuDKALgCv+RAAAA=="
-            },
-            {
-                "leg1": {
-                    "segments": [
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "711",
-                            "airlineCode": "TK",
-                            "operatingAirlineCode": "TK",
-                            "aircraftCode": "333",
-                            "departureDateTime": "2024-03-28T06:25:00.000+05:00",
-                            "arrivalDateTime": "2024-03-28T11:20:00.000+03:00",
-                            "departureAirportCode": "ISB",
-                            "arrivalAirportCode": "IST"
-                        },
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "764",
-                            "airlineCode": "TK",
-                            "operatingAirlineCode": "TK",
-                            "aircraftCode": "333",
-                            "departureDateTime": "2024-03-29T07:55:00.000+03:00",
-                            "arrivalDateTime": "2024-03-29T13:20:00.000+04:00",
-                            "departureAirportCode": "IST",
-                            "arrivalAirportCode": "DXB"
-                        }
-                    ]
-                },
-                "price": {
-                    "currencyCode": "PKR",
-                    "totalAmount": 359146,
-                    "pricePerAdult": 346857,
-                    "pricePerChild": 0,
-                    "pricePerInfant": 0,
-                    "isRefundable": "true"
-                },
-                "deeplinkUrl": "https://mosafir.pk/Wego/booking/DhG4i5uFuDKAMgCv+RAAAA=="
-            },
-            {
-                "leg1": {
-                    "segments": [
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "711",
-                            "airlineCode": "TK",
-                            "operatingAirlineCode": "TK",
-                            "aircraftCode": "333",
-                            "departureDateTime": "2024-03-28T06:25:00.000+05:00",
-                            "arrivalDateTime": "2024-03-28T11:20:00.000+03:00",
-                            "departureAirportCode": "ISB",
-                            "arrivalAirportCode": "IST"
-                        },
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "760",
-                            "airlineCode": "TK",
-                            "operatingAirlineCode": "TK",
-                            "aircraftCode": "359",
-                            "departureDateTime": "2024-03-28T19:50:00.000+03:00",
-                            "arrivalDateTime": "2024-03-29T01:15:00.000+04:00",
-                            "departureAirportCode": "IST",
-                            "arrivalAirportCode": "DXB"
-                        }
-                    ]
-                },
-                "price": {
-                    "currencyCode": "PKR",
-                    "totalAmount": 419027,
-                    "pricePerAdult": 404597,
-                    "pricePerChild": 0,
-                    "pricePerInfant": 0,
-                    "isRefundable": "true"
-                },
-                "deeplinkUrl": "https://mosafir.pk/Wego/booking/DhG4i5uFuDKANgCv+RAAAA=="
-            },
-            {
-                "leg1": {
-                    "segments": [
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "348",
-                            "airlineCode": "WY",
-                            "operatingAirlineCode": "WY",
-                            "aircraftCode": "738",
-                            "departureDateTime": "2024-03-28T15:15:00.000+05:00",
-                            "arrivalDateTime": "2024-03-28T17:30:00.000+04:00",
-                            "departureAirportCode": "ISB",
-                            "arrivalAirportCode": "MCT"
-                        },
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "611",
-                            "airlineCode": "WY",
-                            "operatingAirlineCode": "WY",
-                            "aircraftCode": "7M8",
-                            "departureDateTime": "2024-03-28T20:25:00.000+04:00",
-                            "arrivalDateTime": "2024-03-28T21:35:00.000+04:00",
-                            "departureAirportCode": "MCT",
-                            "arrivalAirportCode": "DXB"
-                        }
-                    ]
-                },
-                "price": {
-                    "currencyCode": "PKR",
-                    "totalAmount": 68132,
-                    "pricePerAdult": 66065,
-                    "pricePerChild": 0,
-                    "pricePerInfant": 0,
-                    "isRefundable": "true"
-                },
-                "deeplinkUrl": "https://mosafir.pk/Wego/booking/ocJui55CuDKA6AL1FSAAAA=="
-            },
-            {
-                "leg1": {
-                    "segments": [
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "771",
-                            "airlineCode": "GF",
-                            "operatingAirlineCode": "GF",
-                            "aircraftCode": "32Q",
-                            "departureDateTime": "2024-03-28T06:50:00.000+05:00",
-                            "arrivalDateTime": "2024-03-28T08:55:00.000+03:00",
-                            "departureAirportCode": "ISB",
-                            "arrivalAirportCode": "BAH"
-                        },
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "504",
-                            "airlineCode": "GF",
-                            "operatingAirlineCode": "GF",
-                            "aircraftCode": "32N",
-                            "departureDateTime": "2024-03-28T09:50:00.000+03:00",
-                            "arrivalDateTime": "2024-03-28T12:10:00.000+04:00",
-                            "departureAirportCode": "BAH",
-                            "arrivalAirportCode": "DXB"
-                        }
-                    ]
-                },
-                "price": {
-                    "currencyCode": "PKR",
-                    "totalAmount": 70769,
-                    "pricePerAdult": 68753,
-                    "pricePerChild": 0,
-                    "pricePerInfant": 0,
-                    "isRefundable": "true"
-                },
-                "deeplinkUrl": "https://mosafir.pk/Wego/booking/ocJui55CuDKA7AL1FSAAAA=="
-            },
-            {
-                "leg1": {
-                    "segments": [
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "348",
-                            "airlineCode": "WY",
-                            "operatingAirlineCode": "WY",
-                            "aircraftCode": "738",
-                            "departureDateTime": "2024-03-28T15:15:00.000+05:00",
-                            "arrivalDateTime": "2024-03-28T17:30:00.000+04:00",
-                            "departureAirportCode": "ISB",
-                            "arrivalAirportCode": "MCT"
-                        },
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "623",
-                            "airlineCode": "WY",
-                            "operatingAirlineCode": "WY",
-                            "aircraftCode": "7M8",
-                            "departureDateTime": "2024-03-28T18:55:00.000+04:00",
-                            "arrivalDateTime": "2024-03-28T20:10:00.000+04:00",
-                            "departureAirportCode": "MCT",
-                            "arrivalAirportCode": "DXB"
-                        }
-                    ]
-                },
-                "price": {
-                    "currencyCode": "PKR",
-                    "totalAmount": 74499,
-                    "pricePerAdult": 72205,
-                    "pricePerChild": 0,
-                    "pricePerInfant": 0,
-                    "isRefundable": "true"
-                },
-                "deeplinkUrl": "https://mosafir.pk/Wego/booking/ocJui55CuDKA8AL1FSAAAA=="
-            },
-            {
-                "leg1": {
-                    "segments": [
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "232",
-                            "airlineCode": "EY",
-                            "operatingAirlineCode": "EY",
-                            "aircraftCode": "32A",
-                            "departureDateTime": "2024-03-28T04:15:00.000+05:00",
-                            "arrivalDateTime": "2024-03-28T06:55:00.000+04:00",
-                            "departureAirportCode": "ISB",
-                            "arrivalAirportCode": "AUH"
-                        },
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "386",
-                            "airlineCode": "EY",
-                            "operatingAirlineCode": "EY",
-                            "aircraftCode": "32A",
-                            "departureDateTime": "2024-03-28T16:45:00.000+04:00",
-                            "arrivalDateTime": "2024-03-28T17:55:00.000+04:00",
-                            "departureAirportCode": "AUH",
-                            "arrivalAirportCode": "MCT"
-                        },
-                        {
-                            "cabin": "Economy",
-                            "flightNumber": "623",
-                            "airlineCode": "WY",
-                            "operatingAirlineCode": "WY",
-                            "aircraftCode": "7M8",
-                            "departureDateTime": "2024-03-28T18:55:00.000+04:00",
-                            "arrivalDateTime": "2024-03-28T20:10:00.000+04:00",
-                            "departureAirportCode": "MCT",
-                            "arrivalAirportCode": "DXB"
-                        }
-                    ]
-                },
-                "price": {
-                    "currencyCode": "PKR",
-                    "totalAmount": 1083209,
-                    "pricePerAdult": 1044895,
-                    "pricePerChild": 0,
-                    "pricePerInfant": 0,
-                    "isRefundable": "true"
-                },
-                "deeplinkUrl": "https://mosafir.pk/Wego/booking/ocJui55CuDKA9AL1FSAAAA=="
-            }
-        ]
-      }
-    ;
-    this.total = this.allEvents.length;
-  // console.log(this.allEvents);
-  
-    // axios.post('https://mosafir.pk/API/Wego/flights_listing', data).then(function (response) {
-    //   // handle success
-    //   console.log(response);
-    //   this.isLoading = false;
-    //   // this.allEvents = data && data.airline;
-    //   // this.refId = data && data.refId;
-    //   // this.pageSize = data.meta && data.meta.pageSize;
-    //   // this.skip = data.meta && data.meta.skip;
-    //   // // this.total = data.meta && data.meta.total;
-    //   // this.total = data.length;
-    // })
-    // .catch(function (error) {
-    //   // handle error
-    //   console.log(error);
-    // })
-    // .finally(function () {
-    //   // always executed
-    // });
-    this.eventService.getFlightSearch(data).then((data: any) => {
-      console.log(data);
-
-      console.log("response data", this.airlines);
-      console.log("LOGO", this.getAirlineLogo('PA'));
-    })
-
-
-
-
-    // this.eventService
-    //   .getFlights(data, pageSize, skip, filter)
-    //   .then((data: any) => {
-    //     console.log('flight data', data);
-    //     this.isLoading = false;
-    //     this.allEvents = data && data.airline;
-    //     this.refId = data && data.refId;
-    //     this.pageSize = data.meta && data.meta.pageSize;
-    //     this.skip = data.meta && data.meta.skip;
-    //     // this.total = data.meta && data.meta.total;
-    //     this.total = data.length;
-    //   });
+    this.isLoading = true;
+    this.allEvents.length = 0;
+    this.eventService
+      .getFlights(data, pageSize, skip, filter)
+      .then((data: any) => {
+        this.isLoading = false;
+        console.log("data", data.data);
+        this.allEvents = data && data.data.flightItineraries;
+        // this.refId = data && data.refId;
+        // this.pageSize = data.meta && data.meta.pageSize;
+        // this.skip = data.meta && data.meta.skip;
+        this.total = data.data.flightItineraries.length;
+      }).catch((error: any) => {
+        this.isLoading = false;
+        this.total = 0;
+        console.error("An error occurred:", error);
+      });
+    
   }
+    // getFlights(data: any, pageSize = 0, skip = 0, filter: any) {
+    //     this.isLoading = true;
+    //     this.allEvents.length = 0;
+    //     this.eventService.getFlights(data, pageSize, skip, filter).then((responseData: any) => {
+    //       this.isLoading = false;
+    //       this.allEvents = responseData && responseData.data.flightItineraries;
+    //       // this.refId = responseData && responseData.refId;
+    //       // this.pageSize = responseData.meta && responseData.meta.pageSize;
+    //       // this.skip = responseData.meta && responseData.meta.skip;
+    //       this.total = this.allEvents && this.allEvents ? this.allEvents.length : 0;
+    //     });
+    //     // this.isLoading = false;
+    //     // this.allEvents = responseData && responseData.data.flightItineraries;
+    //     // this.refId = responseData && responseData.refId;
+    //     // this.pageSize = responseData.meta && responseData.meta.pageSize;
+    //     // this.skip = responseData.meta && responseData.meta.skip;
+    //     // this.total = this.allEvents && this.allEvents ? this.allEvents.length : 0;
+    //     // console.log('Flight data:', this.total, this.allEvents); // Move the console.log here
+    // }
 
   public loadwhatScript() {
     let body = <HTMLDivElement>document.body;
@@ -871,58 +253,59 @@ export class FlightSearchComponent implements OnInit {
   }
 
   private createForm() {
-    // this.bookingFlightForm = this.formBuilder.group({
-    //   cabin: '',
-    //   departureCityName: '',
-    //   destinationCityName: '',
-    //   dep_date: '',
-    //   return_date: '',
-    //   flightTrip: '',
-    //   no_of_adults: 1,
-    //   no_of_children: 0,
-    //   no_of_infants: 0,
-    // });
-    // this.flightFrom = this.formBuilder.group({
-    //   srName: '',
-    //   firstName: '',
-    //   phoneNo: '',
-    //   email: '',
-    //   cnic: '',
-    //   country: '',
-    //   lastName: '',
-    // });
-    // this.bookingFlightForm.patchValue({
-    //   cabin: this.data.cabin,
-    //   departureCityName: this.data.departureCityName,
-    //   destinationCityName: this.data.destinationCityName,
-    //   dep_date: this.data.dep_date,
-    //   return_date: this.data.return_date,
-    //   flightTrip: this.data.flightTrip,
-    //   no_of_adults: this.data.no_of_adults,
-    //   no_of_children: this.data.no_of_children,
-    //   no_of_infants: this.data.no_of_infants,
-    // });
-    // this.flightFrom.patchValue({
-    //   srName:
-    //     this.userData &&
-    //     this.userData.profile &&
-    //     this.userData.profile.middleName,
-    //   firstName:
-    //     this.userData &&
-    //     this.userData.profile &&
-    //     this.userData.profile.firstName,
-    //   lastName:
-    //     this.userData &&
-    //     this.userData.profile &&
-    //     this.userData.profile.lastName,
-    //   phoneNo:
-    //     this.userData && this.userData.profile && this.userData.profile.mobile,
-    //   email:
-    //     this.userData && this.userData.profile && this.userData.profile.email,
-    //   cnic: this.userData && this.userData.profile && this.userData.profile.nic,
-    //   country:
-    //     this.userData && this.userData.profile && this.userData.profile.country,
-    // });
+    this.bookingFlightForm = this.formBuilder.group({
+      cabin: '',
+      departureCityName: '',
+      destinationCityName: '',
+      dep_date: '',
+      return_date: '',
+      flightTrip: '',
+      no_of_adults: 1,
+      no_of_children: 0,
+      no_of_infants: 0,
+    });
+    this.flightFrom = this.formBuilder.group({
+      srName: '',
+      firstName: '',
+      phoneNo: '',
+      email: '',
+      cnic: '',
+      country: '',
+      lastName: '',
+    });
+    
+    this.bookingFlightForm.patchValue({
+      cabin: this.data.cabin,
+      departureCityName: this.route.snapshot.queryParams.from,
+      destinationCityName: this.data.destinationCityName,
+      dep_date: this.data.dep_date,
+      return_date: this.data.return_date,
+      flightTrip: this.data.flightTrip,
+      no_of_adults: this.data.no_of_adults,
+      no_of_children: this.data.no_of_children,
+      no_of_infants: this.data.no_of_infants,
+    });
+    this.flightFrom.patchValue({
+      srName:
+        this.userData &&
+        this.userData.profile &&
+        this.userData.profile.middleName,
+      firstName:
+        this.userData &&
+        this.userData.profile &&
+        this.userData.profile.firstName,
+      lastName:
+        this.userData &&
+        this.userData.profile &&
+        this.userData.profile.lastName,
+      phoneNo:
+        this.userData && this.userData.profile && this.userData.profile.mobile,
+      email:
+        this.userData && this.userData.profile && this.userData.profile.email,
+      cnic: this.userData && this.userData.profile && this.userData.profile.nic,
+      country:
+        this.userData && this.userData.profile && this.userData.profile.country,
+    });
   }
 
   getCities() {
@@ -936,24 +319,56 @@ export class FlightSearchComponent implements OnInit {
     });
   }
 
+  // search = (text$: Observable<string>) =>
+  //   text$.pipe(
+  //     debounceTime(200),
+  //     distinctUntilChanged(),
+  //     map((term) =>
+  //       term.length < 2
+  //         ? []
+  //         : airports
+  //             .filter(
+  //               (v: any) => v.toLowerCase().indexOf(term.toLowerCase()) > -1
+  //             )
+  //             .slice(0, 10)
+  //     )
+  //   );
+
   search = (text$: Observable<string>) =>
-    text$.pipe(
-      debounceTime(200),
-      distinctUntilChanged(),
-      map((term) =>
-        term.length < 2
-          ? []
-          : states
-              .filter(
-                (v: any) => v.toLowerCase().indexOf(term.toLowerCase()) > -1
-              )
-              .slice(0, 10)
-      )
-    );
+  text$.pipe(
+    debounceTime(200),
+    distinctUntilChanged(),
+    map((term) =>
+      term.length < 2
+        ? []
+        : airports
+            .filter(
+              (v: any) =>
+                // v.airportName.toLowerCase().indexOf(term.toLowerCase()) > -1 ||
+                v.location.toLowerCase().indexOf(term.toLowerCase()) > -1
+                // v.country.toLowerCase().indexOf(term.toLowerCase()) > -1
+            )
+            .map((airport: any) => airport.location)
+            .slice(0, 10)
+    )
+  );
+
 
   searchLocation() {
     if (this.bookingFlightForm.valid) {
-      this.data = this.bookingFlightForm.value;
+      let newData = this.bookingFlightForm.value;
+      this.data.adultsCount = newData.no_of_adults;
+      this.data.childrenCount = newData.no_of_children;
+      this.data.infantsCount = newData.no_of_infants;
+      this.data.flightTrip = newData.flightTrip;
+      this.data.destinationCityName = newData.destinationCityName;
+      this.data.departureCityName = newData.departureCityName;
+      this.data.dep_date = newData.dep_date;
+      this.data.return_date = newData.return_date;
+      console.log(this.data.legs[0].departureCode)
+      this.data.legs[0].departureCode = this.getAirportCode(newData.departureCityName);
+      this.data.legs[0].arrivalCode = this.getAirportCode(newData.destinationCityName);
+      this.data.legs[0].outboundDate = newData.dep_date;
       this.getFlights(this.data, this.pageSize, 0, '-price');
     }
   }

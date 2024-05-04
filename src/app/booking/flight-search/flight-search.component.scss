@@ -103,7 +103,7 @@
 }
 
 .flight_info_colored {
-  background: #b31f24;
+  background: #8cc63e;
   padding: 20px 25px;
   border-radius: 15px;
   margin-top: 20px;
@@ -118,6 +118,7 @@
 
 .further_detail .info h2 {
   font-size: 22px;
+  color: #fff;
 }
 
 .further_detail .airline_info {
@@ -218,7 +219,7 @@
 }
 
 .flight_info_colored {
-  background: #b31f24;
+  background: #8cc63e;
   padding: 20px 25px;
   border-radius: 15px;
   margin-top: 20px;
@@ -238,13 +239,13 @@
 }
 
 .fare-tabs {
-  background: #303030;
+  background: #8cc63e;
   padding: 15px;
   height: 100%;
 }
 
 .fare-tabs .nav {
-  border-bottom: 1px solid #595959;
+  border-bottom: 1px solid #8cc63e;
   margin-bottom: 10px;
   flex-wrap: nowrap;
 }
@@ -262,12 +263,12 @@
   padding: 5px 12px 10px 10px;
 }
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-  color: #fff;
+  color: #000;
   background-color: #007bff;
 }
 
 .table {
-  color: #fff;
+  color: #000;
   font-size: 13px;
 }
 

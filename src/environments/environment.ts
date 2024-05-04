@@ -19,7 +19,7 @@ export const environment = {
   blogUrl: 'https://blog.salampakistan.gov.pk',
   cmsUrl: 'https://complaint.salampakistan.gov.pk',
   // serverUrl: 'http://ptdc.herokuapp.com/api',
-  //serverUrl: ' http://localhost:5000/api',
+  // serverUrl: ' http://localhost:5000/api',
   defaultLanguage: 'en-US',
   supportedLanguages: ['en-US', 'fr-FR'],
   DANGEROUSLY_DISABLE_HOST_CHECK: true,

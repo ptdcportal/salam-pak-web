@@ -175,8 +175,7 @@ export const airports: any = [
   },
   {
     iataCode: 'ISB',
-    airportName:
-      'Benazir Bhutto International Airport (Islamabad International)',
+    airportName: 'Benazir Bhutto International Airport (Islamabad International)',
     location: 'Islamabad / Rawalpindi',
     country: 'Pakistan',
   },
@@ -606,4 +605,28 @@ export const airports: any = [
     location: 'Dubai International Airport',
     country: 'Dubai United Arab Emirates',
   },
+  {
+    iataCode: "DWC",
+    airportName: "Al Maktoum International Airport",
+    location: "Al Maktoum International Airport, Dubai",
+    country: "Dubai United Arab Emirates"
+  },
+  {
+    iataCode: "DOH",
+    airportName: "Hamad International Airport",
+    location: "Doha",
+    country: "Qatar"
+  },
+  {
+    iataCode: "LQN",
+    airportName: "Al Udeid Air Base",
+    location: "Doha",
+    country: "Qatar"
+  },
+  {
+    iataCode: "XJD",
+    airportName: "Doha Offshore Oil Field",
+    location: "Doha",
+    country: "Qatar"
+  },  
 ];

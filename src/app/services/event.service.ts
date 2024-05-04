@@ -499,12 +499,16 @@ export class EventService {
     //   `${environment.serverUrl}/searchAir?cabin=${data.cabin}&departureCityName=${data.departureCityName}&destinationCityName=${data.destinationCityName}&dep_date=${data.dep_date}&no_of_adults=${data.no_of_adults}&no_of_children=${data.no_of_children}&no_of_infants=${data.no_of_infants}&skip=${skip}&pageSize=${pageSize}&sortBy=${filter}` +
     //     query
     // );
+    // console.log(data.legs)
 
     return axios
-      .get(
-        `${environment.serverUrl}/searchAir?cabin=${data.cabin}&departureCityName=${data.departureCityName}&destinationCityName=${data.destinationCityName}&dep_date=${data.dep_date}&no_of_adults=${data.no_of_adults}&no_of_children=${data.no_of_children}&no_of_infants=${data.no_of_infants}&skip=${skip}&pageSize=${pageSize}&sortBy=${filter}` +
-          query
-      )
+      // .get(
+      //   `${environment.serverUrl}/searchAir?legs=${data.legs}&cabin=${data.cabin}&departureCityName=${data.departureCityName}&destinationCityName=${data.destinationCityName}&dep_date=${data.dep_date}&no_of_adults=${data.no_of_adults}&no_of_children=${data.no_of_children}&no_of_infants=${data.no_of_infants}&skip=${skip}&pageSize=${pageSize}&sortBy=${filter}` +
+      //     query
+      // )
+      .get(`${environment.serverUrl}/searchAir`, {
+        params: data
+      })
       .then(function (response) {
         // handle success
         console.log(response);

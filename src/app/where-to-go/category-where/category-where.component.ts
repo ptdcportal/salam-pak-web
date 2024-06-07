@@ -104,6 +104,7 @@ export class CategoryWhereComponent
       //   }
       // });
       this.locations = locs;
+      
       // debugger;
       // console.log('locationsssss', locations);
     });

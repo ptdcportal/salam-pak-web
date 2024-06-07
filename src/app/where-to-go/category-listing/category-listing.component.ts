@@ -40,6 +40,7 @@ export class CategoryListingComponent implements OnInit {
   }
 
   getCategoryLocations(id: string) {
+    console.log("1herereerjkjkjkjkjkj")
     this.eventService.getCategoryLocations(id).then((locs) => {
       this.filteredRes = locs.filter((i: any) => {
         return (i.isFeatured = true);
@@ -48,6 +49,8 @@ export class CategoryListingComponent implements OnInit {
   }
 
   getLocationsListing(slug: string) {
+    console.log("herereerjkjkjkjkjkj")
+
     this.eventService.getTrips(slug).then((locs) => {
       this.filteredRes = locs.filter((i: any) => {
         return (i.isFeatured = true);

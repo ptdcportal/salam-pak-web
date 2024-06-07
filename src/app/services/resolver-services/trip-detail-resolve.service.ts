@@ -10,7 +10,7 @@ export class TripDetailResolveService {
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<any> {
+  ) {
     return this.eventService.getTripDetail(route.params.id);
   }
 }

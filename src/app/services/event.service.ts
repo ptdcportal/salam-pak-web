@@ -311,10 +311,24 @@ export class EventService {
     // return this.httpClient.get(routes.getActivityLocations(id)).pipe(map((body: any) => body.data));
   }
   getTripDetail(id: number) {
-    // https://www.findmyadventure.pk/api/v2/events/?autoId=2762&trimmedSlug=rent-a-cycle-in-karachi
-    return this.httpClient
+    return axios
       .get(routes.getTripDetail(id))
-      .pipe(map((body: any) => body.data));
+      .then(function (response) {
+        // handle success
+        // console.log(response.data.data);
+        return response.data.data;
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+    // https://www.findmyadventure.pk/api/v2/events/?autoId=2762&trimmedSlug=rent-a-cycle-in-karachi
+    // return this.httpClient
+    //   .get(routes.getTripDetail(id))
+    //   .pipe(map((body: any) => body.data));
   }
   getAccomodationCategories(): Observable<any> {
     return this.httpClient

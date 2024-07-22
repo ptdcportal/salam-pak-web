@@ -714,14 +714,14 @@ export class EventService {
   createEventBooking(eventId: any, data: any) {
     // debugger;
     return this.httpClient
-      .post(`${environment.serverUrl}/events/${eventId}/bookings`, data)
+      .post(`/events/${eventId}/bookings`, data)
       .pipe(map((body: any) => body.data));
   }
 
   createTripBooking(tripId: any, data: any) {
     // debugger;
     return this.httpClient
-      .post(`${environment.serverUrl}/trip/${tripId}/bookings`, data)
+      .post(`/trip/${tripId}/bookings`, data)
       .pipe(map((body: any) => body.data));
   }
 
